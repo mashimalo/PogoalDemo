@@ -10,27 +10,39 @@
 
     <ul id="see-all-notification-list" class="notification__list">
 
-        @foreach($seeAllNotifications as $notification)
+        @if( $seeAllNotifications->count() >=1 )
 
-            <li class="transit--linear--fast {{$notification->read == false?'notification--new':null}}"
-                data-notification-id="{{ $notification->id }}" {{$notification->read == false?'data-notification-status=new':null}} {{$notification->read == true?'data-notification-status=read':null}}>
-                <a href="{{ $notification->notification_link }}" class="notification__list__content small break-word"
-                   data-action="notification-mark-read">
-                    <div>{!! $notification->message_data !!}</div>
-                    <div class="small text-light">
-                        <span class="icon icon-calendar mR"></span>
-                        {{ $notification->created_at->diffForHumans() }}
-                    </div>
+            @foreach($seeAllNotifications as $notification)
+
+                <li class="transit--linear--fast {{$notification->read == false?'notification--new':null}}"
+                    data-notification-id="{{ $notification->id }}" {{$notification->read == false?'data-notification-status=new':null}} {{$notification->read == true?'data-notification-status=read':null}}>
+                    <a href="{{ $notification->notification_link }}" class="notification__list__content small break-word"
+                       data-action="notification-mark-read">
+                        <div>{!! $notification->message_data !!}</div>
+                        <div class="small text-light">
+                            <span class="icon icon-calendar mR"></span>
+                            {{ $notification->created_at->diffForHumans() }}
+                        </div>
+                    </a>
+
+                    <button class="notification__list__markReadBtn" data-action="notification-mark-read"
+                            data-show="tooltip" data-trigger="hover" data-placement="left"
+                            title="{{$notification->read == false?'Mark Read':null}} {{$notification->read == true?'Read':null}}">
+                        <span class="mA--none icon {{$notification->read == false?'icon-circle':null}} {{$notification->read == true?'icon-dot-fill':null}}"></span>
+                    </button>
+                </li>
+
+            @endforeach
+
+        @else
+
+            <li class="transit--linear--fast">
+                <a href="#" class="notification__list__content small break-word" disabled="disabled">
+                    <div>You don't have any notification.</div>
                 </a>
-
-                <button class="notification__list__markReadBtn" data-action="notification-mark-read"
-                        data-show="tooltip" data-trigger="hover" data-placement="left"
-                        title="{{$notification->read == false?'Mark Read':null}} {{$notification->read == true?'Read':null}}">
-                    <span class="mA--none icon {{$notification->read == false?'icon-circle':null}} {{$notification->read == true?'icon-dot-fill':null}}"></span>
-                </button>
             </li>
 
-        @endforeach
+        @endif
 
     </ul>
 
