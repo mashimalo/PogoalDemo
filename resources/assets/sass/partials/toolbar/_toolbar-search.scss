@@ -1,0 +1,47 @@
+.toolbar__search {
+  //@include transition(ease 0.4s);
+  margin-top: ($toolbar-height - $input-height-base) / 2;
+  position: relative;
+  width: 250px;
+  float: left;
+
+  .input-group {
+    @include border-radius($input-height-base / 2);
+    overflow: hidden;
+  }
+
+  // Active
+  //&.active {
+  //  width: 300px;
+  //  .form-control {
+  //    background-color: $input-bg-focus;
+  //    color: $input-color-focus;
+  //
+  //    // Placeholder
+  //    @include placeholder($input-color-placeholder-focus);
+  //  }
+  //  .input-group-btn {
+  //    .btn {
+  //      background-color: $input-group-btn-bg-focus;
+  //      color: $input-group-btn-color-focus;
+  //    }
+  //  }
+  //}
+  .uiDropdown__menu {
+    margin-top: 15px;
+  }
+}
+
+.toolbar__searchResult {
+  width: 100%;
+
+  &:before {
+    left: 50%;
+    margin-left: -7px;
+  }
+
+  &:after {
+    left: 50%;
+    margin-left: -6px;
+  }
+}

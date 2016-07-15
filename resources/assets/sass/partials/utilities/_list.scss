@@ -1,0 +1,48 @@
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  > li {
+    display: inline-block;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| List Styles
+|--------------------------------------------------------------------------
+*/
+.list-style--light {
+  padding: 0;
+
+  li {
+    @include border-radius($border-radius-base);
+    @include transition($general-transition);
+    margin-bottom: $padding-base;
+    background-color: $body-bg;
+    padding: $padding-base;
+    display: inline-block;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: darken($body-bg,5%);
+    }
+  }
+
+  .list-style--light__text {
+    line-height: 23px;
+    overflow: hidden;
+  }
+}

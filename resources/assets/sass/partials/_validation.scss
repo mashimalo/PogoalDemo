@@ -1,0 +1,38 @@
+// Feedback states
+.has-success {
+  @include form-control-validation($color-success);
+}
+.has-warning {
+  @include form-control-validation($color-warn);
+}
+.has-error {
+  @include form-control-validation($color-danger);
+}
+
+// Help text
+.help-block {
+  color: lighten($text-color, 25%);
+  font-size: $font-size-xxsmall;
+  margin-top: 5px;
+  display: none;
+
+  &.ng-scope {
+    display: block;
+  }
+}
+
+.with-errors {
+  color: $color-danger;
+}
+
+.ng-invalid {
+  &.ng-touched {
+    @include placeholder(lighten($color-danger,10%));
+    background-color: lighten($color-danger,30%);
+    color: darken($color-danger,20%);
+
+    ~ .form-prepend-item {
+      color: lighten($color-danger,10%);
+    }
+  }
+}

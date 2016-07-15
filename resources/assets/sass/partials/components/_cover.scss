@@ -1,0 +1,226 @@
+.cover {
+  overflow: hidden;
+  width: 100%;
+
+  &--lg {
+    height: $page-top-height + $bar-height-base;
+  }
+
+  &--md {
+    height: $page-top-height-md;
+  }
+
+  &--sm {
+    height: 107px;
+  }
+
+  &--xsm {
+    height: 60px;
+  }
+}
+
+.cover__photo {
+  img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Cover Background
+|--------------------------------------------------------------------------
+*/
+.cover__bg {
+  -webkit-background-size: cover;
+  background-size: cover;
+
+  background-position: bottom center;
+  background-repeat: no-repeat;
+
+  &--repeat {
+    -webkit-background-size: cover;
+    background-size: 50% 50%;
+
+    background-position: left top;
+    background-repeat: repeat;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Cover Color
+|--------------------------------------------------------------------------
+*/
+.cover__mask {
+  height: 100%;
+  width: 100%;
+}
+
+.cover--darker {
+  .cover__mask {
+    background-color: $dark08;
+  }
+
+  .cover__color--primary {
+    @extend .text-white;
+  }
+
+  .cover__color--secondary {
+    @extend .text-light;
+  }
+
+  .cover__child__nav {
+    background-color: $color-gray-dark;
+    background-color: $light01;
+
+    ul.pull-left,
+    ul.pull-right {
+      > li {
+        float: left;
+
+        > a {
+          color: $color-white;
+
+          &:hover {
+            background-color: $color-white;
+            background-color: $light03;
+
+            .label {
+              border-color: $light03;
+            }
+          }
+
+          &.cP {
+            background-color: $color-white;
+            color: $text-color;
+
+            .label {
+              border-color: $dark02;
+            }
+          }
+        }
+
+        > .btn-retained {
+          padding: $padding-base-vertical $padding-base-horizontal;
+          line-height: $line-height-base;
+        }
+      }
+    }
+
+    &.sticky {
+      .sticky__bar {
+        background-color: $color-gray-dark;
+        background-color: $dark08;
+      }
+
+      ul.pull-left,
+      ul.pull-right {
+        > li {
+          > a {
+            background-color: transparent;
+
+            .label {
+              border-color: $light02;
+            }
+
+            &:hover,
+            &.cP {
+              background-color: $color-gray-dark;
+              background-color: $dark04;
+              color: $color-white;
+
+              .label {
+                border-color: $light03;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Cover Static
+|--------------------------------------------------------------------------
+*/
+.cover__static {
+  .pull-left {
+    //margin-top: ceil((($page-top-height-md - (($font-size-h2 * $line-height-base) + ($font-size-base * $line-height-base) + $padding-small + (($font-size-base * $line-height-base) + ($padding-base-vertical * 2)))) / 2));
+    margin-top: 60px;
+  }
+  .pull-right {
+    margin-top: 65px;
+  }
+}
+
+.cover__static__avatar {
+  display: inline-block;
+}
+
+.cover__static__info {
+  margin-left: $padding-base;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Cover Child
+|--------------------------------------------------------------------------
+*/
+.cover__child {
+  margin-top: -$bar-height-base;
+}
+
+.cover__child__nav {
+  height: $bar-height-base;
+
+  ul.pull-left,
+  ul.pull-right {
+    > li {
+      margin-right: $padding-xsmall;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      > a {
+        line-height: $bar-height-base;
+        padding: 0 $padding-base;
+        display: block;
+      }
+    }
+  }
+}
+
+.cover__child__name {
+  line-height: $bar-height-base;
+  overflow: hidden;
+
+  > span {
+    @include translate(0, 50px);
+    font-size: $font-size-medium + 3;
+    display: block;
+  }
+}
+
+.cover__child__content {
+  @include box-shadow($box-shadow-preset-4);
+  background-color: $color-white;
+  //padding: $padding-large 0;
+
+  .site-container {
+    position: relative;
+  }
+
+  .toggle {
+    position: absolute;
+    right: 30px;
+    top: 22px;
+  }
+}

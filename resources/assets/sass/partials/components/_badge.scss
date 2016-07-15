@@ -1,0 +1,122 @@
+.badges {
+  display: inline-block;
+  margin: 0;
+
+  > li {
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.badge {
+  @include border-radius($border-radius-rounded);
+  display: inline-table;
+  text-align: center;
+
+  .icon {
+    vertical-align: middle;
+    display: table-cell;
+    cursor: default;
+  }
+}
+
+.badges--sm {
+  height: $badge-small;
+  .badge {
+    font-size: $icon-size-small;
+    height: $badge-small;
+    width: $badge-small;
+  }
+}
+
+.badges--md {
+  height: $badge-medium;
+  .badge {
+    font-size: $icon-size-medium;
+    height: $badge-medium;
+    width: $badge-medium;
+  }
+}
+
+.badge--ic {
+  @include opacity(0.5);
+  background-color: $color-gray-light-3;
+  color: $color-gray-light-4;
+}
+
+.badge--c {
+  @include opacity(1);
+  background-color: $color-green;
+  color: $color-white;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Pinned-badge
+|--------------------------------------------------------------------------
+*/
+.pinned-badge {
+  @include border-radius($border-radius-rounded);
+  background-color: $color-red-light-2;
+  margin-left: -20px;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  top: -15px;
+  left: 50%;
+
+  .pinned-badge__inner {
+    @include border-radius($border-radius-rounded);
+    background-color: $color-red;
+    position: absolute;
+    text-align: center;
+    margin-left: -15px;
+    margin-top: -15px;
+    display: table;
+    height: 30px;
+    width: 30px;
+    left: 50%;
+    top: 50%;
+
+    //z-index
+    z-index: 1;
+
+    .icon {
+      vertical-align: middle;
+      display: table-cell;
+      color: $color-white;
+      cursor: default;
+    }
+
+    &:hover {
+      @include box-shadow(0 0 3px rgba(57,66,77,0.5));
+    }
+  }
+}
+
+.pinned-badge--t-r {
+  border-color: transparent $color-red transparent transparent;
+  border-width: 0 50px 50px 0;
+  border-style: solid;
+  position: absolute;
+  height: 0;
+  right: 0;
+  width: 0;
+  top: 0;
+
+  //z-index
+  z-index: 1;
+
+  .icon {
+    color: $color-white;
+    position: absolute;
+    font-size: 20px;
+    cursor: default;
+    right: -42px;
+    top: 3px;
+  }
+}

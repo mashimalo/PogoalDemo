@@ -1,0 +1,24 @@
+#form-signup {
+  .wrap {
+    margin-left: -(15px / 2);
+    margin-right: -(15px / 2);
+  }
+
+  //[class^="c-xs-"],
+  //[class*=" c-xs-"],
+  //[class^="c-sm-"],
+  //[class*=" c-sm-"],
+  //[class^="c-md-"],
+  //[class*=" c-md-"],
+  //[class^="c-lg-"],
+  //[class*=" c-lg-"] {
+  //  padding-left: (15px / 2);
+  //  padding-right: (15px / 2);
+  //}
+
+  [class^="c-f-"],
+  [class*=" c-f-"] {
+    padding-left: (15px / 2);
+    padding-right: (15px / 2);
+  }
+}

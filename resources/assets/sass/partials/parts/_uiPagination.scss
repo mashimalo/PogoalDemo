@@ -1,0 +1,103 @@
+.uiPagination {
+  margin-top: $padding-base * 2;
+
+  ul {
+    float: left;
+
+    li {
+      @include transition($general-transition-fast);
+      border-bottom: 3px solid $border-color;
+      float: left;
+
+      &:hover {
+        border-color: $brand-primary;
+      }
+
+      &.active {
+        border-color: $brand-primary;
+      }
+
+      > a,
+      > span {
+        padding: 8px $padding-medium 5px;
+        display: block;
+      }
+    }
+
+    .uiPagination__previous,
+    .uiPagination__next {
+      @include border-radius($border-radius-base);
+      @include box-shadow($box-shadow-preset-4);
+      background-color: $color-white;
+      margin: 0 $padding-medium;
+      border: 0;
+
+      > a,
+      > span {
+        padding: $padding-small $padding-base;
+        letter-spacing: 1px;
+        position: relative;
+      }
+
+      &:hover {
+        background-color: $brand-primary;
+
+        a {
+          color: $color-white;
+        }
+      }
+    }
+
+    .uiPagination__previous {
+      a {
+        &:before {
+          @include transition($general-transition-fast);
+          @include opacity(0);
+          font-family: "pogoal-icon";
+          left: $padding-small;
+          visibility: hidden;
+          position: absolute;
+          content: "\e915";
+        }
+      }
+
+      &:hover {
+        padding-left: $padding-base;
+
+        a {
+          &:before {
+            @include opacity(1);
+            left: -$padding-xsmall;
+            visibility: visible;
+          }
+        }
+      }
+    }
+
+    .uiPagination__next {
+      a {
+        &:after {
+          @include transition($general-transition-fast);
+          @include opacity(0);
+          font-family: "pogoal-icon";
+          right: $padding-small;
+          visibility: hidden;
+          position: absolute;
+          content: "\e916";
+        }
+      }
+
+      &:hover {
+        padding-right: $padding-base;
+
+        a {
+          &:after {
+            @include opacity(1);
+            right: -$padding-xsmall;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}

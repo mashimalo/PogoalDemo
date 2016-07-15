@@ -1,0 +1,13 @@
+@mixin divider-horizontal($margin: $padding-base, $color: $border-color) {
+  height: 1px;
+  margin: $margin;
+  overflow: hidden;
+  background-color: $color;
+}
+
+@mixin divider-vertical($margin:$padding-base, $color: $border-color) {
+  width: 1px;
+  margin: $margin;
+  overflow: hidden;
+  background-color: $color;
+}

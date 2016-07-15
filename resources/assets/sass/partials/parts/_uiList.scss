@@ -1,0 +1,74 @@
+.uiList__item {
+  position: relative;
+
+  &:after {
+    @include transition(linear 0.2s);
+    @include translate(-10px, 0);
+    @include opacity(0);
+    font-family: $icon-family-base;
+    color: $uiList-name-color;
+    position: absolute;
+    margin-top: -10px;
+    content: "\e916";
+    right: 0;
+    top: 50%;
+  }
+
+  &:hover {
+    &:after {
+      @include translate(0, 0);
+      @include opacity(1);
+    }
+
+    .uiList__name {
+      color: darken($color-blue-dark,10%);
+    }
+  }
+}
+
+.uiList__img {
+  margin-top: 3px;
+  position: absolute;
+}
+
+.uiList__body {
+  padding-left: $uiList-avatar-size + 15;
+  padding-right: 15px;
+}
+
+.uiList__name {
+  @include text-wrap;
+  color: $uiList-name-color;
+  font-weight: 600;
+}
+
+.uiList__meta {
+  color: $uiList-meta-color;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Bridging Groups List
+|--------------------------------------------------------------------------
+*/
+.uiList--docking {
+  .uiList__body {
+    padding-left: $uiList-avatar-size + $uiList-avatar-size + 15 - 10;
+    padding-right: 15px;
+  }
+  .uiList__img {
+    .avatar {
+      @include box-shadow(0 0 3px $dark03);
+    }
+
+    .avatar__primary {
+      position: relative;
+      z-index: 2;
+    }
+
+    .avatar__secondary {
+      margin-left: -5px;
+      z-index: 1;
+    }
+  }
+}

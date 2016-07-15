@@ -1,0 +1,106 @@
+/*
+|--------------------------------------------------------------------------
+| Bridging Page Side
+|--------------------------------------------------------------------------
+*/
+.docking-side {
+
+}
+
+.docking-side--left {
+}
+
+.docking-side--right {
+}
+
+.docking-side__group__avatar {
+  position: relative;
+}
+
+.docking-side__group__name {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+
+  margin-bottom: $padding-small;
+  font-size: $font-size-h4;
+  font-weight: 600;
+}
+
+.docking-side__group__description {
+}
+
+/*
+|--------------------------------------------------------------------------
+| Bridging Page Main
+|--------------------------------------------------------------------------
+*/
+.docking-main {
+}
+
+.docking-main__items {
+  @include border-radius($border-radius-base);
+  @include box-shadow($box-shadow-preset-4);
+  background-color: $color-white;
+  margin-bottom: $padding-base;
+}
+
+.docking-main__item {
+  position: relative;
+
+  &.has-sticky__bar {
+    height: $bar-height-base + 1;
+  }
+
+  &:first-child {
+    @include border-top-radius($border-radius-base);
+    border-bottom: 1px solid $border-color;
+  }
+
+  &:last-child {
+    @include border-bottom-radius($border-radius-base);
+  }
+
+  &:only-child {
+    border: 0;
+  }
+}
+
+.docking-nav {
+  height: $bar-height-base;
+
+  .btn-stack {
+    line-height: $bar-height-base;
+    padding-right: $padding-base;
+    padding-left: $padding-base;
+    height: $bar-height-base;
+    float: left;
+  }
+
+  .pull-right {
+    padding-right: $padding-base;
+    margin-top: 8px;
+  }
+}
+
+.dockingGroupPage {
+  .docking-main__items {
+    margin-bottom: $padding-base * 2;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Bridging Setup Page
+|--------------------------------------------------------------------------
+*/
+.dockingGroupSetupPage {
+  #content {
+    margin-top: -$page-top-height - 50;
+    position: relative;
+  }
+
+  #target_group_info {
+    border: 1px solid $border-color;
+  }
+}

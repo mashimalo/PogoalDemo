@@ -1,0 +1,20 @@
+.uiBlock {
+  @include box-shadow($box-shadow-preset-4);
+}
+
+.uiBlock__main {
+  line-height: $toolbar-height;
+  padding: 0 $padding-base;
+  letter-spacing: 1px;
+
+  .icon {
+    margin-right: $padding-base;
+    font-size: $font-size-h2;
+    vertical-align: middle;
+  }
+
+  .btn {
+    margin-top: 14px;
+    float: right;
+  }
+}

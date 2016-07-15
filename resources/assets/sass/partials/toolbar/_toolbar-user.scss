@@ -1,0 +1,73 @@
+.toolbar__userInfo {
+  color: $color-gray-light-2;
+
+  > a,
+  > button {
+    @include tab-focus;
+    padding: 0 15px;
+    cursor: pointer;
+    display: table;
+
+    > span {
+      line-height: $toolbar-height;
+      float: left;
+    }
+
+    > .avatar {
+      margin-top: 12px;
+      float: left;
+    }
+  }
+
+  &.open {
+    background-color: $toolbar-user-bg;
+  }
+}
+
+.toolbar__userName {
+  @include text-overflow;
+}
+
+.toolbar__user {
+  @include box-shadow(0 5px 5px rgba(57,66,77,0.25));
+  background-color: $toolbar-user-bg;
+  width: $dropdown-width-md;
+  border-color: $toolbar-border;
+  border-top: 0;
+  margin-top: 0;
+
+  .uiDropdown__menu__header {
+    &:after {
+      width: $dropdown-width-md - $padding-base - 2;
+    }
+
+    span {
+      background-color: $toolbar-user-bg;
+    }
+  }
+
+  &:before,
+  &:after {
+    border: 0;
+  }
+
+  .toolbar__glance {
+    @include transition($general-transition);
+    @include center-block;
+    line-height: $toolbar-glance-size - 4;
+    border: 2px solid $brand-primary;
+    height: $toolbar-glance-size;
+    margin-bottom: $padding-base;
+    width: $toolbar-glance-size;
+    margin-top: $padding-base;
+    color: $brand-primary;
+    font-weight: 600;
+
+    &:hover {
+      @include box-shadow(0 0 0 5px rgba(250,167,18,0.5));
+      background-color: $brand-primary;
+      color: $color-white;
+
+    }
+  }
+}

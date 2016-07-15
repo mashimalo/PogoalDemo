@@ -1,0 +1,129 @@
+.uiModal--open {
+  overflow: hidden;
+}
+
+.uiModal {
+  @include tab-focus;
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal;
+  -webkit-overflow-scrolling: touch;
+
+  &.fade .uiModal__dialog {
+    @include translate(0, -25%);
+    @include transition-transform(0.3s ease-out);
+  }
+  &.in .uiModal__dialog {
+    @include translate(0, 0)
+  }
+}
+
+.uiModal--open .uiModal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.uiModal__dialog {
+  position: relative;
+  margin: 50px auto 0;
+}
+
+.uiModal__content {
+  @include box-shadow(0 3px 9px rgba(57,66,77,0.5));
+  @include tab-focus;
+  position: relative;
+  background-color: $modal-content-bg;
+  border: 1px solid $color-gray-light-2;
+  border: 1px solid $light02;
+  border-radius: $border-radius-medium;
+  background-clip: padding-box;
+}
+
+.uiModal__backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-modal-background;
+  background-color: $modal-backdrop-bg;
+  &.fade { @include opacity(0); }
+  &.in { @include opacity(0.8); }
+}
+
+.uiModal__header {
+  padding: $padding-base;
+  min-height: ($padding-base + $line-height-base);
+
+  .h3 {
+    text-transform: uppercase;
+    margin: 15px 0 0;
+    font-weight: 200;
+  }
+}
+
+.uiModal__header .close {
+  margin-top: -2px;
+}
+
+.uiModal__title {
+  margin: 0;
+  line-height: $line-height-base;
+}
+
+.uiModal__body {
+  position: relative;
+  padding: $padding-base;
+  margin-bottom: $padding-base;
+
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+
+.uiModal__footer {
+  @include border-radius(0 0 $border-radius-medium - 1 $border-radius-medium - 1);
+  //@include box-shadow(0 1px 0 $light02 inset);
+  @include clearfix;
+  //border-top: 1px solid $color-gray-light-6;
+  background-color: $color-gray-light-5;
+  padding: $padding-base;
+
+  .btn {
+    font-size: $font-size-xsmall;
+  }
+
+  .btn + .btn {
+    margin-left: 5px;
+    margin-bottom: 0;
+  }
+
+  .btn-group .btn + .btn {
+    margin-left: -1px;
+  }
+
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+}
+
+.uiModal--scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+.uiModal--sm {
+  width: $modal-sm;
+}
+
+.uiModal--md {
+  width: $modal-md;
+}

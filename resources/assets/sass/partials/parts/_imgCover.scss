@@ -1,0 +1,41 @@
+.imgCover {
+  @include transition(linear 0.2s);
+  @include opacity(0);
+  background-color: $imgCover-bg;
+  color: $color-gray-light;
+  position: absolute;
+  visibility: hidden;
+  font-weight: 600;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  top: 0;
+}
+
+.imgCovers {
+  position: relative;
+  &:hover {
+    .imgCover {
+      @include opacity(1);
+      visibility: visible;
+    }
+  }
+}
+
+.imgCover__info {
+  font-size: $font-size-xsmall;
+  padding: $padding-base;
+}
+
+.imgCover--dark {
+  background-color: $imgCover-bg-dark;
+  color: $color-white;
+}
+
+//.imgCover--rounded {
+//  @include border-radius($border-radius-rounded);
+//}
+//
+//.imgCover--topRoundMedium {
+//  @include border-radius($border-radius-medium $border-radius-medium 0 0)
+//}

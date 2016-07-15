@@ -1,0 +1,147 @@
+.fade {
+  opacity: 0;
+  @include transition(opacity .15s linear);
+  &.in {
+    opacity: 1;
+  }
+}
+
+.collapse {
+  display: none;
+  &.in { display: block; }
+}
+
+tr.collapse.in {
+  display: table-row;
+}
+
+tbody.collapse.in {
+  display: table-row-group;
+}
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition-property(height, visibility);
+  @include transition-duration(.35s);
+  @include transition-timing-function(ease);
+}
+
+.transit--linear {
+  @include transition($general-transition);
+}
+
+.transit--linear--fast {
+  @include transition($general-transition-fast);
+}
+
+@-webkit-keyframes keyframes-loading {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -640px
+  }
+}
+
+@-moz-keyframes keyframes-loading {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -640px
+  }
+}
+
+@-ms-keyframes keyframes-loading {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -640px
+  }
+}
+
+@keyframes keyframes-loading {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -640px
+  }
+}
+
+// Small
+@-webkit-keyframes keyframes-loading-small {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -320px
+  }
+}
+
+@-moz-keyframes keyframes-loading-small {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -320px
+  }
+}
+
+@-ms-keyframes keyframes-loading-small {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -320px
+  }
+}
+
+@keyframes keyframes-loading-small {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -320px
+  }
+}
+
+// Medium
+@-webkit-keyframes keyframes-loading-medium {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -448px
+  }
+}
+
+@-moz-keyframes keyframes-loading-medium {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -448px
+  }
+}
+
+@-ms-keyframes keyframes-loading-medium {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -448px
+  }
+}
+
+@keyframes keyframes-loading-medium {
+  from {
+    background-position: 0 0
+  }
+  to {
+    background-position: -448px
+  }
+}

@@ -1,0 +1,14 @@
+.shadow {
+  @include box-shadow($box-shadow-preset-4);
+}
+
+.shadow--dark {
+  @include box-shadow($box-shadow-preset-2);
+}
+
+.shadow--hover {
+  @include transition($general-transition-fast);
+  &:hover {
+    @include box-shadow($uiTile-box-shadow-hover);
+  }
+}

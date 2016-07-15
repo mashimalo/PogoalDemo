@@ -1,0 +1,39 @@
+.avatar--block {
+  height: $block-height;
+  width: $block-width;
+}
+
+.avatar--xs {
+  height: $avatar-size-xsmall;
+  width: $avatar-size-xsmall;
+}
+
+.avatar--sm {
+  height: $avatar-size-small;
+  width: $avatar-size-small;
+}
+
+.avatar--md {
+  height: $avatar-size-medium;
+  width: $avatar-size-medium;
+}
+
+.avatar--lg {
+  height: $avatar-size-large;
+  width: $avatar-size-large;
+}
+
+.avatar--xlg {
+  height: $avatar-size-xlarge;
+  width: $avatar-size-xlarge;
+}
+
+.avatar--xxlg {
+  height: $avatar-size-xxlarge;
+  width: $avatar-size-xxlarge;
+}
+
+.avatar--fluid {
+  height: auto;
+  width: 100%;
+}

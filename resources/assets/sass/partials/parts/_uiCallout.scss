@@ -1,0 +1,24 @@
+.uiCallout {
+  .uiCallout__article {
+    @include border-left-radius($border-radius-medium);
+
+    padding: $padding-small $padding-base $padding-small $padding-medium;
+    background-color: $light08;
+    display: inline-block;
+    color: $text-color;
+    text-align: left;
+    min-width: 350px;
+    float: left;
+  }
+
+  .uiCallout__button {
+    @include border-right-radius($border-radius-medium);
+    @include border-left-radius(0);
+
+    padding: $padding-small $padding-base;
+    display: inline-block;
+    font-weight: 600;
+    min-width: 135px;
+    float: right;
+  }
+}

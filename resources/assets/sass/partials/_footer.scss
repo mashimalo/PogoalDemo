@@ -1,0 +1,4 @@
+#footer {
+  @include padding-vertical(35px, 35px);
+  background-color: $color-gray-light-5;
+}

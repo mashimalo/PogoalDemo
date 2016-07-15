@@ -1,0 +1,137 @@
+.uiTile {
+  .notification__counter {
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    right: 3px;
+    top: -6px;
+    padding: 0;
+  }
+}
+
+.uiTile__body {
+  @include transition($general-transition-fast);
+  @include box-shadow($box-shadow-preset-4);
+  overflow: hidden;
+
+  &:hover {
+    @include box-shadow($uiTile-box-shadow-hover);
+
+    .uiTile__title {
+      a {
+        @extend .text-blue-darker;
+      }
+    }
+  }
+}
+
+.uiTile__cover {
+  position: relative;
+  overflow: hidden;
+
+  .icon-heart {
+    font-size: $font-size-large;
+    position: absolute;
+
+    margin-left: -($font-size-large / 2);
+    margin-top: -($font-size-large / 2);
+
+    left: 50%;
+    top: 50%;
+  }
+}
+
+.uiTile__avatar {
+  margin: -$padding-base 0;
+}
+
+.uiTile__avatar__left {
+  border-right: 1px solid $color-white;
+}
+.uiTile__avatar__right {
+  border-left: 1px solid $color-white;
+}
+
+.uiTile__content {
+  padding: $padding-base;
+}
+
+.uiTile__title {
+
+  a {
+    line-height: 16px;
+    max-height: 32px;
+    min-height: 32px;
+    overflow: hidden;
+    display: block;
+  }
+}
+
+.uiTile__description {
+  line-height: 17px;
+  min-height: 17px;
+}
+
+.uiTile__feed__title {
+  margin-bottom: $padding-xsmall;
+  color: $color-blue-dark;
+  font-weight: 600;
+}
+
+.uiTile__feed {
+  border-top: 1px dotted $color-gray-light-4;
+  padding-top: $padding-small;
+  margin-top: $padding-small;
+
+  > a {
+    @include text-overflow;
+    font-size: $font-size-xxsmall;
+    margin-bottom: $padding-xsmall;
+    display: block;
+
+    > span {
+      line-height: 14px;
+    }
+  }
+
+  &__item--dummy {
+    background-color: $color-gray-light-6;
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Specific Pages
+|--------------------------------------------------------------------------
+*/
+.sgp-left__info {
+  .uiTile__title {
+    a {
+      line-height: inherit;
+      max-height: none;
+    }
+  }
+
+  .uiTile__avatar {
+    margin: 0 0 0 $padding-base;
+    display: block;
+  }
+
+  .uiTile__body {
+    border-top: 5px solid $color-gray-light-6;
+    background-color: $color-white;
+    margin-top: -43px;
+    padding-top: 40px;
+  }
+}
+
+.glance {
+  .uiTile__title {
+    a {
+      @include text-overflow;
+      line-height: inherit;
+      max-height: none;
+      min-height: 0;
+    }
+  }
+}

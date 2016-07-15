@@ -1,0 +1,46 @@
+.createBtn {
+  @include border-radius(0);
+  font-size: $font-size-medium;
+  height: $toolbar-height;
+  width: $block-width;
+  text-align: center;
+  display: block;
+}
+
+.createBtn__list {
+  @include transition($general-transition);
+  @include opacity(0);
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+
+  .createBtn__item {
+    @include transition($general-transition);
+    @include translate(165px, 0);
+
+    .btn {
+      @include border-radius(0);
+      min-width: 165px;
+      float: right;
+    }
+  }
+
+  &.active {
+    @include opacity(1);
+    visibility: visible;
+
+    .createBtn__item {
+      @include translate(0, 0);
+    }
+
+    .createBtn__group {
+    }
+
+    .createBtn__event {
+      @include transition-delay(0.1s);
+    }
+  }
+}
+
+
+

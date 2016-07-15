@@ -1,0 +1,390 @@
+.btn {
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+  @include user-select(none);
+  touch-action: manipulation;
+  vertical-align: middle;
+  background-image: none;
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 0;
+  cursor: pointer;
+
+
+  &.small {
+    @extend .small;
+    line-height: $line-height-one;
+  }
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      @include tab-focus;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $color-gray;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    @include tab-focus;
+    background-image: none;
+    @include box-shadow(none);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+    @include box-shadow(none);
+    @include opacity(.65);
+  }
+}
+
+a.btn {
+  &.disabled,
+  fieldset[disabled] & {
+    pointer-events: none;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Colors
+|--------------------------------------------------------------------------
+*/
+.btn-default {
+  color: $color-gray;
+  background-color: $btn-default-bg;
+  border-color: $border-color;
+}
+
+.btn-default-t {
+  @include button-variant($color-white, transparent, transparent)
+}
+
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+// Success appears as green
+.btn-success {
+  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+
+// Info appears as blue-green
+.btn-info {
+  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+}
+
+// Warning appears as orange
+.btn-warning {
+  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+
+// Danger and error appear as red
+.btn-danger {
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+// Green
+.btn-green {
+  color: $color-white;
+  background-color: $color-green;
+}
+
+// Yellow Orange
+.btn-yellow-orange {
+  color: $color-white;
+  background-color: $color-yellow-orange;
+
+  &:focus,
+  &:hover {
+    background-color: darken($color-yellow-orange,10%);
+    color: $color-white;
+  }
+}
+
+// Gray
+.btn-gray {
+  background-color: $color-gray-light-2;
+  color: $color-white;
+
+  &:focus,
+  &:hover {
+    background-color: darken($color-gray-light-2,10%);
+    color: $color-white;
+  }
+}
+
+// White Transparent
+.btn-white-t {
+  background-color: $color-white;
+  background-color: $light07;
+  color: $color-gray-light;
+
+  &:focus,
+  &:hover {
+    background-color: $color-white;
+  }
+}
+
+.btn-white-tt {
+  background-color: $color-white;
+  background-color: $light03;
+  color: $color-gray-light-6;
+
+  &:focus,
+  &:hover {
+    background-color: $color-white;
+    background-color: $light07;
+  }
+}
+
+// Blue
+.btn-blue {
+  color: $color-white;
+  background-color: $color-blue;
+
+  &:focus,
+  &:hover {
+    background-color: darken($color-blue,10%);
+    color: $color-white;
+  }
+}
+
+// Dark Blue
+.btn-blue-dark {
+  color: $color-white;
+  background-color: $color-blue-dark;
+
+  &:focus,
+  &:hover {
+    background-color: darken($color-blue-dark, 5%);
+    color: $color-white;
+  }
+}
+
+// Outline
+.btn-outline-white {
+  border: 1px solid $color-white;
+  color: $color-white;
+
+  &:focus,
+  &:hover {
+    background-color: $color-white;
+    color: $text-color;
+  }
+}
+
+.btn-outline-gray {
+  border: 1px solid $dark02;
+  color: $color-gray-light-2;
+
+  &:focus,
+  &:hover {
+    background-color: $dark03;
+    color: $color-white;
+  }
+
+  &.current-page {
+    background-color: $dark03;
+    color: $color-white;
+  }
+}
+
+.btn-primary-gradient {
+  @include box-shadow($box-shadow-preset-4);
+  background-image: -webkit-linear-gradient(top, #f0ad4e 0%, #df8a13 100%);
+  background-image: -o-linear-gradient(top, #f0ad4e 0%, #df8a13 100%);
+  background-image: linear-gradient(to bottom, #f0ad4e 0%, #df8a13 100%);
+  background-repeat: repeat-x;
+  background-color: #f0ad4e;
+  color: #fff
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Link buttons
+|--------------------------------------------------------------------------
+*/
+// Make a button look and behave like a link
+.btn-link {
+  color: $link-color;
+  font-weight: normal;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &[disabled],
+  fieldset[disabled] & {
+    @include box-shadow(none);
+    background-color: transparent;
+  }
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Button size
+|--------------------------------------------------------------------------
+*/
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-xlarge, $line-height-large, $btn-border-radius-small);
+}
+.btn-md {
+  @include button-size($padding-medium-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+}
+.btn-sm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $btn-border-radius-small);
+}
+.btn-xs {
+  @include button-size(($padding-xsmall - 3), $padding-small, $font-size-xsmall, $line-height-small, $btn-border-radius-small);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Block Button
+|--------------------------------------------------------------------------
+*/
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Stack Button
+|--------------------------------------------------------------------------
+*/
+.btn-stack {
+  @include padding-vertical(11px,10px);
+  text-align: center;
+
+  > span {
+    line-height: $line-height-one;
+    display: block;
+  }
+
+  &__t {
+    font-size: $font-size-xxsmall;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  &__b {
+    color: $brand-primary;
+    font-weight: 600;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Social Button
+|--------------------------------------------------------------------------
+*/
+.btn-sns {
+  padding: ($padding-xsmall - 3) $padding-small;
+
+  border: 1px solid $border-color-dark;
+  border: 1px solid $dark015;
+
+  font-size: $font-size-xsmall;
+  color: $text-color-light;
+
+  &:focus,
+  &:hover {
+    border: 1px solid darken($border-color-dark,10%);
+    border: 1px solid $dark02;
+
+    background-color: $color-gray-light-5;
+    background-color: $dark01;
+    color: darken($text-color-light,5%);
+  }
+}
+
+.bar-btn-mT {
+  margin-top: ceil(($bar-height-base - ($font-size-base * $line-height-base) - ($padding-base-vertical * 2)) / 2);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Button shape
+|--------------------------------------------------------------------------
+*/
+.btn-square {
+  text-align: center;
+  line-height: 36px;
+  height: 36px;
+  width: 36px;
+  padding: 0;
+
+  &--md {
+    line-height: 50px;
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.btn-create-block {
+  border: 2px dashed $color-blue;
+  background-color: $color-blue-light;
+  font-size: $font-size-xxlarge;
+  line-height: 200px - 4;
+
+  &:hover {
+    border-color: $color-blue-dark;
+    background-color: $color-blue;
+  }
+}

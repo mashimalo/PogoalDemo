@@ -1,0 +1,28 @@
+/*
+|--------------------------------------------------------------------------
+| uiAlert
+|--------------------------------------------------------------------------
+*/
+// Scaffolding
+$uiAlert-padding: 15px;
+$uiAlert-title-size: $font-size-base;
+$uiAlert-content-color: $color-white;
+
+// Close Button
+$uiAlert-close-btn-size: 20px;
+$uiAlert-close-btn-color: $color-gray-light-2;
+
+// Icon
+$uiAlert-icon-size: 30px;
+
+// Success
+$uiAlert-success-bg-color: $brand-success;
+
+// Info
+$uiAlert-info-bg-color: $brand-info;
+
+// Warn
+$uiAlert-warn-bg-color: $brand-warn;
+
+// Danger
+$uiAlert-danger-bg-color: $brand-danger;

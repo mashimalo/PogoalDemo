@@ -1,0 +1,35 @@
+/*
+|--------------------------------------------------------------------------
+| uiGrid
+|--------------------------------------------------------------------------
+*/
+// Scaffolding
+$uiGrid-min-height: 100px;
+
+// Border
+$uiGrid-border-color: $border-color;
+$uiGrid-border-radius: $border-radius-small;
+
+// Title
+$uiGrid-title-color: $color-gray-light;
+
+// Meta
+$uiGrid-meta-color: $color-gray-light-2;
+
+// Footer
+$uiGrid-footer-height: 40px;
+$uiGrid-footer-bg-color: $color-white-dark;
+$uiGrid-footer-hover-bg-color: $color-gray-light-4;
+$uiGrid-footer-color: $color-gray-light-2;
+
+// Organizer
+$uiGrid-organizer-color: $color-gray-light-2;
+
+// Bookmark
+$uiGrid-bookmark-size: 18px;
+
+// Member Count
+$uiGrid-join-size: $uiGrid-bookmark-size;
+
+// Cover
+$uiGrid-hover-cover: $color-white;

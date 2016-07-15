@@ -1,0 +1,24 @@
+/*
+|--------------------------------------------------------------------------
+| Profile
+|--------------------------------------------------------------------------
+*/
+// Height
+$profile-cover-height: $page-top-height;
+$profile-cover-info-height: 30px;
+$profile-bar-height: $bar-height-base;
+
+// Background
+$profile-cover-photo-bg: $dark02;
+$profile-cover-photo-placeholder-bg: $color-blue;
+$profile-cover-photo-placeholder-bg-hover: darken($profile-cover-photo-placeholder-bg,5%);
+
+// Color
+$profile-cover-photo-placeholder-color: darken($profile-cover-photo-placeholder-bg,15%);
+$profile-cover-photo-placeholder-color-hover: darken($profile-cover-photo-placeholder-color,5%);
+
+// Size
+$profile-cover-photo-placeholder-font-size: $font-size-medium + 1;
+
+// Padding
+$profile-cover-avatar-padding: $padding-base / 3;

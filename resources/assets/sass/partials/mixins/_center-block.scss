@@ -1,0 +1,11 @@
+@mixin center-block() {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@mixin center-table() {
+  display: table !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

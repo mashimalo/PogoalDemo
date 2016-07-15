@@ -1,0 +1,63 @@
+.uiGrids--horizontal {
+
+  .uiGrid {
+    //margin-bottom: 15px;
+  }
+
+  .uiGrid__body {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    display: table;
+  }
+
+  .uiGrid__img {
+    float: left;
+    width: 30%;
+
+    img {
+      @include border-radius($uiGrid-border-radius - 1 0 0 0);
+    }
+  }
+
+  .uiGrid__title {
+    @include text-wrap;
+    margin-bottom: 10px;
+    max-height: 18px;
+    height: 18px;
+  }
+
+  .uiGrid__content {
+    float: left;
+    width: 70%;
+  }
+
+  .uiGrid__footer {
+    line-height: $uiGrid-footer-height - 10;
+    height: $uiGrid-footer-height - 10;
+    clear: both;
+    width: 100%;
+  }
+
+  .uiGrid__memberCount {
+    padding-right: $uiGrid-footer-height - 10;
+    padding-left: 15px;
+  }
+
+  .uiGrid__join {
+    a {
+      height: $uiGrid-footer-height - 10 - 1;
+      width: $uiGrid-footer-height - 10;
+    }
+  }
+
+  .uiGrid__footer {
+    > div {
+      a {
+        &:hover {
+          height: $uiGrid-footer-height - 1 - 10;
+        }
+      }
+    }
+  }
+}

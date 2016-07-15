@@ -1,0 +1,140 @@
+/*
+|--------------------------------------------------------------------------
+| Single Group Page Left
+|--------------------------------------------------------------------------
+*/
+.sgp-left__info {
+  .cover {
+    background-color: $color-gray-light-6;
+  }
+}
+
+.sgp-left__group__name {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+
+  margin-bottom: $padding-small;
+  font-size: $font-size-h4;
+  font-weight: 600;
+}
+
+.sgp-left__group__avatar {
+  @include border-radius($border-radius-base);
+
+  margin-top: -($padding-base * 4);
+  margin-right: 0;
+  margin-bottom: $padding-small;
+  //margin-left: -3px;
+
+  background-color: $color-white;
+  //padding: 3px;
+  position: relative;
+  display: table;
+}
+
+.sgp-left__vote {
+  .form-group {
+    margin-bottom: 5px;
+  }
+}
+
+.sgp-left__group__description {
+}
+
+/*
+|--------------------------------------------------------------------------
+| Single Group Page Main
+|--------------------------------------------------------------------------
+*/
+.sgp-main {
+}
+
+.sgp-main__items {
+  @include border-radius($border-radius-base);
+  @include box-shadow($box-shadow-preset-4);
+  background-color: $color-white;
+  //margin-bottom: $padding-base;
+  //overflow: hidden;
+}
+
+.sgp-main__item {
+  position: relative;
+
+  &.has-sticky__bar {
+    height: $bar-height-base + 1;
+  }
+
+  &:first-child {
+    @include border-top-radius($border-radius-base);
+    border-bottom: 1px solid $border-color;
+  }
+
+  &:last-child {
+    @include border-bottom-radius($border-radius-base);
+  }
+
+  &:only-child {
+    border: 0;
+  }
+}
+
+.sgp-nav {
+  height: $bar-height-base;
+
+  .btn-stack {
+    line-height: $bar-height-base;
+    padding-right: $padding-base;
+    padding-left: $padding-base;
+    height: $bar-height-base;
+    float: left;
+  }
+
+  .pull-right {
+    padding-right: $padding-base;
+    margin-top: 8px;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Specific Page
+|--------------------------------------------------------------------------
+*/
+.singleGroupPinnedPage,
+.singleGroupPage {
+  .uiAlert {
+    margin-bottom: $padding-xlarge;
+  }
+  .rich-form {
+    margin-bottom: $padding-base * 2;
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Cover Toggle
+|--------------------------------------------------------------------------
+*/
+#sgp-last-activity-section,
+.sgp-left__info {
+  display: none;
+}
+
+.currentUserInGroup {
+  #sgp-cover-section {
+    height: 51px;
+  }
+
+  #sgp-info-section {
+    display: none;
+    .cover__static {
+      display: none;
+    }
+  }
+
+  #sgp-last-activity-section,
+  .sgp-left__info {
+    display: block;
+  }
+}

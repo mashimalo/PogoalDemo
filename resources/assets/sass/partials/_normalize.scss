@@ -1,0 +1,347 @@
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  @include tab-focus;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+dfn {
+  font-style: italic;
+}
+
+small {
+  font-size: 12px;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Tables
+|--------------------------------------------------------------------------
+*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Images
+|--------------------------------------------------------------------------
+*/
+img {
+  vertical-align: middle;
+}
+
+figure {
+  margin: 0;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Inputs
+|--------------------------------------------------------------------------
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  @include box-shadow(none);
+  line-height: inherit;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+
+  &:visited,
+  &:active,
+  &:focus,
+  &:hover {
+    @include tab-focus;
+  }
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box; //2
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+button,
+[type="submit"] {
+  -ms-touch-action: manipulation;
+  background-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  background-image: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+[role="button"] {
+  cursor: pointer;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  border: 0;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: $line-height-computed;
+  font-size: ($font-size-base * 1.5);
+  color: $color-gray-dark;
+  line-height: inherit;
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+
+input:invalid,
+input:required,
+select:invalid,
+select:required {
+  @include box-shadow(none);
+}
+
+input[type="search"] {
+  @include box-sizing(border-box);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  line-height: normal;
+}
+
+input[type="file"] {
+  display: block;
+}
+
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  @include tab-focus;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+output {
+  padding-top: ($padding-base-vertical + 1);
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+  color: $input-color;
+  display: block;
+}
+
+// Apply same disabled cursor tweak as for inputs
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled],
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+
+// These classes are used directly on <label>s
+.radio-inline,
+.checkbox-inline {
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+
+// These classes are used on elements with <label> descendants
+.radio,
+.checkbox {
+  &.disabled,
+  fieldset[disabled] & {
+    label {
+      cursor: $cursor-disabled;
+    }
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| List
+|--------------------------------------------------------------------------
+*/
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  ul,
+  ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}

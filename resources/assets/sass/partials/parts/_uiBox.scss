@@ -1,0 +1,71 @@
+.uiBox {
+  @include border-radius($border-radius-small);
+  @include center-block;
+  background-color: $color-white;
+  margin-bottom: 20px;
+
+  // Size
+  &--sm {
+    width: $uiBox-sm;
+  }
+  &--md {
+    width: $uiBox-md;
+  }
+  &--lg {
+    width: $uiBox-lg;
+  }
+
+  &--fluid {
+    width: 100%;
+  }
+
+  // Pop Up Alerts
+  .uiAlerts {
+
+    > li {
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 30px;
+      }
+    }
+
+    .uiAlert {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.uiBox__header {
+  border-bottom: 1px solid $color-gray-light-4;
+  color: $color-gray-light;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.uiBox__body {
+  color: $color-gray-light-2;
+  padding: 25px;
+
+  h4 {
+    margin: 15px 0 35px;
+  }
+}
+
+.uiBox__footer {
+  border-radius: 0 0 $border-radius-medium $border-radius-medium;
+  padding: 15px;
+  color: $color-white;
+}
+
+.uiBox__footer__btn {
+  padding: 0;
+
+  input {
+    @include border-radius(0 0 $border-radius-small $border-radius-small);
+    font-size: $font-size-medium;
+    text-transform: uppercase;
+    padding: 20px 15px;
+  }
+}
+

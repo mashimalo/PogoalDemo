@@ -1,0 +1,26 @@
+.uiTabs__nav {
+  &--list {
+    li {
+      a {
+        line-height: $bar-height-base;
+        padding: 0 $padding-base;
+        display: block;
+      }
+      &.active {
+        border-left: 3px solid $color-green;
+        a {
+          background-color: $dark008;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+.uiTabs__content {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}

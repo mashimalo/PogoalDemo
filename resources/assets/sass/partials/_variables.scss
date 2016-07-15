@@ -1,0 +1,359 @@
+/*
+|--------------------------------------------------------------------------
+| Basic Transition
+|--------------------------------------------------------------------------
+*/
+$general-transition: linear 0.2s;
+$general-transition-fast: linear 0.1s;
+$general-transition-slow: linear 0.5s;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Colors
+|--------------------------------------------------------------------------
+*/
+// Liven
+$color-liven: #55d7d7;
+
+// Blue
+$color-blue: #5bc0de;
+$color-blue-light: lighten($color-blue,15%);
+$color-blue-dark: darken($color-blue,15%);
+$color-blue-darker: darken($color-blue,25%);
+
+// White
+$color-white: #ffffff;
+$color-white-dark: #f4f6f7;
+
+// Red
+$color-red: #d9534f;
+$color-red-light: #f0b9b8;
+$color-red-light-2: #f4cecd;
+$color-red-dark: darken($color-red,15%);
+
+// Orange
+$color-orange: #f0ad4e;
+$color-orange-dark: darken($color-orange,15%);
+
+// Yellow Orange
+$color-yellow-orange: #faa71c; //ffd300
+$color-yellow-orange-dark: darken($color-yellow-orange,6%);
+
+// Green
+$color-green: #5cb85c;
+$color-green-dark: darken($color-green,10%);
+
+// Gray
+$color-gray: #5a6779;
+$color-gray-light: lighten($color-gray,10%);
+$color-gray-light-2: lighten($color-gray,20%);
+$color-gray-light-3: lighten($color-gray,30%);
+$color-gray-light-4: lighten($color-gray,40%);
+$color-gray-light-5: lighten($color-gray,45%);
+$color-gray-light-6: lighten($color-gray,50%);
+$color-gray-dark: darken($color-gray,5%);
+$color-gray-darker: darken($color-gray,10%);
+
+// Black
+$color-black: #000;
+
+// Basic Text Colors
+$text-color: $color-gray-dark;
+$text-color-light: lighten($text-color,30%);
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Links
+|--------------------------------------------------------------------------
+*/
+$link-hover-decoration: none;
+
+// Colors
+$link-color: $color-blue-dark;
+$link-hover-color: $color-blue-darker;
+
+$link-color-light: $color-gray-light-2;
+$link-hover-color-light: $color-gray-light;
+
+$link-color-dark: $color-gray-light;
+$link-hover-color-dark: $color-gray;
+
+$link-block-light-bg: $color-gray-light-6;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Border
+|--------------------------------------------------------------------------
+*/
+$border-color: $color-gray-light-6;
+$border-color-light: lighten($color-gray-light-6,3%);
+$border-color-dark: darken($color-gray-light-6,10%);
+
+$border-color-red: $color-red-light;
+
+
+/*
+|--------------------------------------------------------------------------
+| Brand Colors
+|--------------------------------------------------------------------------
+*/
+// Primary
+$brand-primary: $color-yellow-orange;
+
+$brand-warn: $color-yellow-orange;
+$brand-success: $color-green;
+$brand-liven: $color-liven;
+$brand-info: $color-blue;
+$brand-danger: $color-red;
+
+$color-success: $brand-success;
+$color-info: $brand-info;
+$color-warn: $brand-warn;
+$color-danger: $brand-danger;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Transparency
+|--------------------------------------------------------------------------
+*/
+$dark006: rgba(57,66,77,0.06);
+$dark008: rgba(57,66,77,0.08);
+$dark01: rgba(57,66,77,0.1);
+$dark015: rgba(57,66,77,0.15);
+$dark02: rgba(57,66,77,0.2);
+$dark03: rgba(0,0,0,0.3);
+$dark04: rgba(0,0,0,0.4);
+$dark05: rgba(0,0,0,0.5);
+$dark06: rgba(0,0,0,0.6);
+$dark07: rgba(0,0,0,0.7);
+$dark08: rgba(0,0,0,0.8);
+$dark09: rgba(0,0,0,0.9);
+$light01:rgba(255,255,255,0.1);
+$light02:rgba(255,255,255,0.2);
+$light03:rgba(255,255,255,0.3);
+$light04:rgba(255,255,255,0.4);
+$light05:rgba(255,255,255,0.5);
+$light07:rgba(255,255,255,0.7);
+$light08:rgba(255,255,255,0.8);
+$light09:rgba(255,255,255,0.9);
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Border Radius
+|--------------------------------------------------------------------------
+*/
+$border-radius-xsmall: 2px;
+$border-radius-small: 3px;
+$border-radius-medium: 6px;
+$border-radius-large: 8px;
+$border-radius-xlarge: 10px;
+$border-radius-xxlarge: 18px;
+$border-radius-rounded: 50%;
+
+// Base Border Radius
+$border-radius-base: $border-radius-small;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Typography
+|--------------------------------------------------------------------------
+*/
+$font-family-base: 'Open Sans', sans-serif;
+
+$font-size-xxsmall: 11px;
+$font-size-xsmall: 12px;
+$font-size-small: 14px;
+$font-size-medium: 16px;
+$font-size-large: 18px;
+$font-size-xlarge: 26px;
+$font-size-xxlarge: 30px;
+$font-size-xxxlarge: 36px;
+
+// Base Font Size
+$font-size-base: $font-size-small;
+
+// Heading
+$font-size-h1: $font-size-xxxlarge;
+$font-size-h2: $font-size-xxlarge;
+$font-size-h3: $font-size-large;
+$font-size-h4: $font-size-medium;
+$font-size-h5: $font-size-base;;
+$font-size-h6: $font-size-xsmall;
+
+// Brand Icon Size
+$brand-size: $font-size-xxxlarge;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Line Height
+|--------------------------------------------------------------------------
+*/
+$line-height-base: 1.428571429;
+$line-height-one: 1em;
+$line-height-small: 1.5;
+$line-height-large: 1.3333333;
+$line-height-computed: floor(($font-size-base * $line-height-base));
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Component
+|--------------------------------------------------------------------------
+*/
+$component-active-color: $color-white;
+$component-active-bg: $brand-primary;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Padding
+|--------------------------------------------------------------------------
+*/
+$padding-base: 15px;
+$padding-xsmall: 5px;
+$padding-small: 10px;
+$padding-medium: 20px;
+$padding-large: 25px;
+$padding-xlarge: 30px;
+$padding-xxlarge: 40px;
+$padding-xxxlarge: 50px;
+$padding-base-vertical: 6px;
+$padding-base-horizontal: 12px;
+$padding-xs-vertical: 1px;
+$padding-xs-horizontal: 5px;
+$padding-small-vertical: 5px;
+$padding-small-horizontal: 10px;
+$padding-medium-vertical: 8px;
+$padding-medium-horizontal: 14px;
+$padding-large-vertical: 10px;
+$padding-large-horizontal: 16px;
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Image
+|--------------------------------------------------------------------------
+*/
+$img-size-xsmall: 25px;
+$img-size-small: 30px;
+$img-size-medium: 36px;
+$img-size-large: 80px;
+$img-size-xlarge: 96px;
+$img-size-xxlarge: 135px;
+
+/*
+|--------------------------------------------------------------------------
+| Basic Z-index
+|--------------------------------------------------------------------------
+*/
+$zindex-toolbar-fixed: 1000;
+$zindex-below-toolbar: 910;
+$zindex-below-all-bar: 900;
+$zindex-dropdown: 1010;
+$zindex-tooltip: 2010;
+$zindex-modal-background: 2010;
+$zindex-modal: 2020;
+
+
+/*
+|--------------------------------------------------------------------------
+| Box Shadow Preset
+|--------------------------------------------------------------------------
+*/
+$box-shadow-preset-1: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+$box-shadow-preset-1-hover: 0px 3px 5px 0px rgba(0, 0, 0, 0.15), 0px 4px 8px 0px rgba(0, 0, 0, 0.10);
+
+$box-shadow-preset-2: 0 1px 3px rgba(0,0,0,0.2);
+$box-shadow-preset-2-hover: 0 0 5px rgba(0,0,0,0.5);
+
+$box-shadow-preset-3: 0 1px 2px rgba(0, 0, 0, 0.1);
+$box-shadow-preset-3-hover: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+$box-shadow-preset-4: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+$box-shadow-preset-5: 0 3px 3px rgba(0, 0, 0, 0.15);
+
+$box-shadow-bottom-solid: 0 2px 0 rgba(0, 0, 0, 0.06);
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Size
+|--------------------------------------------------------------------------
+*/
+$size-full-vh: 100vh;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Width Size
+|--------------------------------------------------------------------------
+*/
+$block-width: 60px;
+$block-height: 60px;
+$width-size-sm: 400px;
+$width-size-md: 600px;
+$width-size-lg: 900px;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Height Size
+|--------------------------------------------------------------------------
+*/
+$bar-height-base: 50px;
+
+
+/*
+|--------------------------------------------------------------------------
+| Basic Grid
+|--------------------------------------------------------------------------
+*/
+$grid-columns: 12;
+$grid-gutter: $padding-base * 2;
+$container-lg: (1140px + $grid-gutter);
+
+
+/*
+|--------------------------------------------------------------------------
+| Cursor
+|--------------------------------------------------------------------------
+*/
+$cursor-disabled: not-allowed;
+
+
+@import "variable/page";
+@import "variable/layout";
+@import "variable/close";
+@import "variable/icon";
+@import "variable/avatar";
+@import "variable/button";
+@import "variable/lvlBar";
+@import "variable/form";
+@import "variable/toolbar";
+@import "variable/navBar";
+@import "variable/notification";
+@import "variable/uiDropdown";
+@import "variable/uiTooltip";
+@import "variable/thumbnail";
+@import "variable/uiModal";
+@import "variable/uiBox";
+@import "variable/uiGrid";
+@import "variable/sidebar";
+@import "variable/uiList";
+@import "variable/uiAlert";
+@import "variable/profile";
+@import "variable/imgCover";
+@import "variable/uiCard";
+@import "variable/uiTile";
+@import "variable/badge";
+@import "variable/home";
+@import "variable/uiFeed";

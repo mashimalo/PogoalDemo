@@ -1,0 +1,48 @@
+.bg--stretch {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-primary {
+  background-color: $brand-primary;
+  color: $color-white !important;
+}
+
+.bg--dark {
+  background-color: $dark03;
+  color: $color-white !important;
+}
+
+.bg--darker {
+  background-color: $dark05;
+  color: $color-white !important;
+}
+
+.bg--lighter {
+  background-color: $light05;
+  color: $color-white !important;
+}
+
+.bg-error,
+.bg-danger {
+  background-color: $brand-danger;
+  color: $color-white !important;
+}
+
+.bg-success {
+  background-color: $brand-success;
+  color: $color-white !important;
+}
+
+.bg-white {
+  background-color: $color-white;
+}
+
+.bg--list {
+  @include transition($general-transition);
+  background-color: $body-bg;
+  &:hover {
+    background-color: darken($body-bg,5%);
+  }
+}

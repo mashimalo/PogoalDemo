@@ -1,0 +1,32 @@
+.uiMemberList {
+  display: inline-block;
+  width: 100%;
+}
+
+.uiMemberList__item {
+  //border: 1px solid $border-color;
+  padding-right: $padding-base;
+  margin-bottom: $padding-base;
+  display: inline-block;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.uiMemberList__avatar {
+  margin-right: $padding-base;
+  float: left;
+}
+
+.uiMemberList__details {
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.uiMemberList__misc {
+  margin-left: $padding-base;
+  margin-top: 18px;
+  float: right;
+}

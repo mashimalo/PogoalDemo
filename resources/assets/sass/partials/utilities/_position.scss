@@ -1,0 +1,35 @@
+.p-relative {
+  position: relative !important;
+}
+
+.p-fixed {
+  position: fixed !important;
+}
+
+.fixed--t-r {
+  position: fixed !important;
+  right: 0;
+  left: 0;
+}
+
+.p-absolute {
+  position: absolute !important;
+}
+
+.absolute--b-r {
+  bottom: $padding-base;
+  right: $padding-base;
+  position: absolute;
+
+  &--md {
+    bottom: $padding-base * 2;
+    right: $padding-base * 2;
+    position: absolute;
+  }
+}
+
+.absolute--t-r {
+  right: $padding-base;
+  top: $padding-base;
+  position: absolute;
+}

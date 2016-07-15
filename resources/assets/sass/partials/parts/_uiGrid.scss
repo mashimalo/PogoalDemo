@@ -1,0 +1,123 @@
+.uiGrid {
+  margin-bottom: $grid-gutter;
+}
+
+.uiGrid__body {
+  @include border-radius($uiGrid-border-radius);
+  @include box-shadow($box-shadow-preset-1);
+  @include transition($general-transition);
+  background-color: $color-white;
+  min-height: $uiGrid-min-height;
+  // border: 1px solid $uiGrid-border-color;
+  max-width: 480px;
+
+  &:hover {
+    @include box-shadow($box-shadow-preset-1-hover);
+  }
+}
+
+.uiGrid__img {
+  img {
+    @include border-radius($uiGrid-border-radius - 1 $uiGrid-border-radius - 1 0 0);
+    width: 100%;
+  }
+}
+
+.uiGrid__content {
+  padding: $padding-base;
+}
+
+.uiGrid__title {
+  // color: $uiGrid-title-color;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+  line-height: 18px;
+  overflow: hidden;
+  max-height: 36px;
+  height: 36px;
+}
+
+.uiGrid__meta {
+  margin-bottom: 0;
+
+  > li {
+    color: $uiGrid-meta-color;
+    @include text-wrap;
+    // line-height: 18px;
+    // max-height: 18px;
+    // height: 18px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .icon {
+    margin-right: 5px;
+  }
+}
+
+.uiGrid__date {
+  text-transform: uppercase;
+}
+
+.uiGrid__footer {
+  @include border-radius(0 0 $uiGrid-border-radius - 1 $uiGrid-border-radius - 1);
+  @include box-shadow(0 1px 0 $color-white inset);
+  background-color: $uiGrid-footer-bg-color;
+  border-top: 1px solid $uiGrid-border-color;
+  line-height: $uiGrid-footer-height;
+  height: $uiGrid-footer-height;
+  position: relative;
+  margin: 0;
+
+  > div {
+    a {
+      color: $uiGrid-footer-color;
+      &:hover {
+        @include box-shadow(0 1px 0 $color-white inset);
+        background-color: $uiGrid-footer-hover-bg-color;
+        height: $uiGrid-footer-height - 1;
+      }
+    }
+  }
+}
+
+.uiGrid__organizer,
+.uiGrid__memberCount {
+  padding-right: $uiGrid-footer-height;
+  color: $uiGrid-footer-color;
+
+  a {
+    @include border-radius(0 0 0 $uiGrid-border-radius);
+    @include text-wrap;
+    padding: 0 10px 0 15px;
+    font-weight: 600;
+    display: block;
+  }
+
+  .avatar {
+    @include border-radius($border-radius-rounded);
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: -4px;
+  }
+}
+
+.uiGrid__bookmark ,
+.uiGrid__join {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  a {
+    @include border-radius(0 0 $uiGrid-border-radius 0);
+    border-left: 1px solid $uiGrid-border-color;
+    height: $uiGrid-footer-height - 1;
+    font-size: $uiGrid-bookmark-size;
+    width: $uiGrid-footer-height;
+    display: block;
+  }
+}
+
+@import "../uiGrid/uiGrid-horizontal";

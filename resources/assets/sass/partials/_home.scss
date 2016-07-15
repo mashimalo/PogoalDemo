@@ -1,0 +1,16 @@
+.home__cat__item {
+  height: $home-cat-height;
+  margin-bottom: 2px;
+  padding-right: 1px;
+  padding-left: 1px;
+
+  .btn-white-t {
+    color: $color-gray;
+  }
+
+  &:hover {
+    .bg--darker {
+      background-color: $dark07;
+    }
+  }
+}

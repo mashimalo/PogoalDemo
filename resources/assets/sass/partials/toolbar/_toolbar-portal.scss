@@ -1,0 +1,20 @@
+.toolbar__portal {
+  ul {
+    > li {
+      float: right;
+      > button,
+      > a {
+        line-height: $toolbar-height;
+        padding: 0 15px;
+        display: block;
+        //&:hover {
+        //  color: $brand-primary;
+        //}
+      }
+    }
+  }
+}
+
+//#toolbar-login {
+//  margin-right: 10px;
+//}

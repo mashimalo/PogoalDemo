@@ -1,0 +1,238 @@
+// Headings
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+  font-weight: 600;
+  color: inherit;
+
+  small, .small {
+    font-weight: normal;
+    color: inherit;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  small, .small {
+    font-size: 65%;
+  }
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  small, .small {
+    font-size: 75%;
+  }
+}
+
+h1, .h1 {
+  font-size: $font-size-h1;
+}
+
+h2, .h2 {
+  font-size: $font-size-h2;
+
+  &.small {
+    font-size: $font-size-h2 * 0.8 !important;
+  }
+}
+
+h3, .h3 {
+  font-size: $font-size-h3;
+}
+
+h4, .h4 {
+  font-size: $font-size-h4;
+}
+
+h5, .h5 {
+  font-size: $font-size-h5;
+}
+
+h6, .h6 {
+  font-size: $font-size-h6;
+}
+
+// Body text
+p {
+  margin: 0 0 ($line-height-computed / 2);
+}
+
+// Emphasis & misc
+small,
+.small {
+  font-size: $font-size-xsmall;
+}
+
+.xsmall {
+  font-size: $font-size-xxsmall;
+}
+
+.text-md {
+  font-size: $font-size-medium !important;
+}
+
+.text-lg {
+  font-size: $font-size-large !important;
+}
+
+.text-xlg {
+  font-size: $font-size-xlarge !important;
+}
+
+.text-xxlg {
+  font-size: $font-size-xxlarge !important;
+}
+
+.text-xxxlg {
+  font-size: $font-size-xxxlarge !important;
+}
+
+// Alignment
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+// Transformation
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.break-word {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Screen Reader
+|--------------------------------------------------------------------------
+*/
+.hidden-text {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
+.text-overflow {
+  @include text-overflow;
+  @extend .fluid;
+  display: block;
+}
+
+.text-hide {
+  @include text-hide;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Color
+|--------------------------------------------------------------------------
+*/
+
+@include link(".text-error", $color-red);
+
+@include link(".text-white", $color-white);
+
+@include link(".text-red", darken($color-red-light, 25%));
+
+@include link(".text-light", $text-color-light);
+
+@include link(".text-green", $color-green);
+
+@include link(".text-blue", $color-blue);
+
+@include link(".text-blue-darker", $color-blue-dark);
+
+/*
+|--------------------------------------------------------------------------
+| Font Weight
+|--------------------------------------------------------------------------
+*/
+.normal {
+  font-weight: 400 !important;
+}
+
+.thin {
+  font-weight: 200 !important;
+}
+
+.bold {
+  font-weight: 600 !important;
+}
+
+.bolder {
+  font-weight: 700 !important;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Title
+|--------------------------------------------------------------------------
+*/
+.page-title {
+  margin: $padding-base 0 ($padding-base + $page-content-padding-top);
+  text-transform: capitalize;
+  color: $color-gray-light;
+  font-weight: 200;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Letter Space
+|--------------------------------------------------------------------------
+*/
+.letter-space--hover {
+  @include transition($general-transition-fast);
+  letter-spacing: 1px;
+
+  &:hover {
+    letter-spacing: 3px;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Text Shadow
+|--------------------------------------------------------------------------
+*/
+.text-shadow {
+  text-shadow: 0 0 2px $dark03;
+}
+
+.text-shadow-title {
+  text-shadow: 0 1px 5px $dark03;
+}

@@ -1,0 +1,68 @@
+.full {
+  @include size(100%,100%);
+}
+
+.w {
+  &--full {
+    width: 100%;
+  }
+}
+
+.maxW {
+  &--sm {
+    max-width: 150px;
+  }
+
+  &--md {
+    max-width: 200px;
+  }
+}
+
+.maxH {
+  &--title {
+    max-height: 40px;
+  }
+  &--article {
+    max-height: 40px;
+  }
+}
+
+.h {
+  &--auto {
+    height: auto;
+  }
+
+  &--sm {
+    height: $avatar-size-medium;
+  }
+
+  &--md {
+    height: 200px;
+  }
+
+  &--lg {
+    height: 300px;
+  }
+
+  &--xlg {
+    height: 400px;
+  }
+
+  &--title {
+    height: 40px;
+  }
+
+  &--article {
+    height: 40px;
+  }
+
+  &--dummy {
+    height: 1000px;
+  }
+}
+
+.resize {
+  &--none {
+    resize: none;
+  }
+}

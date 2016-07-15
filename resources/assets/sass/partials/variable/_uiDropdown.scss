@@ -1,0 +1,51 @@
+/*
+|--------------------------------------------------------------------------
+| uiDropdown
+|--------------------------------------------------------------------------
+*/
+// Background for the dropdown menu.
+$dropdown-bg: $color-white;
+
+// Dropdown link text color.
+$dropdown-link-color: $color-gray-light;
+
+// Hover color for dropdown links.
+$dropdown-link-hover-color: $color-gray-light;
+
+// Hover Color for BG
+$dropdown-link-hover-bg: $link-block-light-bg;
+
+// Disabled dropdown menu item background color.
+$dropdown-link-disabled-color: $color-gray;
+
+// Text color for headers within dropdown menus.
+$dropdown-header-color: $color-gray;
+
+// Caret
+$caret-width-base: 4px;
+$caret-width-large: 5px;
+
+// Deprecated `$dropdown-caret-color` as of v3.1.0
+$dropdown-caret-color: $color-black;
+
+// Caption color
+$dropdown-caption-color: $color-white;
+
+// Caption Background Color
+$dorpdown-caption-bg: $color-blue;
+
+// Width
+$dropdown-width: 210px;
+$dropdown-width-md: 255px;
+
+// Dropdown menu `border-color`.
+$dropdown-border: rgba(57,66,77,.15);
+
+// Dropdown menu `border-color` **for IE8**.
+$dropdown-fallback-border: #ccc;
+
+// Active dropdown menu item text color.
+$dropdown-link-active-color: $component-active-color;
+
+// Active dropdown menu item background color.
+$dropdown-link-active-bg: $component-active-bg;

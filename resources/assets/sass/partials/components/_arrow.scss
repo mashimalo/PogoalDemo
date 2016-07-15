@@ -1,0 +1,52 @@
+.arrow {
+  &--down {
+    &:after {
+      border-right: 6px solid transparent;
+      border-left: 6px solid transparent;
+      border-top: 6px solid transparent;
+      z-index: $zindex-tooltip;
+      display: inline-block;
+      position: absolute;
+      content: '';
+    }
+
+    &--white {
+      &:after {
+        border-top-color: $color-white;
+      }
+    }
+
+    &--center {
+      &:after {
+        margin-left: -6px;
+        bottom: -6px;
+        left: 50%;
+      }
+    }
+  }
+
+  &__r {
+    &:after {
+      position: absolute;
+      content: "";
+      top: 50%;
+    }
+
+    &--lg {
+      &:after {
+        border-bottom: 9px solid transparent;
+        border-left: 15px solid transparent;
+        border-top: 9px solid transparent;
+        margin-top: -9px;
+        right: -15px;
+      }
+    }
+  }
+
+  &--none {
+    &:before,
+    &:after {
+      border: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+body {
+  &.theme--gray {
+    background-color: #f4f4f4 !important;
+  }
+}
+
+.theme--gray {
+  .uiGrid__body {
+    @include box-shadow(0 1px 3px rgba(57,66,77,0.2));
+    border: 0;
+    &:hover {
+      @include box-shadow(0 1px 8px rgba(57,66,77,0.2));
+    }
+  }
+
+  .uiGrid__footer {
+    @include box-shadow(0 1px 0 0 $color-white inset);
+    background-color: #f6f6f6;
+    border-top: 1px solid #e7e7e7;
+  }
+}

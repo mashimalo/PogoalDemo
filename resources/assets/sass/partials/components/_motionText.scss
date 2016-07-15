@@ -1,0 +1,35 @@
+.motionText {
+  @include center-block;
+  height: $toolbar-height;
+  width: $toolbar-height;
+  text-align: center;
+  overflow: hidden;
+
+  a {
+    line-height: $toolbar-height;
+    width: $toolbar-height;
+    display: inline-block;
+    color: $brand-primary;
+  }
+
+  &:hover {
+    .motionText__t {
+      @include opacity(0.2);
+      font-size: $font-size-xlarge;
+    }
+    .motionText__b {
+      @include opacity(1);
+    }
+  }
+}
+
+.motionText__t {
+}
+
+.motionText__b {
+  @include opacity(0);
+  letter-spacing: 1px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

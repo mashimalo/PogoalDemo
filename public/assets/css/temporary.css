@@ -1,0 +1,49 @@
+#page {
+    min-height: 900px;
+}
+.debugBar {
+    -webkit-transition: linear .2s;
+    -o-transition: linear .2s;
+    transition: linear .2s;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    padding: 10px 15px;
+    bottom: 0;
+    text-align: center;
+    z-index: 3000;
+}
+
+.has-page__left .debugBar {
+    padding-left: 60px;
+}
+
+.has-page__left.active--left .debugBar {
+    padding-left: 195px;
+}
+
+.has-page__right .debugBar {
+    padding-right: 195px;
+}
+
+.has-page__right.active--right .debugBar {
+    padding-right: 60px;
+}
+
+.debugBar ul {
+    margin: 0;
+}
+
+.debugBar ul li {
+    border-right: 1px solid #ddd;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.debugBar ul li:first-child {
+    padding-left: 0;
+}
+
+.debugBar ul li:last-child {
+    padding-right: 0;
+    border-right: 0;
+}

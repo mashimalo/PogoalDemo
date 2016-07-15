@@ -1,0 +1,136 @@
+/*
+|--------------------------------------------------------------------------
+| Bar
+|--------------------------------------------------------------------------
+*/
+.profile__bar {
+  height: $profile-bar-height;
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  .site-container {
+    position: relative;
+  }
+
+  .badges {
+    margin-top: ($profile-bar-height - $badge-small) / 2;
+  }
+
+  .sticky__bar {
+    background-color: $light05;
+  }
+}
+
+.profile__bar__list {
+  float: right;
+
+  > a {
+    line-height: $profile-bar-height;
+    height: $profile-bar-height;
+    padding-right: $padding-base;
+    padding-left: $padding-base;
+    position: relative;
+    float: left;
+  }
+
+  .divider-v {
+    height: $profile-bar-height - 20;
+    margin-top: 10px;
+    float: left;
+  }
+}
+
+.profile__bar__item {
+  border-right: 1px solid $border-color;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Avatar
+|--------------------------------------------------------------------------
+*/
+.profile__bar__avatar {
+  @include transition($general-transition);
+  padding: $padding-xsmall;
+  bottom: ($profile-bar-height / 2) - 10;
+  background-color: $light08;
+  left: $padding-base;
+  position: absolute;
+
+  // z-index
+  z-index:110;
+
+  .imgCover__info {
+    margin-top: 30px;
+  }
+
+  .icon {
+    font-size: $font-size-xlarge;
+    display: block;
+  }
+
+  &:after {
+    border-bottom: 9px solid transparent;
+    border-left: 15px solid transparent;
+    border-top: 9px solid transparent;
+    border-left-color: $light08;
+    position: absolute;
+    margin-top: -9px;
+    right: -15px;
+    content: "";
+    top: 50%;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Info
+|--------------------------------------------------------------------------
+*/
+.profile__bar__info {
+  left: ($padding-base * 3) + ($profile-cover-avatar-padding * 2) + $avatar-size-xxlarge;
+  bottom: $profile-bar-height + $padding-base;
+  text-shadow: 0 0 2px $dark03;
+  position: absolute;
+  // z-index
+  z-index:110;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Animated Name
+|--------------------------------------------------------------------------
+*/
+.profile__bar__name {
+  min-width: ($profile-cover-avatar-padding * 2) + $avatar-size-xxlarge + $padding-base;
+  line-height: $profile-bar-height;
+  margin-right: $padding-base;
+  overflow: hidden;
+  float: left;
+
+  > span {
+    @include translate(0,50px);
+    font-size: $font-size-medium + 3;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Profile Edit
+|--------------------------------------------------------------------------
+*/
+.profile__edit__btn {
+  bottom: $profile-bar-height + $padding-base;
+  right: $padding-base;
+  position: absolute;
+}

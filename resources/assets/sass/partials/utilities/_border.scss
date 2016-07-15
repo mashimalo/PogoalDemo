@@ -1,0 +1,93 @@
+/*
+|--------------------------------------------------------------------------
+| Borders
+|--------------------------------------------------------------------------
+*/
+.bordered {
+  border: 1px solid $border-color !important;
+
+  &--light {
+    border-color: $color-gray-light-5 !important;
+  }
+}
+
+.bordered--l {
+  border-left: 1px solid $border-color !important;
+
+  &--light {
+    border-color: $color-gray-light-5 !important;
+  }
+}
+
+.bordered--b {
+  border-bottom: 1px solid $border-color !important;
+
+  &--light {
+    border-color: $color-gray-light-5 !important;
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Border Radius
+|--------------------------------------------------------------------------
+*/
+.rounded {
+  @include border-radius($border-radius-rounded !important);
+}
+
+.arc-btn-rounded {
+  @include border-radius(18px !important);
+}
+
+.arc-xs {
+  @include border-radius($border-radius-xsmall !important);
+}
+
+.arc-xs-top {
+  @include border-radius($border-radius-xsmall $border-radius-xsmall 0 0 !important);
+}
+
+.arc-xs-bottom {
+  @include border-radius(0 0 $border-radius-xsmall $border-radius-xsmall !important);
+}
+
+.arc-sm {
+  @include border-radius($border-radius-small !important);
+}
+.arc-sm-left {
+  @include border-radius($border-radius-small 0 0 $border-radius-small !important);
+}
+
+.arc-sm-top {
+  @include border-radius($border-radius-small $border-radius-small 0 0 !important);
+}
+
+.arc-sm-bottom {
+  @include border-radius(0 0 $border-radius-small $border-radius-small !important);
+}
+
+.arc-md {
+  @include border-radius($border-radius-medium !important);
+}
+
+.arc-md-top {
+  @include border-radius($border-radius-medium $border-radius-medium 0 0 !important);
+}
+
+.arc-md-bottom {
+  @include border-radius(0 0 $border-radius-medium $border-radius-medium !important);
+}
+
+.arc-xxlg {
+  @include border-radius($border-radius-xxlarge !important);
+}
+
+.arc-xxlg-left {
+  @include border-radius($border-radius-xxlarge 0 0 $border-radius-xxlarge!important);
+}
+
+.arc-xxlg-right {
+  @include border-radius(0 $border-radius-xxlarge $border-radius-xxlarge 0 !important);
+}

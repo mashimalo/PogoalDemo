@@ -1,0 +1,23 @@
+.inlineP {
+  margin-bottom: $padding-base;
+  @include clearfix;
+}
+
+.inlineP__label {
+  margin-right: $padding-base;
+  color: $color-gray-light-2;
+  text-align: right;
+  margin-bottom: 0;
+  width: 70px;
+  float: left;
+}
+
+.inlineP__content {
+  overflow: hidden;
+}
+
+.inlinePs--short {
+  .inlineP__label {
+    width: 60px;
+  }
+}

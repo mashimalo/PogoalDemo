@@ -1,0 +1,88 @@
+.uiAlert {
+  @include border-radius($border-radius-xsmall);
+  @include box-shadow($box-shadow-preset-4);
+  margin-bottom: 15px;
+}
+
+.uiAlert--ajax {
+  top: $toolbar-height;
+  position: fixed;
+  right: 0;
+  left: 0;
+
+  // z-index
+  z-index: $zindex-below-toolbar + 1;
+
+  .uiAlert--ajax__container {
+    @include border-bottom-radius($border-radius-base);
+    padding: $padding-base $padding-large;
+    margin: 0 auto;
+    display: table;
+
+    .icon {
+      line-height: 1em;
+      font-size: 30px;
+    }
+  }
+}
+
+// Dismissible
+.uiAlert--dismissible{
+  padding-right: $uiAlert-close-btn-size + $uiAlert-padding;
+  padding-left: $uiAlert-icon-size + $uiAlert-padding;
+  position: relative;
+
+  .close {
+    margin-top: -$uiAlert-close-btn-size / 2;
+    line-height: $uiAlert-close-btn-size;
+    height: $uiAlert-close-btn-size;
+    width: $uiAlert-close-btn-size;
+    right: $uiAlert-padding;
+    position: absolute;
+    top: 50%;
+  }
+}
+
+.uiAlert__icon {
+  margin-top: -$uiAlert-icon-size / 2;
+  line-height: $uiAlert-icon-size;
+  color: $uiAlert-content-color;
+  font-size: $uiAlert-icon-size;
+  height: $uiAlert-icon-size;
+  width: $uiAlert-icon-size;
+  left: $uiAlert-padding;
+  position: absolute;
+  top: 50%;
+
+}
+
+.uiAlert__content {
+  color: $uiAlert-content-color;
+  padding: $uiAlert-padding + 7 $padding-base;
+
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+
+  > p + p {
+    margin-top: 5px;
+  }
+}
+
+// Color
+.uiAlert--success {
+  background-color: $uiAlert-success-bg-color;
+}
+
+.uiAlert--info {
+  background-color: $uiAlert-info-bg-color;
+}
+
+.uiAlert--warn {
+  background-color: $uiAlert-warn-bg-color;
+}
+
+.uiAlert--danger {
+  background-color: $uiAlert-danger-bg-color;
+}

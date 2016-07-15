@@ -1,0 +1,49 @@
+.navBar{
+  height: $navBar-height;
+  position: relative;
+  width: 100%;
+
+  // z-index
+  z-index: $zindex-below-toolbar;
+}
+
+.navBar__container {
+  background-color: $navBar-bg;
+  //line-height: $navBar-height;
+  height: $navBar-height;
+  top: $toolbar-height;
+}
+
+.navBar__main {
+  @include center-table;
+  display: table;
+
+  > button,
+  > a {
+    line-height: $navBar-height;
+    padding: 0 $padding-base;
+    float: left;
+  }
+
+  > ul {
+    > li {
+      > button {
+        line-height: $navBar-height;
+        padding: 0 $padding-base;
+      }
+    }
+  }
+
+  .uiDropdown__menu {
+    margin-top: $padding-xsmall;
+
+    &:before {
+      right: 18px;
+      left: auto;
+    }
+    &:after {
+      right: 19px;
+      left: auto;
+    }
+  }
+}

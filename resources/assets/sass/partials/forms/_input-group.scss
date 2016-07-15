@@ -1,0 +1,108 @@
+.input-group {
+  border-collapse: separate;
+  position: relative;
+  display: table;
+
+  // Undo padding and float of grid classes
+  &[class*="col-"] {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .form-control {
+    position: relative;
+    margin-bottom: 0;
+    z-index: 2;
+    float: left;
+    width: 100%;
+
+    &:focus {
+      ~ .input-group-btn {
+        .btn {
+          background-color: darken($input-bg,3%);
+          color: $input-icon-color;
+
+          &:hover,
+          &:focus,
+          &:active {
+            color: $input-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Display as table-cell
+.input-group-btn,
+.input-group .form-control {
+  display: table-cell;
+
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}
+
+// Button input groups
+.input-group-btn {
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  font-size: 0;
+  width: 1%;
+
+  > .btn {
+    background-color: $input-bg;
+    color: $input-icon-color;
+    height: $input-height-base;
+    position: relative;
+
+    + .btn {
+      margin-left: -1px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      @include box-shadow(none);
+      color: $input-color;
+      z-index: 2;
+    }
+  }
+
+  &:first-child {
+    > .btn,
+    > .btn-group {
+      margin-right: -1px;
+    }
+  }
+
+  &:last-child {
+    > .btn,
+    > .btn-group {
+      z-index: 2;
+      margin-left: -1px;
+    }
+  }
+}
+
+// Reset rounded corners
+.input-group .form-control:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .btn-group > .btn,
+.input-group-btn:first-child > .uiDropdown--toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.uiDropdown--toggle),
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+  @include border-right-radius(0);
+}
+
+.input-group .form-control:last-child,
+.input-group-addon:last-child,
+.input-group-btn:last-child > .btn,
+.input-group-btn:last-child > .btn-group > .btn,
+.input-group-btn:last-child > .dropdown-toggle,
+.input-group-btn:first-child > .btn:not(:first-child),
+.input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+  @include border-left-radius(0);
+}

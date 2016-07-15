@@ -1,0 +1,102 @@
+#toolbar {
+  height: $toolbar-height;
+  position: relative;
+  width: 100%;
+
+  // z-index
+  z-index: $zindex-toolbar-fixed;
+}
+
+.toolbar__container {
+  // @include gradient-vertical($color-orange);
+   @include box-shadow($box-shadow-preset-3);
+  //border-bottom: 1px solid $toolbar-border;
+  background-color: $color-white;
+  height: $toolbar-height;
+  top: 0;
+}
+
+.has-navBar {
+  .toolbar__container {
+    border-bottom: 0;
+  }
+}
+
+// Main
+.toolbar__main {
+  height: $toolbar-height;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
+
+  h1 {
+    margin: ($toolbar-height - $brand-size) / 2 - 2 15px 0 0;
+    line-height: $line-height-one;
+    position: relative;
+    float: left;
+
+    // z-index
+    z-index: $zindex-toolbar-fixed + 1;
+
+    > a {
+      display: inline-block;
+    }
+
+    #brand {
+      line-height: $line-height-one;
+      font-size: $brand-size;
+      color: $brand-primary;
+    }
+  }
+}
+
+// Minor
+.toolbar__minor {
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      max-height: $toolbar-height;
+      position: relative;
+      float: right;
+    }
+  }
+}
+
+// Center
+.toolbar__center {
+  height: $toolbar-height;
+  position: absolute;
+  width: 100%;
+}
+
+.toolbar__icons {
+  > .icon {
+    line-height: $toolbar-height;
+    color: $color-gray-light-2;
+    padding: 0 $padding-base;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  > button{
+    color: $color-gray-light-2;
+  }
+
+  .uiDropdown__menu {
+    &:before {
+      right: 18px;
+      left: auto;
+    }
+    &:after {
+      right: 19px;
+      left: auto;
+    }
+  }
+}
+
+@import "toolbar/toolbar-portal";
+@import "toolbar/toolbar-search";
+@import "toolbar/toolbar-user";

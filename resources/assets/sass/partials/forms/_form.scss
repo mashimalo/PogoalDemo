@@ -1,0 +1,322 @@
+.form-group {
+  margin-bottom: $padding-base + 10;
+}
+
+.form-control {
+  @include border-radius($input-border-radius);
+  padding: $padding-medium-vertical $padding-base-horizontal;
+  line-height: $line-height-base;
+  background-color: $input-bg;
+  height: $input-height-base;
+  font-size: $font-size-base;
+  background-image: none;
+  color: $input-color;
+  display: block;
+  width: 100%;
+  border: 0;
+
+  // Focus
+  @include form-control-focus;
+
+  // Placeholder
+  @include placeholder;
+
+  // Disabled and read-only inputs
+  //&[disabled],
+  //&[readonly],
+  //fieldset[disabled] & {
+  //  background-color: $color-gray-light-2;
+  //  opacity: 1;
+  //}
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+
+  &.bg-white {
+    &:focus {
+      background-color: $color-white;
+    }
+  }
+}
+
+textarea {
+  overflow: auto;
+
+  &.form-control {
+    min-height: $input-height-base;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+// Checkboxes and radios
+.radio,
+.checkbox {
+  margin-bottom: 10px;
+  position: relative;
+  margin-top: 10px;
+  display: block;
+
+  label {
+    min-height: $line-height-computed;
+    font-weight: normal;
+    padding-left: 20px;
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: 4px;
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: -5px;
+}
+
+// Radios and checkboxes on same line
+.radio-inline,
+.checkbox-inline {
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Form Pend
+|--------------------------------------------------------------------------
+*/
+.form-prepend {
+  position: relative;
+
+  .form-control {
+    padding-left: $input-height-base;
+  }
+
+  .form-prepend-item {
+    padding: 0 $padding-base-horizontal;
+    line-height: $input-height-base;
+    color: $input-icon-color;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+.form-prepend-label {
+  .form-prepend-item {
+    top: 25px;
+  }
+}
+
+.form-append {
+  position: relative;
+
+  .form-append-item {
+    padding: 0 $padding-base-horizontal;
+    line-height: $input-height-base;
+    color: $input-icon-color;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Multiple Input
+|--------------------------------------------------------------------------
+*/
+.multipleInput {
+  position: relative;
+  padding-bottom: 0;
+  padding-top: 0;
+  display: table;
+  width: 100%;
+
+  ul {
+    margin: 0;
+  }
+
+  .form-control {
+    float: left;
+  }
+
+  .form-prepend-item {
+    top: auto;
+    bottom: 0;
+  }
+}
+
+.multipleInput-container input {
+  margin-bottom: 1px;
+  font-size: 13px;
+  width: 250px;
+  height: 24px;
+  clear: both;
+  border: 0;
+
+}
+
+.multipleInput-container ul {
+  list-style-type: none;
+}
+
+li.multipleInput-email {
+  @include border-radius($input-border-radius);
+  padding: $padding-base-vertical $padding-base-horizontal;
+  background-color: $color-gray-light-4;
+  line-height: $line-height-base;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  float: left;
+
+  > span {
+    margin-right: 12px;
+  }
+}
+
+.multipleInput-close {
+  float: right;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Auto Textarea & Rich Form
+|--------------------------------------------------------------------------
+*/
+.textarea-fake {
+  display: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.elastic-textarea {
+  position: relative;
+
+  &--hasBtn {
+    .form-control {
+      padding-right: 55px;
+    }
+  }
+
+  textarea {
+    overflow: hidden;
+    resize: none;
+  }
+
+  .elastic-textarea__btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    .btn {
+      float: right;
+      width: 40px;
+    }
+  }
+}
+
+.rich-form {
+  //background-color: $color-white;
+}
+
+.rich-form-body {
+  padding: 22px $padding-base 8px ($avatar-size-medium + ($padding-base * 2));
+  //background-color: $color-white;
+  position: relative;
+
+  &.active {
+    padding-bottom: $padding-base;
+
+    > textarea {
+      min-height: 100px;
+    }
+
+    ~ .rich-form-footer {
+      @include opacity(1);
+      visibility: visible;
+      margin-top: 0;
+    }
+  }
+
+  textarea {
+    @include transition($general-transition);
+    //min-height: $avatar-size-medium;
+    overflow: hidden;
+    resize: none;
+    padding: 0;
+  }
+}
+
+.rich-form-avatar {
+  left: $padding-base;
+  position: absolute;
+  top: $padding-base;
+}
+
+.rich-form-footer {
+  @include transition($general-transition);
+  @include opacity(0);
+  border-top: 1px solid $border-color;
+  margin-top: -$bar-height-base;
+  visibility: hidden;
+  display: table;
+  width: 100%;
+
+  .icon {
+    float: left;
+    height: 50px;
+    cursor: pointer;
+    line-height: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 20px;
+    color: $link-color-light;
+  }
+
+  .pull-right {
+    margin-top: 9px;
+    padding-right: $padding-base;
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Inline Forms
+|--------------------------------------------------------------------------
+*/
+.forms--inline {
+  > form {
+    display: inline-block;
+    margin-right: $padding-xsmall;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:only-child {
+      margin-right: 0;
+    }
+  }
+}

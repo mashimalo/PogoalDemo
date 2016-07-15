@@ -1,0 +1,94 @@
+/*
+|--------------------------------------------------------------------------
+|
+| Usage:
+|
+| <div class="uiSwitch">
+|   <input type="checkbox" name="uiSwitch" class="uiSwitch__checkbox" id="sgp-cover-switch" checked>
+|   <label class="uiSwitch__label" for="sgp-cover-switch"></label>
+| </div>
+|
+|--------------------------------------------------------------------------
+*/
+
+
+.uiSwitch {
+  position: relative;
+  width: 40px;
+}
+
+.uiSwitch__checkbox {
+  display: none;
+
+  &:checked {
+    + .uiSwitch__label {
+      background-color: $brand-success;
+      &:before {
+        left: 24px;
+      }
+    }
+  }
+}
+
+.uiSwitch__label {
+  @include transition(all 0.3s ease-in 0s);
+  @include border-radius(8px);
+  background-color: $color-gray-light-4;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  height: 16px;
+  margin: 0;
+
+  &:before {
+    @include transition(all 0.3s ease-in 0s);
+    @include box-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    @include border-radius(50%);
+    background: $color-white;
+    position: absolute;
+    display: block;
+    height: 16px;
+    width: 16px;
+    content: "";
+    left: 0;
+    top: 0;
+  }
+}
+
+.uiSwitch--v {
+  &.uiSwitch {
+    text-align: center;
+    width: auto;
+  }
+
+  &.toggled {
+    .uiSwitch__label {
+      &:before {
+        left: 0;
+        top: 16px;
+      }
+    }
+  }
+
+  .uiSwitch__checkbox {
+    display: none;
+
+    &:checked {
+      + .uiSwitch__label {
+        &:before {
+          left: 0;
+          top: 16px;
+        }
+      }
+    }
+  }
+
+  .uiSwitch__label {
+    height: 32px;
+    width: 16px;
+
+    &:before {
+      left: 0px;
+    }
+  }
+}

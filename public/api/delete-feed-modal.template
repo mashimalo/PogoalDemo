@@ -1,0 +1,23 @@
+<div class="uiModal fade" id="delete-confirmation-{{ group_id }}{{ feed_id }}">
+	<div class="uiModal__dialog uiModal--sm">
+		<div class="uiModal__content">
+			<div class="uiModal__header">
+				<button class="close" data-dismiss="modal">
+					<span>&times;</span>
+				</button>
+				<div class="h3 text-center">
+					Delete Feed
+				</div>
+			</div>
+			<div class="uiModal__body">
+				This feed will be permanent deleted, are you sure you want to delete it?
+			</div>
+			<div class="uiModal__footer text-right">
+				<button class="btn btn-outline-gray" data-dismiss="modal">Cancel</button>
+				<button class="btn btn-primary" data-dismiss="modal" data-action="delete-feed-confirmed">
+					Delete
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

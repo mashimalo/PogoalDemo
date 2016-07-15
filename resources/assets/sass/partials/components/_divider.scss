@@ -1,0 +1,22 @@
+hr {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 0;
+  border-top: 1px solid $color-gray-light-4;
+}
+
+.divider-h {
+  @include divider-horizontal($padding-base 0, $dark03);
+}
+
+.divider-h--light {
+  background-color: $dark01;
+}
+
+.divider-h--xxlg {
+  margin: $padding-xxlarge 0;
+}
+
+.divider-v {
+  @include divider-vertical(0 $padding-base, $dark03);
+}

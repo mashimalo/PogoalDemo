@@ -1,0 +1,33 @@
+.has-sticky__bar {
+  z-index: $zindex-below-toolbar;
+}
+
+.sticky__bar {
+  //background-color: $color-white;
+  height: $bar-height-base;
+  top: $toolbar-height;
+  width: 100%;
+  left: 0;
+
+  // z-index
+  z-index: $zindex-below-toolbar;
+}
+
+.sticky {
+  .sticky__bar {
+    // @include box-shadow($box-shadow-preset-3);
+    background-color: $navBar-bg;
+    position: fixed;
+  }
+
+  .profile__bar__avatar {
+    @include translate(0, -50px);
+  }
+
+  .cover__child__name,
+  .profile__bar__name {
+    > span {
+      @include translate(0,0);
+    }
+  }
+}

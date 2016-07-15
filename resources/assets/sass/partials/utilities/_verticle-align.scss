@@ -1,0 +1,14 @@
+.vA-block--middle {
+  position: relative;
+  display: table;
+
+  .vA__item {
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+  }
+}
+
+.vA--middle {
+  vertical-align: middle;
+}

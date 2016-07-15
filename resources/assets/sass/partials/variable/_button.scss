@@ -1,0 +1,34 @@
+/*
+|--------------------------------------------------------------------------
+| Button
+|--------------------------------------------------------------------------
+*/
+// Border Radius
+$btn-border-radius-base: $border-radius-base ;
+$btn-border-radius-large: $border-radius-large ;
+$btn-border-radius-small: $border-radius-small ;
+
+// Color
+$btn-default-bg: $color-white;
+
+$btn-primary-color: $color-white;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: darken($btn-primary-bg, 5%);
+
+$btn-success-color: $color-white;
+$btn-success-bg: $brand-success;
+$btn-success-border: darken($btn-success-bg, 5%);
+
+$btn-info-color: $color-white;
+$btn-info-bg: $brand-info;
+$btn-info-border: darken($btn-info-bg, 5%);
+
+$btn-warning-color: $color-white;
+$btn-warning-bg: $brand-warn;
+$btn-warning-border: darken($btn-warning-bg, 5%);
+
+$btn-danger-color: $color-white;
+$btn-danger-bg: $brand-danger;
+$btn-danger-border: darken($btn-danger-bg, 5%);
+
+$btn-link-disabled-color: $color-gray-light-5;

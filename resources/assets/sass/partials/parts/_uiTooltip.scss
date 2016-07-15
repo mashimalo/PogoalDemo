@@ -1,0 +1,127 @@
+/*
+|--------------------------------------------------------------------------
+| Tooltips
+|--------------------------------------------------------------------------
+*/
+// Base class
+.uiTooltip {
+  @include opacity(0);
+  @include text-reset;
+  min-width: 100px;
+  display: block;
+  position: absolute;
+  z-index: $zindex-tooltip;
+  font-size: $font-size-xsmall;
+
+  &.in {
+    @include opacity($tooltip-opacity);
+  }
+
+  &.top {
+    margin-top: -3px;
+    padding: $tooltip-arrow-width 0;
+  }
+
+  &.right {
+    margin-left: 3px;
+    padding: 0 $tooltip-arrow-width;
+  }
+
+  &.bottom {
+    margin-top: 3px;
+    padding: $tooltip-arrow-width 0;
+  }
+
+  &.left {
+    margin-left: -3px;
+    padding: 0 $tooltip-arrow-width;
+  }
+}
+
+// Wrapper for the tooltip content
+.uiTooltip__inner {
+  max-width: $tooltip-max-width;
+  padding: 5px 8px;
+  color: $tooltip-color;
+  text-align: center;
+  background-color: $tooltip-bg;
+  border-radius: $border-radius-base;
+}
+
+// Arrows
+.uiTooltip__arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+// Note: Deprecated .top-left, .top-right, .bottom-left, and .bottom-right as of v3.3.1
+.uiTooltip {
+  &.top .tuiTooltip__arrow {
+    bottom: 0;
+    left: 50%;
+    margin-left: -$tooltip-arrow-width;
+    border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+    border-top-color: $tooltip-arrow-color;
+  }
+  &.top-left .uiTooltip__arrow {
+    bottom: 0;
+    right: $tooltip-arrow-width;
+    margin-bottom: -$tooltip-arrow-width;
+    border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+    border-top-color: $tooltip-arrow-color;
+  }
+  &.top-right .uiTooltip__arrow {
+    bottom: 0;
+    left: $tooltip-arrow-width;
+    margin-bottom: -$tooltip-arrow-width;
+    border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+    border-top-color: $tooltip-arrow-color;
+  }
+  &.right .uiTooltip__arrow {
+    top: 50%;
+    left: 0;
+    margin-top: -$tooltip-arrow-width;
+    border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
+    border-right-color: $tooltip-arrow-color;
+  }
+  &.left .uiTooltip__arrow {
+    top: 50%;
+    right: 0;
+    margin-top: -$tooltip-arrow-width;
+    border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
+    border-left-color: $tooltip-arrow-color;
+  }
+  &.bottom .uiTooltip__arrow {
+    top: 0;
+    left: 50%;
+    margin-left: -$tooltip-arrow-width;
+    border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+    border-bottom-color: $tooltip-arrow-color;
+  }
+  &.bottom-left .uiTooltip__arrow {
+    top: 0;
+    right: $tooltip-arrow-width;
+    margin-top: -$tooltip-arrow-width;
+    border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+    border-bottom-color: $tooltip-arrow-color;
+  }
+  &.bottom-right .uiTooltip__arrow {
+    top: 0;
+    left: $tooltip-arrow-width;
+    margin-top: -$tooltip-arrow-width;
+    border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+    border-bottom-color: $tooltip-arrow-color;
+  }
+}
+
+.uiDropdown__menu {
+  .uiTooltip {
+    &.left {
+      margin-left: -$padding-xsmall;
+      padding: 0 $tooltip-arrow-width;
+    }
+  }
+}

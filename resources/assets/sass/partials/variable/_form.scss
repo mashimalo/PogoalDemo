@@ -1,0 +1,23 @@
+/*
+|--------------------------------------------------------------------------
+| Form
+|--------------------------------------------------------------------------
+*/
+// Border Radius
+$input-border-radius: $border-radius-xsmall;
+$input-border-radius-large: $border-radius-large;
+$input-border-radius-small: $border-radius-small;
+
+// Size
+$input-height-base: 36px;
+
+// Color
+$input-bg: $body-bg;
+$input-color: darken($input-bg,60%);
+$input-icon-color: darken($input-bg,30%);
+
+// Form states and alerts
+$color-success-border: darken(adjust-hue($color-success, -10), 5%);
+$color-info-border: darken(adjust-hue($color-info, -10), 7%);
+$color-warn-border: darken(adjust-hue($color-warn, -10), 5%);
+$color-danger-border: darken(adjust-hue($color-danger, -10), 5%);

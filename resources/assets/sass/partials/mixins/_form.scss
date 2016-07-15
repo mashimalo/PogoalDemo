@@ -1,0 +1,53 @@
+// Placeholder text
+@mixin placeholder($color: $input-bg) {
+  // Firefox
+  &::-moz-placeholder {
+    color: darken($color, 15%);
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color: darken($color, 15%);
+  }
+  &::-webkit-input-placeholder {
+    color: darken($color, 15%);
+  }
+}
+
+// Validation
+@mixin form-control-validation($color: $input-bg) {
+  .help-block,
+  .control-label,
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline,
+  &.radio label,
+  &.checkbox label,
+  &.radio-inline label,
+  &.checkbox-inline label {
+    color: $color;
+  }
+
+  .form-control {
+    @include placeholder(lighten($color, 10%));
+    background-color: lighten($color, 30%);
+    color: darken($color, 20%);
+  }
+
+  .help-block {
+    display: block;
+  }
+
+  .form-prepend-item {
+    color: lighten($color, 10%);
+  }
+}
+
+// Form control focus state
+@mixin form-control-focus($color: $input-bg) {
+  &:focus {
+    @include placeholder(darken($color, 20%));
+    @include tab-focus;
+    background-color: darken($color, 3%);
+  }
+}

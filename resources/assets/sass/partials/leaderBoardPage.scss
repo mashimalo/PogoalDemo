@@ -1,0 +1,72 @@
+.leaderBoardPage {
+  background-image: url(/assets/images/leaderboard-bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  h2 {
+    margin: 70px 0 100px;
+    font-size: $font-size-xxxlarge;
+    color: $color-white;
+
+    svg {
+      position: absolute;
+      margin-left: -75px;
+      margin-top: -40px;
+      fill: $light04;
+      height: auto;
+      width: 150px;
+      left: 50%;
+      top: 50%;
+    }
+  }
+}
+
+.leaderBoard__column {
+  background-color: $light09;
+  overflow: hidden;
+}
+
+.leaderBoard__column__title {
+  background: #bca7ff;
+  background: -moz-linear-gradient(left,  #bca7ff 0%, #7999fc 50%, #05abe0 100%);
+  background: -webkit-linear-gradient(left,  #bca7ff 0%,#7999fc 50%,#05abe0 100%);
+  background: linear-gradient(to right,  #bca7ff 0%,#7999fc 50%,#05abe0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bca7ff', endColorstr='#05abe0',GradientType=1 );
+
+  position: relative;
+  z-index: 9;
+}
+
+.leaderBoard__column__filter__container {
+  position: relative;
+  z-index: 8;
+
+  .leaderBoard__column__filter {
+    border-bottom: 1px solid $color-gray-light-4;
+    color: $text-color-light;
+  }
+
+  &:hover {
+    background-color: $color-gray-light-4;
+
+    .leaderBoard__column__filter {
+      background-color: transparent;
+      color: $text-color;
+    }
+  }
+
+  &.toggled {
+    @include box-shadow($box-shadow-preset-2);
+    background-color: $color-gray-light-4;
+
+    .leaderBoard__column__filter {
+      background-color: transparent;
+      color: $text-color;
+    }
+  }
+}
+
+#leaderBoard__column__filter__topUsersList {
+  z-index: 7;
+}

@@ -1,0 +1,24 @@
+.lvlBar {
+  @include border-radius($border-radius-base);
+  //border: 1px solid $border-color;
+  background-color: $color-gray-light-6;
+  height: $lvlBar-height;
+  position: relative;
+  display: block;
+}
+
+.lvlBar__inner {
+  @include border-left-radius($border-radius-base);
+  background-color: $brand-primary;
+  display: block;
+  height: 100%;
+}
+
+.lvlBar__count {
+  color: $color-gray-light-2;
+  line-height: $lvlBar-height;
+  padding: 0 $padding-base;
+  position: absolute;
+  right: 0;
+
+}

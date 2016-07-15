@@ -1,0 +1,14 @@
+.page__content,
+.content__main {
+  padding-top: $page-content-padding-top;
+  padding-bottom: $page-content-padding-bottom;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Import
+|--------------------------------------------------------------------------
+*/
+@import "components/cover";
+@import "layout/page-top";
+@import "layout/content-top";

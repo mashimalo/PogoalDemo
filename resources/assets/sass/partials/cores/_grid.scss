@@ -1,0 +1,42 @@
+.site-container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  ceil(($grid-gutter / 2));
+  padding-right: floor(($grid-gutter / 2));
+  max-width: $container-lg;
+  width: 100%;
+}
+
+.site-container--fluid {
+  @include clearfix;
+  padding-left:  ceil(($grid-gutter / 2));
+  padding-right: floor(($grid-gutter / 2));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wrap {
+  @include clearfix;
+  margin-left: - ceil(($padding-base / 2));
+  margin-right: - floor(($padding-base / 2));
+}
+
+.wrap-one {
+  @include clearfix;
+  margin-left: - 1px;
+  margin-right: - 1px;
+}
+
+
+@include make-grid-columns;
+
+@include make-grid(f);
+
+.c-f-o-3 {
+  padding-right: floor(($padding-base / 2));
+  padding-left:  ceil(($padding-base / 2));
+  position: relative;
+  min-height: 1px;
+  float: left;
+  width: 20%
+}

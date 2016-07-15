@@ -1,0 +1,22 @@
+.hide {
+  display: none;
+}
+
+.show {
+  display: block !important;
+}
+
+.visibility--on {
+  visibility: visible !important;
+}
+
+.visibility--off {
+  visibility: hidden !important;
+}
+
+.toggled {
+  .icon-arrow-top,
+  .icon-arrow-down {
+    @include rotate(180deg);
+  }
+}
