@@ -13,14 +13,14 @@ class ProfileTableSeeder extends Seeder {
 			'first_name' => 'Weiguo',
 			'last_name' => 'Zheng',
 			'gender_id' => 1,
-			'date_of_birth' => '1983-09-09',
+			'date_of_birth' => '1986-09-09',
 			'bio' => 'Nothing to say here yet.',
 		]);
 		Profile::create([
 			'user_id' => 2,
 			'nickname' => 'admin',
-			'first_name' => 'ad',
-			'last_name' => 'min',
+			'first_name' => 'hui',
+			'last_name' => 'lin',
 			'gender_id' => 1,
 			'date_of_birth' => '1980-01-01',
 			'bio' => 'Nothing to say here yet.',

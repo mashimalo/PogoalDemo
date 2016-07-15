@@ -13,88 +13,27 @@ class GroupTypesTableSeeder extends Seeder
     public function run()
     {
         GroupType::create([
-            'group_type_name' => 'Sport',
+            'group_type_name' => 'Idea Validation',
         ]);
 
         GroupType::create([
-            'group_type_name' => 'Music',
+            'group_type_name' => 'MVP Feedback',
         ]);
 
         GroupType::create([
-            'group_type_name' => 'Close Friends',
+            'group_type_name' => 'Product Review',
         ]);
 
         GroupType::create([
-            'group_type_name' => 'Project',
+            'group_type_name' => 'Geek Corner',
         ]);
 
         GroupType::create([
-            'group_type_name' => 'Event',
+            'group_type_name' => 'Burnout Cave',
         ]);
 
 	    GroupType::create([
-		    'group_type_name' => 'Startup',
+		    'group_type_name' => 'Other Topics',
 	    ]);
-
-	    GroupType::create([
-		    'group_type_name' => 'Education',
-	    ]);
-
-        GroupType::create([
-            'group_type_name' => 'Pet',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Creative',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Agency',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Service',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Service',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Travel',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Organization',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Company',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Neighbors',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Support',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Family',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Team',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Club',
-        ]);
-
-        GroupType::create([
-            'group_type_name' => 'Other',
-        ]);
-
     }
 }

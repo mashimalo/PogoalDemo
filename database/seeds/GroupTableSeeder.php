@@ -14,89 +14,53 @@ class GroupTableSeeder extends Seeder
     {
         Group::create([
             'name' => 'Test Group - zwg',
-            'description' => 'test group 1 description',
+            'description' => 'Test Group ZWG',
+            'group_type_id' => '6',
+            'privacy_rule_id' => '1',
+
+        ]);
+
+        Group::create([
+            'name' => 'Test Idea Validation Group',
+            'description' => 'Test Idea Validation Group',
             'group_type_id' => '1',
             'privacy_rule_id' => '1',
 
         ]);
 
         Group::create([
-            'name' => 'Test Group 2',
-            'description' => 'test group 2 description',
+            'name' => 'Test MVP Feedback Group',
+            'description' => 'Test MVP Feedback Group',
             'group_type_id' => '2',
             'privacy_rule_id' => '1',
         ]);
 
         Group::create([
-            'name' => 'Test Group 3',
-            'description' => 'test group3',
+            'name' => 'Test Product Review Group',
+            'description' => 'Test Product Review group',
             'group_type_id' => '3',
             'privacy_rule_id' => '1',
         ]);
 
         Group::create([
-            'name' => 'Test Group 4',
-            'description' => 'test group4',
+            'name' => 'Test Geek Corner Group',
+            'description' => 'Test Geek Corner Group',
             'group_type_id' => '4',
             'privacy_rule_id' => '1',
         ]);
 
         Group::create([
-            'name' => 'test name5',
-            'description' => 'test group5',
+            'name' => 'Test Burnout Cave Group',
+            'description' => 'Test Burnout Cave test group',
             'group_type_id' => '5',
             'privacy_rule_id' => '1',
         ]);
 
         Group::create([
-            'name' => 'test name6',
-            'description' => 'test group6',
+            'name' => 'Test Random Topics Group',
+            'description' => 'Test Other Topics Groups',
             'group_type_id' => '6',
             'privacy_rule_id' => '1',
         ]);
-
-        Group::create([
-            'name' => 'mock name7',
-            'description' => 'mock group7',
-            'group_type_id' => '7',
-            'privacy_rule_id' => '1',
-        ]);
-
-        Group::create([
-            'name' => 'mock name8',
-            'description' => 'mock group8',
-            'group_type_id' => '8',
-            'privacy_rule_id' => '1',
-        ]);
-
-        Group::create([
-            'name' => 'mock name9',
-            'description' => 'mock group9',
-            'group_type_id' => '9',
-            'privacy_rule_id' => '1',
-        ]);
-
-        Group::create([
-            'name' => 'mock name10',
-            'description' => 'mock group10',
-            'group_type_id' => '10',
-            'privacy_rule_id' => '1',
-        ]);
-
-        Group::create([
-            'name' => 'mock name11',
-            'description' => 'mock group11',
-            'group_type_id' => '11',
-            'privacy_rule_id' => '1',
-        ]);
-
-        Group::create([
-            'name' => 'mock name12',
-            'description' => 'test group12',
-            'group_type_id' => '12',
-            'privacy_rule_id' => '1',
-        ]);
-
-
     }
 }
