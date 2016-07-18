@@ -10,6 +10,11 @@ use App\Models\Group;
 use App\Models\User;
 use App\Models\GroupUser;
 
+use Illuminate\Support\Facades\Input;
+use \Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
+use Carbon\Carbon;
+
 class GroupRepository extends BaseRepository
 {
 
@@ -356,5 +361,58 @@ class GroupRepository extends BaseRepository
         DB::commit();
     }
 
+    // upload profile avatar
+    public function uploadGroupAvatar($group, $request)
+    {
+        DB::beginTransaction();
+        try
+        {
+            if ($request->hasFile('uploadImage'))
+            {
+                $file = Input::file('uploadImage');
+                //getting timestamp
+                $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
+                $filename = $file->getClientOriginalName();
+                $extension = $file->getClientOriginalExtension();
+                $largeAvatarFileName = sha1($filename . $timestamp.'large') . '.' . $extension;
+                $smallAvatarFileName = sha1($filename . $timestamp.'small') . '.' . $extension;
+                $filePath = public_path() . '/images/groupAvatar/';
+                $file=$file->getRealPath();
+                $largeAvatarFile= Image::make($file);
+                // save large file
+                $largeAvatarFile->resize(400, 400);
+                $largeAvatarFile->save($filePath.$largeAvatarFileName);
+                // save small file
+                $smallAvatarFile= Image::make($file);
+                $smallAvatarFile->resize(64, 64);
+                $smallAvatarFile->save($filePath.$smallAvatarFileName);
+            }
+            // delete the old large avatar  file in the file system
+            if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
+            {
+                $oldAvatarLarge = $filePath.$group->group_avatar_large;
+                File::delete($oldAvatarLarge);
+            }
+
+            // delete the old avatar file in the file system
+            if ($group->group_avatar_small != null)
+            {
+                $oldAvatarSmall = $filePath.$group->group_avatar_small;
+                File::delete($oldAvatarSmall);
+            }
+
+            $group->group_avatar_large = $largeAvatarFileName;
+            $group->group_avatar_small = $smallAvatarFileName;
+
+            $group->save();
+
+        }
+        catch (\Exception $e)
+        {
+            DB::rollback();
+            throw $e;
+        }
+        DB::commit();
+    }
 
 }

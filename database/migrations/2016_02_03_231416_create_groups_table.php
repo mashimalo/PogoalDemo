@@ -21,6 +21,8 @@ class CreateGroupsTable extends Migration
             $table->foreign('privacy_rule_id')->references('id')->on('privacy_rules')->onDelete('restrict')->onUpdate('restrict');
             $table->unsignedInteger('group_type_id')->nullable();
             $table->foreign('group_type_id')->references('id')->on('group_types');
+            $table->string('group_avatar_large')->nullable();
+            $table->string('group_avatar_small')->nullable();
             $table->timestamps();
         });
     }

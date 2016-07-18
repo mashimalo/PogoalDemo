@@ -10,7 +10,8 @@
         "barryvdh/laravel-debugbar": "^2.0@dev",
         "laravelcollective/html": "5.1.*",
         "filp/whoops": "^1.1",
-        "s9e/text-formatter": "*"
+        "s9e/text-formatter": "*",
+        "intervention/image": "^2.3"
 
     },
     "require-dev": {

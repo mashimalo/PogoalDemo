@@ -37,5 +37,6 @@
     @endif
     {!! Html::script("assets/js/temporary.js") !!}
 
+
 </body>
 </html>

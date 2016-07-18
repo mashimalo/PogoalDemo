@@ -15,6 +15,7 @@ return [
     'userRemoved' => 'This user has been removed from the group.',
     'leaveGroup' => 'You have leave this group.',
     'createGroupFail' => 'Create group failed',
+    'modifyGroupFail' => 'Modify group failed',
     'joinGroupFail' => 'Join group failed',
     'acceptUserFail' => 'Accept user join group request fail',
     'denyUserFail' => 'Deny user join group request fail',

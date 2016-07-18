@@ -127,13 +127,34 @@
         {{----------------------------
         | Profile Tab
         ----------------------------}}
-        <div id="tabs-2" class="uiCard__body uiTabs__content">
-            <div class="uiCard__header">
-                <div class="h4">Profile</div>
-            </div>
+        {{--<img id="tabs-2" class="uiCard__body uiTabs__content">--}}
+            {{--<div class="uiCard__header">--}}
+                {{--<div class="h4">Profile</div>--}}
+            {{--</div>--}}
             <div class="uiCard__content">
-                Upload Avatar Here.
+                <h2>Upload Avatar Here.</h2>
+                <div class="container">
+                    {!! Form::model($user->profile,['name'=>'profileAvatarUpload-form','id'=>'profileAvatarUpload-form','route'=> ['uploadProfileAvatar',$user->profile->nickname],'method'=>'POST', 'files' => true])!!}
+                    <div class="form-group">
+                        {!! Form::label('uploadImage', 'Choose an image') !!}
+                        {!! Form::file('uploadImage') !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit('Submit',['class'=>'btn btn-primary btn-block']) !!}
+                    </div>
+                    {!! Form::close() !!}
+                </div>
+                <h3> Large Avatar</h3>
+                @if ($user->profile->user_avatar_large != null)
+                    <img src= {!! '/images/userAvatar/'.$user->profile->user_avatar_large !!}>
+                @endif
+
+                <h3>Small Avatar</h3>
+                @if ($user->profile->user_avatar_small != null)
+                    <img src= {!! '/images/userAvatar/'.$user->profile->user_avatar_small !!}>
+                @endif
             </div>
         </div>
     </div>
 </div>
+

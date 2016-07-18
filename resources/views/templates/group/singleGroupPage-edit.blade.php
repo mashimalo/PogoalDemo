@@ -117,3 +117,27 @@
 {!! Form::submit('Update',['class'=>'btn btn-primary btn-block']) !!}
 
 {!!  Form::close() !!}
+
+<div class="uiCard__content">
+    <h2>Upload Avatar Here.</h2>
+    <div class="container">
+        {!! Form::model($group,['name'=>'groupAvatarUpload-form','id'=>'groupAvatarUpload-form','route'=> ['uploadGroupAvatar',$group->id],'method'=>'POST', 'files' => true])!!}
+        <div class="form-group">
+            {!! Form::label('uploadImage', 'Choose an image') !!}
+            {!! Form::file('uploadImage') !!}
+        </div>
+        <div class="form-group">
+            {!! Form::submit('Submit',['class'=>'btn btn-primary btn-block']) !!}
+        </div>
+        {!! Form::close() !!}
+    </div>
+    <h3> Large Avatar</h3>
+    @if ($group->group_avatar_large != null)
+        <img src= {!! '/images/groupAvatar/'.$group->group_avatar_large !!}>
+    @endif
+
+    <h3>Small Avatar</h3>
+    @if ($group->group_avatar_small != null)
+        <img src= {!! '/images/groupAvatar/'.$group->group_avatar_small !!}>
+    @endif
+</div>

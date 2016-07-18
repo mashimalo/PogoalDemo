@@ -25,10 +25,8 @@ class CreateProfilesTable extends Migration
             $table->foreign('gender_id')->references('id')->on('genders')->onDelete('restrict')->onUpdate('restrict');
             $table->date('date_of_birth');
             $table->text('bio')->nullable();
-            $table->unsignedInteger('avatar_photo_id')->nullable();
-            $table->foreign('avatar_photo_id')->references('id')->on('photos');
-            $table->unsignedInteger('cover_photo_id')->nullable();
-            $table->foreign('cover_photo_id')->references('id')->on('photos');
+            $table->string('user_avatar_large')->nullable();
+            $table->string('user_avatar_small')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

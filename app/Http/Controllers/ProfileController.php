@@ -4,10 +4,12 @@ use App\Models\Profile;
 use \Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Models\user;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 use App\Repositories\UserRepository;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\UploadAvatarRequest;
 use App\Repositories\ProfileRepository;
+
 
 class ProfileController extends Controller
 {
@@ -195,5 +197,30 @@ class ProfileController extends Controller
 //		}
 //		return view('pages.glancePage', compact('user', 'target_user_id'));
 //	}
+
+	public function uploadProfileAvatar ($target_nickname, UploadAvatarRequest $request)
+	{
+		try
+		{
+			$userNickName = $target_nickname;
+			$target_user_id = $this -> getUserIdBaseOnNickname($target_nickname);
+			$current_user_id = Auth::user()->id;
+
+			if ($target_user_id != $current_user_id)
+			{
+				return redirect('/')->with('error', trans('front/profile.notHavePermissionToEditUser'));
+			}
+			$user = $this->getUserByUserId($target_user_id);
+
+			$this->profile_repository->uploadProfileAvatar($user->profile, $request);
+
+		}
+		catch(\Exception $e)
+		{
+//			throw $e;
+			return back()->with('error', trans('front/profile.modifyUserProfileFail'));
+		}
+		return redirect()->route('profile.edit', [$userNickName])->with('ok', trans('front/profile.updateSuccessful'));
+	}
 	
 }

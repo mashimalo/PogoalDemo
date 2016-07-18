@@ -167,6 +167,15 @@ Route::PATCH('group/{group_id}/profile/modify',
         'as'         => 'singleGroupProfilePage-modify'
     ]);
 
+// Update Profile route (Patch process).
+Route::post('group/{group_id}/profile/avatar/upload',
+    [
+        'middleware' => 'auth',
+        'uses'       => 'GroupsController@uploadGroupAvatar',
+        'as'         => 'uploadGroupAvatar'
+    ]);
+
+
 // send join group request
 Route::post('group/{group_id}/join',
     [
@@ -631,6 +640,14 @@ Route::patch('profile/{target_nickname}/profile/update',
         'middleware' => 'auth',
         'uses'       => 'ProfileController@update',
         'as'         => 'profile.update'
+    ]);
+
+// Update Profile route (Patch process).
+Route::post('profile/{target_nickname}/profile/avatar/upload',
+    [
+        'middleware' => 'auth',
+        'uses'       => 'ProfileController@uploadProfileAvatar',
+        'as'         => 'uploadProfileAvatar'
     ]);
 
 // User Glance page
