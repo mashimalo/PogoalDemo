@@ -132,12 +132,12 @@
         {!! Form::close() !!}
     </div>
     <h3> Large Avatar</h3>
-    @if ($group->group_avatar_large != null)
+    @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
         <img src= {!! '/images/groupAvatar/'.$group->group_avatar_large !!}>
     @endif
 
     <h3>Small Avatar</h3>
-    @if ($group->group_avatar_small != null)
+    @if ($group->group_avatar_small != null || strlen($group->group_avatar_small) > 0)
         <img src= {!! '/images/groupAvatar/'.$group->group_avatar_small !!}>
     @endif
 </div>

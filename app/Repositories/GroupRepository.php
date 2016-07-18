@@ -395,7 +395,7 @@ class GroupRepository extends BaseRepository
             }
 
             // delete the old avatar file in the file system
-            if ($group->group_avatar_small != null)
+            if ($group->group_avatar_small != null || strlen($group->group_avatar_small) > 0)
             {
                 $oldAvatarSmall = $filePath.$group->group_avatar_small;
                 File::delete($oldAvatarSmall);
