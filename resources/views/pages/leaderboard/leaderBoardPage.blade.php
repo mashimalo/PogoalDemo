@@ -23,113 +23,176 @@
         </svg>
     </h2>
 
-    <div class="wrap leaderBoards">
+    <div class="wrap leaderboards">
+
+        {{----------------------------
+        | Top Users
+        ----------------------------}}
         <div class="c-f-4">
-            <div class="leaderBoard__column shadow h--dummy">
-                <div class="leaderBoard__column__title text-center text-white text-shadow text-lg thin shadow--dark pV--sm pH--md">
+            <div id="leaderboard-topUsers" class="leaderboard__column shadow h--dummy">
+                <div class="leaderboard__column__title text-center text-white text-shadow text-lg thin shadow--dark pV--sm pH--md">
                     Top Users
                 </div>
 
-                <div class="leaderBoard__column__filter__container text-center pH--md transit--linear--fast link-fake"
+                <div class="leaderboard__filter__container text-center pH--md transit--linear--fast link-fake"
                      data-action="toggle"
-                     data-target="#leaderBoard__column__filter__topUsersList">
-                    <div class="leaderBoard__column__filter pV--sm transit--linear--fast">
-                        All Categories
+                     data-target="#leaderboard-filter-topUsers">
+                    <div class="leaderboard__filter pV--sm transit--linear--fast">
+                        <span class="leaderboard__filter__current">All Categories</span>
                         <span class="icon icon-arrow-down mL"></span>
                     </div>
                 </div>
 
-                <div id="leaderBoard__column__filter__topUsersList" class="leaderBoard__column__filter__list pV bg--dark hide">
+                <div id="leaderboard-filter-topUsers" class="leaderboard__filter__list pV bg--dark hide">
                     <ul class="bg--white text-center slimScroll">
+                        <li class="lk-darker pH--md pV--sm display-block lk-block link-fake"
+                            data-action="leaderboard-filter-topUsers"
+                            data-group-type-id="all">
+                            All Categories
+                        </li>
                         @foreach(App\Models\GroupType::all() as $groupType)
-                            <li>
-                                <a href="#" class="lk-darker pH--md pV--sm display-block lk-block">
-                                    {{ $groupType->group_type_name }}
-                                </a>
+                            <li class="lk-darker pH--md pV--sm display-block lk-block link-fake"
+                                data-action="leaderboard-filter-topUsers"
+                                data-group-type-id="{{ $groupType->id }}">
+                                {{ $groupType->group_type_name }}
                             </li>
                         @endforeach
                     </ul>
                 </div>
 
-                <div>
+                <ul id="leaderboard-result-topUsers" class="leaderboard__result__list">
                     @foreach($topUsers as $user)
-                        <li>
-                            <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->nickname) }}" class="lk-darker pH--md pV--sm display-block lk-block">
-                                {{ empty_eitherName_displayNickname_by_userId($user->user_id) }}
-                                <br>
-                                Total like by other user: {{ $user->amount }}
-                            </a>
+                        <li class="pH--md lk-block">
+                            <div class="pV--sm bordered--b bordered--b--light">
+                                <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->nickname) }}"
+                                   class="pull-left mR--md">
+                                    <img data-name="{{ empty_eitherName_displayNickname_by_userId($user->user_id) }}"
+                                         class="initialAvatar avatar avatar--md rounded"/>
+                                </a>
+                                <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->nickname) }}"
+                                   class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
+                                    View
+                                </a>
+                                <div class="overflow-h">
+                                    <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->nickname) }}"
+                                       class="lk-darker bold text-overflow">
+                                        {{ empty_eitherName_displayNickname_by_userId($user->user_id) }}
+                                    </a>
+                                    <div class="small text-light">
+                                        Total likes: {{ $user->amount }}
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     @endforeach
-                </div>
+                </ul>
             </div>
         </div>
 
+        {{----------------------------
+        | Top Groups
+        ----------------------------}}
         <div class="c-f-4">
-            <div class="leaderBoard__column shadow h--dummy">
-                <div class="leaderBoard__column__title text-center text-white text-shadow text-lg thin shadow--dark pV--sm pH--md">
+            <div id="leaderboard-topGroups" class="leaderboard__column shadow h--dummy">
+                <div class="leaderboard__column__title text-center text-white text-shadow text-lg thin shadow--dark pV--sm pH--md">
                     Top Groups
                 </div>
 
-                <div class="leaderBoard__column__filter__container text-center pH--md transit--linear--fast link-fake"
+                <div class="leaderboard__filter__container text-center pH--md transit--linear--fast link-fake"
                      data-action="toggle"
-                     data-target="#leaderBoard__column__filter__topGroupsList">
-                    <div class="leaderBoard__column__filter pV--sm transit--linear--fast">
-                        All Categories
+                     data-target="#leaderboard-filter-topGroups">
+                    <div class="leaderboard__filter pV--sm transit--linear--fast">
+                        <span class="leaderboard__filter__current">All Categories</span>
                         <span class="icon icon-arrow-down mL"></span>
                     </div>
                 </div>
 
-                <div id="leaderBoard__column__filter__topGroupsList" class="leaderBoard__column__filter__list pV bg--dark hide">
+                <div id="leaderboard-filter-topGroups" class="leaderboard__filter__list pV bg--dark hide">
                     <ul class="bg--white text-center slimScroll">
+                        <li class="lk-darker pH--md pV--sm display-block lk-block link-fake"
+                            data-action="leaderboard-filter-topGroups"
+                            data-group-type-id="all">
+                            All Category
+                        </li>
                         @foreach(App\Models\GroupType::all() as $groupType)
-                            <li>
-                                <a href="#" class="lk-darker pH--md pV--sm display-block lk-block">
-                                    {{ $groupType->group_type_name }}
-                                </a>
+                            <li class="lk-darker pH--md pV--sm display-block lk-block link-fake"
+                                data-action="leaderboard-filter-topGroups"
+                                data-group-type-id="{{ $groupType->id }}">
+                                {{ $groupType->group_type_name }}
                             </li>
                         @endforeach
                     </ul>
                 </div>
 
-                <div>
+                <ul id="leaderboard-result-topGroups" class="leaderboard__result__list">
                     @foreach($topGroups as $group)
-                        <li>
-                            <a href="{{ url_link_to_group($group->group_id ) }}" class="lk-darker pH--md pV--sm display-block lk-block">
-                                {{ \App\Models\Group::where('id', $group->group_id)->firstOrFail()->name }}
-                                <br>
-                                Total memebers: {{ $group->amount }}
-                                {{--Total feed: {{ \App\Models\Group::where('id', $group->group_id)->firstOrFail()->feeds->count() }}--}}
-                            </a>
+                        <li class="pH--md lk-block">
+                            <div class="pV--sm bordered--b bordered--b--light">
+                                <a href="{{ url_link_to_group($group->group_id ) }}" class="pull-left mR--md">
+                                    <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded"/>
+                                </a>
+                                <a href="{{ url_link_to_group($group->group_id ) }}" class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
+                                    Join
+                                </a>
+                                <div class="overflow-h">
+                                    <a href="{{ url_link_to_group($group->group_id ) }}" class="lk-darker bold text-overflow">
+                                        {{ \App\Models\Group::where('id', $group->group_id)->firstOrFail()->name }}
+                                    </a>
+                                    <div class="small text-light">
+                                        <span class="mR--md">
+                                            <span class="icon icon-category mR"></span>
+                                            {{ getGroupTypeName( \App\Models\Group::where('id', $group->group_id)->firstOrFail() ) }}
+                                        </span>
+                                        <span>
+                                            <span class="icon icon-group mR"></span>
+                                            {{ $group->amount }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     @endforeach
-                </div>
+                </ul>
             </div>
         </div>
 
+        {{----------------------------
+        | Top Bridging Groups
+        ----------------------------}}
         <div class="c-f-4">
-            <div class="leaderBoard__column shadow h--dummy">
-                <div class="leaderBoard__column__title text-center text-white text-shadow text-lg thin shadow--dark pV--sm pH--md">
+            <div id="leaderboard-topBridgingGroups" class="leaderboard__column shadow h--dummy">
+                <div class="leaderboard__column__title text-center text-white text-shadow text-lg thin shadow--dark pV--sm pH--md">
                     Top Bridging Groups
                 </div>
 
-                <div class="leaderBoard__column__filter__container text-center pH--md transit--linear--fast link-fake">
-                    <div class="leaderBoard__column__filter pV--sm transit--linear--fast">
+                <div id="leaderboard-filter-topBridgingGroups" class="leaderboard__filter__container text-center pH--md transit--linear--fast link-fake">
+                    <div class="leaderboard__filter pV--sm transit--linear--fast">
                         All Categories
-                        <span class="icon icon-arrow-down mL"></span>
                     </div>
                 </div>
-                <div>
+                <ul id="leaderboard-result-topBridingGroups" class="leaderboard__result__list">
                     @foreach($topBridgeGroups as $bridgeGroup)
-                        <li>
-                            <a href="{{ url_link_to_dockingGroup($bridgeGroup->bridge_Group_id ) }}" class="lk-darker pH--md pV--sm display-block lk-block">
-                                {{ \App\Models\DockingGroup::where('id', $bridgeGroup->bridge_Group_id)->firstOrFail()->docking_group_name }}
-                                <br>
-                                Total Post: {{ $bridgeGroup->amount }}
-                            </a>
+                        <li class="pH--md lk-block">
+                            <div class="pV--sm bordered--b bordered--b--light">
+                                <a href="{{ url_link_to_dockingGroup($bridgeGroup->bridge_Group_id ) }}" class="pull-left mR--md avatar--overlap">
+                                    <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
+                                    <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
+                                </a>
+                                <a href="{{ url_link_to_dockingGroup($bridgeGroup->bridge_Group_id ) }}" class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
+                                    View
+                                </a>
+                                <div class="overflow-h">
+                                    <a href="{{ url_link_to_dockingGroup($bridgeGroup->bridge_Group_id ) }}" class="lk-darker bold text-overflow">
+                                        {{ \App\Models\DockingGroup::where('id', $bridgeGroup->bridge_Group_id)->firstOrFail()->docking_group_name }}
+                                    </a>
+                                    <div class="small text-light">
+                                        Total posts: {{ $bridgeGroup->amount }}
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     @endforeach
-                </div>
+                </ul>
             </div>
         </div>
     </div>

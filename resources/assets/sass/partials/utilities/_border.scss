@@ -41,6 +41,10 @@
   @include border-radius(18px !important);
 }
 
+.arc-rounded {
+  @include border-radius(18px !important);
+}
+
 .arc-xs {
   @include border-radius($border-radius-xsmall !important);
 }

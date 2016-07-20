@@ -2107,6 +2107,10 @@ li.multipleInput-email > span {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+.shadow--plain {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
 .shadow--dark {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -2160,6 +2164,10 @@ li.multipleInput-email > span {
 }
 
 .arc-btn-rounded {
+  border-radius: 18px !important;
+}
+
+.arc-rounded {
   border-radius: 18px !important;
 }
 
@@ -2259,6 +2267,10 @@ li.multipleInput-email > span {
   margin-left: 15px !important;
 }
 
+.mL--pull {
+  margin-left: -5px !important;
+}
+
 .mR {
   margin-right: 5px !important;
 }
@@ -2269,6 +2281,10 @@ li.multipleInput-email > span {
 
 .mR--lg {
   margin-right: 25px !important;
+}
+
+.mR--pull {
+  margin-right: -5px !important;
 }
 
 .mB {
@@ -2999,6 +3015,10 @@ a.text-blue-darker:focus,
   height: 100%;
 }
 
+.w--sm {
+  max-width: 150px;
+}
+
 .w--full {
   width: 100%;
 }
@@ -3409,6 +3429,20 @@ hr {
 .avatar--fluid {
   height: auto;
   width: 100%;
+}
+
+.avatar--overlap .avatar {
+  float: left;
+}
+
+.avatar--overlap .avatar:nth-child(1) {
+  position: relative;
+  z-index: 2;
+}
+
+.avatar--overlap .avatar:nth-child(2) {
+  margin-left: -5px;
+  z-index: 1;
 }
 
 .has-sticky__bar {
@@ -4217,6 +4251,10 @@ input[type="button"].btn-block {
 
 .bar-btn-mT {
   margin-top: 9px;
+}
+
+.btn-mT-mainAlt {
+  margin-top: 7px;
 }
 
 /*
@@ -6599,12 +6637,12 @@ website:    http://www.burocratik.com
   top: 50%;
 }
 
-.leaderBoard__column {
+.leaderboard__column {
   background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
 
-.leaderBoard__column__title {
+.leaderboard__column__title {
   background: #bca7ff;
   background: linear-gradient(to right, #bca7ff 0%, #7999fc 50%, #05abe0 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bca7ff', endColorstr='#05abe0',GradientType=1 );
@@ -6612,36 +6650,36 @@ website:    http://www.burocratik.com
   z-index: 9;
 }
 
-.leaderBoard__column__filter__container {
+.leaderboard__filter__container {
   position: relative;
   z-index: 8;
 }
 
-.leaderBoard__column__filter__container .leaderBoard__column__filter {
+.leaderboard__filter__container .leaderboard__filter {
   border-bottom: 1px solid #c9ced6;
   color: #9da7b6;
 }
 
-.leaderBoard__column__filter__container:hover {
+.leaderboard__filter__container:hover {
   background-color: #c9ced6;
 }
 
-.leaderBoard__column__filter__container:hover .leaderBoard__column__filter {
+.leaderboard__filter__container:hover .leaderboard__filter {
   background-color: transparent;
   color: #4f5b6a;
 }
 
-.leaderBoard__column__filter__container.toggled {
+.leaderboard__filter__container.toggled {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   background-color: #c9ced6;
 }
 
-.leaderBoard__column__filter__container.toggled .leaderBoard__column__filter {
+.leaderboard__filter__container.toggled .leaderboard__filter {
   background-color: transparent;
   color: #4f5b6a;
 }
 
-#leaderBoard__column__filter__topUsersList {
+#leaderboard__filter__topUsersList {
   z-index: 7;
 }
 

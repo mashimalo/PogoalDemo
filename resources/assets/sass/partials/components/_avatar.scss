@@ -37,3 +37,19 @@
   height: auto;
   width: 100%;
 }
+
+.avatar--overlap {
+  .avatar {
+    float: left;
+
+    &:nth-child(1) {
+      position: relative;
+      z-index: 2;
+    }
+
+    &:nth-child(2) {
+      margin-left: -5px;
+      z-index: 1;
+    }
+  }
+}

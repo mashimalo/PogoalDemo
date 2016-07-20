@@ -32,6 +32,7 @@
     {!! Html::script("assets/js/main.min.js") !!}
     {!! Html::script("assets/js/api-feed.min.js") !!}
     {!! Html::script("assets/js/api-notifications.min.js") !!}
+    {!! Html::script("assets/js/api-leaderboard.min.js") !!}
     @if(Auth::guest() && currentRoute('home'))
     {!! Html::script("assets/js/partials/slider.min.js") !!}
     @endif

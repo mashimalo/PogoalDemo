@@ -22,12 +22,12 @@
   }
 }
 
-.leaderBoard__column {
+.leaderboard__column {
   background-color: $light09;
   overflow: hidden;
 }
 
-.leaderBoard__column__title {
+.leaderboard__column__title {
   background: #bca7ff;
   background: -moz-linear-gradient(left,  #bca7ff 0%, #7999fc 50%, #05abe0 100%);
   background: -webkit-linear-gradient(left,  #bca7ff 0%,#7999fc 50%,#05abe0 100%);
@@ -38,11 +38,11 @@
   z-index: 9;
 }
 
-.leaderBoard__column__filter__container {
+.leaderboard__filter__container {
   position: relative;
   z-index: 8;
 
-  .leaderBoard__column__filter {
+  .leaderboard__filter {
     border-bottom: 1px solid $color-gray-light-4;
     color: $text-color-light;
   }
@@ -50,7 +50,7 @@
   &:hover {
     background-color: $color-gray-light-4;
 
-    .leaderBoard__column__filter {
+    .leaderboard__filter {
       background-color: transparent;
       color: $text-color;
     }
@@ -60,13 +60,13 @@
     @include box-shadow($box-shadow-preset-2);
     background-color: $color-gray-light-4;
 
-    .leaderBoard__column__filter {
+    .leaderboard__filter {
       background-color: transparent;
       color: $text-color;
     }
   }
 }
 
-#leaderBoard__column__filter__topUsersList {
+#leaderboard__filter__topUsersList {
   z-index: 7;
 }

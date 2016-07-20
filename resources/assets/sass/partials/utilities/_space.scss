@@ -14,15 +14,21 @@
   &--md {
     margin-left: $padding-base !important;
   }
+  &--pull {
+    margin-left: -$padding-xsmall !important;
+  }
 }
 
 .mR {
-  margin-right: 5px !important;
+  margin-right: $padding-xsmall !important;
   &--md {
     margin-right: $padding-base !important;
   }
   &--lg {
     margin-right: $padding-large !important;
+  }
+  &--pull {
+    margin-right: -$padding-xsmall !important;
   }
 }
 

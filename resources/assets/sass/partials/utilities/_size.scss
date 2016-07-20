@@ -3,6 +3,9 @@
 }
 
 .w {
+  &--sm {
+    max-width: 150px;
+  }
   &--full {
     width: 100%;
   }

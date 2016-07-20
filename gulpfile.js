@@ -38,6 +38,7 @@ elixir(function (mix) {
     // AJAX JS
     mix.scripts('api-feed.js', 'public/assets/js/api-feed.min.js');
     mix.scripts('api-notifications.js', 'public/assets/js/api-notifications.min.js');
+    mix.scripts('api-leaderboard.js', 'public/assets/js/api-leaderboard.min.js');
 
     mix.copy('resources/assets/js/libs/outdatedbrowser.min.js', 'public/assets/js/libs/outdatedbrowser.min.js');
     mix.copy('resources/assets/js/libs/jquery-1.11.3.min.js', 'public/assets/js/libs/jquery-1.11.3.min.js');
