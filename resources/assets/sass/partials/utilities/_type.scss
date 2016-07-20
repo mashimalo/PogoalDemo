@@ -169,11 +169,15 @@ small,
 
 @include link(".text-light", $text-color-light);
 
+@include link(".text-lighter", $text-color-lighter);
+
 @include link(".text-green", $color-green);
 
 @include link(".text-blue", $color-blue);
 
 @include link(".text-blue-darker", $color-blue-dark);
+
+@include link(".text-dark", $text-color);
 
 /*
 |--------------------------------------------------------------------------

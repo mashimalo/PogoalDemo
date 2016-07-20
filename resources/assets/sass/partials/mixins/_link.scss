@@ -1,9 +1,9 @@
 @mixin link($parent, $color) {
   #{$parent} {
-    color: $color;
+    color: $color !important;
   }
   a#{$parent}:hover,
   a#{$parent}:focus {
-    color: darken($color, 10%);
+    color: darken($color, 10%) !important;
   }
 }

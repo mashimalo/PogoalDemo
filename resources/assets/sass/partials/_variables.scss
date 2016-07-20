@@ -61,6 +61,7 @@ $color-black: #000;
 // Basic Text Colors
 $text-color: $color-gray-dark;
 $text-color-light: lighten($text-color,30%);
+$text-color-lighter: lighten($text-color,40%);
 
 
 /*

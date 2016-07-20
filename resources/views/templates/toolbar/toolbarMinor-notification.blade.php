@@ -1,10 +1,9 @@
-<li class="notification toolbar__notification toolbar__icons uiDropdown">
+<li class="notification toolbar__notification toolbar__icons uiDropdown bordered--r">
 
-    <button id="toolbar-notification-button" class="icon icon-bell uiDropdown--toggle lk-block" type="button"
+    <button id="toolbar-notification-button" class="uiDropdown--toggle lk-block text-dark"
             title="Messages&nbsp;&&nbsp;Notifications" data-toggle="dropdown">
-        <span class="hidden-text">
-            Messages and Notification
-        </span>
+        <span class="icon icon-bell text-lg text-lighter mR"></span>
+        Notification
     </button>
 
     {{--- New Notification Count ---}}

@@ -2145,6 +2145,14 @@ li.multipleInput-email > span {
   border-color: #d7dbe1 !important;
 }
 
+.bordered--r {
+  border-right: 1px solid #e6e8ec !important;
+}
+
+.bordered--r--light {
+  border-color: #d7dbe1 !important;
+}
+
 .bordered--b {
   border-bottom: 1px solid #e6e8ec !important;
 }
@@ -2581,21 +2589,21 @@ a:hover {
 }
 
 .lk-d {
-  color: #718095;
+  color: #718095 !important;
 }
 
 a.lk-d:hover,
 a.lk-d:focus {
-  color: #5a6779;
+  color: #5a6779 !important;
 }
 
 .lk-darker {
-  color: #5a6779;
+  color: #5a6779 !important;
 }
 
 a.lk-darker:hover,
 a.lk-darker:focus {
-  color: #444e5c;
+  color: #444e5c !important;
 }
 
 .lk-block:hover {
@@ -2875,75 +2883,93 @@ small,
 */
 
 .text-error {
-  color: #d9534f;
+  color: #d9534f !important;
 }
 
 a.text-error:hover,
 a.text-error:focus {
-  color: #c9302c;
+  color: #c9302c !important;
 }
 
 .text-white,
 .cover--darker .cover__color--primary {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 a.text-white:hover,
 .cover--darker a.cover__color--primary:hover,
 a.text-white:focus,
 .cover--darker a.cover__color--primary:focus {
-  color: #e6e6e6;
+  color: #e6e6e6 !important;
 }
 
 .text-red {
-  color: #da514f;
+  color: #da514f !important;
 }
 
 a.text-red:hover,
 a.text-red:focus {
-  color: #cb2e2b;
+  color: #cb2e2b !important;
 }
 
 .text-light,
 .cover--darker .cover__color--secondary {
-  color: #9da7b6;
+  color: #9da7b6 !important;
 }
 
 a.text-light:hover,
 .cover--darker a.cover__color--secondary:hover,
 a.text-light:focus,
 .cover--darker a.cover__color--secondary:focus {
-  color: #7f8da0;
+  color: #7f8da0 !important;
+}
+
+.text-lighter {
+  color: #bac1cc !important;
+}
+
+a.text-lighter:hover,
+a.text-lighter:focus {
+  color: #9da7b6 !important;
 }
 
 .text-green {
-  color: #5cb85c;
+  color: #5cb85c !important;
 }
 
 a.text-green:hover,
 a.text-green:focus {
-  color: #449d44;
+  color: #449d44 !important;
 }
 
 .text-blue {
-  color: #5bc0de;
+  color: #5bc0de !important;
 }
 
 a.text-blue:hover,
 a.text-blue:focus {
-  color: #31b0d5;
+  color: #31b0d5 !important;
 }
 
 .text-blue-darker,
 .uiTile__body:hover .uiTile__title a {
-  color: #28a1c5;
+  color: #28a1c5 !important;
 }
 
 a.text-blue-darker:hover,
 .uiTile__body:hover .uiTile__title a:hover,
 a.text-blue-darker:focus,
 .uiTile__body:hover .uiTile__title a:focus {
-  color: #1f7e9a;
+  color: #1f7e9a !important;
+}
+
+.text-dark {
+  color: #4f5b6a !important;
+}
+
+a.text-dark:hover,
+a.text-dark:focus {
+  color: #39424d !important;
 }
 
 /*
@@ -7175,16 +7201,10 @@ website:    http://www.burocratik.com
   width: 100%;
 }
 
-.toolbar__icons > .icon {
-  line-height: 60px;
-  color: #8e9aab;
-  padding: 0 15px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
 .toolbar__icons > button {
-  color: #8e9aab;
+  line-height: 60px;
+  padding: 0 15px;
+  cursor: pointer;
 }
 
 .toolbar__icons .uiDropdown__menu:before {

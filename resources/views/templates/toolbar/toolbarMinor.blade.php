@@ -25,11 +25,11 @@
     | User Info & Avatar
     ----------------------------}}
     <li class="toolbar__userInfo uiDropdown--hover">
-        <a href="{{ url_link_to_glance() }}" class="lk-block text-light" type="button" id="toolbar-user-avatar">
+        <a href="{{ url_link_to_glance() }}" class="lk-block text-dark" type="button" id="toolbar-user-avatar">
             {{--- User Avatar ---}}
             <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}" class="initialAvatar avatar avatar--md rounded mR"/>
             {{--<img class="avatar avatar--sm rounded mR" src="{{ url('/assets/images/avatar.jpg') }}">--}}
-            <span class="toolbar__userInfo__name mL mR">{{ empty_eitherName_displayNickname(Auth::user()) }}</span>
+            <span class="toolbar__userInfo__name mL mR">{{ empty_firstName_displayNickname(Auth::user()) }}</span>
             {{--<span class="icon icon-arrow-down"></span>--}}
         </a>
         {{--- User Info Menu ---}}
@@ -76,22 +76,23 @@
     {{----------------------------
     | Follow
     ----------------------------}}
-    <li class="toolbar__follow toolbar__icons uiDropdown">
-        <button class="icon icon-follow uiDropdown--toggle lk-block" type="button" id="toolbar-follow" title="Follows" data-action="not-available">
-            <span class="hidden-text">Follow</span>
-        </button>
-        <ul class="uiDropdown__menu uiDropdown__menu--right">
-            <li><a href="#">Following</a></li>
-            <li><a href="#">Followers</a></li>
-        </ul>
-    </li>
+    {{--<li class="toolbar__follow toolbar__icons uiDropdown">--}}
+        {{--<button class="icon icon-follow uiDropdown--toggle lk-block" type="button" id="toolbar-follow" title="Follows" data-action="not-available">--}}
+            {{--<span class="hidden-text">Follow</span>--}}
+        {{--</button>--}}
+        {{--<ul class="uiDropdown__menu uiDropdown__menu--right">--}}
+            {{--<li><a href="#">Following</a></li>--}}
+            {{--<li><a href="#">Followers</a></li>--}}
+        {{--</ul>--}}
+    {{--</li>--}}
 
     {{----------------------------
     | Group
     ----------------------------}}
-    <li class="toolbar__group toolbar__icons uiDropdown">
-        <button class="icon icon-group uiDropdown--toggle lk-block" type="button" id="toolbar-group" title="Groups" data-toggle="dropdown">
-            <span class="hidden-text">Group</span>
+    <li class="toolbar__group toolbar__icons uiDropdown bordered--r">
+        <button class="uiDropdown--toggle lk-block" type="button" id="toolbar-group" title="Groups" data-toggle="dropdown">
+            <span class="icon icon-group text-lg text-lighter mR"></span>
+            Groups
         </button>
         {{--- Group Menu ---}}
         <ul class="uiDropdown__menu uiDropdown__menu--right">

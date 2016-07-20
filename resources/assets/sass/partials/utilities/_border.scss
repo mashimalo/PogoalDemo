@@ -19,6 +19,14 @@
   }
 }
 
+.bordered--r {
+  border-right: 1px solid $border-color !important;
+
+  &--light {
+    border-color: $color-gray-light-5 !important;
+  }
+}
+
 .bordered--b {
   border-bottom: 1px solid $border-color !important;
 

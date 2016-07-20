@@ -31,30 +31,36 @@
                 <div class="bg--dark">
                     <div class="site-container text-center">
                         <div class="vA-block--middle w--full h--lg">
-                            <div class="vA__item">
-                                <div class="uiCallout center-table mB">
-                                    <div class="uiCallout__article">
-                                        Share, validate and get feedback for your ideas
+                            <div class="vA__item wrap">
+                                <div class="c-f-4">
+                                    <div class="shadow--hover">
+                                        <div class="arc-sm-top pH--md pA--lg bg--lighter text-dark bold">
+                                            Share, validate and get feedback for your ideas
+                                        </div>
+                                        <button class="btn btn-primary btn-block arc-sm-bottom" data-scroll="scroll" data-target="#content">
+                                            Join A Group
+                                        </button>
                                     </div>
-                                    <button class="uiCallout__button btn btn-primary" data-scroll="scroll" data-target="#content">
-                                        Join A Group
-                                    </button>
                                 </div>
-                                <div class="uiCallout center-table mB">
-                                    <div class="uiCallout__article">
-                                        Create your own startup groups
+                                <div class="c-f-4">
+                                    <div class="shadow--hover">
+                                        <div class="arc-sm-top pH--md pA--lg bg--lighter text-dark bold">
+                                            Create your own startup groups
+                                        </div>
+                                        <a href="{{ URL::route ('singleGroupCreatePage-show') }}" class="btn btn-primary btn-block arc-sm-bottom">
+                                            Create a Group
+                                        </a>
                                     </div>
-                                    <a href="{{ URL::route ('singleGroupCreatePage-show') }}" class="uiCallout__button btn btn-primary">
-                                        Create a Group
-                                    </a>
                                 </div>
-                                <div class="uiCallout center-table">
-                                    <div class="uiCallout__article">
-                                        Start a joint conversation with other groups
+                                <div class="c-f-4">
+                                    <div class="shadow--hover">
+                                        <div class="arc-sm-top pH--md pA--lg bg--lighter text-dark bold">
+                                            Start a joint conversation with other groups
+                                        </div>
+                                        <a href="#" class="btn btn-primary btn-block arc-sm-bottom">
+                                            Bridge a Group
+                                        </a>
                                     </div>
-                                    <a href="#" class="uiCallout__button btn btn-primary">
-                                        Bridge a Group
-                                    </a>
                                 </div>
                             </div>
                         </div>

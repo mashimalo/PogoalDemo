@@ -73,16 +73,10 @@
 }
 
 .toolbar__icons {
-  > .icon {
+  > button {
     line-height: $toolbar-height;
-    color: $color-gray-light-2;
     padding: 0 $padding-base;
-    font-size: 20px;
     cursor: pointer;
-  }
-
-  > button{
-    color: $color-gray-light-2;
   }
 
   .uiDropdown__menu {
