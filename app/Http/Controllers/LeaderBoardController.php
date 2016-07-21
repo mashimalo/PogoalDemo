@@ -77,6 +77,7 @@ class LeaderBoardController extends Controller
         }
         else
         {
+            return response(['status' => 'success', 'json' => $topUsers]);
             return redirect('404');
         }
     }
@@ -113,6 +114,7 @@ class LeaderBoardController extends Controller
             return response(['status' => 'success', 'json' => $topUsersByGroupType]);
         }
         else{
+            return response(['status' => 'success', 'json' => $topUsersByGroupType]);
             return redirect('404');
         }
     }
@@ -143,7 +145,8 @@ class LeaderBoardController extends Controller
             return response(['status' => 'success', 'json' => $topGroups]);
         }
         else{
-            return redirect('404');
+            return response(['status' => 'success', 'json' => $topGroups]);
+//            return redirect('404');
         }
     }
 
@@ -172,7 +175,8 @@ class LeaderBoardController extends Controller
         }
         else
         {
-            return redirect('404');
+            return response(['status' => 'success', 'json' => $topGroupsByGroupType]);
+//            return redirect('404');
         }
     }
 
