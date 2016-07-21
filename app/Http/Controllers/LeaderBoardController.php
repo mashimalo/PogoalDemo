@@ -68,7 +68,7 @@ class LeaderBoardController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
+//            throw $e;
             return back()->with('error', trans('front/general.somethingWrong'));
         }
 
@@ -108,7 +108,7 @@ class LeaderBoardController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
+//            throw $e;
             return back()->with('error', trans('front/general.somethingWrong'));
         }
         if(Request::ajax())
@@ -116,7 +116,7 @@ class LeaderBoardController extends Controller
             return response(['status' => 'success', 'json' => $topUsersByGroupType]);
         }
         else{
-            return response(['status' => 'success', 'json' => $topUsersByGroupType]);
+//            return response(['status' => 'success', 'json' => $topUsersByGroupType]);
             return redirect('404');
         }
     }
@@ -140,7 +140,7 @@ class LeaderBoardController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
+//            throw $e;
             return back()->with('error', trans('front/general.somethingWrong'));
         }
         if(Request::ajax())
@@ -148,8 +148,8 @@ class LeaderBoardController extends Controller
             return response(['status' => 'success', 'json' => $topGroups]);
         }
         else{
-            return response(['status' => 'success', 'json' => $topGroups]);
-//            return redirect('404');
+//            return response(['status' => 'success', 'json' => $topGroups]);
+            return redirect('404');
         }
     }
 
@@ -159,8 +159,8 @@ class LeaderBoardController extends Controller
         {
             // top group by group type, decided by total users
             $topGroupsByGroupType =
-                DB::select('SELECT G.id AS group_id, count(*) AS amount from new_schema1.groups AS G
-                          INNER JOIN new_schema1.group_user as GU ON G.id = GU.group_id where GU.accepted =1 and G.group_type_id = :groupTypeId
+                DB::select('SELECT G.id AS group_id, count(*) AS amount from groups AS G
+                          INNER JOIN group_user as GU ON G.id = GU.group_id where GU.accepted =1 and G.group_type_id = :groupTypeId
                           Group By G.id
                             order by amount DESC',
                     ['groupTypeId' => $groupTypeId]);
@@ -169,8 +169,8 @@ class LeaderBoardController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
-//            return back()->with('error', trans('front/general.somethingWrong'));
+//            throw $e;
+            return back()->with('error', trans('front/general.somethingWrong'));
         }
 
         if(Request::ajax())
@@ -179,8 +179,8 @@ class LeaderBoardController extends Controller
         }
         else
         {
-            return response(['status' => 'success', 'json' => $topGroupsByGroupType]);
-//            return redirect('404');
+//            return response(['status' => 'success', 'json' => $topGroupsByGroupType]);
+            return redirect('404');
         }
     }
 
