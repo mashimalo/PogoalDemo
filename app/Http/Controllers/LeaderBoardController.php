@@ -169,8 +169,8 @@ class LeaderBoardController extends Controller
         }
         catch (\Exception $e)
         {
-//            throw $e;
-            return back()->with('error', trans('front/general.somethingWrong'));
+            throw $e;
+//            return back()->with('error', trans('front/general.somethingWrong'));
         }
 
         if(Request::ajax())
@@ -179,8 +179,8 @@ class LeaderBoardController extends Controller
         }
         else
         {
-//            return response(['status' => 'success', 'json' => $topGroupsByGroupType]);
-            return redirect('404');
+            return response(['status' => 'success', 'json' => $topGroupsByGroupType]);
+//            return redirect('404');
         }
     }
 
