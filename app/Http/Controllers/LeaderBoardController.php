@@ -179,8 +179,8 @@ class LeaderBoardController extends Controller
         }
         else
         {
-            return response(['status' => 'success', 'json' => $topGroupsByGroupType]);
-//            return redirect('404');
+//            return response(['status' => 'success', 'json' => $topGroupsByGroupType]);
+            return redirect('404');
         }
     }
 
