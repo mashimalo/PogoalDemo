@@ -170,7 +170,7 @@ class LeaderBoardController extends Controller
         catch (\Exception $e)
         {
             throw $e;
-            return back()->with('error', trans('front/general.somethingWrong'));
+//            return back()->with('error', trans('front/general.somethingWrong'));
         }
 
         if(Request::ajax())
