@@ -78,7 +78,7 @@ class LeaderBoardController extends Controller
         }
         else
         {
-            return response(['status' => 'success', 'json' => $topUsers]);
+//            return response(['status' => 'success', 'json' => $topUsers]);
             return redirect('404');
         }
     }
@@ -169,8 +169,8 @@ class LeaderBoardController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
-//            return back()->with('error', trans('front/general.somethingWrong'));
+//            throw $e;
+            return back()->with('error', trans('front/general.somethingWrong'));
         }
 
         if(Request::ajax())
