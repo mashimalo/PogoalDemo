@@ -55,7 +55,8 @@ class LeaderBoardController extends Controller
     {
         try
         {
-            $topUsers = DB::select('SELECT U.id AS user_id, count(*) AS amount from users AS U
+            $topUsers = DB::select('SELECT U.id AS user_id, P.nickname AS nickName, P.first_name AS firstName, P.last_name AS lastName, P.user_avatar_small AS userAvatarSmall, count(*) AS amount from users AS U
+                                  INNER JOIN profiles as P ON U.id = P.user_id
                                   INNER JOIN feeds as F ON U.id = F.user_id
                                   INNER JOIN likeable as L ON L.likeable_id = F.id
                                   where L.user_id != U.id and L.likeable_type = :likeableType
@@ -94,7 +95,8 @@ class LeaderBoardController extends Controller
         try
         {
             $topUsersByGroupType =
-                DB::select('SELECT U.id AS user_id, count(*) AS amount from users AS U
+                DB::select('SELECT U.id AS user_id, P.nickname AS nickName, P.first_name AS firstName, P.last_name AS lastName, P.user_avatar_small AS userAvatarSmall, count(*) AS amount from users AS U
+                          INNER JOIN profiles as P ON U.id = P.user_id
                           INNER JOIN feeds as F ON U.id = F.user_id
                           INNER JOIN groups as G ON G.id = F.group_id
                           INNER JOIN likeable as L ON L.likeable_id = F.id
@@ -131,7 +133,7 @@ class LeaderBoardController extends Controller
         try
         {
             $topGroups =
-                DB::select('SELECT G.id AS group_id, count(*) AS amount from groups AS G
+                DB::select('SELECT G.id AS group_id, G.name AS groupName, G.group_avatar_small AS groupAvatarSmall, count(*) AS amount from groups AS G
                           INNER JOIN group_user as GU ON G.id = GU.group_id where GU.accepted =1
                           Group By G.id
                             order by amount DESC');
@@ -159,7 +161,7 @@ class LeaderBoardController extends Controller
         {
             // top group by group type, decided by total users
             $topGroupsByGroupType =
-                DB::select('SELECT G.id AS group_id, count(*) AS amount from groups AS G
+                DB::select('SELECT G.id AS group_id, G.name AS groupName, G.group_avatar_small AS groupAvatarSmall, count(*) AS amount from groups AS G
                           INNER JOIN group_user as GU ON G.id = GU.group_id where GU.accepted =1 and G.group_type_id = :groupTypeId
                           Group By G.id
                             order by amount DESC',
