@@ -1,0 +1,18 @@
+<li class="pH--md lk-block">
+    <div class="pV--sm bordered--b bordered--b--light">
+        <a href="{{ user_link }}" class="pull-left mR--md">
+            <img data-name="{{{ user_name }}}" src="{{ user_avatar }}" class="{{user_initialAvatar}} avatar avatar--md rounded"/>
+        </a>
+        <a href="{{ user_link }}" class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
+            View
+        </a>
+        <div class="overflow-h">
+            <a href="{{ user_link }}" class="lk-darker bold text-overflow">
+                {{{ user_name }}}
+            </a>
+            <div class="small text-light">
+                Total likes: {{ amount }}
+            </div>
+        </div>
+    </div>
+</li>

@@ -64,15 +64,23 @@
                     @foreach($topUsers as $user)
                         <li class="pH--md lk-block">
                             <div class="pV--sm bordered--b bordered--b--light">
+
                                 <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->nickname) }}"
                                    class="pull-left mR--md">
-                                    <img data-name="{{ empty_eitherName_displayNickname_by_userId($user->user_id) }}"
-                                         class="initialAvatar avatar avatar--md rounded"/>
+                                    @if (\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->user_avatar_small != null || strlen(\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->user_avatar_small) > 0)
+                                        <img src="/images/userAvatar/{{ \App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->user_avatar_small }}"
+                                             class="avatar avatar--md rounded">
+                                    @else
+                                        <img data-name="{{ empty_eitherName_displayNickname_by_userId($user->user_id) }}"
+                                             class="initialAvatar avatar avatar--md rounded"/>
+                                    @endif
                                 </a>
+
                                 <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->nickname) }}"
                                    class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
                                     View
                                 </a>
+
                                 <div class="overflow-h">
                                     <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id',$user->user_id )->firstOrFail()->nickname) }}"
                                        class="lk-darker bold text-overflow">
@@ -82,6 +90,7 @@
                                         Total likes: {{ $user->amount }}
                                     </div>
                                 </div>
+
                             </div>
                         </li>
                     @endforeach
@@ -165,7 +174,8 @@
                     Top Bridging Groups
                 </div>
 
-                <div id="leaderboard-filter-topBridgingGroups" class="leaderboard__filter__container text-center pH--md transit--linear--fast link-fake">
+                <div id="leaderboard-filter-topBridgingGroups"
+                     class="leaderboard__filter__container text-center pH--md transit--linear--fast link-fake">
                     <div class="leaderboard__filter pV--sm transit--linear--fast">
                         All Categories
                     </div>
@@ -178,7 +188,8 @@
                                     <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
                                     <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
                                 </a>
-                                <a href="{{ url_link_to_dockingGroup($bridgeGroup->bridge_Group_id ) }}" class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
+                                <a href="{{ url_link_to_dockingGroup($bridgeGroup->bridge_Group_id ) }}"
+                                   class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
                                     View
                                 </a>
                                 <div class="overflow-h">

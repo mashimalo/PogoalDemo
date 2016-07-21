@@ -1,4 +1,4 @@
-$(function(){
+$(function () {
     // DIV Cache
     var $body = $("body");
 
@@ -56,7 +56,7 @@ $(function(){
             }
         });
         $.ajax({
-            url: "leaderboard/topusers/" + $group_type_id,
+            url: "/leaderboard/topusers/" + $group_type_id,
             type: "GET",
             dataType: "json",
             success: function (data) {
@@ -69,24 +69,34 @@ $(function(){
 
                     // Data Cache
                     var $data = {
-                        user_name: "Test",
-                        user_link: "http://test.com",
-                        user_id: item.user_id,
                         amount: item.amount
                     };
 
-                    // Dynamic data key cache - avatar
-                    if(item.user_avatar == null){
-                        var $profileAvatar = '<img data-name="' + item.user_name + '" class="initialAvatar avatar avatar--md rounded"/>';
+                    // Dynamic data key cache - name
+                    if (item.firstName.length == 0 || item.lastName.length == 0) {
+                        var $user_name = item.nickName;
                     } else {
-                        var $profileAvatar = '<img scr="' + item.user_avatar + '" class="initialAvatar avatar avatar--md rounded"/>';
+                        var $user_name = item.firstName + '&nbsp;' + item.lastName;
                     }
-                    $data["user_avatar"] = $profileAvatar;
+                    $data["user_name"] = $user_name;
+
+                    // Dynamic data key cache - link
+                    $data["user_link"] = $baseURL + '/' + item.nickName + '/profile';
+
+                    // Dynamic data key cache - avatar
+                    var $user_avatar = $baseURL + '/images/userAvatar/' + item.userAvatarSmall;
+                    $data["user_avatar"] = $user_avatar;
+
+                    // Dynamic data key cache - initial avatar
+                    if (item.userAvatarSmall == null) {
+                        var $user_initialAvatar = "initialAvatar";
+                    }
+                    $data["user_initialAvatar"] = $user_initialAvatar;
 
                     // Get template
-                    $.get('/api/leaderboard-topUsers-list-v000006.template', function (template) {
+                    $.get('/api/leaderboard-topUsers-list-v000008.template', function (template) {
                         var $leaderboardTopUsersTemplate = Mustache.render(template, $data);
-                        
+
                         // prepend it to list
                         $($leaderboardTopUsersList).append($leaderboardTopUsersTemplate);
 
@@ -135,7 +145,7 @@ $(function(){
             }
         });
         $.ajax({
-            url: "leaderboard/topgroups/" + $group_type_id,
+            url: "/leaderboard/topgroups/" + $group_type_id,
             type: "GET",
             dataType: "json",
             success: function (data) {
@@ -148,20 +158,8 @@ $(function(){
 
                     // Data Cache
                     var $data = {
-                        group_name: "Test",
-                        group_link: "http://test.com",
-                        group_type: "Test",
-                        group_id: item.group_id,
-                        amount: item.amount
+                        
                     };
-
-                    // Dynamic data key cache - avatar
-                    if(item.group_avatar == null){
-                        var $groupAvatar = '<img class="avatar avatar--md rounded" src="/assets/images/avatar.jpg">';
-                    } else {
-                        var $groupAvatar = '<img class="initialAvatar avatar avatar--md rounded" scr="' + item.group_avatar + '">';
-                    }
-                    $data["group_avatar"] = $groupAvatar;
 
                     // Get template
                     $.get('/api/leaderboard-topGroups-list-v000001.template', function (template) {

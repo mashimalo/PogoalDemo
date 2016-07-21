@@ -26,6 +26,9 @@
         @endif
         {{ trans('front/brand.pogoal') }}
     </title>
+    <script>
+        var $baseURL = "{{ URL::to('/') }}";
+    </script>
 
     {{----------------------------
     | CSS in Head

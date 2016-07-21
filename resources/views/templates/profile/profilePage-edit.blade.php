@@ -11,10 +11,7 @@
             </div>
             <ul class="uiTabs__nav uiTabs__nav--list">
                 <li class="active">
-                    <a href="#tabs-1" data-toggle="tab" class="lk-d lk-block">Personal Information</a>
-                </li>
-                <li>
-                    <a href="#tabs-2" data-toggle="tab" class="lk-d lk-block">Profile</a>
+                    <a href="#" class="lk-d lk-block">Personal Information</a>
                 </li>
             </ul>
         </div>
@@ -27,9 +24,9 @@
 <div class="uiCards c-f-9">
     <div class="uiCard">
         {{----------------------------
-        | Personal Infomation Tab
+        | Personal Infomation
         ----------------------------}}
-        <div id="tabs-1" class="uiCard__body uiTabs__content active">
+        <div class="uiCard__body uiTabs__content active">
             <div class="uiCard__header">
                 <div class="h4">Personal Information</div>
             </div>
@@ -124,37 +121,33 @@
                 {!!  Form::close() !!}
             </div>
         </div>
-        {{----------------------------
-        | Profile Tab
-        ----------------------------}}
-        {{--<img id="tabs-2" class="uiCard__body uiTabs__content">--}}
-            {{--<div class="uiCard__header">--}}
-                {{--<div class="h4">Profile</div>--}}
-            {{--</div>--}}
-            <div class="uiCard__content">
-                <h2>Upload Avatar Here.</h2>
-                <div class="container">
-                    {!! Form::model($user->profile,['name'=>'profileAvatarUpload-form','id'=>'profileAvatarUpload-form','route'=> ['uploadProfileAvatar',$user->profile->nickname],'method'=>'POST', 'files' => true])!!}
-                    <div class="form-group">
-                        {!! Form::label('uploadImage', 'Choose an image') !!}
-                        {!! Form::file('uploadImage') !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::submit('Submit',['class'=>'btn btn-primary btn-block']) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </div>
-                <h3> Large Avatar</h3>
-                @if ($user->profile->user_avatar_large != null || strlen($user->profile->user_avatar_large) > 0)
-                    <img src= {!! '/images/userAvatar/'.$user->profile->user_avatar_large !!}>
-                @endif
 
-                <h3>Small Avatar</h3>
-                @if ($user->profile->user_avatar_small != null || strlen($user->profile->user_avatar_small) > 0)
-                    <img src= {!! '/images/userAvatar/'.$user->profile->user_avatar_small !!}>
-                @endif
+
+        {{----------------------------
+        | Avatar
+        ----------------------------}}
+        <div class="uiCard__content">
+            <h2>Upload Avatar Here.</h2>
+            <div class="container">
+                {!! Form::model($user->profile,['name'=>'profileAvatarUpload-form','id'=>'profileAvatarUpload-form','route'=> ['uploadProfileAvatar',$user->profile->nickname],'method'=>'POST', 'files' => true])!!}
+                <div class="form-group">
+                    {!! Form::label('uploadImage', 'Choose an image') !!}
+                    {!! Form::file('uploadImage') !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::submit('Submit',['class'=>'btn btn-primary btn-block']) !!}
+                </div>
+                {!! Form::close() !!}
             </div>
+            <h3> Large Avatar</h3>
+            @if ($user->profile->user_avatar_large != null || strlen($user->profile->user_avatar_large) > 0)
+                <img src= {!! '/images/userAvatar/'.$user->profile->user_avatar_large !!}>
+            @endif
+
+            <h3>Small Avatar</h3>
+            @if ($user->profile->user_avatar_small != null || strlen($user->profile->user_avatar_small) > 0)
+                <img src= {!! '/images/userAvatar/'.$user->profile->user_avatar_small !!}>
+            @endif
         </div>
     </div>
 </div>
-
