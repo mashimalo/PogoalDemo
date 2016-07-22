@@ -158,11 +158,11 @@ $(function () {
 
                     // Data Cache
                     var $data = {
-                        
+
                     };
 
                     // Get template
-                    $.get('/api/leaderboard-topGroups-list-v000001.template', function (template) {
+                    $.get('/api/leaderboard-topGroups-list-v000002.template', function (template) {
                         var $leaderboardTopGroupsTemplate = Mustache.render(template, $data);
 
                         // prepend it to list

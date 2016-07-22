@@ -8,7 +8,7 @@
         </a>
         <div class="overflow-h">
             <a href="{{ group_link }}" class="lk-darker bold text-overflow">
-                {{ group_name }}
+                Under Construction!
             </a>
             <div class="small text-light">
                 <span class="mR--md">
