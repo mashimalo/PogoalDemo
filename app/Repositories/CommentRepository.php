@@ -189,4 +189,31 @@ class CommentRepository extends BaseRepository {
 		}
 		return $html;
 	}
+
+	/**
+	 * convert input to autoImage
+	 *
+	 * @param $input
+	 * @return mixed
+	 * @throws \Exception
+	 */
+	public function convertInputToImageLink($input)
+	{
+		try
+		{
+			$configurator = new Configurator;
+			$configurator->plugins->load('Autoimage');
+
+			extract($configurator->finalize());
+
+			$xml = $parser->parse($input);
+			$html = $renderer->render($xml);
+		}
+
+		catch (\Exception $e)
+		{
+			throw $e;
+		}
+		return $html;
+	}
 }
