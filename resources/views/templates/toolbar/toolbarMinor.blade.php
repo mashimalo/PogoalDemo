@@ -40,7 +40,7 @@
             {{--</li>--}}
             <li class="uiDropdown__menu__header"><span>Profile</span></li>
             <li>
-                <a href="{{url_link_to_profile() }}"> <span class="icon icon-user-solid"></span> My Profile</a>
+                <a href="{{ url_link_to_profile() }}"> <span class="icon icon-user-solid"></span> My Profile</a>
             </li>
             <li>
                 <a href="{{ url_link_to_editProfile() }}"><span class="icon icon-gear"></span> {{ trans("front/general.editProfile") }}</a>

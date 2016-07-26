@@ -198,6 +198,30 @@ class ProfileController extends Controller
 //		return view('pages.glancePage', compact('user', 'target_user_id'));
 //	}
 
+	// Todo: Created by Hui Lin
+	public function profileAvatarPage($target_nickname)
+	{
+		try
+		{
+			//get the target user id base on the nickname
+			$target_user_id = $this -> getUserIdBaseOnNickname($target_nickname);
+			$current_user_id = Auth::user()->id;
+
+			if ($target_user_id != $current_user_id)
+			{
+				return redirect('/')->with('error', trans('front/profile.notHavePermissionToEditUser'));
+			}
+			$user = $this ->getUserByUserId($target_user_id);
+
+		}
+		catch(\Exception $e)
+		{
+			return redirect('404');
+		}
+		return view('pages.profile.profileEditPage', compact('user', 'target_user_id'));
+	}
+
+
 	public function uploadProfileAvatar ($target_nickname, UploadAvatarRequest $request)
 	{
 		try
@@ -220,7 +244,7 @@ class ProfileController extends Controller
 //			throw $e;
 			return back()->with('error', trans('front/profile.modifyUserProfileFail'));
 		}
-		return redirect()->route('profile.edit', [$userNickName])->with('ok', trans('front/profile.updateSuccessful'));
+		return redirect()->route('profileAvatarPage', [$userNickName])->with('ok', trans('front/profile.updateSuccessful'));
 	}
 	
 }

@@ -642,6 +642,15 @@ Route::patch('profile/{target_nickname}/profile/update',
         'as'         => 'profile.update'
     ]);
 
+// Upload Avatar Page
+// Todo: created by Hui Lin.
+Route::get('{target_nickname}/profile/avatar',
+	[
+		'middleware' => 'auth',
+		'uses'       => 'ProfileController@profileAvatarPage',
+		'as'         => 'profileAvatarPage'
+	]);
+
 // Update Profile route (Patch process).
 Route::post('profile/{target_nickname}/profile/avatar/upload',
     [

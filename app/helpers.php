@@ -533,3 +533,7 @@ function singularOrPlural( $num, $singular, $plural, $noResault ) {
 function get_group_name_by_id( $group_id ) {
 	return Group::whereid( $group_id )->firstOrFail()->name;
 }
+
+function url_link_to_profileAvatarPage() {
+	return URL::route( 'profileAvatarPage', Auth::user()->profile->nickname );
+}

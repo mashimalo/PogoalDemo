@@ -170,7 +170,7 @@ $(function () {
         var $this = $(this);
         var $target = $this.attr("data-target");
 
-        if(!$this.attr("data-scroll-offset")) {
+        if (!$this.attr("data-scroll-offset")) {
             $('html, body').animate({
                 scrollTop: $($target).offset().top - 60
             }, 1000);
@@ -182,7 +182,6 @@ $(function () {
 
     });
 });
-
 
 
 /*
@@ -235,8 +234,8 @@ $(function () {
     var $groupCategoryModalRadios = $($groupCategoryModal).find("input[type='radio']");
 
     $body.on("click", $groupCategoryButton, function () {
-        $groupCategoryModalRadios.on("click",function () {
-           $("#singleGroup-group-category-selected").text($("input[name=group_type_id]:checked").parent().text().trim());
+        $groupCategoryModalRadios.on("click", function () {
+            $("#singleGroup-group-category-selected").text($("input[name=group_type_id]:checked").parent().text().trim());
             $($groupCategoryChangeButton).show();
             $($groupCategoryButton).hide();
         });
@@ -251,7 +250,7 @@ $(function () {
  |--------------------------------------------------------------------------
  */
 
-$(function(){
+$(function () {
     setTimeout(function () {
         $(".uiAlert").slideToggle(500, function () {
             $(this).hide();
