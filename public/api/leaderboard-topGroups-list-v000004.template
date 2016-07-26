@@ -1,20 +1,16 @@
 <li class="pH--md lk-block">
     <div class="pV--sm bordered--b bordered--b--light">
         <a href="{{ group_link }}" class="pull-left mR--md">
-            {{{ group_avatar }}}
+            <img src="{{ group_avatar }}" class="avatar avatar--md rounded"/>
         </a>
         <a href="{{ group_link }}" class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
             Join
         </a>
         <div class="overflow-h">
             <a href="{{ group_link }}" class="lk-darker bold text-overflow">
-                Under Construction!
+                {{ group_name }}
             </a>
             <div class="small text-light">
-                <span class="mR--md">
-                    <span class="icon icon-category mR"></span>
-                    {{ group_type }}
-                </span>
                 <span>
                     <span class="icon icon-group mR"></span>
                     {{ amount }}

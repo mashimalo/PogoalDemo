@@ -158,11 +158,23 @@ $(function () {
 
                     // Data Cache
                     var $data = {
-
+                        group_name: item.groupName,
+                        amount: item.amount
                     };
 
+                    // Dynamic data key cache - link
+                    $data["group_link"] = $baseURL + '/group/' + item.group_id;
+
+                    // Dynamic data key cache - avatar
+                    if (item.groupAvatarSmall == null) {
+                        var $group_avatar = $baseURL + '/assets/images/avatar.jpg';
+                    } else {
+                        var $group_avatar = $baseURL + '/images/groupAvatar/' + item.groupAvatarSmall;
+                    }
+                    $data["group_avatar"] = $group_avatar;
+
                     // Get template
-                    $.get('/api/leaderboard-topGroups-list-v000002.template', function (template) {
+                    $.get('/api/leaderboard-topGroups-list-v000004.template', function (template) {
                         var $leaderboardTopGroupsTemplate = Mustache.render(template, $data);
 
                         // prepend it to list

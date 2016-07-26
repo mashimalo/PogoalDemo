@@ -138,7 +138,16 @@
                         <li class="pH--md lk-block">
                             <div class="pV--sm bordered--b bordered--b--light">
                                 <a href="{{ url_link_to_group($group->group_id ) }}" class="pull-left mR--md">
-                                    <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded"/>
+
+
+                                    @if (\App\Models\Group::where('id', $group->group_id)->firstOrFail()->group_avatar_small != null || strlen(\App\Models\Group::where('id', $group->group_id)->firstOrFail()->group_avatar_small) > 0)
+                                        <img src="{!! '/images/groupAvatar/'.\App\Models\Group::where('id', $group->group_id)->firstOrFail()->group_avatar_small !!}"
+                                             class="avatar avatar--md rounded">
+                                    @else
+                                        <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded"/>
+                                    @endif
+
+
                                 </a>
                                 <a href="{{ url_link_to_group($group->group_id ) }}" class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
                                     Join
@@ -174,8 +183,7 @@
                     Top Bridging Groups
                 </div>
 
-                <div id="leaderboard-filter-topBridgingGroups"
-                     class="leaderboard__filter__container text-center pH--md transit--linear--fast link-fake">
+                <div id="leaderboard-filter-topBridgingGroups" class="leaderboard__filter__container text-center pH--md transit--linear--fast">
                     <div class="leaderboard__filter pV--sm transit--linear--fast">
                         All Categories
                     </div>
