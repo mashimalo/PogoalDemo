@@ -27,10 +27,12 @@
     <li class="toolbar__userInfo uiDropdown--hover">
         <a href="{{ url_link_to_glance() }}" class="lk-block text-dark" type="button" id="toolbar-user-avatar">
             {{--- User Avatar ---}}
-            <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}" class="initialAvatar avatar avatar--md rounded mR"/>
-            {{--<img class="avatar avatar--sm rounded mR" src="{{ url('/assets/images/avatar.jpg') }}">--}}
+            @if (Auth::user()->profile->user_avatar_large != null || strlen(Auth::user()->profile->user_avatar_large) > 0)
+                <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_large !!}" class="avatar avatar--md rounded mR">
+            @else
+                <img data-name="{{ empty_eitherName_displayNickname($user) }}" class="initialAvatar avatar avatar--md rounded mR">
+            @endif
             <span class="toolbar__userInfo__name mL mR">{{ empty_firstName_displayNickname(Auth::user()) }}</span>
-            {{--<span class="icon icon-arrow-down"></span>--}}
         </a>
         {{--- User Info Menu ---}}
         <ul class="toolbar__user uiDropdown__menu uiDropdown__menu--right arc-sm-bottom"
