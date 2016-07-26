@@ -7,11 +7,19 @@
                 ------------------------------}}
                 @if(is_profile_owner($target_user_id))
                     <a href="{{ url_link_to_profile() }}" class="cover__static__avatar rounded">
-                        <img data-name="{{ empty_firstName_displayNickname($user) }}" class="initialAvatar avatar avatar--lg rounded"/>
+                        @if ($user->profile->user_avatar_large != null || strlen($user->profile->user_avatar_large) > 0)
+                            <img src="{!! '/images/userAvatar/'.$user->profile->user_avatar_large !!}" class="avatar avatar--lg rounded mR">
+                        @else
+                            <img data-name="{{ empty_eitherName_displayNickname($user) }}" class="initialAvatar avatar avatar--lg rounded mR">
+                        @endif
                     </a>
                 @else
                     <a href="{{ url_link_to_target_profile($target_nickname) }}" class="cover__static__avatar rounded">
-                        <img data-name="{{ empty_firstName_displayNickname($user) }}" class="initialAvatar avatar avatar--lg rounded"/>
+                        @if ($user->profile->user_avatar_large != null || strlen($user->profile->user_avatar_large) > 0)
+                        <img src="{!! '/images/userAvatar/'.$user->profile->user_avatar_large !!}" class="avatar avatar--lg rounded mR">
+                        @else
+                            <img data-name="{{ empty_eitherName_displayNickname($user) }}" class="initialAvatar avatar avatar--lg rounded mR">
+                        @endif
                     </a>
                 @endif
 

@@ -11,13 +11,6 @@
                     Create a Group
                 </a>
             </li>
-
-            {{--<li class="createBtn__item createBtn__event">--}}
-            {{--<a class="btn btn-md btn-primary" role="button">--}}
-            {{--<span class="icon icon-calendar mR"></span>--}}
-            {{--Create an Event--}}
-            {{--</a>--}}
-            {{--</li>--}}
         </ul>
     </li>
 
@@ -26,20 +19,19 @@
     ----------------------------}}
     <li class="toolbar__userInfo uiDropdown--hover">
         <a href="{{ url_link_to_glance() }}" class="lk-block text-dark" type="button" id="toolbar-user-avatar">
-            {{--- User Avatar ---}}
-            @if (Auth::user()->profile->user_avatar_large != null || strlen(Auth::user()->profile->user_avatar_large) > 0)
-                <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_large !!}" class="avatar avatar--md rounded mR">
+            {{----------------------------
+            | User avatar
+            ----------------------------}}
+            @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
+                <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}" class="avatar avatar--md rounded mR">
             @else
-                <img data-name="{{ empty_eitherName_displayNickname($user) }}" class="initialAvatar avatar avatar--md rounded mR">
+                <img data-name="{{ empty_eitherName_displayNickname(Auth::user()) }}" class="initialAvatar avatar avatar--md rounded mR">
             @endif
             <span class="toolbar__userInfo__name mL mR">{{ empty_firstName_displayNickname(Auth::user()) }}</span>
         </a>
         {{--- User Info Menu ---}}
         <ul class="toolbar__user uiDropdown__menu uiDropdown__menu--right arc-sm-bottom"
             aria-labelledby="toolbar__userAvatar">
-            {{--<li class="toolbar__userInfo text-center">--}}
-            {{--<span class="toolbar__userName">Hi, {{ getUserFirstName() }} {{ getUserLastName() }}</span>--}}
-            {{--</li>--}}
             <li class="uiDropdown__menu__header"><span>Profile</span></li>
             <li>
                 <a href="{{ url_link_to_profile() }}"> <span class="icon icon-user-solid"></span> My Profile</a>
@@ -64,16 +56,6 @@
     | Notification
     ----------------------------}}
     @include('templates.toolbar.toolbarMinor-notification')
-
-    {{----------------------------
-    | Glance
-    ----------------------------}}
-    {{--<li class="toolbar__glance toolbar__icons">--}}
-    {{--@if(Auth::check())--}}
-    {{--<a href="{{ url_link_to_glance() }}" class="icon icon-log-in lk-block" id="toolbar-glance" title="Glane">--}}
-    {{--</a>--}}
-    {{--@endif--}}
-    {{--</li>--}}
 
     {{----------------------------
     | Follow
