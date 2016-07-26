@@ -20,7 +20,7 @@
         </div>
 
         <div class="wrap">
-            <label for="uploadImage" class="c-f-3">Upload a new avatar:</label>
+            <label for="#uploadImage" class="c-f-3">Upload a new avatar:</label>
             <div class="c-f-9">
                 <div class="form-group form-control">
                     {!! Form::file('uploadImage') !!}
