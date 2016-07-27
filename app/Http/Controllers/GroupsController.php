@@ -1089,6 +1089,14 @@ class GroupsController extends Controller
         }
     }
 
+    /**
+     * upload group avatar
+     *
+     * @param UploadAvatarRequest $request
+     * @param $group_id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
     public function uploadGroupAvatar(UploadAvatarRequest $request, $group_id)
     {
         try

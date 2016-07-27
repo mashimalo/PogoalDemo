@@ -128,6 +128,8 @@ class FeedAndCommentController extends Controller {
 			$feed->post_time           = $feed->created_at->diffForHumans();
 			$feed->feed_unpinned_count = getUnpinnedFeedsCount( $group_id );
 			$feed->feed_pinned_count   = getPinnedFeedsCount( $group_id );
+			$feed->user_avatar_small   = $feed->user->profile->user_avatar_small;
+			$feed->user_avatar_large   = $feed->user->profile->user_avatar_large;
 
 		} catch ( \Exception $e ) {
 			return back()->with( 'error', trans( 'front/feed.postFeedFail' ) );
@@ -215,6 +217,8 @@ class FeedAndCommentController extends Controller {
 			$comment->user_name         = empty_eitherName_displayNickname( $comment->user );
 			$comment->post_time         = $comment->created_at->diffForHumans();
 			$comment->all_reply_count   = getAllReplyCount( Feed::whereid( $feed_id )->first() );
+			$comment->user_avatar_small = $comment->user->profile->user_avatar_small;
+			$comment->user_avatar_large = $comment->user->profile->user_avatar_large;
 
 		} catch ( \Exception $e ) {
 			return back()->with( 'error', trans( 'front/feed.postCommentFail' ) );
@@ -250,6 +254,8 @@ class FeedAndCommentController extends Controller {
 			$comment->user_name         = empty_eitherName_displayNickname( $comment->user );
 			$comment->post_time         = $comment->created_at->diffForHumans();
 			$comment->all_reply_count   = getAllReplyCount( Feed::whereid( $feed_id )->first() );
+			$comment->user_avatar_small = $comment->user->profile->user_avatar_small;
+			$comment->user_avatar_large = $comment->user->profile->user_avatar_large;
 
 		} catch ( \Exception $e ) {
 			return back()->with( 'error', trans( 'front/feed.postCommentFail' ) );

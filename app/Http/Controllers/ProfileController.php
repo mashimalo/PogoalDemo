@@ -199,6 +199,12 @@ class ProfileController extends Controller
 //	}
 
 	// Todo: Created by Hui Lin
+	/**
+	 * upload profile avatar page
+	 *
+	 * @param $target_nickname
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+	 */
 	public function profileAvatarPage($target_nickname)
 	{
 		try
@@ -222,6 +228,12 @@ class ProfileController extends Controller
 	}
 
 
+	/**
+	 * update profile avatar
+	 * @param $target_nickname
+	 * @param UploadAvatarRequest $request
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
 	public function uploadProfileAvatar ($target_nickname, UploadAvatarRequest $request)
 	{
 		try
