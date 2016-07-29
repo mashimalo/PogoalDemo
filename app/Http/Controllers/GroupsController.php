@@ -626,7 +626,7 @@ class GroupsController extends Controller
 
             $groupUrlLink = url_link_to_group($group->id);
 
-            $notificationMessage = "Your request to join Group - <b>$group->name</b> has been <b>deined</b>.";
+            $notificationMessage = "Your request to join Group - <b>$group->name</b> has been <b>denied</b>.";
 
             $this->notifiaction_repository->sendNotification($pendingUser_id, $notificationMessage, $groupUrlLink);
 
@@ -904,7 +904,7 @@ class GroupsController extends Controller
                 $targetGroupAdminUserFullName = empty_eitherName_displayNickname(User::whereid($targetGroupAdmin_id)->first());
                 $targetGroupProfileUrlLink = url_link_to_groupProfilePage($target_group_id);
 
-                $notificationMessage = "<b>$sourceGroupName</b> is requesting to start a briging session with your Group - <b>$targetGroupName </b>.";
+                $notificationMessage = "<b>$sourceGroupName</b> is requesting to start a bridging session with your Group - <b>$targetGroupName </b>.";
 
                 $this->notifiaction_repository->sendNotification($targetGroupAdmin_id, $notificationMessage, $targetGroupProfileUrlLink);
 
@@ -971,7 +971,7 @@ class GroupsController extends Controller
 
                 $pendingDockingRequestGroupUrlLink = url_link_to_group($pendingDockingRequestGroup_id);
 
-                $notificationMessage = "<b>Your Group - $pendingDockingRequestGroupName</b>. is now <b>briding with Group - <b>$sourceGroupName</b>.";
+                $notificationMessage = "<b>Your Group - $pendingDockingRequestGroupName</b>. is now bridging with Group - <b>$sourceGroupName</b>.";
 
                 $this->notifiaction_repository->sendNotification($recipientUser_id, $notificationMessage, $dockingGroupUrl);
 
@@ -996,7 +996,7 @@ class GroupsController extends Controller
                 $recipientUser_id = $sourceGroupUser->user_id;
                 $recipientUserName = empty_eitherName_displayNickname(User::whereid($recipientUser_id)->first());
 
-                $notificationMessage = "Your Group - <b>$sourceGroupName</b>. is now <b>briding with Group - <b>$pendingDockingRequestGroupName</b>.";
+                $notificationMessage = "Your Group - <b>$sourceGroupName</b>. is now bridging with Group - <b>$pendingDockingRequestGroupName</b>.";
 
                 $this->notifiaction_repository->sendNotification($recipientUser_id, $notificationMessage, $dockingGroupUrl);
 

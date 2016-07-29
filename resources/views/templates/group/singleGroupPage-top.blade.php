@@ -107,8 +107,11 @@
 
                 <div class="rich-form-body">
                     {!! Form::textarea('feed',null,['class'=>'form-control bg-white h--sm','placeholder'=>'Spit it out...','data-elastic'=>'rich-form']) !!}
-                    <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
-                         class="initialAvatar rich-form-avatar avatar avatar--md arc-sm"/>
+                    @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
+                        <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}" class="rich-form-avatar avatar avatar--md arc-sm">
+                    @else
+                        <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}" class="initialAvatar rich-form-avatar avatar avatar--md arc-sm"/>
+                    @endif
                 </div>
 
                 <div class="rich-form-footer">

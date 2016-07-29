@@ -54,7 +54,12 @@
         <div class="uiCard__content">
             <div class="sgp-left__group__avatar">
                 <a href="{{ url_link_to_group($group->id) }}">
-                    <img class="avatar avatar--lg arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">
+                    @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
+                        <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}"
+                             class="avatar avatar--lg arc-sm">
+                    @else
+                        <img class="avatar avatar--lg arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">
+                    @endif
                 </a>
             </div>
             <div class="sgp-left__group__name">

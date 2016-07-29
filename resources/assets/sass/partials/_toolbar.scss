@@ -5,6 +5,11 @@
 
   // z-index
   z-index: $zindex-toolbar-fixed;
+
+  .uiDropdown__menu {
+    @include box-shadow(0 5px 5px rgba(57,66,77,0.25));
+    margin-top: 0;
+  }
 }
 
 .toolbar__container {

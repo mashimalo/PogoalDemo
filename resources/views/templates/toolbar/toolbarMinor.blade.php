@@ -79,7 +79,7 @@
             Groups
         </button>
         {{--- Group Menu ---}}
-        <ul class="uiDropdown__menu uiDropdown__menu--right">
+        <ul class="uiDropdown__menu uiDropdown__menu--right arrow--none arc-sm-bottom">
             <li><a href="{{ URL::route('singleGroupCreatePage-show') }}">Create a Group</a></li>
             <li><a href="{{ URL::route('showAllGroups') }}">Find Groups</a></li>
             <li><a href="{{ url_link_to_glance() }}">My Groups</a></li>

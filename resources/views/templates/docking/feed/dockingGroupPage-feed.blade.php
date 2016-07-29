@@ -27,8 +27,13 @@
         | Feed Avatar
         ----------------------------}}
         <a href="{{ url_link_to_target_profile($feed->user->profile->nickname) }}" class="uiFeed__avatar">
-            <img data-name="{{ empty_firstName_displayNickname($feed->user) }}"
-                 class="initialAvatar avatar avatar--md arc-sm"/>
+            @if ($feed->user->profile->user_avatar_small != null || strlen($feed->user->profile->user_avatar_small) > 0)
+                <img src="{!! '/images/userAvatar/'.$feed->user->profile->user_avatar_small !!}"
+                     class="avatar avatar--md arc-sm">
+            @else
+                <img data-name="{{ empty_firstName_displayNickname($feed->user) }}"
+                     class="initialAvatar avatar avatar--md arc-sm"/>
+            @endif
         </a>
 
         {{----------------------------
@@ -97,10 +102,10 @@
 
             <div class="pull-right uiDropdown">
                 <button class="btn btn-sns" data-toggle="dropdown">
-                    <span class="icon icon-gear text-light link-fake"></span>
+                    <span class="icon icon-dots text-light link-fake"></span>
                 </button>
 
-                <ul class="uiDropdown__menu arrow--none">
+                <ul class="uiDropdown__menu">
                     @if ($validate_currentUser_has_permission_in_dockingGroup )
                         @if ($feed->pinned == false)
                             <li>
@@ -162,7 +167,13 @@
             ----------------------------}}
             @if ($validate_currentUser_in_dockingGroup)
                 <div class="uiFeed__reply__form">
-                    <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}" class="initialAvatar avatar avatar--md arc-sm mR--md pull-left"/>
+                    @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
+                        <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}"
+                             class="avatar avatar--md arc-sm mR--md pull-left">
+                    @else
+                        <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
+                             class="initialAvatar avatar avatar--md arc-sm mR--md pull-left"/>
+                    @endif
                     <button class="btn btn-primary btn-md mL--md pull-right"
                             data-action="post-feed-reply"
                             data-action-for="docking"
@@ -182,22 +193,6 @@
                         </div>
                     </div>
                 </div>
-
-                {{--<div class="uiFeed__reply__form">--}}
-                {{--{!! Form::model($feed, ['route'=> ['comment-post-dockingGroup', $dockingGroup->id, $feed->id,], 'method'=>'POST','id'=>'post-comment', 'data-toggle'=>'validator', 'role'=>'form'])!!}--}}
-                {{--<img data-name="{{ getUserFirstName() }}" class="initialAvatar avatar avatar--md arc-sm mR--md pull-left"/>--}}
-                {{--{!! Form::submit('Reply',['class'=>'btn btn-primary btn-md mL--md pull-right']) !!}--}}
-                {{--<div class="uiFeed__reply__form__input">--}}
-                {{--<div class="elastic-textarea elastic-textarea--hasBtn">--}}
-                {{--<textarea placeholder="Reply......" name="reply-{{ $feed->id }}" class="form-control elastic-textarea__input"--}}
-                {{--data-elastic="textarea"></textarea>--}}
-                {{--<div class="elastic-textarea__btn">--}}
-                {{--<button class="btn btn-md icon icon-camera text-light"></button>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--{!! Form::close() !!}--}}
-                {{--</div>--}}
             @endif
         </div>
 

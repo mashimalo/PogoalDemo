@@ -148,6 +148,15 @@
   padding: 0 $padding-base $padding-base;
   display: table;
   width: 100%;
+
+  .uiDropdown__menu {
+    &:before {
+      right: 10px;
+    }
+    &:after {
+      right: 11px;
+    }
+  }
 }
 
 /*

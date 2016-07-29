@@ -1,9 +1,4 @@
 {{----------------------------
-| Page Title
-----------------------------}}
-<h2 class="page-title text-center">Bridging Setup</h2>
-
-{{----------------------------
 | Bridging Group Create Form
 ----------------------------}}
 {!! Form::open(['name'=>'dockingGroupSetup-form','id'=>'dockingGroupSetup-form','route'=>['sendDockingGroupRequest'],'method'=>'post','data-toggle'=>'validator']) !!}

@@ -76,7 +76,8 @@ $(function () {
 
     // Attributes Cache
     var $csrf_token = $("meta[name=_token]").attr("content");
-    var $user_firstName = $('meta[name="user_firstName"]').attr("content");
+    var $my_firstName = $('meta[name="my_firstName"]').attr("content");
+    var $my_avatar = $('meta[name="my_avatar"]').attr("content");
     // var $user_lastName = $('meta[name="user_lastName"]').attr("content");
 
 
@@ -127,10 +128,11 @@ $(function () {
                     user_name: data.json.user_name,
                     user_profile_link: data.json.user_profile_link,
                     feed_content: data.json.content.nl2br(),
-                    csrf_token: $csrf_token
+                    csrf_token: $csrf_token,
+                    my_firstName: $my_firstName
                 };
 
-                // Dynamic data key cache
+                // Dynamic data key cache - group
                 if($data_action_for == "group"){
                     var $data_group_id = data.json.group_id;
                 } else if($data_action_for == "docking"){
@@ -138,8 +140,28 @@ $(function () {
                 }
                 $data["group_id"] = $data_group_id;
 
+                // Dynamic data key cache - avatar
+                var $user_avatar = $baseURL + '/images/userAvatar/' + data.json.user_avatar_small;
+                $data["user_avatar"] = $user_avatar;
+
+                // Dynamic data key cache - initial avatar
+                if (data.json.user_avatar_small == null) {
+                    var $user_initialAvatar = "initialAvatar";
+                }
+                $data["user_initialAvatar"] = $user_initialAvatar;
+
+                // Dynamic data key cache - my avatar
+                var $my_avatar_src= $baseURL + '/images/userAvatar/' + $my_avatar;
+                $data["my_avatar_src"] = $my_avatar_src;
+
+                // Dynamic data key cache - my initial avatar
+                if (!$my_avatar) {
+                    var $my_initialAvatar = "initialAvatar";
+                }
+                $data["my_initialAvatar"] = $my_initialAvatar;
+
                 // Get Feed template
-                $.get('/api/feed-v000008.template', function (template) {
+                $.get('/api/feed-v000011.template', function (template) {
                     var $feedTemplate = Mustache.render(template, $data);
 
                     // prepend it to #feeds-unpinned
@@ -251,10 +273,11 @@ $(function () {
                     user_profile_link: data.json.user_profile_link,
                     content: data.json.content.nl2br(),
                     all_reply_count: data.json.all_reply_count,
-                    csrf_token: $csrf_token
+                    csrf_token: $csrf_token,
+                    user_avatar_small: data.json.user_avatar_small
                 };
 
-                // Dynamic data key cache
+                // Dynamic data key cache - group
                 if ($data_action_for == "group") {
                     var $data_group_id = data.json.group_id;
                 } else if ($data_action_for == "docking") {
@@ -262,8 +285,18 @@ $(function () {
                 }
                 $data["group_id"] = $data_group_id;
 
+                // Dynamic data key cache - avatar
+                var $user_avatar = $baseURL + '/images/userAvatar/' + data.json.user_avatar_small;
+                $data["user_avatar"] = $user_avatar;
+
+                // Dynamic data key cache - initial avatar
+                if (data.json.user_avatar_small == null) {
+                    var $user_initialAvatar = "initialAvatar";
+                }
+                $data["user_initialAvatar"] = $user_initialAvatar;
+
                 // Get Feed Reply template
-                $.get('/api/feed-reply-v000004.template', function (template) {
+                $.get('/api/feed-reply-v000007.template', function (template) {
                     var $feedReplyTemplate = Mustache.render(template, $data);
 
                     // Prepend it to .uiFeed__reply
@@ -336,8 +369,18 @@ $(function () {
             feed_id: $feed_id,
             reply_id: $reply_id,
             csrf_token: $csrf_token,
-            user_firstName: $user_firstName
+            my_firstName: $my_firstName
         };
+
+        // Dynamic data key cache - my avatar
+        var $my_avatar_src= $baseURL + '/images/userAvatar/' + $my_avatar;
+        $data["my_avatar_src"] = $my_avatar_src;
+
+        // Dynamic data key cache - my initial avatar
+        if (!$my_avatar) {
+            var $my_initialAvatar = "initialAvatar";
+        }
+        $data["my_initialAvatar"] = $my_initialAvatar;
 
         // If selector does not have .clicked class, run the event.
         if (!$this.hasClass("clicked")) {
@@ -346,7 +389,7 @@ $(function () {
             $parent.after("<div class='uiFeed__reply__form'></div>");
 
             // Get Feed Reply Form template
-            $.get('/api/feed-reply-form-v000004.template', function (template) {
+            $.get('/api/feed-reply-form-v000006.template', function (template) {
                 var $replyFormTemplate = Mustache.render(template, $data);
 
                 // Append id to .uiFeed__reply__form
@@ -358,6 +401,15 @@ $(function () {
 
             // Add .clicked class to prevent event.
             $this.addClass("clicked");
+
+        } else if ($this.hasClass("clicked")) {
+
+            // remove form
+            $parent.siblings(".uiFeed__reply__form").remove();
+
+            // Add .clicked class to prevent event.
+            $this.removeClass("clicked");
+
         }
     });
 
@@ -420,7 +472,7 @@ $(function () {
                     all_reply_count: data.json.all_reply_count
                 };
 
-                // Dynamic data key cache
+                // Dynamic data key cache - group
                 if ($data_action_for == "group") {
                     var $data_group_id = data.json.group_id;
                 } else if ($data_action_for == "docking") {
@@ -428,8 +480,18 @@ $(function () {
                 }
                 $data["group_id"] = $data_group_id;
 
+                // Dynamic data key cache - avatar
+                var $user_avatar = $baseURL + '/images/userAvatar/' + data.json.user_avatar_small;
+                $data["user_avatar"] = $user_avatar;
+
+                // Dynamic data key cache - initial avatar
+                if (data.json.user_avatar_small == null) {
+                    var $user_initialAvatar = "initialAvatar";
+                }
+                $data["user_initialAvatar"] = $user_initialAvatar;
+
                 // Get Feed Child Reply template
-                $.get('/api/feed-childReply-v000005.template', function (template) {
+                $.get('/api/feed-childReply-v000006.template', function (template) {
                     var $feedChildReplyTemplate = Mustache.render(template, $data);
 
                     // Prepend it to .uiFeed__reply__secondLvl

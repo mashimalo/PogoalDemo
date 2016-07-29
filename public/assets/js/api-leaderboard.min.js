@@ -5,18 +5,10 @@ $(function () {
     // Filter Cache
     var $leaderboardFilterTopUsers = "#leaderboard-filter-topUsers";
     var $leaderboardFilterTopGroups = "#leaderboard-filter-topGroups";
-    var $leaderboardFilterTopUsersList = "#leaderboard-filter-topUsers ul";
-    var $leaderboardFilterTopGroupsList = "#leaderboard-filter-topGroups ul";
-    var $leaderboardFilterTopUsersChild = "#leaderboard-filter-topUsers ul li";
-    var $leaderboardFilterTopGroupsChild = "#leaderboard-filter-topGroups ul li";
 
     // Result Cache
-    var $leaderboardTopUsers = "#leaderboard-topUsers";
-    var $leaderboardTopGroups = "#leaderboard-topGroups";
     var $leaderboardTopUsersList = "#leaderboard-result-topUsers";
     var $leaderboardTopGroupsList = "#leaderboard-result-topGroups";
-    var $leaderboardTopUsersChild = "#leaderboard-result-topUsers li";
-    var $leaderboardTopGroupsChild = "#leaderboard-result-topGroups li";
 
     // Action Cache
     var $leaderboardFilterTopUsersButton = "[data-action='leaderboard-filter-topUsers']";

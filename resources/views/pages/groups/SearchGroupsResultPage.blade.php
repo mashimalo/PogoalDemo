@@ -24,7 +24,17 @@
                             <div class="uiTile__body arc-md">
                                 <div class="uiTile__cover">
                                     <a href="{{ url_link_to_group($group->id) }}">
-                                        <img class="uiTile__avatar avatar avatar--fluid" src="{{ url('/assets/images/avatar.jpg') }}">
+
+                                        {{----------------------------
+                                        | Group avatar
+                                        ----------------------------}}
+                                        @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
+                                            <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}"
+                                                 class="uiTile__avatar avatar avatar--fluid">
+                                        @else
+                                            <img class="uiTile__avatar avatar avatar--fluid" src="{{ url('/assets/images/avatar.jpg') }}">
+                                        @endif
+
                                     </a>
                                 </div>
                                 <div class="uiTile__content bg-white">
@@ -123,8 +133,25 @@
                     <li class="uiList__item pB--sm mB--sm">
                         <a href="{{ url_link_to_dockingGroup( $dockingGroup->id ) }}">
                             <div class="uiList__img">
-                                <img class="avatar__primary avatar avatar--sm rounded pull-left" src="{{ url('/assets/images/avatar.jpg') }}">
-                                <img class="avatar__secondary avatar avatar--sm rounded pull-left" src="{{ url('/assets/images/avatar.jpg') }}">
+                                {{----------------------------
+                                | Group 1 avatar
+                                ----------------------------}}
+                                @if (get_group_by_id( $dockingGroup->group_1_id )->group_avatar_small != null || strlen(get_group_by_id( $dockingGroup->group_1_id )->group_avatar_small) > 0)
+                                    <img src="{!! '/images/groupAvatar/'.get_group_by_id( $dockingGroup->group_1_id )->group_avatar_small !!}"
+                                         class="avatar__primary avatar avatar--sm rounded pull-left">
+                                @else
+                                    <img class="avatar__primary avatar avatar--sm rounded pull-left" src="{{ url('/assets/images/avatar.jpg') }}">
+                                @endif
+
+                                {{----------------------------
+                                | Group 2 avatar
+                                ----------------------------}}
+                                @if (get_group_by_id( $dockingGroup->group_2_id )->group_avatar_small != null || strlen(get_group_by_id( $dockingGroup->group_2_id )->group_avatar_small) > 0)
+                                    <img src="{!! '/images/groupAvatar/'.get_group_by_id( $dockingGroup->group_2_id )->group_avatar_small !!}"
+                                         class="avatar__secondary avatar avatar--sm rounded pull-left">
+                                @else
+                                    <img class="avatar__secondary avatar avatar--sm rounded pull-left" src="{{ url('/assets/images/avatar.jpg') }}">
+                                @endif
                             </div>
                             <div class="uiList__body">
 

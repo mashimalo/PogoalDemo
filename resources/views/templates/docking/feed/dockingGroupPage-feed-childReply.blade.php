@@ -5,7 +5,12 @@
     @foreach ($comment->childComments->sortBy('created_at')->reverse()  as $comment_2nd)
         <li class="uiFeed__reply__item">
             <a href="{{ url_link_to_target_profile($comment_2nd->user->profile->nickname) }}" class="uiFeed__avatar">
-                <img data-name="{{ empty_firstName_displayNickname($comment_2nd->user) }}" class="initialAvatar avatar avatar--md arc-sm"/>
+                @if ($comment_2nd->user->profile->user_avatar_small != null || strlen($comment_2nd->user->profile->user_avatar_small) > 0)
+                    <img src="{!! '/images/userAvatar/'.$comment_2nd->user->profile->user_avatar_small !!}"
+                         class="avatar avatar--md arc-sm">
+                @else
+                    <img data-name="{{ empty_firstName_displayNickname($comment_2nd->user) }}" class="initialAvatar avatar avatar--md arc-sm"/>
+                @endif
             </a>
 
             {{----------------------------
@@ -54,27 +59,13 @@
                         <span class="icon icon-thumb-down"></span>
                         <span class="btn-sns__count">{{ $comment_2nd->unlikes->count() }}</span>
                     </button>
-
-                    {{--{!! Form::model($comment_2nd, ['route'=> ['comment-like', 'dockingGroup_id' => $dockingGroup->id, 'comment_id' => $comment_2nd->id], 'method'=>'POST','id'=>'like-comment', 'role'=>'form'])!!}--}}
-                    {{--<button class="btn btn-sns">--}}
-                    {{--<span class="icon icon-thumb-up mR"></span>--}}
-                    {{--<span class="btn-sns__count">{{ $comment_2nd->likes->count() }}</span>--}}
-                    {{--</button>--}}
-                    {{--{!! Form::close() !!}--}}
-
-                    {{--{!! Form::model($comment_2nd, ['route'=> ['comment-unlike', 'dockingGroup_id' => $dockingGroup->id, 'comment_id' => $comment_2nd->id], 'method'=>'POST','id'=>'unlike-comment', 'role'=>'form'])!!}--}}
-                    {{--<button class="btn btn-sns">--}}
-                    {{--<span class="icon icon-thumb-down mR"></span>--}}
-                    {{--<span class="btn-sns__count">{{ $comment_2nd->unlikes->count() }}</span>--}}
-                    {{--</button>--}}
-                    {{--{!! Form::close() !!}--}}
                 </div>
 
                 <div class="pull-right uiDropdown">
                     <button class="btn btn-sns" data-toggle="dropdown">
-                        <span class="icon icon-gear text-light link-fake"></span>
+                        <span class="icon icon-dots text-light link-fake"></span>
                     </button>
-                    <ul class="uiDropdown__menu arrow--none">
+                    <ul class="uiDropdown__menu">
                         @if ($comment_2nd->user->id == Auth::user()->id && $validate_currentUser_in_dockingGroup || $validate_currentUser_has_permission_in_dockingGroup )
                             <li>
                                 <button data-action="edit-feed-childReply"

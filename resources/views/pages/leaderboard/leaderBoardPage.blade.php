@@ -192,9 +192,22 @@
                     @foreach($topBridgeGroups as $bridgeGroup)
                         <li class="pH--md lk-block">
                             <div class="pV--sm bordered--b bordered--b--light">
-                                <a href="{{ url_link_to_dockingGroup($bridgeGroup->bridge_Group_id ) }}" class="pull-left mR--md avatar--overlap">
-                                    <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
-                                    <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
+                                <a href="{{ url_link_to_dockingGroup( $bridgeGroup->bridge_Group_id ) }}" class="pull-left mR--md avatar--overlap">
+
+                                    @if (leaderboard_topBridging_avatar($bridgeGroup->bridge_Group_id, "group_1_id") != null || strlen(leaderboard_topBridging_avatar($bridgeGroup->bridge_Group_id, "group_1_id")) > 0)
+                                        <img src="{!! '/images/groupAvatar/'.leaderboard_topBridging_avatar($bridgeGroup->bridge_Group_id, "group_1_id") !!}"
+                                             class="avatar avatar--md rounded shadow">
+                                    @else
+                                        <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
+                                    @endif
+
+                                    @if (leaderboard_topBridging_avatar($bridgeGroup->bridge_Group_id, "group_2_id") != null || strlen(leaderboard_topBridging_avatar($bridgeGroup->bridge_Group_id, "group_2_id")) > 0)
+                                        <img src="{!! '/images/groupAvatar/'.leaderboard_topBridging_avatar($bridgeGroup->bridge_Group_id, "group_2_id") !!}"
+                                             class="avatar avatar--md rounded shadow">
+                                    @else
+                                        <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
+                                    @endif
+
                                 </a>
                                 <a href="{{ url_link_to_dockingGroup($bridgeGroup->bridge_Group_id ) }}"
                                    class="pull-right mL--md btn btn-sns btn-mT-mainAlt">

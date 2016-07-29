@@ -9,7 +9,6 @@
 }
 
 .notification__panel {
-  @include border-radius($border-radius-base);
   background-color: $color-white;
   min-width: 430px;
   overflow: hidden;
@@ -22,10 +21,10 @@
   background-color: $color-red;
   font-size: $font-size-xsmall;
   color: $color-white;
-  position: absolute;
-  padding: 3px 5px;
-  right: 5px;
-  top: 15px;
+  //position: absolute;
+  padding: 1px 5px;
+  //right: 5px;
+  //top: 15px;
 }
 
 .notification__counter--fluid {

@@ -5,7 +5,12 @@
     <div class="uiCard__body">
         <div class="docking-side__group__avatar">
             <a href="{{ url_link_to_group($group2->id) }}">
-                <img class="avatar avatar--fluid arc-sm-top" src="{{ url('/assets/images/avatar.jpg') }}">
+                @if (get_group_by_id($group2->id)->group_avatar_large != null || strlen(get_group_by_id($group2->id)->group_avatar_large) > 0)
+                    <img src="{!! '/images/groupAvatar/'.get_group_by_id($group2->id)->group_avatar_large !!}"
+                         class="avatar avatar--fluid arc-sm-top">
+                @else
+                    <img class="avatar avatar--fluid arc-sm-top" src="{{ url('/assets/images/avatar.jpg') }}">
+                @endif
             </a>
         </div>
         <div class="uiCard__content">

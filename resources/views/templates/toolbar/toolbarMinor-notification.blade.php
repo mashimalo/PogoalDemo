@@ -4,22 +4,23 @@
             title="Messages&nbsp;&&nbsp;Notifications" data-toggle="dropdown">
         <span class="icon icon-bell text-lg text-lighter mR"></span>
         Notification
+
+        {{--- New Notification Count ---}}
+        @if(App\Models\Notification::where('user_id', Auth::user()->id)->where('read', false)->count() > 0)
+            <span id="toolbar-notification-counter" class="notification__counter mL">
+            {{ App\Models\Notification::where('user_id', Auth::user()->id)->where('read', false)->count() }}
+        </span>
+        @else
+            <span id="toolbar-notification-counter" class="notification__counter hidden">
+            {{ App\Models\Notification::where('user_id', Auth::user()->id)->where('read', false)->count() }}
+        </span>
+        @endif
+
     </button>
 
-    {{--- New Notification Count ---}}
-    @if(App\Models\Notification::where('user_id', Auth::user()->id)->where('read', false)->count() > 0)
-        <span id="toolbar-notification-counter" class="notification__counter">
-            {{ App\Models\Notification::where('user_id', Auth::user()->id)->where('read', false)->count() }}
-        </span>
-    @else
-        <span id="toolbar-notification-counter" class="notification__counter hidden">
-            {{ App\Models\Notification::where('user_id', Auth::user()->id)->where('read', false)->count() }}
-        </span>
-    @endif
-
     {{--- Notification Menu ---}}
-    <div class="uiDropdown__menu uiDropdown__menu--right">
-        <div class="notification__panel">
+    <div class="uiDropdown__menu uiDropdown__menu--right arrow--none">
+        <div class="notification__panel arc-sm-bottom">
             <div class="notification__header">
                 <span class="bold">
                     Notifications

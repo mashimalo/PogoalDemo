@@ -76,8 +76,11 @@
                         <li class="uiMemberList__item bg--list arc-sm">
                             <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id', $user->id)->first()->nickname) }}"
                                class="uiMemberList__avatar">
-                                <img data-name="{{ empty_firstName_displayNickname($user) }}" class="initialAvatar avatar avatar--block arc-sm-left"/>
-                                {{--<img class="avatar avatar--block arc-sm-left" src="{{ url('/assets/images/avatar.jpg') }}">--}}
+                                @if (\App\Models\Profile::where('user_id', $user->id)->first()->user_avatar_small != null || strlen(\App\Models\Profile::where('user_id', $user->id)->first()->user_avatar_small) > 0)
+                                    <img src="{!! '/images/userAvatar/'.\App\Models\Profile::where('user_id', $user->id)->first()->user_avatar_small !!}" class="avatar avatar--block arc-sm-left">
+                                @else
+                                    <img data-name="{{ empty_firstName_displayNickname($user) }}" class="initialAvatar avatar avatar--block arc-sm-left"/>
+                                @endif
                             </a>
 
                             <div class="uiMemberList__misc forms--inline">
@@ -140,8 +143,11 @@
                         <li class="uiMemberList__item bg--list arc-sm">
                             <a href="{{ url_link_to_target_profile(\App\Models\Profile::where('user_id', $user->id)->first()->nickname) }}"
                                class="uiMemberList__avatar">
-                                <img data-name="{{ empty_firstName_displayNickname($user) }}" class="initialAvatar avatar avatar--block arc-sm-left"/>
-                                {{--<img class="avatar avatar--block arc-sm-left" src="{{ url('/assets/images/avatar.jpg') }}">--}}
+                                @if (\App\Models\Profile::where('user_id', $user->id)->first()->user_avatar_small != null || strlen(\App\Models\Profile::where('user_id', $user->id)->first()->user_avatar_small) > 0)
+                                    <img src="{!! '/images/userAvatar/'.\App\Models\Profile::where('user_id', $user->id)->first()->user_avatar_small !!}" class="avatar avatar--block arc-sm-left">
+                                @else
+                                    <img data-name="{{ empty_firstName_displayNickname($user) }}" class="initialAvatar avatar avatar--block arc-sm-left"/>
+                                @endif
                             </a>
 
                             <div class="uiMemberList__misc forms--inline">

@@ -7,7 +7,12 @@
                 | Avatar
                 ------------------------------}}
                 <a href="{{ url_link_to_group($group->id) }}" class="cover__static__avatar rounded">
-                    <img class="avatar avatar--lg rounded" src="{{ url('/assets/images/avatar.jpg') }}">
+                    @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
+                        <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}"
+                             class="avatar avatar--lg rounded">
+                    @else
+                        <img class="avatar avatar--lg rounded" src="{{ url('/assets/images/avatar.jpg') }}">
+                    @endif
                 </a>
 
                 {{------------------------------
@@ -156,7 +161,7 @@
                         <a href="" data-toggle="dropdown">
                             <span class="icon icon-gear"></span>
                         </a>
-                        <ul class="uiDropdown__menu uiDropdown__menu--right arrow--none">
+                        <ul class="uiDropdown__menu uiDropdown__menu--right">
                             @if($validate_currentUser_has_permission)
                                 <li>
                                     <a href="{{ url_link_to_group_profile($group->id) }}">

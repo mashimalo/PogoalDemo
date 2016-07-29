@@ -6,9 +6,11 @@
         <li class="uiFeed__reply__item">
             <a href="{{ url_link_to_target_profile($comment->user->profile->nickname) }}"
                class="uiFeed__avatar">
-                <img data-name="{{ empty_firstName_displayNickname($comment->user) }}"
-                     class="initialAvatar avatar avatar--md arc-sm"/>
-                {{--<img class="avatar avatar--md arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">--}}
+                @if ($comment->user->profile->user_avatar_small != null || strlen($comment->user->profile->user_avatar_small) > 0)
+                    <img src="{!! '/images/userAvatar/'.$comment->user->profile->user_avatar_small !!}" class="avatar avatar--md arc-sm">
+                @else
+                    <img data-name="{{ empty_firstName_displayNickname($comment->user) }}" class="initialAvatar avatar avatar--md arc-sm"/>
+                @endif
             </a>
 
             {{----------------------------
@@ -53,19 +55,7 @@
                         <span class="icon icon-thumb-down"></span>
                         <span class="btn-sns__count">{{ $comment->unlikes->count() }}</span>
                     </button>
-                    {{--{!! Form::model($comment, ['route'=> ['comment-like', 'group_id' => $group->id, 'comment_id' => $comment->id], 'method'=>'POST','id'=>'like-comment', 'role'=>'form'])!!}--}}
-                    {{--<button class="btn btn-sns">--}}
-                    {{--<span class="icon icon-thumb-up"></span>--}}
-                    {{--<span class="btn-sns__count">{{ $comment->likes->count() }}</span>--}}
-                    {{--</button>--}}
-                    {{--{!! Form::close() !!}--}}
 
-                    {{--{!! Form::model($comment, ['route'=> ['comment-unlike', 'group_id' => $group->id, 'comment_id' => $comment->id], 'method'=>'POST','id'=>'unlike-comment', 'role'=>'form'])!!}--}}
-                    {{--<button class="btn btn-sns">--}}
-                    {{--<span class="icon icon-thumb-down"></span>--}}
-                    {{--<span class="btn-sns__count">{{ $comment->unlikes->count() }}</span>--}}
-                    {{--</button>--}}
-                    {{--{!! Form::close() !!}--}}
                     @if ( $validate_currentUser_in_group )
                         <button class="btn btn-link btn-xs"
                                 data-action="insert-feed-reply-form"
@@ -81,9 +71,9 @@
 
                 <div class="pull-right uiDropdown">
                     <button class="btn btn-sns" data-toggle="dropdown">
-                        <span class="icon icon-gear text-light"></span>
+                        <span class="icon icon-dots text-light"></span>
                     </button>
-                    <ul class="uiDropdown__menu arrow--none">
+                    <ul class="uiDropdown__menu">
                         @if ($comment->user->id == Auth::user()->id && $validate_currentUser_in_group || $validate_currentUser_has_permission )
                             <li>
                                 <button data-action="edit-feed-reply"

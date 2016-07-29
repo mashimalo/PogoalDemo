@@ -1,12 +1,5 @@
 @include('templates.session.checkSession')
 
-{{--------------------------
-| Bridging Group Name
---------------------------}}
-<h2 class="text-xlg mB--md text-center">
-    {{ $dockingGroup->docking_group_name }}
-</h2>
-
 <div class="docking-main__items">
     {{--------------------------
     | Navigation
@@ -35,7 +28,7 @@
                         <button data-toggle="dropdown" class="btn btn-outline-gray">
                             <span class="icon icon-gear"></span>
                         </button>
-                        <ul class="uiDropdown__menu uiDropdown__menu--right arrow--none">
+                        <ul class="uiDropdown__menu uiDropdown__menu--right">
                             @if($validate_currentUser_has_permission_in_dockingGroup)
                                 <li>
                                     {{--<a href="{{ url_link_to_group_profile($dockingGroup_id)}}">--}}
@@ -65,8 +58,13 @@
 
                 <div class="rich-form-body">
                     {!! Form::textarea('feed',null,['class'=>'form-control bg-white h--sm','placeholder'=>'Spit it out...','data-elastic'=>'rich-form']) !!}
-                    <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
-                         class="initialAvatar rich-form-avatar avatar avatar--md arc-sm"/>
+                    @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
+                        <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}"
+                             class="rich-form-avatar avatar avatar--md arc-sm">
+                    @else
+                        <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
+                             class="initialAvatar rich-form-avatar avatar avatar--md arc-sm"/>
+                    @endif
                 </div>
 
                 <div class="rich-form-footer">
@@ -83,25 +81,6 @@
                         </button>
                     </div>
                 </div>
-
-                {{--{!! Form::model($dockingGroup, ['route'=> ['feed-post-dockingGroup', $dockingGroup->id], 'method'=>'POST','id'=>'post-feed', 'data-toggle'=>'validator', 'role'=>'form'])!!}--}}
-                {{--<div class="rich-form-body">--}}
-                {{--{!! Form::textarea('feed',null,['class'=>'form-control bg-white h--sm','placeholder'=>'Spit it out...','data-elastic'=>'rich-form']) !!}--}}
-                {{--<img data-name="{{ getUserFirstName() }}" class="initialAvatar rich-form-avatar avatar avatar--md arc-sm"/>--}}
-                {{--<img class="rich-form-avatar avatar avatar--md arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">--}}
-                {{--</div>--}}
-
-                {{--<div class="rich-form-footer">--}}
-                {{--<div class="pull-left">--}}
-                {{--<span class="icon icon-camera lk-block"></span>--}}
-                {{--</div>--}}
-
-                {{--<div class="pull-right">--}}
-                {{--{!! Form::submit('Post',['class'=>'btn btn-primary']) !!}--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--{!! Form::close() !!}--}}
-
             </div>
         @endif
     @endif

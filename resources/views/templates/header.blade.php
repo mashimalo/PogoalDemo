@@ -17,8 +17,9 @@
     <meta name="viewport" content="width=1170, user-scalable=yes" />
     <meta name="_token" content="{!! csrf_token() !!}" />
     @if(Auth::check())
-        <meta name="user_firstName" content="{!! getUserFirstName() !!}" />
-        <meta name="user_lastName" content="{!! getUserLastName() !!}" />
+        <meta name="my_firstName" content="{!! getUserFirstName() !!}" />
+        <meta name="my_lastName" content="{!! getUserLastName() !!}" />
+        <meta name="my_avatar" content="{{ Auth::user()->profile->user_avatar_small }}" />
     @endif
     <title>
         @if (!empty($__env->yieldContent('pageTitle')))

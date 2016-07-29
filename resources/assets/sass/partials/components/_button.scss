@@ -59,6 +59,32 @@ a.btn {
 
 /*
 |--------------------------------------------------------------------------
+| Social Button
+|--------------------------------------------------------------------------
+*/
+.btn-sns {
+  padding: ($padding-xsmall - 3) $padding-small;
+
+  border: 1px solid $border-color-dark;
+  border: 1px solid $dark015;
+
+  font-size: $font-size-xsmall;
+  color: $text-color-light;
+
+  &:focus,
+  &:hover {
+    border: 1px solid darken($border-color-dark,10%);
+    border: 1px solid $dark02;
+
+    background-color: $color-gray-light-5;
+    background-color: $dark01;
+    color: darken($text-color-light,5%);
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
 | Colors
 |--------------------------------------------------------------------------
 */
@@ -182,6 +208,17 @@ a.btn {
   &:focus,
   &:hover {
     background-color: $color-white;
+    color: $text-color;
+  }
+}
+
+.btn-outline-white-light {
+  border: 1px solid $light06;
+  color: $light06;
+
+  &:focus,
+  &:hover {
+    background-color: $light06;
     color: $text-color;
   }
 }
@@ -324,32 +361,6 @@ input[type="button"] {
   &__b {
     color: $brand-primary;
     font-weight: 600;
-  }
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Social Button
-|--------------------------------------------------------------------------
-*/
-.btn-sns {
-  padding: ($padding-xsmall - 3) $padding-small;
-
-  border: 1px solid $border-color-dark;
-  border: 1px solid $dark015;
-
-  font-size: $font-size-xsmall;
-  color: $text-color-light;
-
-  &:focus,
-  &:hover {
-    border: 1px solid darken($border-color-dark,10%);
-    border: 1px solid $dark02;
-
-    background-color: $color-gray-light-5;
-    background-color: $dark01;
-    color: darken($text-color-light,5%);
   }
 }
 

@@ -1,6 +1,6 @@
 <li class="uiFeed__reply__item" style="display:none;">
     <a href="{{ user_profile_link }}" class="uiFeed__avatar">
-        <img data-name="{{{ user_name }}}" class="initialAvatar avatar avatar--md arc-sm"/>
+        <img data-name="{{{ user_name }}}" src="{{ user_avatar }}" class="{{user_initialAvatar}} avatar avatar--md arc-sm"/>
     </a>
 
     <div class="uiFeed__details">
@@ -42,9 +42,9 @@
 
         <div class="pull-right uiDropdown">
             <button class="btn btn-sns" data-toggle="dropdown">
-                <span class="icon icon-gear text-light link"></span>
+                <span class="icon icon-dots text-light link"></span>
             </button>
-            <ul class="uiDropdown__menu arrow--none">
+            <ul class="uiDropdown__menu">
                 <li>
                     <button data-action="edit-feed-childReply"
                             data-action-for="{{data_action_for}}"

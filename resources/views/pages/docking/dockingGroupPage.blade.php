@@ -16,6 +16,13 @@
 ----------------------------}}
 @section('content')
 
+    {{--------------------------
+    | Bridging Group Name
+    --------------------------}}
+    <h2 class="text-xlg mB--lg text-center">
+        {{ $dockingGroup->docking_group_name }}
+    </h2>
+
     <div class="wrap">
         {{----------------------------
         | Bridging Group Page Left

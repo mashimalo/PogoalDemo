@@ -5,9 +5,11 @@
     @foreach ($comment->childComments->sortBy('created_at')->reverse()  as $comment_2nd)
         <li class="uiFeed__reply__item">
             <a href="{{ url_link_to_target_profile($comment_2nd->user->profile->nickname) }}" class="uiFeed__avatar">
-                <img data-name="{{ empty_firstName_displayNickname($comment_2nd->user) }}"
-                     class="initialAvatar avatar avatar--md arc-sm"/>
-                {{--<img class="avatar avatar--md arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">--}}
+                @if ($comment_2nd->user->profile->user_avatar_small != null || strlen($comment_2nd->user->profile->user_avatar_small) > 0)
+                    <img src="{!! '/images/userAvatar/'.$comment_2nd->user->profile->user_avatar_small !!}" class="avatar avatar--md arc-sm">
+                @else
+                    <img data-name="{{ empty_firstName_displayNickname($comment_2nd->user) }}" class="initialAvatar avatar avatar--md arc-sm"/>
+                @endif
             </a>
 
             {{----------------------------
@@ -73,9 +75,9 @@
                 </div>
                 <div class="pull-right uiDropdown">
                     <button class="btn btn-sns" data-toggle="dropdown">
-                        <span class="icon icon-gear text-light link-fake"></span>
+                        <span class="icon icon-dots text-light link-fake"></span>
                     </button>
-                    <ul class="uiDropdown__menu arrow--none">
+                    <ul class="uiDropdown__menu">
                         @if ($comment_2nd->user->id == Auth::user()->id && $validate_currentUser_in_group || $validate_currentUser_has_permission )
                             <li>
                                 <button data-action="edit-feed-childReply"

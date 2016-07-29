@@ -3065,6 +3065,10 @@ a.text-dark:focus {
   max-height: 40px;
 }
 
+.maxH--article--single {
+  max-height: 20px;
+}
+
 .h--auto {
   height: auto;
 }
@@ -3561,6 +3565,29 @@ fieldset[disabled] .btn {
 a.btn.disabled,
 fieldset[disabled] a.btn {
   pointer-events: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Social Button
+|--------------------------------------------------------------------------
+*/
+
+.btn-sns {
+  padding: 2px 10px;
+  border: 1px solid #c9ced6;
+  border: 1px solid rgba(57, 66, 77, 0.15);
+  font-size: 12px;
+  color: #9da7b6;
+}
+
+.btn-sns:focus,
+.btn-sns:hover {
+  border: 1px solid #abb4c1;
+  border: 1px solid rgba(57, 66, 77, 0.2);
+  background-color: #d7dbe1;
+  background-color: rgba(57, 66, 77, 0.1);
+  color: #8e9aab;
 }
 
 /*
@@ -4102,6 +4129,17 @@ fieldset[disabled] .btn-danger.active {
   color: #4f5b6a;
 }
 
+.btn-outline-white-light {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-outline-white-light:focus,
+.btn-outline-white-light:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #4f5b6a;
+}
+
 .btn-outline-gray {
   border: 1px solid rgba(57, 66, 77, 0.2);
   color: #8e9aab;
@@ -4250,29 +4288,6 @@ input[type="button"].btn-block {
 .btn-stack__b {
   color: #faa71c;
   font-weight: 600;
-}
-
-/*
-|--------------------------------------------------------------------------
-| Social Button
-|--------------------------------------------------------------------------
-*/
-
-.btn-sns {
-  padding: 2px 10px;
-  border: 1px solid #c9ced6;
-  border: 1px solid rgba(57, 66, 77, 0.15);
-  font-size: 12px;
-  color: #9da7b6;
-}
-
-.btn-sns:focus,
-.btn-sns:hover {
-  border: 1px solid #abb4c1;
-  border: 1px solid rgba(57, 66, 77, 0.2);
-  background-color: #d7dbe1;
-  background-color: rgba(57, 66, 77, 0.1);
-  color: #8e9aab;
 }
 
 .bar-btn-mT {
@@ -4577,7 +4592,6 @@ button.close {
 }
 
 .notification__panel {
-  border-radius: 3px;
   background-color: #ffffff;
   min-width: 430px;
   overflow: hidden;
@@ -4590,10 +4604,7 @@ button.close {
   background-color: #d9534f;
   font-size: 12px;
   color: #ffffff;
-  position: absolute;
-  padding: 3px 5px;
-  right: 5px;
-  top: 15px;
+  padding: 1px 5px;
 }
 
 .notification__counter--fluid {
@@ -5377,7 +5388,7 @@ button.close {
 .uiDropdown__menu:before {
   position: absolute;
   top: -7px;
-  left: 9px;
+  right: 14px;
   display: inline-block;
   border-right: 7px solid transparent;
   border-bottom: 7px solid rgba(57, 66, 77, 0.15);
@@ -5388,7 +5399,7 @@ button.close {
 .uiDropdown__menu:after {
   position: absolute;
   top: -6px;
-  left: 10px;
+  right: 15px;
   display: inline-block;
   border-right: 6px solid transparent;
   border-bottom: 6px solid #ffffff;
@@ -6218,6 +6229,14 @@ button.close {
   padding: 0 15px 15px;
   display: table;
   width: 100%;
+}
+
+.uiFeed__misc .uiDropdown__menu:before {
+  right: 10px;
+}
+
+.uiFeed__misc .uiDropdown__menu:after {
+  right: 11px;
 }
 
 /*
@@ -7152,6 +7171,11 @@ website:    http://www.burocratik.com
   z-index: 1000;
 }
 
+#toolbar .uiDropdown__menu {
+  box-shadow: 0 5px 5px rgba(57, 66, 77, 0.25);
+  margin-top: 0;
+}
+
 .toolbar__container {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
@@ -7299,7 +7323,6 @@ website:    http://www.burocratik.com
 }
 
 .toolbar__user {
-  box-shadow: 0 5px 5px rgba(57, 66, 77, 0.25);
   background-color: #ffffff;
   width: 255px;
   border-color: #e6e8ec;

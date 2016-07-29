@@ -27,9 +27,11 @@
         | Feed Avatar
         ----------------------------}}
         <a href="{{ url_link_to_target_profile($feed->user->profile->nickname) }}" class="uiFeed__avatar">
-            <img data-name="{{ empty_firstName_displayNickname($feed->user) }}"
-                 class="initialAvatar avatar avatar--md arc-sm"/>
-            {{--<img class="avatar avatar--md arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">--}}
+            @if ($feed->user->profile->user_avatar_small != null || strlen($feed->user->profile->user_avatar_small) > 0)
+                <img src="{!! '/images/userAvatar/'.$feed->user->profile->user_avatar_small !!}" class="avatar avatar--md arc-sm">
+            @else
+                <img data-name="{{ empty_firstName_displayNickname($feed->user) }}" class="initialAvatar avatar avatar--md arc-sm"/>
+            @endif
         </a>
 
         {{----------------------------
@@ -97,10 +99,10 @@
 
             <div class="pull-right uiDropdown">
                 <button class="btn btn-sns" data-toggle="dropdown">
-                    <span class="icon icon-gear text-light link-fake"></span>
+                    <span class="icon icon-dots text-light link-fake"></span>
                 </button>
 
-                <ul class="uiDropdown__menu arrow--none">
+                <ul class="uiDropdown__menu">
                     @if ($validate_currentUser_has_permission )
                         {{--@if (verify_feed_pin_status($feed))--}}
                         @if ($feed->pinned == false)
@@ -163,7 +165,13 @@
             ----------------------------}}
             @if ($validate_currentUser_in_group)
                 <div class="uiFeed__reply__form">
-                    <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}" class="initialAvatar avatar avatar--md arc-sm mR--md pull-left"/>
+                    @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
+                        <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}"
+                             class="avatar avatar--md arc-sm mR--md pull-left">
+                    @else
+                        <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
+                             class="initialAvatar avatar avatar--md arc-sm mR--md pull-left"/>
+                    @endif
                     <button class="btn btn-primary btn-md mL--md pull-right"
                             data-action="post-feed-reply"
                             data-action-for="group"

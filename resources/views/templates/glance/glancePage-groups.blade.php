@@ -9,7 +9,15 @@
                     ------------------------------}}
                     <div class="bg-white inline-block w--full p-relative arrow--down arrow--down--white arrow--down--center">
                         <a href="{{ url_link_to_group($group->id) }}" class="pull-left">
-                            <img class="avatar avatar--lg" src="{{ url('/assets/images/avatar.jpg') }}">
+                            {{----------------------------
+                            | Group avatar
+                            ----------------------------}}
+                            @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
+                                <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}"
+                                     class="avatar avatar--lg">
+                            @else
+                                <img class="avatar avatar--lg" src="{{ url('/assets/images/avatar.jpg') }}">
+                            @endif
                         </a>
                         <div class="pA--md overflow-h">
                             <a href="{{ url_link_to_group($group->id) }}" class="bold lk-darker text-overflow mB">
@@ -40,21 +48,19 @@
                             <span class="icon icon-rocket mR"></span>
                             Latest Feed
                         </div>
-                        <div class="h--article overflow-h">
+                        <div class="h--article--single">
                             @if($group->feeds->count() == 0)
-                                <div class="mT">
                                 <span class="overflow-h">
                                     This group currently has no feed.
                                 </span>
-                                    <a href="{{ url_link_to_group($group->id) }}" class="btn btn-xs btn-primary mL--md pull-right">
-                                        Post one now
-                                    </a>
-                                </div>
+                                <a href="{{ url_link_to_group($group->id) }}" class="btn btn-xs btn-primary mL--md pull-right">
+                                    Post one now
+                                </a>
                             @endif
 
                             @if($group->feeds->count() >= 1)
                                 @foreach($group->feeds->sortBy('created_at')->reverse()->take(1) as $feed)
-                                    <a href="{{ url_link_to_group($group->id) }}" class="text-white">
+                                    <a href="{{ url_link_to_group($group->id) }}" class="text-white text-overflow">
                                         {!! $feed->content  !!}
                                     </a>
                                 @endforeach

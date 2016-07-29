@@ -2,7 +2,7 @@
 
     <div class="uiFeed__main">
         <a href="{{ user_profile_link }}" class="uiFeed__avatar">
-            <img data-name="{{{ user_name }}}" class="initialAvatar avatar avatar--md arc-sm"/>
+            <img data-name="{{{ user_name }}}" src="{{ user_avatar }}" class="{{user_initialAvatar}} avatar avatar--md arc-sm"/>
         </a>
         <div class="uiFeed__details">
             <div class="uiFeed__details__author">
@@ -43,9 +43,9 @@
             </div>
             <div class="pull-right uiDropdown">
                 <button class="btn btn-sns" data-toggle="dropdown">
-                    <span class="icon icon-gear text-light link"></span>
+                    <span class="icon icon-dots text-light link"></span>
                 </button>
-                <ul class="uiDropdown__menu arrow--none">
+                <ul class="uiDropdown__menu">
                     <li>
                         <form id="pin-feed" role="form" accept-charset="UTF-8" action="/group/{{ group_id }}/feed/{{ feed_id }}/pin" method="POST">
                             <input type="hidden" value="{{csrf_token}}" name="_token">
@@ -75,7 +75,7 @@
             </button>
             <ul class="uiFeed__reply"></ul>
             <div class="uiFeed__reply__form">
-                <img data-name="{{{ user_name }}}" class="initialAvatar avatar avatar--md arc-sm mR--md pull-left"/>
+                <img data-name="{{{ my_firstName }}}" src="{{ my_avatar_src }}" class="{{my_initialAvatar}} avatar avatar--md arc-sm mR--md pull-left"/>
                 <button class="btn btn-primary btn-md mL--md pull-right"
                         data-action="post-feed-reply"
                         data-action-for="{{data_action_for}}"
@@ -94,24 +94,6 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="uiFeed__reply__form">-->
-            <!--<form id="post-comment" role="form" data-toggle="validator" accept-charset="UTF-8"-->
-            <!--action="/group/{{group_id}}/{{feed_id}}/postComment"-->
-            <!--method="POST" novalidate="true">-->
-            <!--<input type="hidden" value="{{csrf_token}}" name="_token">-->
-            <!--<img data-name="{{{ user_name }}}" class="initialAvatar avatar avatar&#45;&#45;md arc-sm mR&#45;&#45;md pull-left"/>-->
-            <!--<input class="btn btn-primary btn-md mL&#45;&#45;md pull-right" type="submit" value="Reply">-->
-            <!--<div class="uiFeed__reply__form__input">-->
-            <!--<div class="elastic-textarea elastic-textarea&#45;&#45;hasBtn">-->
-            <!--<textarea placeholder="Reply......" name="reply-{{ feed_id }}"-->
-            <!--class="form-control elastic-textarea__input" data-elastic="textarea"></textarea>-->
-            <!--<div class="elastic-textarea__btn">-->
-            <!--<button class="btn btn-md icon icon-camera text-light"></button>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</form>-->
-            <!--</div>-->
         </div>
         <div class="uiFeed__footer__toggle text-center">
             <span class="icon icon-comments mR"></span>

@@ -1,6 +1,6 @@
 <div class="post-childReply">
 
-    <img data-name="{{ user_firstName }}" class="initialAvatar avatar avatar--md arc-sm mR--md pull-left">
+    <img data-name="{{{ my_firstName }}}" src="{{ my_avatar_src }}" class="{{ my_initialAvatar }} avatar avatar--md arc-sm mR--md pull-left"/>
 
     <button class="feed-reply btn btn-primary btn-md mL--md pull-right"
             data-action="post-feed-childReply"

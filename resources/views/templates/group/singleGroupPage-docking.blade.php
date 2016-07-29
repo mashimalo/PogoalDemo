@@ -23,7 +23,12 @@
                                 <div class="mL--md pull-right">
                                     <span class="mR vA--middle">Bridging with:</span>
                                     <a href="{{ url_link_to_group($dockedGroup->id) }}" class="h5">
-                                        <img class="avatar avatar--sm rounded" src="{{ url('/assets/images/avatar.jpg') }}">
+                                        @if (get_group_by_id($dockedGroup->id)->group_avatar_small != null || strlen(get_group_by_id($dockedGroup->id)->group_avatar_small) > 0)
+                                            <img src="{!! '/images/groupAvatar/'.get_group_by_id($dockedGroup->id)->group_avatar_small !!}"
+                                                 class="avatar avatar--sm rounded">
+                                        @else
+                                            <img class="avatar avatar--sm rounded" src="{{ url('/assets/images/avatar.jpg') }}">
+                                        @endif
                                         <span class="vA--middle maxW--sm text-overflow inline-block">{{ $dockedGroup->name }}</span>
                                     </a>
                                 </div>
