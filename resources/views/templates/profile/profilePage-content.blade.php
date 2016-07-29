@@ -12,7 +12,15 @@
         <div class="uiTile__body arc-md">
             <div class="uiTile__cover">
                 <a href="{{ url_link_to_group($group->id) }}">
-                    <img class="uiTile__avatar avatar avatar--fluid" src="{{ url('/assets/images/avatar.jpg') }}">
+                    {{----------------------------
+                    | Group avatar
+                    ----------------------------}}
+                    @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
+                        <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}"
+                             class="uiTile__avatar avatar avatar--fluid">
+                    @else
+                        <img class="uiTile__avatar avatar avatar--fluid" src="{{ url('/assets/images/avatar.jpg') }}">
+                    @endif
                 </a>
             </div>
             <div class="uiTile__content bg-white">
@@ -36,122 +44,3 @@
         </div>
     </div>
 @endforeach
-
-{{----------------------------
-| Left Column
-----------------------------}}
-{{--<div class="uiCards c-f-4">--}}
-{{--<div class="uiCard">--}}
-{{--<div class="uiCard__body">--}}
-{{--<div class="uiCard__header">--}}
-{{--<div class="h4">--}}
-{{--<span class="icon icon-info-line mR"></span>--}}
-{{--About--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="uiCard__content">--}}
-{{--<ul class="inlinePs">--}}
-{{--<li class="inlineP">--}}
-{{--<label class="inlineP__label">First name:</label>--}}
-{{--<div class="inlineP__content">{{$user->profile->first_name}}</div>--}}
-{{--</li>--}}
-{{--<li class="inlineP">--}}
-{{--<label class="inlineP__label">Last name:</label>--}}
-{{--<div class="inlineP__content">{{$user->profile->last_name}}</div>--}}
-{{--</li>--}}
-{{--<li class="inlineP">--}}
-{{--<label class="inlineP__label">Nickname:</label>--}}
-{{--<div class="inlineP__content">{{$user->profile->nickname}}</div>--}}
-{{--</li>--}}
-{{--<li class="inlineP">--}}
-{{--<label class="inlineP__label">Birthday:</label>--}}
-{{--<div class="inlineP__content">{{$user->profile->date_of_birth}}</div>--}}
-{{--</li>--}}
-{{--<li class="inlineP">--}}
-{{--<label class="inlineP__label">Gender:</label>--}}
-{{--<div class="inlineP__content">--}}
-{{--@if($user->profile->gender_id == 1)--}}
-{{--Male--}}
-{{--@elseif($user->profile->gender_id == 2)--}}
-{{--Female--}}
-{{--@else--}}
-{{--Neutral--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="uiCard">--}}
-{{--<div class="uiCard__body">--}}
-{{--<div class="uiCard__header">--}}
-{{--<div class="h4">--}}
-{{--<span class="icon icon-contact-info mR"></span>--}}
-{{--Contact--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="uiCard__content">--}}
-{{--<ul class="inlinePs inlinePs--short">--}}
-{{--<li class="inlineP">--}}
-{{--<label class="inlineP__label">E-mail:</label>--}}
-{{--<div class="inlineP__content">--}}
-{{--@if(Auth::check() && Auth::user()->id == $target_user_id)--}}
-{{--{{$user->email}}--}}
-{{--@else--}}
-{{--******--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</li>--}}
-{{--<li class="inlineP">--}}
-{{--<label class="inlineP__label">Phone:</label>--}}
-{{--<div class="inlineP__content">--}}
-{{--N/A--}}
-{{--</div>--}}
-{{--</li>--}}
-{{--<li class="inlineP">--}}
-{{--<label class="inlineP__label">Website:</label>--}}
-{{--<div class="inlineP__content">--}}
-{{--N/A--}}
-{{--</div>--}}
-{{--</li>--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{----------------------------
-| Right Column
-----------------------------}}
-{{--<div class="uiCards c-f-8">--}}
-
-{{--<div class="uiCard">--}}
-{{--<div class="uiCard__body">--}}
-{{--<div class="uiCard__header">--}}
-{{--<div class="h4">--}}
-{{--<span class="icon icon-summary mR"></span>--}}
-{{--Summary--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="uiCard__content">--}}
-{{--{{$user->profile->bio}}--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="uiCard">--}}
-{{--<div class="uiCard__body">--}}
-{{--<div class="uiCard__header">--}}
-{{--<div class="h4">--}}
-{{--<span class="icon icon-activity-line mR"></span>--}}
-{{--Activities--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<div class="uiCard__content">--}}
-{{--No activity at this moment.--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
