@@ -20,13 +20,16 @@
                         <a href="{{ URL::route("showAllGroups") }}" class="bold btn btn-outline-white mR">
                             See all groups
                         </a>
-                        <button class="bold btn btn-outline-white"
+                        <button class="bold btn btn-outline-white mR"
                                 data-action="toggle"
                                 data-scroll="scroll"
                                 data-scroll-offset="15"
                                 data-target="#home__cat__more"
                                 data-scroll-to-target="true">Find more
                         </button>
+                        <a href="{{ URL::route("leaderBoardPage") }}" class="bold btn btn-outline-white">
+                            Leader Board
+                        </a>
                     </div>
                 </div>
             </div>
