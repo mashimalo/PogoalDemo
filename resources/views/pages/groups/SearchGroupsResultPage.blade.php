@@ -21,7 +21,7 @@
                 @if($groups->count() >= 1)
                     @foreach($groups as $group)
                         <div class="uiTile c-f-3 mB--md">
-                            <div class="uiTile__body arc-md">
+                            <div class="uiTile__body arc-sm">
                                 <div class="uiTile__cover">
                                     <a href="{{ url_link_to_group($group->id) }}">
 
