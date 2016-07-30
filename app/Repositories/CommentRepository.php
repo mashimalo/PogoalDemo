@@ -33,9 +33,9 @@ class CommentRepository extends BaseRepository {
 		$comment->content = $content;
 
 
-		if ( strlen( $content ) > 100 ) {
-			$comment->summary = substr( $content, 0, 100 );
-		}
+//		if ( strlen( $content ) > 100 ) {
+//			$comment->summary = substr( $content, 0, 100 );
+//		}
 		try {
 			$comment->save();
 		} catch ( \Exception $e ) {
@@ -62,9 +62,9 @@ class CommentRepository extends BaseRepository {
 		$content = $this->convertInputToAutoLink($inputs["2ndReply-{$parent_id}"]);
 		$comment->content = $content;
 
-		if ( strlen( $content ) > 100 ) {
-			$comment->summary = substr( $content, 0, 100 );
-		}
+//		if ( strlen( $content ) > 100 ) {
+//			$comment->summary = substr( $content, 0, 100 );
+//		}
 		try {
 			$comment->save();
 		} catch ( \Exception $e ) {
@@ -88,9 +88,9 @@ class CommentRepository extends BaseRepository {
 		$content = $this->convertInputToAutoLink($inputs["editComment"]);
 		$comment->content = $content;
 
-		if ( strlen( $content ) > 100 ) {
-			$comment->summary = substr( $content, 0, 100 );
-		}
+//		if ( strlen( $content ) > 100 ) {
+//			$comment->summary = substr( $content, 0, 100 );
+//		}
 		try {
 			$comment->save();
 		} catch ( \Exception $e ) {

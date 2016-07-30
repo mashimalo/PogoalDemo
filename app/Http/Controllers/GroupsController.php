@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\GroupUser;
-//use App\Models\GroupType;
 use Illuminate\Mail\Message;
 use \Illuminate\Support\Facades\Auth;
 
@@ -11,8 +10,6 @@ use App\Models\Group;
 use App\Models\Notification;
 use App\Models\User;
 use App\Models\Feed;
-
-//use App\Models\Profile;
 
 use App\Http\Requests\GroupCreateRequest;
 use App\Http\Requests\GroupModifyRequest;
@@ -1124,5 +1121,46 @@ class GroupsController extends Controller
 //			return back()->with('error', trans('front/profile.modifyUserProfileFail'));
         }
         return back()->with('ok', trans('front/group.groupProfileModifySuccess'));
+    }
+
+    /**
+     * show group - feed page
+     * @param $group_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showSingleGroupFeedPage($group_id, $feed_id)
+    {
+        try
+        {
+            $group = Group::whereid($group_id)->first();
+            $feed = Feed::whereid($feed_id)->first();
+            dd($feed->group_id);
+//            $isThisFeedBelongsToGroup =
+            if (!$group)
+            {
+                return redirect('/')->with('error', trans('front/group.groupNotFound'));
+            }
+
+            $validate_currentUser_in_group = $group->validate_currentUser_in_group($group_id);
+            $validate_currentUser_has_permission = $group->validate_currentUser_has_permission($group_id);
+
+        }
+        catch (\Exception $e)
+        {
+//            throw $e;
+            return back()->with('error', trans('front/group.groupNotFound'));
+        }
+
+        return view(
+            'pages.groups.singleGroupFeedPage',
+            compact(
+                'feed',
+                'feed_id',
+                'group',
+                'group_id',
+                'validate_currentUser_in_group',
+                'validate_currentUser_has_permission'
+            )
+        );
     }
 }

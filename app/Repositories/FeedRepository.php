@@ -38,10 +38,10 @@ class FeedRepository extends BaseRepository
             $feed->content = $content;
 
 
-            if (strlen($content) > 100)
-            {
-                $feed->summary = substr($content, 0, 100);
-            }
+//            if (strlen($content) > 100)
+//            {
+//                $feed->summary = substr($content, 0, 100);
+//            }
 
             $feed->save();
         }
@@ -75,10 +75,10 @@ class FeedRepository extends BaseRepository
             $feed->content = $content;
 
 
-            if (strlen($content) > 100)
-            {
-                $feed->summary = substr($content, 0, 100);
-            }
+//            if (strlen($content) > 100)
+//            {
+//                $feed->summary = substr($content, 0, 100);
+//            }
 
             $feed->save();
         }
@@ -191,10 +191,10 @@ class FeedRepository extends BaseRepository
             $feed->content = $content;
 
 
-            if (strlen($content) > 100)
-            {
-                $feed->summary = substr($content, 0, 100);
-            }
+//            if (strlen($content) > 100)
+//            {
+//                $feed->summary = substr($content, 0, 100);
+//            }
             $feed->save();
         }
         catch (\Exception $e)

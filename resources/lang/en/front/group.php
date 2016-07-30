@@ -33,4 +33,5 @@ return [
     'groupHaveAlreadySendDockingRequest' => 'That group has already send you the docking request, please accept the request.',
     'dockingAccepted' => 'You have accept a docking request',
     'dockingDeny' => 'You have deny a docking request',
+    'feedNotFound' => 'Feed Not Found!'
 ];
