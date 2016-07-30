@@ -12,91 +12,6 @@
 @include('templates.session.checkSession')
 
 <div class="sgp-main__items">
-    {{----------------------------
-    | Navigation
-    ----------------------------}}
-    {{--<div class="sgp-main__item has-sticky__bar">--}}
-    {{------------------------------}}
-    {{--| Navigation--}}
-    {{------------------------------}}
-    {{--<div class="sgp-nav sticky__bar">--}}
-    {{--<div class="sticky__bar__container">--}}
-    {{--<div class="pull-left">--}}
-    {{--<a href="{{ url_link_to_group($group->id) }}"--}}
-    {{--class="btn-stack lk-bd lk-d {{ set_active('singleGroupPage', 'bolder cPbd') }}">--}}
-    {{--<span class="btn-stack__t">Feeds</span>--}}
-    {{--<span id="feed-unpinned-count"--}}
-    {{--class="btn-stack__b">{{ getUnpinnedFeedsCount($group_id) }}</span>--}}
-    {{--</a>--}}
-    {{--<a href="{{ url_link_to_group_pinned($group->id) }}"--}}
-    {{--class="btn-stack lk-bd lk-d {{ set_active('singleGroupPinnedPage', 'bolder cPbd') }}">--}}
-    {{--<span class="btn-stack__t">Pinned</span>--}}
-    {{--<span id="feed-pinned-count" class="btn-stack__b">{{ getPinnedFeedsCount($group_id) }}</span>--}}
-    {{--</a>--}}
-    {{--<a href="#" class="btn-stack lk-bd lk-d">--}}
-    {{--<span class="btn-stack__t">Events</span>--}}
-    {{--<span class="btn-stack__b">0</span>--}}
-    {{--</a>--}}
-    {{--<a href="{{ url_link_to_group_members($group->id) }}"--}}
-    {{--class="btn-stack lk-bd lk-d {{ set_active('singleGroupMembersPage', 'bolder cPbd') }}">--}}
-    {{--<span class="btn-stack__t">Members</span>--}}
-    {{--<span id="group-member-count" class="btn-stack__b">{{ $group->acceptUsers()->count() }}</span>--}}
-    {{--</a>--}}
-    {{--<a href="#" class="btn-stack lk-bd lk-d">--}}
-    {{--<span class="btn-stack__t">Followers</span>--}}
-    {{--<span class="btn-stack__b">0</span>--}}
-    {{--</a>--}}
-    {{--</div>--}}
-
-    {{--<div class="pull-right">--}}
-    {{------------------------------}}
-    {{--| Buttons--}}
-    {{------------------------------}}
-    {{--<div class="uiDropdown inline-block mL">--}}
-    {{--<button class="btn btn-outline-gray" data-toggle="dropdown">--}}
-    {{--<span class="icon icon-gear"></span>--}}
-    {{--</button>--}}
-    {{--<ul class="uiDropdown__menu uiDropdown__menu--right arrow--none">--}}
-    {{--<li>--}}
-    {{--<a href="{{ URL::route( 'dockingGroupSetupPage', $target_group_id = $group_id) }}" target="_blank">--}}
-    {{--Request Bridging--}}
-    {{--</a>--}}
-    {{--</li>--}}
-    {{--<li class="divider"></li>--}}
-    {{--@if($validate_currentUser_has_permission)--}}
-    {{--<li>--}}
-    {{--<a href="{{ url_link_to_group_profile($group->id)}}">--}}
-    {{--Manage Group--}}
-    {{--</a>--}}
-    {{--</li>--}}
-    {{--@endif--}}
-
-    {{--@if (!$validate_currentUser_in_group)--}}
-    {{--<li>--}}
-    {{--{!! Form::model($group, ['route'=> ['joinGroup', 'group_id' => $group->id], 'method'=>'POST','id'=>'join-group', 'role'=>'form'])!!}--}}
-    {{--{!! Form::submit('Join Group',['id'=>'join-group-submit']) !!}--}}
-    {{--{!! Form::close() !!}--}}
-    {{--</li>--}}
-    {{--@elseif ($validate_currentUser_in_group && !$validate_currentUser_founder_of_group)--}}
-    {{--<li>--}}
-    {{--{!! Form::model($group, ['route'=> ['leave-group', 'group_id' => $group->id], 'method'=>'POST','id'=>'leave-group', 'role'=>'form'])!!}--}}
-    {{--{!! Form::submit('Leave group',['id'=>'leave-group-submit']) !!}--}}
-    {{--{!! Form::close() !!}--}}
-    {{--</li>--}}
-    {{--@elseif ($validate_currentUser_in_group && $validate_currentUser_founder_of_group)--}}
-    {{--<li>--}}
-    {{--<button data-show="tooltip" data-trigger="hover" data-placement="left"--}}
-    {{--title="Founder cannot leave the group." disabled>--}}
-    {{--Leave Group--}}
-    {{--</button>--}}
-    {{--</li>--}}
-    {{--@endif--}}
-    {{--</ul>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div><!-- .sgp-nav -->--}}
-    {{--</div>--}}
 
     {{----------------------------
     | Rich Form post feed
@@ -108,9 +23,11 @@
                 <div class="rich-form-body">
                     {!! Form::textarea('feed',null,['class'=>'form-control bg-white h--sm','placeholder'=>'Spit it out...','data-elastic'=>'rich-form']) !!}
                     @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
-                        <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}" class="rich-form-avatar avatar avatar--md arc-sm">
+                        <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}"
+                             class="rich-form-avatar avatar avatar--md arc-sm">
                     @else
-                        <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}" class="initialAvatar rich-form-avatar avatar avatar--md arc-sm"/>
+                        <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
+                             class="initialAvatar rich-form-avatar avatar avatar--md arc-sm"/>
                     @endif
                 </div>
 

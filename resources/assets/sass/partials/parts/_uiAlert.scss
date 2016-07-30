@@ -1,7 +1,10 @@
 .uiAlert {
   @include border-radius($border-radius-xsmall);
   @include box-shadow($box-shadow-preset-4);
+  padding-right: $uiAlert-close-btn-size + $uiAlert-padding;
+  padding-left: $uiAlert-icon-size + $uiAlert-padding;
   margin-bottom: 15px;
+  position: relative;
 }
 
 .uiAlert--ajax {
@@ -28,10 +31,6 @@
 
 // Dismissible
 .uiAlert--dismissible{
-  padding-right: $uiAlert-close-btn-size + $uiAlert-padding;
-  padding-left: $uiAlert-icon-size + $uiAlert-padding;
-  position: relative;
-
   .close {
     margin-top: -$uiAlert-close-btn-size / 2;
     line-height: $uiAlert-close-btn-size;

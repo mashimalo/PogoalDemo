@@ -9,7 +9,7 @@
 <div id="toolbar__search" class="toolbar__search">
     {!! Form::open(['route'=> ['searchGroup-get'], 'method'=>'GET','id'=>'search-group-form', 'role'=>'search'])!!}
     <div class="input-group">
-        <input type="text" name="searchGroups" class="form-control uiDropdown--toggle" placeholder="{{ trans('front/search.placeholder') }}">
+        <input type="text" name="searchGroups" class="form-control" placeholder="{{ trans('front/search.placeholder') }}">
         <div class="input-group-btn">
             <button class="btn" type="submit">
                 <span class="icon icon-search"></span>

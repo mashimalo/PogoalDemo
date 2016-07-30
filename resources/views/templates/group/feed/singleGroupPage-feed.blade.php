@@ -79,19 +79,7 @@
                     <span class="icon icon-thumb-down"></span>
                     <span class="btn-sns__count">{{ $feed->unlikes->count() }}</span>
                 </button>
-                {{--{!! Form::model($group, ['route'=> ['feed-like', 'group_id' => $group->id, 'feed_id' => $feed->id], 'method'=>'POST','id'=>'like-feed', 'role'=>'form'])!!}--}}
-                {{--<button class="btn btn-sns" id="post-like-submit">--}}
-                {{--<span class="icon icon-thumb-up"></span>--}}
-                {{--<span class="btn-sns__count">{{ $feed->likes->count() }}</span>--}}
-                {{--</button>--}}
-                {{--{!! Form::close() !!}--}}
 
-                {{--{!! Form::model($group, ['route'=> ['feed-unlike', 'group_id' => $group->id, 'feed_id' => $feed->id], 'method'=>'POST','id'=>'unlike-feed', 'role'=>'form'])!!}--}}
-                {{--<button class="btn btn-sns" id="post-unlike-submit">--}}
-                {{--<span class="icon icon-thumb-down"></span>--}}
-                {{--<span class="btn-sns__count">{{ $feed->unlikes->count() }}</span>--}}
-                {{--</button>--}}
-                {{--{!! Form::close() !!}--}}
                 <button class="btn btn-sns">
                     <span class="icon icon-share"></span>
                 </button>
@@ -103,7 +91,7 @@
                 </button>
 
                 <ul class="uiDropdown__menu">
-                    @if ($validate_currentUser_has_permission )
+                    @if ( $validate_currentUser_has_permission )
                         {{--@if (verify_feed_pin_status($feed))--}}
                         @if ($feed->pinned == false)
                             <li>
@@ -121,7 +109,7 @@
                         @endif
                         <li class="divider"></li>
                     @endif
-                    @if ($feed->user->id == Auth::user()->id && $validate_currentUser_in_group || $validate_currentUser_has_permission )
+                    @if ( $feed->user->id == Auth::user()->id && $validate_currentUser_in_group || $validate_currentUser_has_permission )
                         <li>
                             <button data-action="edit-feed"
                                     data-action-for="group"
@@ -159,7 +147,12 @@
             | Reply List
             ----------------------------}}
             @include('templates.group.feed.singleGroupPage-feed-reply')
+        </div><!-- .uiFeed__footer__mask -->
 
+        {{----------------------------
+        | Feed Footer Toggle
+        ----------------------------}}
+        <div class="uiFeed__footer__toggle text-center">
             {{----------------------------
             | Reply Form for First Level
             ----------------------------}}
@@ -191,33 +184,12 @@
                         </div>
                     </div>
                 </div>
-                {{--<div class="uiFeed__reply__form">--}}
-                {{--{!! Form::model($feed, ['route'=> ['comment-post', $group->id, $feed->id,], 'method'=>'POST','id'=>'post-comment', 'data-toggle'=>'validator', 'role'=>'form'])!!}--}}
-                {{--<img data-name="{{ getUserFirstName() }}"--}}
-                {{--class="initialAvatar avatar avatar--md arc-sm mR--md pull-left"/>--}}
-                {{--<img class="avatar avatar--md arc-sm mR--md pull-left" src="{{ url('/assets/images/avatar.jpg') }}">--}}
-                {{--{!! Form::submit('Reply',['class'=>'btn btn-primary btn-md mL--md pull-right']) !!}--}}
-                {{--<div class="uiFeed__reply__form__input">--}}
-                {{--<div class="elastic-textarea elastic-textarea--hasBtn">--}}
-                {{--<textarea placeholder="Reply......" name="reply-{{ $feed->id }}"--}}
-                {{--class="form-control elastic-textarea__input"--}}
-                {{--data-elastic="textarea"></textarea>--}}
-                {{--<div class="elastic-textarea__btn">--}}
-                {{--<button class="btn btn-md icon icon-camera text-light"></button>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--{!! Form::close() !!}--}}
-                {{--</div>--}}
             @endif
-        </div><!-- .uiFeed__footer__mask -->
 
-        {{----------------------------
-        | Feed Footer Toggle
-        ----------------------------}}
-        <div class="uiFeed__footer__toggle text-center">
-            <span class="icon icon-comments mR"></span>
-            <span class="btn-sns__count">{{ getAllReplyCount($feed) }}</span>
+            <div class="uiFeed__footer__switch pH--md pV--sm">
+                <span class="icon icon-comments mR"></span>
+                <span class="btn-sns__count">{{ getAllReplyCount($feed) }}</span>
+            </div>
         </div>
     </div><!-- .uiFeed__footer -->
 

@@ -21,14 +21,6 @@
   // Placeholder
   @include placeholder;
 
-  // Disabled and read-only inputs
-  //&[disabled],
-  //&[readonly],
-  //fieldset[disabled] & {
-  //  background-color: $color-gray-light-2;
-  //  opacity: 1;
-  //}
-
   &[disabled],
   fieldset[disabled] & {
     cursor: $cursor-disabled;

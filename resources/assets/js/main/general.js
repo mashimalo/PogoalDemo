@@ -252,7 +252,7 @@ $(function () {
 
 $(function () {
     setTimeout(function () {
-        $(".uiAlert").slideToggle(500, function () {
+        $(".uiAlert--dismissible").slideToggle(500, function () {
             $(this).hide();
         });
     }, 3000);

@@ -64,55 +64,6 @@
                         </div>
                     </div>
                 @endif
-
-
-                {{--<ul class="uiMemberList break-word">--}}
-                {{------------------------------}}
-                {{--| Member--}}
-                {{------------------------------}}
-                {{--@foreach($group->dockingGroups() as $dockedGroup)--}}
-                {{--<li class="uiMemberList__item bg--list arc-sm">--}}
-                {{--<a href="{{ url_link_to_group($dockedGroup->id) }}" class="uiMemberList__avatar">--}}
-                {{--<img data-name="{{ $dockedGroup->name }}" class="initialAvatar avatar avatar--block arc-sm-left"/>--}}
-                {{--<img class="avatar avatar--block arc-sm-left" src="{{ url('/assets/images/avatar.jpg') }}">--}}
-                {{--</a>--}}
-                {{--<div class="uiMemberList__misc forms--inline">--}}
-                {{--@if(!(validate_targetUser_founder_of_group($group->id, $user->id)))--}}
-                {{--@if ((validate_currentUser_has_higher_permission_than_targetUser($group->id, $user->id)) )--}}
-                {{--@if( !validate_targetUser_coordinator_of_group($group->id, $user->id))--}}
-                {{--{!! Form::model($group, ['route'=> ['promoteUser-group', 'group_id' => $group->id, 'targetUser_id' => $user->id], 'method'=>'POST','id'=>'promoteUser-group', 'role'=>'form'])!!}--}}
-                {{--{!! Form::submit('Promote',['id'=>'promote-group-submit','class'=>'btn btn-sns']) !!}--}}
-                {{--{!! Form::close() !!}--}}
-                {{--@endif--}}
-                {{--@if( !validate_targetUser_member_of_group($group->id, $user->id))--}}
-                {{--{!! Form::model($group, ['route'=> ['demoteUser-group', 'group_id' => $group->id, 'targetUser_id' => $user->id], 'method'=>'POST','id'=>'demoteUser-group', 'role'=>'form'])!!}--}}
-                {{--{!! Form::submit('Demote',['id'=>'demote-group-submit','class'=>'btn btn-sns']) !!}--}}
-                {{--{!! Form::close() !!}--}}
-                {{--@endif--}}
-                {{--{!! Form::model($group, ['route'=> ['removeUser-group', 'group_id' => $group->id, 'targetUser_id' => $user->id], 'method'=>'POST','id'=>'removeUser-group', 'role'=>'form'])!!}--}}
-                {{--{!! Form::submit('Remove',['id'=>'remove-group-submit','class'=>'btn btn-sns']) !!}--}}
-                {{--{!! Form::close() !!}--}}
-                {{--@endif--}}
-                {{--@endif--}}
-                {{--</div>--}}
-                {{--<div class="uiMemberList__details">--}}
-                {{--<a href="{{ url_link_to_group($dockedGroup->id) }}" class="h5 mR">--}}
-                {{--{{ $dockedGroup->name }}--}}
-                {{--</a>--}}
-                {{--<span class="xsmall text-light">--}}
-                {{--{{ $group->description }}--}}
-                {{--</span>--}}
-                {{--<div class="xsmall text-light">--}}
-                {{--{{  $dockedGroup->groupType->group_type_name }}--}}
-                {{--</div>--}}
-                {{--</div>--}}
-                {{--<a href="{{  url_link_to_dockingGroup_source_target_group($group->id, $dockedGroup->id) }}">--}}
-                {{--Go to the Bridging Group Page--}}
-                {{--</a>--}}
-                {{--{{ Auth::user()->groups()->wherePivot('group_user_role_id', '<', 3)->get() }}--}}
-                {{--</li>--}}
-                {{--@endforeach--}}
-                {{--</ul>--}}
             </div>
         </div>
     </div>

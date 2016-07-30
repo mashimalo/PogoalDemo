@@ -1514,29 +1514,29 @@ body {
 }
 
 .form-control:focus::-moz-placeholder {
-  color: #8da1ac;
+  color: #637c89;
   opacity: 1;
 }
 
 .form-control:focus:-ms-input-placeholder {
-  color: #8da1ac;
+  color: #637c89;
 }
 
 .form-control:focus::-webkit-input-placeholder {
-  color: #8da1ac;
+  color: #637c89;
 }
 
 .form-control::-moz-placeholder {
-  color: #c8d2d7;
+  color: #9baeb7;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #c8d2d7;
+  color: #9baeb7;
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #c8d2d7;
+  color: #9baeb7;
 }
 
 .form-control[disabled],
@@ -1839,16 +1839,16 @@ li.multipleInput-email > span {
 }
 
 .has-success .form-control::-moz-placeholder {
-  color: #4cae4c;
+  color: #357935;
   opacity: 1;
 }
 
 .has-success .form-control:-ms-input-placeholder {
-  color: #4cae4c;
+  color: #357935;
 }
 
 .has-success .form-control::-webkit-input-placeholder {
-  color: #4cae4c;
+  color: #357935;
 }
 
 .has-success .help-block {
@@ -1878,16 +1878,16 @@ li.multipleInput-email > span {
 }
 
 .has-warning .form-control::-moz-placeholder {
-  color: #f79d05;
+  color: #ac6d04;
   opacity: 1;
 }
 
 .has-warning .form-control:-ms-input-placeholder {
-  color: #f79d05;
+  color: #ac6d04;
 }
 
 .has-warning .form-control::-webkit-input-placeholder {
-  color: #f79d05;
+  color: #ac6d04;
 }
 
 .has-warning .help-block {
@@ -1917,16 +1917,16 @@ li.multipleInput-email > span {
 }
 
 .has-error .form-control::-moz-placeholder {
-  color: #d43f3a;
+  color: #a02622;
   opacity: 1;
 }
 
 .has-error .form-control:-ms-input-placeholder {
-  color: #d43f3a;
+  color: #a02622;
 }
 
 .has-error .form-control::-webkit-input-placeholder {
-  color: #d43f3a;
+  color: #a02622;
 }
 
 .has-error .help-block {
@@ -1958,16 +1958,16 @@ li.multipleInput-email > span {
 }
 
 .ng-invalid.ng-touched::-moz-placeholder {
-  color: #d43f3a;
+  color: #a02622;
   opacity: 1;
 }
 
 .ng-invalid.ng-touched:-ms-input-placeholder {
-  color: #d43f3a;
+  color: #a02622;
 }
 
 .ng-invalid.ng-touched::-webkit-input-placeholder {
-  color: #d43f3a;
+  color: #a02622;
 }
 
 .ng-invalid.ng-touched ~ .form-prepend-item {
@@ -3290,6 +3290,22 @@ tbody.collapse.in {
   to {
     background-position: -448px;
   }
+}
+
+.opacity--light {
+  opacity: 0.7;
+}
+
+.opacity--lighter {
+  opacity: 0.5;
+}
+
+.opacity--lightest {
+  opacity: 0.3;
+}
+
+.opacity--hover--full:hover {
+  opacity: 1;
 }
 
 .inlineP {
@@ -5687,7 +5703,10 @@ button.close {
 .uiAlert {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding-right: 35px;
+  padding-left: 45px;
   margin-bottom: 15px;
+  position: relative;
 }
 
 .uiAlert--ajax {
@@ -5709,12 +5728,6 @@ button.close {
 .uiAlert--ajax .uiAlert--ajax__container .icon {
   line-height: 1em;
   font-size: 30px;
-}
-
-.uiAlert--dismissible {
-  padding-right: 35px;
-  padding-left: 45px;
-  position: relative;
 }
 
 .uiAlert--dismissible .close {
@@ -6362,7 +6375,6 @@ button.close {
 */
 
 .uiFeed__footer__toggle {
-  line-height: 40px;
   cursor: pointer;
 }
 

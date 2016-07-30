@@ -40,11 +40,21 @@
             {{----------------------------
             | Single Page Group Feed
             ----------------------------}}
-
             @if ( !validate_if_targetGroup_is_private ($group->id) || $validate_currentUser_in_group)
                 @include('templates.group.singleGroupPage-pinned')
             @else
-                Join us to view the Feed & Comment!
+                <div class="uiCard mB--xlg">
+                    <div class="uiCard__body">
+                        <div class="uiCard__content">
+                            <div class="text-center pA--lg text-lighter">
+                                <span class="icon icon-info-line text-xxxlg"></span>
+                                <p class="text-lg">
+                                    This is a private group, you must join to view content.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
     </div>

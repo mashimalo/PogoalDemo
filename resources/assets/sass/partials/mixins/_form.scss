@@ -2,14 +2,14 @@
 @mixin placeholder($color: $input-bg) {
   // Firefox
   &::-moz-placeholder {
-    color: darken($color, 15%);
+    color: darken($color, 30%);
     opacity: 1;
   }
   &:-ms-input-placeholder {
-    color: darken($color, 15%);
+    color: darken($color, 30%);
   }
   &::-webkit-input-placeholder {
-    color: darken($color, 15%);
+    color: darken($color, 30%);
   }
 }
 

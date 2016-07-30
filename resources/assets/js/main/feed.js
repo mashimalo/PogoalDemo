@@ -3,9 +3,9 @@ $(function () {
     // Cache
     var $body = $("body");
 
-    $body.on("click", ".uiFeed__footer__toggle", function () {
+    $body.on("click", ".uiFeed__footer__switch", function () {
 
-        $(this).siblings(".uiFeed__footer__mask").slideToggle("fast");
+        $(this).parent().siblings(".uiFeed__footer__mask").slideToggle("fast");
 
     });
 
