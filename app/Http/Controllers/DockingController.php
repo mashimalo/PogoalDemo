@@ -471,8 +471,8 @@ class DockingController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
-//            return back()->with('error', trans('front/general.somethingWrong'));
+//            throw $e;
+            return back()->with('error', trans('front/general.somethingWrong'));
         }
         return view('pages.docking.dockingGroupSingleFeedPage',
             compact(

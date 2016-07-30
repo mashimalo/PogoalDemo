@@ -568,8 +568,8 @@ class GroupsController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
-//			return back()->with('error', trans('front/group.acceptUserFail'));
+//            throw $e;
+			return back()->with('error', trans('front/group.acceptUserFail'));
         }
 
         return back()->with('ok', trans('front/group.userRequestHasBeenAccepted'));
@@ -1117,8 +1117,8 @@ class GroupsController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
-//			return back()->with('error', trans('front/profile.modifyUserProfileFail'));
+//            throw $e;
+			return back()->with('error', trans('front/profile.modifyUserProfileFail'));
         }
         return back()->with('ok', trans('front/group.groupProfileModifySuccess'));
     }
@@ -1168,8 +1168,8 @@ class GroupsController extends Controller
         }
         catch (\Exception $e)
         {
-            throw $e;
-//            return back()->with('error', trans('front/group.groupNotFound'));
+//            throw $e;
+            return back()->with('error', trans('front/group.groupNotFound'));
         }
 
         return view(
