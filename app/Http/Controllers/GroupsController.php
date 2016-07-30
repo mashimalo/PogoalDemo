@@ -1169,7 +1169,7 @@ class GroupsController extends Controller
         catch (\Exception $e)
         {
 //            throw $e;
-            return back()->with('error', trans('front/group.groupNotFound'));
+            return back()->with('error', trans('front/general.somethingWrong'));
         }
 
         return view(
