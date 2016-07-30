@@ -49,3 +49,5 @@ Temporary Items
 .env
 .idea/
 vendor/
+public/images/groupAvatar
+public/images/userAvatar

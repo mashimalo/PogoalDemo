@@ -236,8 +236,8 @@ Route::post('group/{group_id}/demote/{user_id}',
 Route::get('group/{group_id}/feed/{feed_id}',
     [
         'middleware' => 'auth',
-        'uses'       => 'FeedAndCommentController@showSingleGroupFeedPage',
-        'as'         => 'show-singleGroupFeedPage'
+        'uses'       => 'GroupsController@showGroupSingleFeedPage',
+        'as'         => 'show-groupSingleFeedPage'
     ]);
 
 

@@ -1124,22 +1124,34 @@ class GroupsController extends Controller
     }
 
     /**
-     * show group - feed page
+     * show group single feed page
+     *
      * @param $group_id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param $feed_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     * @throws \Exception
      */
-    public function showSingleGroupFeedPage($group_id, $feed_id)
+    public function showGroupSingleFeedPage($group_id, $feed_id)
     {
         try
         {
             $group = Group::whereid($group_id)->first();
             $feed = Feed::whereid($feed_id)->first();
-            dd($feed->group_id);
-//            $isThisFeedBelongsToGroup =
+            $feedGroupId = $feed->group_id;
+
             if (!$group)
             {
                 return redirect('/')->with('error', trans('front/group.groupNotFound'));
             }
+            if (!$feed)
+            {
+                return redirect('/')->with('error', trans('front/group.feedNotFound'));
+            }
+            if ($group_id != $feedGroupId)
+            {
+                return redirect (404);
+            }
+
 
             $validate_currentUser_in_group = $group->validate_currentUser_in_group($group_id);
             $validate_currentUser_has_permission = $group->validate_currentUser_has_permission($group_id);
@@ -1147,8 +1159,8 @@ class GroupsController extends Controller
         }
         catch (\Exception $e)
         {
-//            throw $e;
-            return back()->with('error', trans('front/group.groupNotFound'));
+            throw $e;
+//            return back()->with('error', trans('front/group.groupNotFound'));
         }
 
         return view(
