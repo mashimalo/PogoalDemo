@@ -43,7 +43,18 @@
             @if ( !validate_if_target_dockingGroup_is_private ($dockingGroup_id) || $validate_currentUser_in_dockingGroup)
                 @include('templates.docking.dockingGroupPage-main')
             @else
-                This bridging group is private, please join one of the group to join the fun!
+                <div class="uiCard mB--xlg">
+                    <div class="uiCard__body">
+                        <div class="uiCard__content">
+                            <div class="text-center pA--lg text-lighter">
+                                <span class="icon icon-info-line text-xxxlg"></span>
+                                <p class="text-lg">
+                                    This is a private bridging group, you must join one of the group to view content.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endif
         </div>
 

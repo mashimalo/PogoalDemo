@@ -17,7 +17,7 @@
 </div><!-- .uiFeeds -->
 
 @if ($validate_currentUser_in_group)
-    @if( $unpinned_feeds->count() < 1 )
+    @if( $unpinned_feeds->count() < 1 && $pinned_feeds->count() < 1)
         <div id="pageEmptyMsg">
             <div class="uiCard mB--xlg">
                 <div class="uiCard__body">
@@ -39,7 +39,7 @@
 @endif
 
 @if (!$validate_currentUser_in_group)
-    @if( $unpinned_feeds->count() < 1 )
+    @if( $unpinned_feeds->count() < 1 && $pinned_feeds->count() < 1)
         <div class="uiCard mB--xlg">
             <div class="uiCard__body">
                 <div class="uiCard__content">

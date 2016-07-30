@@ -6375,6 +6375,7 @@ button.close {
 */
 
 .uiFeed__footer__toggle {
+  line-height: 40px;
   cursor: pointer;
 }
 
@@ -6816,7 +6817,8 @@ website:    http://www.burocratik.com
   margin-top: 8px;
 }
 
-.dockingGroupPage .docking-main__items {
+.dockingGroupPage .docking-main__items,
+.dockingGroupPinnedPage .docking-main__items {
   margin-bottom: 30px;
 }
 

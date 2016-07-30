@@ -227,10 +227,7 @@ $(function () {
         // Cache
         var $this = $(this);
         var $footerToggleCount = $this.closest(".uiFeed__footer").find(".uiFeed__footer__toggle .btn-sns__count");
-        var $feedReplyList = $this.closest('.uiFeed__footer__toggle').siblings(".uiFeed__footer__mask").children(".uiFeed__reply");
-
-
-
+        var $feedReplyList = $this.closest(".uiFeed__footer__mask").children(".uiFeed__reply");
         var $feedReplyFrom = $this.closest(".uiFeed__reply__form");
         var $textarea = $feedReplyFrom.find("textarea");
         var $textarea_content = $textarea.val();
@@ -302,9 +299,6 @@ $(function () {
                 // Get Feed Reply template
                 $.get('/api/feed-reply-v000007.template', function (template) {
                     var $feedReplyTemplate = Mustache.render(template, $data);
-
-                    // Display .uiFeed__footer__mask
-                    $this.closest('.uiFeed__footer__toggle').siblings(".uiFeed__footer__mask").slideDown("fast");
 
                     // Prepend it to .uiFeed__reply
                     $feedReplyList.prepend($feedReplyTemplate);

@@ -91,7 +91,7 @@
                 </button>
 
                 <ul class="uiDropdown__menu">
-                    @if ( $validate_currentUser_has_permission )
+                    @if ($validate_currentUser_has_permission )
                         {{--@if (verify_feed_pin_status($feed))--}}
                         @if ($feed->pinned == false)
                             <li>
@@ -109,7 +109,7 @@
                         @endif
                         <li class="divider"></li>
                     @endif
-                    @if ( $feed->user->id == Auth::user()->id && $validate_currentUser_in_group || $validate_currentUser_has_permission )
+                    @if ($feed->user->id == Auth::user()->id && $validate_currentUser_in_group || $validate_currentUser_has_permission )
                         <li>
                             <button data-action="edit-feed"
                                     data-action-for="group"
@@ -147,12 +147,7 @@
             | Reply List
             ----------------------------}}
             @include('templates.group.feed.singleGroupPage-feed-reply')
-        </div><!-- .uiFeed__footer__mask -->
 
-        {{----------------------------
-        | Feed Footer Toggle
-        ----------------------------}}
-        <div class="uiFeed__footer__toggle text-center">
             {{----------------------------
             | Reply Form for First Level
             ----------------------------}}
@@ -185,11 +180,14 @@
                     </div>
                 </div>
             @endif
+        </div><!-- .uiFeed__footer__mask -->
 
-            <div class="uiFeed__footer__switch pH--md pV--sm">
-                <span class="icon icon-comments mR"></span>
-                <span class="btn-sns__count">{{ getAllReplyCount($feed) }}</span>
-            </div>
+        {{----------------------------
+        | Feed Footer Toggle
+        ----------------------------}}
+        <div class="uiFeed__footer__toggle text-center">
+            <span class="icon icon-comments mR"></span>
+            <span class="btn-sns__count">{{ getAllReplyCount($feed) }}</span>
         </div>
     </div><!-- .uiFeed__footer -->
 

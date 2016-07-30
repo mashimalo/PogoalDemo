@@ -82,7 +82,8 @@
   }
 }
 
-.dockingGroupPage {
+.dockingGroupPage,
+.dockingGroupPinnedPage {
   .docking-main__items {
     margin-bottom: $padding-base * 2;
   }
