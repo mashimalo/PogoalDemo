@@ -448,6 +448,14 @@ Route::patch('docking/{dockingGroup_id}/edit/action',
         'as'         => 'dockingGroup-edit'
     ]);
 
+// show edit the docking group
+Route::get('docking/{dockingGroup_id}/feed/{feed_id}',
+    [
+        'middleware' => 'auth',
+        'uses'       => 'DockingController@showDockingGroupSingleFeedPage',
+        'as'         => 'show-dockingGroupSingleFeedPage'
+    ]);
+
 
 /*
 |----------------------------------------

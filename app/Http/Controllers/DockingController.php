@@ -154,6 +154,8 @@ class DockingController extends Controller
     }
 
     /**
+     * show docking group page
+     *
      * @param $dockingGroup_id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -311,11 +313,11 @@ class DockingController extends Controller
             $group1_id = DockingGroup::whereid($dockingGroup_id)->first()->group_1_id;
             $group2_id = DockingGroup::whereid($dockingGroup_id)->first()->group_2_id;
 
-            $group1Name= Group::whereid($group1_id)->first()->name;
+            $group1Name = Group::whereid($group1_id)->first()->name;
 
-            $group1Admins= GroupUser::wheregroup_id($group1_id)->where('group_user_role_id', '<', 3)->get();
+            $group1Admins = GroupUser::wheregroup_id($group1_id)->where('group_user_role_id', '<', 3)->get();
 
-            $group2Name= Group::whereid($group2_id)->first()->name;
+            $group2Name = Group::whereid($group2_id)->first()->name;
 
             $group2Admins = GroupUser::wheregroup_id($group2_id)->where('group_user_role_id', '<', 3)->get();
 
@@ -333,15 +335,16 @@ class DockingController extends Controller
 
                 Mail::queue('emails.group.DockingGroupDisband',
                     [
-                        'group1Name' => $group1Name,
-                        'group1UrlLink' => $group1UrlLink,
-                        'group2Name' => $group2Name,
-                        'group2UrlLink' => $group2UrlLink,
+                        'group1Name'        => $group1Name,
+                        'group1UrlLink'     => $group1UrlLink,
+                        'group2Name'        => $group2Name,
+                        'group2UrlLink'     => $group2UrlLink,
                         'recipientUserName' => $recipientUserName
                     ],
                     function (Message $message) use ($recipientUser_id, $recipientUserName)
                     {
-                        $message->to(User::whereid($recipientUser_id)->first()->email, $recipientUserName)->subject(trans('front/email.dockingGroupDisbandSubject'));
+                        $message->to(User::whereid($recipientUser_id)->first()->email, $recipientUserName)
+                            ->subject(trans('front/email.dockingGroupDisbandSubject'));
                     });
             }
 
@@ -356,15 +359,16 @@ class DockingController extends Controller
 
                 Mail::queue('emails.group.DockingGroupDisband',
                     [
-                        'group1Name' => $group1Name,
-                        'group1UrlLink' => url_link_to_group($group1_id),
-                        'group2Name' => $group2Name,
-                        'group2UrlLink' => url_link_to_group($group2_id),
+                        'group1Name'        => $group1Name,
+                        'group1UrlLink'     => url_link_to_group($group1_id),
+                        'group2Name'        => $group2Name,
+                        'group2UrlLink'     => url_link_to_group($group2_id),
                         'recipientUserName' => $recipientUserName
                     ],
                     function (Message $message) use ($recipientUser_id, $recipientUserName)
                     {
-                        $message->to(User::whereid($recipientUser_id)->first()->email, $recipientUserName)->subject(trans('front/email.dockingGroupDisbandSubject'));
+                        $message->to(User::whereid($recipientUser_id)->first()->email, $recipientUserName)
+                            ->subject(trans('front/email.dockingGroupDisbandSubject'));
                     });
             }
 
@@ -407,7 +411,80 @@ class DockingController extends Controller
 //            throw $e;
             return back()->with('error', trans('front/dockingGroup.editDockingGroupFail'));
         }
-        return redirect()->action('DockingController@showDockingGroup', $dockingGroup_id)->with('ok', trans('front/dockingGroup.editDockingGroupSuccess'));
+        return redirect()->action('DockingController@showDockingGroup', $dockingGroup_id)
+            ->with('ok', trans('front/dockingGroup.editDockingGroupSuccess'));
+    }
+
+    /**
+     * show docking group feed page
+     *
+     * @param $dockingGroup_id
+     * @param $feed_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     * @throws \Exception
+     */
+    public function showDockingGroupSingleFeedPage($dockingGroup_id, $feed_id)
+    {
+        try
+        {
+            $group1_id = DockingGroup::whereid($dockingGroup_id)->first()->group_1_id;
+            $group2_id = DockingGroup::whereid($dockingGroup_id)->first()->group_2_id;
+
+            $group1 = Group::whereid($group1_id)->first();
+            $group2 = Group::whereid($group2_id)->first();
+
+            $feed = Feed::whereid($feed_id)->first();
+            $feedDockingGroupId = $feed->docking_group_id;
+
+            $dockingGroup = DockingGroup::whereid($dockingGroup_id)->first();
+
+            if (!$feed)
+            {
+                return redirect('/')->with('error', trans('front/group.feedNotFound'));
+            }
+
+            if (!$dockingGroup)
+            {
+                return redirect('/')->with('error', trans('front/dockingGroup.dockingGroupNotExist'));
+            }
+
+            if ($dockingGroup_id != $feedDockingGroupId)
+            {
+                return redirect(404);
+            }
+
+            if ($dockingGroup->accepted == false)
+            {
+                return back()->with('error', trans('front/dockingGroup.dockingGroupNotExist'));
+            }
+
+            $validate_currentUser_in_dockingGroup = $this->validate_currentUser_in_dockingGroup($dockingGroup_id);
+            $validate_currentUser_has_permission_in_dockingGroup = $this->validate_currentUser_has_permission_in_dockingGroup($dockingGroup_id);
+
+            $validate_if_target_dockingGroup_is_private = validate_if_target_dockingGroup_is_private($dockingGroup_id);
+
+            if ($validate_if_target_dockingGroup_is_private && !$validate_currentUser_in_dockingGroup)
+            {
+                return redirect()->route('dockingGroupPage', [$dockingGroup_id])->with('error', trans('front/group.feedInPrivateDockingGroup'));;
+            }
+
+        }
+        catch (\Exception $e)
+        {
+            throw $e;
+//            return back()->with('error', trans('front/general.somethingWrong'));
+        }
+        return view('pages.docking.dockingGroupSingleFeedPage',
+            compact(
+                'group1',
+                'group2',
+                'feed',
+                'feed_id',
+                'dockingGroup',
+                'dockingGroup_id',
+                'validate_currentUser_in_dockingGroup',
+                'validate_currentUser_has_permission_in_dockingGroup'
+            ));
     }
 }
 

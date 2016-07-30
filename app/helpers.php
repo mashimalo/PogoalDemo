@@ -338,11 +338,20 @@ function validate_if_targetGroup_is_private( $group_id ) {
 	}
 }
 
+function url_link_to_groupSingleFeedPage( $group_id, $feed_id) {
+	return URL::route( 'show-groupSingleFeedPage', [$group_id, $feed_id] );
+}
+
 
 /************************* docking *************************/
 function url_link_to_dockingGroup( $dockingGroup_id ) {
 	return URL::route( 'dockingGroupPage', $dockingGroup_id );
 }
+
+function url_link_to_dockingGroupSingleFeedPage( $dockingGroup_id, $feed_id ) {
+	return URL::route( 'show-dockingGroupSingleFeedPage', [$dockingGroup_id, $feed_id] );
+}
+
 
 function url_link_to_dockingGroup_pinned( $dockingGroup_id ) {
 	return URL::route( 'dockingGroupPinnedPage', $dockingGroup_id );

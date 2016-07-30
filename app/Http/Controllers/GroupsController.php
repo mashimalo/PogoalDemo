@@ -1152,6 +1152,15 @@ class GroupsController extends Controller
                 return redirect (404);
             }
 
+            $validate_currentUser_in_group = $group->validate_currentUser_in_group($group_id);
+
+            $validate_if_targetGroup_is_private = validate_if_targetGroup_is_private ($group_id);
+
+            if ($validate_if_targetGroup_is_private && !$validate_currentUser_in_group)
+            {
+                return redirect()->route('singleGroupPage', [$group_id])->with('error', trans('front/group.feedInPrivateGroup'));;
+            }
+
 
             $validate_currentUser_in_group = $group->validate_currentUser_in_group($group_id);
             $validate_currentUser_has_permission = $group->validate_currentUser_has_permission($group_id);
@@ -1164,7 +1173,7 @@ class GroupsController extends Controller
         }
 
         return view(
-            'pages.groups.singleGroupFeedPage',
+            'pages.groups.groupSingleFeedPage',
             compact(
                 'feed',
                 'feed_id',
