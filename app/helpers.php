@@ -401,6 +401,14 @@ function url_link_to_glance() {
 	return URL::route( 'glance', Auth::user()->profile->nickname );
 }
 
+function url_link_to_glanceMyGroups() {
+	return URL::route( 'glanceMyGroups', Auth::user()->profile->nickname );
+}
+
+function url_link_to_glanceMyBridgingGroups() {
+	return URL::route( 'glanceMyBridgingGroups', Auth::user()->profile->nickname );
+}
+
 function is_profile_owner( $target_user_id ) {
 	return Auth::check() && Auth::user()->id == $target_user_id;
 }

@@ -23,7 +23,8 @@
 
 .has-navBar {
   .toolbar__container {
-    border-bottom: 0;
+    @include box-shadow(none);
+    @extend .bordered--b;
   }
 }
 

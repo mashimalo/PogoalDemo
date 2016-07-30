@@ -667,6 +667,22 @@ Route::post('profile/{target_nickname}/profile/avatar/upload',
         'as'         => 'uploadProfileAvatar'
     ]);
 
+// User Glance page - groups
+// Todo: created by Hui Lin.
+Route::get('{target_nickname}/mygroups',
+	[
+		'uses' => 'GlanceController@getGlance',
+		'as'   => 'glanceMyGroups'
+	]);
+
+// User Glance page - bridging groups
+// Todo: created by Hui Lin.
+Route::get('{target_nickname}/mybridginggroups',
+	[
+		'uses' => 'GlanceController@getGlance',
+		'as'   => 'glanceMyBridgingGroups'
+	]);
+
 // User Glance page
 Route::get('{target_nickname}',
     [

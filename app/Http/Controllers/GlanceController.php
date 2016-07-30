@@ -4,6 +4,7 @@ use App\Models\Profile;
 use \Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Models\user;
+use App\Models\Group;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Repositories\UserRepository;
 use App\Http\Requests\ProfileUpdateRequest;
@@ -56,12 +57,14 @@ class GlanceController extends Controller
 			$user = $this ->getUserByUserId($target_user_id);
 
 			$acceptedGroups = $user->groups()->wherePivot('accepted', true)->paginate(20);
+
+			$groups = Group::get()->sortBy('created_at')->reverse()->take(15);
 		}
 		catch(\Exception $e)
 		{
 			return redirect('404');
 		}
-		return view('pages.glancePage', compact('user', 'target_user_id', 'acceptedGroups'));
+		return view('pages.glancePage', compact('user', 'target_user_id', 'acceptedGroups', 'groups'));
 //		return response()->json();
 	}
 	

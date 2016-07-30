@@ -2153,7 +2153,8 @@ li.multipleInput-email > span {
   border-color: #d7dbe1 !important;
 }
 
-.bordered--b {
+.bordered--b,
+.has-navBar .toolbar__container {
   border-bottom: 1px solid #e6e8ec !important;
 }
 
@@ -2337,6 +2338,10 @@ li.multipleInput-email > span {
 
 .mT--lg {
   margin-top: 25px !important;
+}
+
+.mT--xxxlg {
+  margin-top: 50px !important;
 }
 
 .mT--none {
@@ -2604,6 +2609,15 @@ a.lk-d:focus {
 a.lk-darker:hover,
 a.lk-darker:focus {
   color: #444e5c !important;
+}
+
+.lk-light {
+  color: #9da7b6 !important;
+}
+
+a.lk-light:hover,
+a.lk-light:focus {
+  color: #7f8da0 !important;
 }
 
 .lk-block:hover {
@@ -2970,6 +2984,15 @@ a.text-blue-darker:focus,
 a.text-dark:hover,
 a.text-dark:focus {
   color: #39424d !important;
+}
+
+.text-primary {
+  color: #faa71c !important;
+}
+
+a.text-primary:hover,
+a.text-primary:focus {
+  color: #de8d05 !important;
 }
 
 /*
@@ -7198,7 +7221,7 @@ website:    http://www.burocratik.com
 }
 
 .has-navBar .toolbar__container {
-  border-bottom: 0;
+  box-shadow: none;
 }
 
 .toolbar__main {
@@ -7623,7 +7646,8 @@ website:    http://www.burocratik.com
 }
 
 .navBar__container {
-  background-color: #e6e8ec;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
   height: 50px;
   top: 60px;
 }

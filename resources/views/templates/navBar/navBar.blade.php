@@ -4,13 +4,12 @@
         {{----------------------------
         | Glance Page
         ----------------------------}}
-        @if(currentRoute('glance') || currentRoute('notifications'))
+        @if(currentRoute('glance') || currentRoute('glanceMyGroups') || currentRoute('glanceMyBridgingGroups') || currentRoute('notifications'))
             <div class="navBar__main">
-                <a href="{{ url_link_to_glance() }}" class="lk-d lk-bl {{ set_active('glance', 'bolder cPbl') }}">{{ trans("front/general.myGroups") }}</a>
-                <a href="#" class="lk-d lk-bl">My Bridging Groups</a>
-                <a href="{{ URL::route('notifications') }}" class="lk-d lk-bl {{ set_active('notifications', 'bolder cPbl') }}">My Notifications</a>
-                {{--<a href="#" class="lk-d lk-bl">{{ trans("front/general.myEvents") }}</a>--}}
-                {{--<a href="#" class="lk-d lk-bl">{{ trans("front/general.following") }}</a>--}}
+                <a href="{{ url_link_to_glance() }}" class="lk-light lk-bl {{ set_active('glance', 'text-dark cPbl') }}">Discover</a>
+                <a href="{{ url_link_to_glanceMyGroups() }}" class="lk-light lk-bl {{ set_active('glanceMyGroups', 'text-dark cPbl') }}">{{ trans("front/general.myGroups") }}</a>
+                <a href="{{ url_link_to_glanceMyBridgingGroups() }}" class="lk-light lk-bl {{ set_active('glanceMyBridgingGroups', 'text-dark cPbl') }}">My Bridging Groups</a>
+                <a href="{{ URL::route('notifications') }}" class="lk-light lk-bl {{ set_active('notifications', 'text-dark cPbl') }}">My Notifications</a>
             </div>
         @endif
 

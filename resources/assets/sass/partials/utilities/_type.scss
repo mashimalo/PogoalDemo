@@ -179,6 +179,8 @@ small,
 
 @include link(".text-dark", $text-color);
 
+@include link(".text-primary", $brand-primary);
+
 /*
 |--------------------------------------------------------------------------
 | Font Weight

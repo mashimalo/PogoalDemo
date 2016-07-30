@@ -18,6 +18,8 @@ a {
 
 @include link(".lk-darker", $color-gray);
 
+@include link(".lk-light", $text-color-light);
+
 .lk-block {
   &:hover {
     background-color: $dark008;

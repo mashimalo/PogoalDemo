@@ -8,8 +8,8 @@
 }
 
 .navBar__container {
-  background-color: $navBar-bg;
-  //line-height: $navBar-height;
+  @include box-shadow($box-shadow-preset-3);
+  background-color: $color-white;
   height: $navBar-height;
   top: $toolbar-height;
 }
