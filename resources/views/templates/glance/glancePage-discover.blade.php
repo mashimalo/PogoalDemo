@@ -1,4 +1,5 @@
 <div class="site-container">
+
     {{----------------------------
     | Page Title
     ----------------------------}}
@@ -65,11 +66,13 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <hr class="mT--xxxlg mB--xxxlg">
 
 <div class="site-container">
+
     {{----------------------------
     | Groups
     ----------------------------}}
@@ -119,4 +122,5 @@
             </div>
         @endforeach
     </div>
+
 </div>

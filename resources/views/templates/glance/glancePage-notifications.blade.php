@@ -1,51 +1,55 @@
-<div class="uiBox uiBox--md shadow overflow-h seeAllNotifications">
+<div class="site-container">
 
-    <div class="notification__header">
-        <span class="bold"> Notifications </span>
-        <button id="toolbar-notification-mark-read-all-button" class="small btn btn-blue-dark pull-right" title="Mark all read"
-                data-action="notification-mark-all-read-button">
-            Mark all read
-        </button>
-    </div>
+    <div class="uiBox uiBox--md shadow overflow-h seeAllNotifications">
 
-    <ul id="see-all-notification-list" class="notification__list">
+        <div class="notification__header">
+            <span class="bold"> Notifications </span>
+            <button id="toolbar-notification-mark-read-all-button" class="small btn btn-blue-dark pull-right" title="Mark all read"
+                    data-action="notification-mark-all-read-button">
+                Mark all read
+            </button>
+        </div>
 
-        @if( $seeAllNotifications->count() >=1 )
+        <ul id="see-all-notification-list" class="notification__list">
 
-            @foreach($seeAllNotifications as $notification)
+            @if( $seeAllNotifications->count() >=1 )
 
-                <li class="transit--linear--fast {{$notification->read == false?'notification--new':null}}"
-                    data-notification-id="{{ $notification->id }}" {{$notification->read == false?'data-notification-status=new':null}} {{$notification->read == true?'data-notification-status=read':null}}>
-                    <a href="{{ $notification->notification_link }}" class="notification__list__content small break-word"
-                       data-action="notification-mark-read">
-                        <div>{!! $notification->message_data !!}</div>
-                        <div class="small text-light">
-                            <span class="icon icon-calendar mR"></span>
-                            {{ $notification->created_at->diffForHumans() }}
-                        </div>
+                @foreach($seeAllNotifications as $notification)
+
+                    <li class="transit--linear--fast {{$notification->read == false?'notification--new':null}}"
+                        data-notification-id="{{ $notification->id }}" {{$notification->read == false?'data-notification-status=new':null}} {{$notification->read == true?'data-notification-status=read':null}}>
+                        <a href="{{ $notification->notification_link }}" class="notification__list__content small break-word"
+                           data-action="notification-mark-read">
+                            <div>{!! $notification->message_data !!}</div>
+                            <div class="small text-light">
+                                <span class="icon icon-calendar mR"></span>
+                                {{ $notification->created_at->diffForHumans() }}
+                            </div>
+                        </a>
+
+                        <button class="notification__list__markReadBtn" data-action="notification-mark-read"
+                                data-show="tooltip" data-trigger="hover" data-placement="left"
+                                title="{{$notification->read == false?'Mark Read':null}} {{$notification->read == true?'Read':null}}">
+                            <span class="mA--none icon {{$notification->read == false?'icon-circle':null}} {{$notification->read == true?'icon-dot-fill':null}}"></span>
+                        </button>
+                    </li>
+
+                @endforeach
+
+            @else
+
+                <li class="transit--linear--fast">
+                    <a href="#" class="notification__list__content small break-word" disabled="disabled">
+                        <div>You don't have any notification.</div>
                     </a>
-
-                    <button class="notification__list__markReadBtn" data-action="notification-mark-read"
-                            data-show="tooltip" data-trigger="hover" data-placement="left"
-                            title="{{$notification->read == false?'Mark Read':null}} {{$notification->read == true?'Read':null}}">
-                        <span class="mA--none icon {{$notification->read == false?'icon-circle':null}} {{$notification->read == true?'icon-dot-fill':null}}"></span>
-                    </button>
                 </li>
 
-            @endforeach
+            @endif
 
-        @else
+        </ul>
 
-            <li class="transit--linear--fast">
-                <a href="#" class="notification__list__content small break-word" disabled="disabled">
-                    <div>You don't have any notification.</div>
-                </a>
-            </li>
+    </div>
 
-        @endif
-
-    </ul>
+    @include('templates.pagination.limitLink', ['paginator' => $seeAllNotifications])
 
 </div>
-
-@include('templates.pagination.limitLink', ['paginator' => $seeAllNotifications])
