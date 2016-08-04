@@ -1138,7 +1138,7 @@ class GroupsController extends Controller
         {
             $group = Group::whereid($group_id)->first();
             $feed = Feed::whereid($feed_id)->first();
-	        $comments = Comment::where('feed_id', $feed_id)->orderBy('created_at', 'desc')->paginate(1);
+	        $comments = Comment::where('feed_id', $feed_id)->orderBy('created_at', 'desc')->paginate(20);
             $feedGroupId = $feed->group_id;
 
             if (!$group)
