@@ -21,7 +21,12 @@
   top: 0;
 }
 
-.has-navBar {
+.has-navBar,
+.singleGroupPage,
+.singleGroupPinnedPage,
+.singleGroupMembersPage,
+.singleGroupDockingPage,
+.singleGroupProfilePage {
   .toolbar__container {
     @include box-shadow(none);
     @extend .bordered--b;

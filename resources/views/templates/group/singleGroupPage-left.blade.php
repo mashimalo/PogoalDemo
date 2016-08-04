@@ -15,69 +15,62 @@
 | Group Infomation
 ----------------------------}}
 <div class="sgp-left__info uiCard mB--md">
-    {{--<div class="uiTile">--}}
-    {{--<a href="{{ url_link_to_group($group->id) }}">--}}
-    {{--<img class="uiTile__avatar avatar avatar--xlg arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">--}}
-    {{--</a>--}}
-    {{--<div class="uiTile__body arc-sm">--}}
-    {{--<div class="uiTile__content bg-white">--}}
-    {{--<div class="uiTile__title h3 bold mB">--}}
-    {{--<a href="{{ url_link_to_group($group->id) }}" class="lk-darker break-word">--}}
-    {{--{{ $group->name }}--}}
-    {{--</a>--}}
-    {{--</div>--}}
-    {{--<div class="uiTile__description small text-light mB">--}}
-    {{--{{ $group->description }}--}}
-    {{--</div>--}}
-    {{--<div class="uiTile__date text-light small">--}}
-    {{--<span class="icon icon-calendar mR"></span>--}}
-    {{--{{$group->created_at->format('M d, Y')}}--}}
-    {{--</div>--}}
-    {{--<div class="uiTile__members text-light small">--}}
-    {{--<span class="icon icon-group mR"></span>--}}
-    {{--{{ singularOrPlural($group->acceptUsers()->count(), "member", "members", "0") }}--}}
-    {{--</div>--}}
-    {{--<div class="uiTile__category text-light small">--}}
-    {{--<span class="icon icon-category mR"></span>--}}
-    {{--{{ getGroupTypeName($group) }}--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-
     <div class="uiCard__body">
-        <div class="cover cover--xsm arc-sm-top">
-            {{--<div class="cover__photo">--}}
-            {{--<img src="{{ url('/assets/images/profile__cover__photo__placeholder.png') }}" class="arc-sm-top" alt="Profile Cover Photo"/>--}}
-            {{--</div>--}}
-        </div>
-        <div class="uiCard__content">
-            <div class="sgp-left__group__avatar">
-                <a href="{{ url_link_to_group($group->id) }}">
-                    @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
-                        <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}"
-                             class="avatar avatar--lg arc-sm">
-                    @else
-                        <img class="avatar avatar--lg arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">
-                    @endif
-                </a>
+
+        @if(currentRoute('show-groupSingleFeedPage'))
+            <div class="bold text-uppercase pA--md lh-avatar--md bordered--b">
+                Posted in
             </div>
-            <div class="sgp-left__group__name">
-                <a href="{{ url_link_to_group($group->id) }}" class="lk-darker">
+        @endif
+
+        <div class="clearfix pA--md">
+            <a href="{{ url_link_to_group($group->id) }}" class="pull-left mR--sm">
+                @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
+                    <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}"
+                         class="avatar avatar--lg arc-sm">
+                @else
+                    <img class="avatar avatar--lg arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">
+                @endif
+            </a>
+            <div class="overflow-h">
+                <a href="{{ url_link_to_group($group->id) }}" class="lk-darker bolder break-word">
                     {{$group->name}}
                 </a>
-            </div>
-            <div class="sgp-left__group__description small mB--md break-word">
-                {{$group->description}}
-            </div>
-            <div class="small text-light text-overflow">
-                <span class="icon icon-category mR"></span>
-                {{ getGroupTypeName($group) }}
-                <br>
-                <span class="icon icon-calendar mR"></span>
-                {{$group->created_at->format('M d, Y')}}
+                <div class="small text-light text-overflow mT">
+                    <div>
+                        <span class="icon icon-category mR"></span>
+                        {{ getGroupTypeName($group) }}
+                    </div>
+                    @if(currentRoute('show-groupSingleFeedPage'))
+                        <div>
+                            <span class="icon icon-send-line mR"></span>
+                            {{ $group->feeds->count() }}
+                        </div>
+                        <div>
+                            <span class="icon icon-user-solid mR"></span>
+                            {{ $group->acceptUsers()->count() }}
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
+
+        @if(currentRoute('show-groupSingleFeedPage'))
+            <div class="pH--md mB--md">
+                <a href="{{ url_link_to_group($group->id) }}" class="btn btn-primary btn-block">
+                    <span class="icon icon-double-arrow-left mR"></span>
+                    View More Feeds
+                </a>
+            </div>
+        @endif
+
+        <div class="small pA--md break-word bg-body-above bordered--t">
+            <div class="mB text-uppercase bolder">
+                About
+            </div>
+            {{$group->description}}
+        </div>
+
     </div>
 </div>
 

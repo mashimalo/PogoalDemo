@@ -26,7 +26,7 @@
     ----------------------------}}
     {!! Html::script("assets/js/libs/validator.min.js") !!}
     {!! Html::script("assets/js/libs/mustache.min.js") !!}
-    {!! Html::script("assets/js/libs/jquery.slimscroll.min.js") !!}
+    {!! Html::script("assets/js/libs/slimscroll.min.js") !!}
     {!! Html::script("assets/js/libs/initial.min.js") !!}
     {!! Html::script("assets/js/libs/bootstrap-customized.min.js") !!}
     {!! Html::script("assets/js/main.min.js") !!}

@@ -182,6 +182,7 @@ class FeedAndCommentController extends Controller {
 				return back()->with( 'error', trans( 'front/feed.permissionDenied' ) );
 			}
 			$feed = $this->feed_repository->editFeed( $request->all(), $feed_id );
+			$feed->strip_tags_content = strip_tags($feed->content);
 
 		} catch ( \Exception $e ) {
 			return back()->with( 'error', trans( 'front/feed.deleteFeedFail' ) );

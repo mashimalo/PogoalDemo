@@ -5,6 +5,10 @@ hr {
   border-top: 1px solid $color-gray-light-4;
 }
 
+.hr--light {
+  border-color: $border-color;
+}
+
 .divider-h {
   @include divider-horizontal($padding-base 0, $dark03);
 }

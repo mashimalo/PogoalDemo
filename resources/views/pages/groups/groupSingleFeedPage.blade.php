@@ -30,11 +30,8 @@
         ----------------------------}}
         <div class="sgp-main c-f-9">
 
-            {{--TODO: this is how to use the URL you can use this in group feed page:--}}
-            <a href="{{ url_link_to_groupSingleFeedPage ($group->id, $feed->id) }}">URL of this feed</a>
-
             @if ( !validate_if_targetGroup_is_private ($group->id) || $validate_currentUser_in_group)
-                @include('templates.group.feed.singleGroupPage-feed')
+                @include('templates.group.single-feed.groupSingleFeed-feed')
             @else
                 {{--Don't have to add this--}}
                 <div class="uiCard mB--xlg">

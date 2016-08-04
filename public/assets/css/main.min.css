@@ -736,6 +736,15 @@ ol ol {
   font-size: 28px;
 }
 
+.dot {
+  border-radius: 50%;
+  background-color: #718095;
+  margin-left: 5px;
+  float: left;
+  height: 3px;
+  width: 3px;
+}
+
 .icon-bridging:before {
   content: "\e927";
 }
@@ -1997,6 +2006,10 @@ li.multipleInput-email > span {
   line-height: 30px;
 }
 
+.lh-avatar--md {
+  line-height: 36px;
+}
+
 .bg--stretch {
   background-repeat: no-repeat;
   background-position: center;
@@ -2021,6 +2034,14 @@ li.multipleInput-email > span {
 .bg--lighter {
   background-color: rgba(255, 255, 255, 0.5);
   color: #ffffff !important;
+}
+
+.bg-body-above {
+  background-color: #eceef1;
+}
+
+.bg--gray {
+  background-color: #d7dbe1;
 }
 
 .bg-error,
@@ -2154,11 +2175,24 @@ li.multipleInput-email > span {
 }
 
 .bordered--b,
-.has-navBar .toolbar__container {
+.has-navBar .toolbar__container,
+.singleGroupPage .toolbar__container,
+.singleGroupPinnedPage .toolbar__container,
+.singleGroupMembersPage .toolbar__container,
+.singleGroupDockingPage .toolbar__container,
+.singleGroupProfilePage .toolbar__container {
   border-bottom: 1px solid #e6e8ec !important;
 }
 
 .bordered--b--light {
+  border-color: #d7dbe1 !important;
+}
+
+.bordered--t {
+  border-top: 1px solid #e6e8ec !important;
+}
+
+.bordered--t--light {
   border-color: #d7dbe1 !important;
 }
 
@@ -2272,6 +2306,10 @@ li.multipleInput-email > span {
   margin-left: 5px !important;
 }
 
+.mL--sm {
+  margin-left: 10px !important;
+}
+
 .mL--md {
   margin-left: 15px !important;
 }
@@ -2282,6 +2320,10 @@ li.multipleInput-email > span {
 
 .mR {
   margin-right: 5px !important;
+}
+
+.mR--sm {
+  margin-right: 10px !important;
 }
 
 .mR--md {
@@ -2332,6 +2374,10 @@ li.multipleInput-email > span {
   margin-top: 5px !important;
 }
 
+.mT--sm {
+  margin-top: 10px !important;
+}
+
 .mT--md {
   margin-top: 15px !important;
 }
@@ -2376,6 +2422,10 @@ li.multipleInput-email > span {
 
 .pT {
   padding-top: 5px !important;
+}
+
+.pT--sm {
+  padding-top: 10px !important;
 }
 
 .pT--md {
@@ -2523,8 +2573,8 @@ li.multipleInput-email > span {
 }
 
 .pH--md {
-  padding-left: 20px !important;
-  padding-right: 20px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
 }
 
 .pH--lg {
@@ -3036,6 +3086,10 @@ a.text-primary:focus {
 |--------------------------------------------------------------------------
 */
 
+.letter-space--wide {
+  letter-spacing: 1px;
+}
+
 .letter-space--hover {
   transition: linear 0.1s;
   letter-spacing: 1px;
@@ -3066,6 +3120,17 @@ a.text-primary:focus {
 
 .w--sm {
   max-width: 150px;
+  width: 150px;
+}
+
+.w--md {
+  max-width: 768px;
+  width: 768px;
+}
+
+.w--lg {
+  max-width: 900px;
+  width: 900px;
 }
 
 .w--full {
@@ -3436,6 +3501,10 @@ hr {
   margin-bottom: 15px;
   border: 0;
   border-top: 1px solid #c9ced6;
+}
+
+.hr--light {
+  border-color: #e6e8ec;
 }
 
 .divider-h {
@@ -4455,6 +4524,11 @@ a.label:focus {
 .label-danger[href]:hover,
 .label-danger[href]:focus {
   background-color: #c9302c;
+}
+
+.label-outline {
+  border: 1px solid rgba(57, 66, 77, 0.2);
+  color: #9da7b6;
 }
 
 .label-outline-light {
@@ -6163,6 +6237,7 @@ button.close {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
   position: relative;
+  display: block;
 }
 
 /*
@@ -6175,45 +6250,49 @@ button.close {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.06);
-  border-left: 5px solid #faa71c;
   background-color: #ffffff;
   position: relative;
 }
 
 /*
 |--------------------------------------------------------------------------
-| uiFeed Avatar
+| uiFeed Top
 |--------------------------------------------------------------------------
 */
 
+.uiFeed__main__top {
+  padding: 15px 15px 0 15px;
+  margin-bottom: 15px;
+}
+
 .uiFeed__avatar {
-  margin: 15px 0 0 15px;
+  margin-right: 15px;
+  display: block;
   float: left;
 }
 
-/*
-|--------------------------------------------------------------------------
-| uiFeed Details
-|--------------------------------------------------------------------------
-*/
-
 .uiFeed__details {
-  margin-left: 51px;
-  padding: 12px 15px 0 15px;
-  margin-bottom: 10px;
+  overflow: hidden;
 }
 
-.uiFeed__details__author a {
+.uiFeed__details__author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-weight: 600;
 }
 
-.uiFeed__details__misc {
-  font-size: 11px;
-  color: #9da7b6;
+.uiFeed__details__author a {
+  color: #4f5b6a;
 }
 
-.uiFeed__details__misc__time {
-  margin-right: 5px;
+.uiFeed__details__author a:hover {
+  color: #5bc0de;
+}
+
+.uiFeed__details__misc {
+  font-size: 12px;
+  color: #9da7b6;
 }
 
 /*
@@ -6223,36 +6302,41 @@ button.close {
 */
 
 .uiFeed__article {
-  margin-left: 51px;
   margin-bottom: 15px;
-  padding: 0 15px;
+  display: block;
 }
 
 .uiFeed__article__img {
-  transition: linear 0.2s;
-  margin-left: -71px;
-  margin-bottom: 15px;
-  margin-right: 15px;
-  margin-top: 0;
-  max-height: 1050px;
-  max-width: 350px;
-  width: 350px;
-  overflow: hidden;
-  float: left;
-}
-
-.uiFeed__article__img:hover {
-  box-shadow: 1px 0 10px 1px rgba(57, 66, 77, 0.5);
+  position: relative;
 }
 
 .uiFeed__article__img img {
-  width: 350px;
-  max-width: 100%;
-  height: auto;
+  position: relative;
+  width: 100%;
+}
+
+.uiFeed__article__img.preview {
+  overflow: hidden;
+  height: 200px;
+}
+
+.uiFeed__article__img.preview img {
+  top: -50%;
+}
+
+.uiFeed__article__text {
+  margin-bottom: 15px;
+  padding: 0 15px;
+  color: #4f5b6a;
 }
 
 .uiFeed__article__text p:last-child {
   margin: 0;
+}
+
+.uiFeed__article__text.excerpt {
+  overflow: hidden;
+  max-height: 40px;
 }
 
 /*
@@ -6284,12 +6368,31 @@ button.close {
 .uiFeed__footer {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  border-left: 5px solid #fcce80;
+  *zoom: 1;
+  line-height: 25px;
   background-color: #eceef1;
+  padding: 15px;
+  color: #4f5b6a;
+  display: block;
 }
 
-.uiFeed__footer .form-control:focus {
-  background-color: #f4f6f7;
+.uiFeed__footer:before,
+.uiFeed__footer:after {
+  content: " ";
+  display: table;
+}
+
+.uiFeed__footer:after {
+  clear: both;
+}
+
+.uiFeed__footer:hover {
+  color: #4f5b6a;
+}
+
+.uiFeed__footer .avatar {
+  margin-right: 10px;
+  float: left;
 }
 
 /*
@@ -6298,63 +6401,26 @@ button.close {
 |--------------------------------------------------------------------------
 */
 
-.uiFeed__reply__item {
-  border-bottom: 1px solid #c9ced6;
-  border-bottom: 1px solid rgba(57, 66, 77, 0.1);
-}
-
-.uiFeed__reply__item .uiFeed__details {
-  margin-bottom: 5px;
-}
-
-.uiFeed__reply__item .uiFeed__details__author {
-  margin-right: 5px;
-  display: inline;
-}
-
-.uiFeed__reply__item .uiFeed__details__misc {
-  display: inline;
-}
-
-.uiFeed__reply__item .uiFeed__article {
-  margin-bottom: 10px;
-}
-
-.uiFeed__reply__item .uiFeed__article__img {
-  max-height: 300px;
-  max-width: 100px;
-  width: 100px;
-  margin-top: 5px;
-  margin-left: 0;
-}
-
-.uiFeed__reply__item .uiFeed__article__img:hover {
-  box-shadow: none;
-}
-
-.uiFeed__reply__item .uiFeed__article__img img {
-  width: 100px;
-}
-
-.uiFeed__reply__item .uiFeed__article__text {
-  color: #718095;
-  font-size: 12px;
-}
-
-.uiFeed__reply__item .uiFeed__misc > .pull-left {
-  margin-left: 51px;
-}
-
-.uiFeed__reply__item .uiFeed__reply__form {
-  padding: 0 15px 15px;
-  border: 0;
-}
-
-.uiFeed__reply__item .uiFeed__reply__form .post-childReply {
-  border-radius: 3px;
-  margin-left: 51px;
-  background-color: #e0e3e8;
+.uiFeed__reply .uiFeed__reply__form {
+  background-color: #e6e8ec;
+  margin-top: 15px;
   padding: 15px;
+  margin-bottom: 0;
+}
+
+.uiFeed__reply__main {
+  padding: 15px;
+}
+
+.uiFeed__reply__item {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.uiFeed__reply__top {
+  margin-bottom: 15px;
 }
 
 /*
@@ -6364,11 +6430,18 @@ button.close {
 */
 
 .uiFeed__reply__secondLevel {
-  border-radius: 3px;
-  margin-left: 66px;
-  margin-bottom: 15px;
-  margin-right: 15px;
-  background-color: #e0e3e8;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #e6e8ec;
+}
+
+.uiFeed__reply__secondLevel .uiFeed__reply__item {
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(57, 66, 77, 0.1);
+  background-color: transparent;
+  padding: 15px;
+  margin-bottom: 0;
 }
 
 .uiFeed__reply__secondLevel .uiFeed__reply__item:last-child {
@@ -6382,37 +6455,55 @@ button.close {
 */
 
 .uiFeed__reply__form {
-  padding: 15px 15px 0;
-  display: table;
-  width: 100%;
-}
-
-.uiFeed__reply__form__input {
-  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: #d7dbe1;
+  margin-bottom: 25px;
+  padding: 15px;
 }
 
 /*
 |--------------------------------------------------------------------------
-| uiFeed Footer Hidden Control
+| Single Feed Page
 |--------------------------------------------------------------------------
 */
 
-.uiFeed__footer__toggle {
-  line-height: 40px;
-  cursor: pointer;
+.show-groupSingleFeedPage .uiFeed {
+  box-shadow: none;
 }
 
-.uiFeed__footer .uiFeed__footer__mask {
-  position: relative;
-  display: none;
+.show-groupSingleFeedPage .uiFeed__main {
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
 }
 
-.uiFeed__footer .uiFeed__footer__mask .close {
-  font-size: 26px;
-  right: 15px;
-  top: 10px;
-  position: absolute;
-  font-weight: 200;
+.show-groupSingleFeedPage .uiFeed__main__top {
+  border-bottom: 1px solid #e6e8ec;
+  margin-bottom: 25px;
+  padding: 15px;
+}
+
+.show-groupSingleFeedPage .uiFeed__article__text {
+  margin-bottom: 25px;
+  padding: 0 25px;
+  color: #4f5b6a;
+  line-height: 22px;
+}
+
+.show-groupSingleFeedPage .uiFeed__misc {
+  border-top: 1px solid #e6e8ec;
+  padding: 15px;
+}
+
+.show-groupSingleFeedPage .uiFeed__reply .uiFeed__article__text {
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.show-groupSingleFeedPage .uiFeed__reply .uiFeed__misc {
+  padding: 0;
+  border-top: 0;
 }
 
 .uiBox {
@@ -6866,32 +6957,6 @@ website:    http://www.burocratik.com
 |--------------------------------------------------------------------------
 */
 
-.sgp-left__info .cover {
-  background-color: #e6e8ec;
-}
-
-.sgp-left__group__name {
-  -ms-word-wrap: break-word;
-  word-wrap: break-word;
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.sgp-left__group__avatar {
-  border-radius: 3px;
-  margin-top: -60px;
-  margin-right: 0;
-  margin-bottom: 10px;
-  background-color: #ffffff;
-  position: relative;
-  display: table;
-}
-
-.sgp-left__vote .form-group {
-  margin-bottom: 5px;
-}
-
 /*
 |--------------------------------------------------------------------------
 | Single Group Page Main
@@ -7220,7 +7285,12 @@ website:    http://www.burocratik.com
   top: 0;
 }
 
-.has-navBar .toolbar__container {
+.has-navBar .toolbar__container,
+.singleGroupPage .toolbar__container,
+.singleGroupPinnedPage .toolbar__container,
+.singleGroupMembersPage .toolbar__container,
+.singleGroupDockingPage .toolbar__container,
+.singleGroupProfilePage .toolbar__container {
   box-shadow: none;
 }
 
@@ -7433,7 +7503,7 @@ website:    http://www.burocratik.com
 }
 
 .cover--sm {
-  height: 107px;
+  height: 200px;
 }
 
 .cover--xsm {
@@ -7521,6 +7591,13 @@ website:    http://www.burocratik.com
   line-height: 1.428571429;
 }
 
+.cover--darker .cover__child__nav ul.pull-left > li > .btn-retained:focus,
+.cover--darker .cover__child__nav ul.pull-left > li > .btn-retained:hover,
+.cover--darker .cover__child__nav ul.pull-right > li > .btn-retained:focus,
+.cover--darker .cover__child__nav ul.pull-right > li > .btn-retained:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 .cover--darker .cover__child__nav.sticky .sticky__bar {
   background-color: #4f5b6a;
   background-color: rgba(0, 0, 0, 0.8);
@@ -7550,6 +7627,55 @@ website:    http://www.burocratik.com
 .cover--darker .cover__child__nav.sticky ul.pull-right > li > a:hover .label,
 .cover--darker .cover__child__nav.sticky ul.pull-right > li > a.cP .label {
   border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cover--light .cover__child__nav {
+  background-color: #ffffff;
+}
+
+.cover--light .cover__child__nav ul.pull-left > li {
+  float: left;
+}
+
+.cover--light .cover__child__nav ul.pull-left > li > a {
+  color: #4f5b6a;
+}
+
+.cover--light .cover__child__nav ul.pull-left > li > a:hover {
+  background-color: #e6e8ec;
+}
+
+.cover--light .cover__child__nav ul.pull-left > li > a.cP {
+  background-color: #e6e8ec;
+  color: #4f5b6a;
+}
+
+.cover--light .cover__child__nav ul.pull-left > li > .btn-retained {
+  padding: 6px 12px;
+  line-height: 1.428571429;
+  color: #ffffff;
+}
+
+.cover--light .cover__child__nav ul.pull-right > li.uiDropdown > a {
+  color: #4f5b6a;
+}
+
+.cover--light .cover__child__nav ul.pull-right > li.uiDropdown > a:hover {
+  background-color: #e6e8ec;
+}
+
+.cover--light .cover__child__nav ul.pull-right > li.uiDropdown > a.cP {
+  background-color: #e6e8ec;
+  color: #4f5b6a;
+}
+
+.cover--light .cover__child__nav ul.pull-right > li > .btn-retained {
+  padding: 6px 12px;
+  line-height: 1.428571429;
+}
+
+.cover--light .cover__child__nav.sticky .sticky__bar {
+  background-color: #ffffff;
 }
 
 /*
@@ -7584,6 +7710,14 @@ website:    http://www.burocratik.com
 
 .cover__child {
   margin-top: -50px;
+}
+
+.cover__child--bottom {
+  margin-top: 0;
+}
+
+.cover__child--bottom .sticky__bar {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .cover__child__nav {
@@ -7749,3 +7883,9 @@ body,
 .site-container--fluid {
   min-width: 1170px !important;
 }
+
+/*
+|--------------------------------------------------------------------------
+| Remove Cover Toggle
+|--------------------------------------------------------------------------
+*/

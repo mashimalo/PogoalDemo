@@ -31,7 +31,7 @@
                                         {{getGroupTypeName($group)}}
                                     </div>
                                     <div class="inline-block">
-                                        <span class="icon icon-group mR"></span>
+                                        <span class="icon icon-user-solid mR"></span>
                                         @if($group->acceptUsers()->count() >= 1000)
                                             {{ numberForHumans($group->acceptUsers()->count()) }}
                                         @else
@@ -63,7 +63,7 @@
                                 @if($group->feeds->count() >= 1)
                                     @foreach($group->feeds->sortBy('created_at')->reverse()->take(1) as $feed)
                                         <a href="{{ url_link_to_group($group->id) }}" class="text-white text-overflow">
-                                            {!! $feed->content  !!}
+                                            {{ str_limit(strip_tags($feed->content),50) }}
                                         </a>
                                     @endforeach
                                 @endif

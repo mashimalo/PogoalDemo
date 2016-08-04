@@ -1,0 +1,95 @@
+<div class="uiFeed" style="display: none;">
+
+    <div class="uiFeed__main">
+
+        <div class="uiFeed__main__top">
+            <a href="{{ user_profile_link }}" class="uiFeed__avatar">
+                <img data-name="{{{ user_name }}}" src="{{ user_avatar }}" class="{{user_initialAvatar}} avatar avatar--md arc-sm"/>
+            </a>
+
+            <div class="uiFeed__details">
+                <div class="uiFeed__details__author">
+                    <a href="{{ user_profile_link }}">
+                        {{{ user_name }}}
+                    </a>
+                </div>
+                <div class="uiFeed__details__misc">
+                    <span class="uiFeed__details__misc__time">
+                        {{ post_time }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <a href="{{ single_feed_url }}" class="uiFeed__article">
+            <div class="uiFeed__article__text break-word">
+                {{ feed_content }}
+            </div>
+        </a>
+
+        <div class="uiFeed__misc">
+            <div class="pull-left forms--inline">
+                <button class="btn btn-sns like-submit"
+                        data-action="feed-like"
+                        data-action-for="{{data_action_for}}"
+                        data-group-id="{{ group_id }}"
+                        data-feed-id="{{ feed_id }}">
+                    <span class="icon icon-thumb-up"></span>
+                    <span class="btn-sns__count"> 0</span>
+                </button>
+                <button class="btn btn-sns unlike-submit"
+                        data-action="feed-unlike"
+                        data-action-for="{{data_action_for}}"
+                        data-group-id="{{ group_id }}"
+                        data-feed-id="{{ feed_id }}">
+                    <span class="icon icon-thumb-down"></span>
+                    <span class="btn-sns__count"> 0</span>
+                </button>
+                <button class="btn btn-sns">
+                    <span class="icon icon-share"></span>
+                </button>
+            </div>
+            <div class="pull-right uiDropdown">
+                <button class="btn btn-sns" data-toggle="dropdown">
+                    <span class="icon icon-dots text-light link"></span>
+                </button>
+                <ul class="uiDropdown__menu">
+                    <li>
+                        <form id="pin-feed" role="form" accept-charset="UTF-8" action="/group/{{ group_id }}/feed/{{ feed_id }}/pin" method="POST">
+                            <input type="hidden" value="{{csrf_token}}" name="_token">
+                            <input id="feed-pin-submit" type="submit" value="Pin">
+                        </form>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <button data-action="edit-feed" data-action-for="{{data_action_for}}" data-group-id="{{ group_id }}"
+                                data-feed-id="{{ feed_id }}">
+                            Edit
+                        </button>
+                    </li>
+                    <li>
+                        <button data-action="delete-feed" data-action-for="{{data_action_for}}" data-group-id="{{ group_id }}"
+                                data-feed-id="{{ feed_id }}">
+                            Delete
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <a href="{{ single_feed_url }}" class="uiFeed__footer">
+        <div class="wrap">
+            <div class="c-f-9">
+                <span class="small text-light text-uppercase">No activity</span>
+            </div>
+
+            <div class="c-f-3 text-right small text-light">
+                0
+                <span class="icon icon-comments"></span>
+            </div>
+        </div>
+    </a>
+
+</div>

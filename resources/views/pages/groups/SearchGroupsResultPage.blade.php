@@ -47,7 +47,7 @@
                                         {{ str_limit($group->description,25) }}
                                     </div>
                                     <div class="uiTile__members text-light small">
-                                        <span class="icon icon-group mR"></span>
+                                        <span class="icon icon-user-solid mR"></span>
                                         {{ singularOrPlural($group->acceptUsers()->count(), "member", "members", "0 member") }}
                                     </div>
                                     <div class="uiTile__category text-light small">

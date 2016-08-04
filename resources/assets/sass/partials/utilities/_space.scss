@@ -10,7 +10,10 @@
 }
 
 .mL {
-  margin-left: 5px !important;
+  margin-left: $padding-xsmall !important;
+  &--sm {
+    margin-left: $padding-small !important;
+  }
   &--md {
     margin-left: $padding-base !important;
   }
@@ -21,6 +24,9 @@
 
 .mR {
   margin-right: $padding-xsmall !important;
+  &--sm {
+    margin-right: $padding-small !important;
+  }
   &--md {
     margin-right: $padding-base !important;
   }
@@ -59,6 +65,9 @@
 
 .mT {
   margin-top: 5px !important;
+  &--sm {
+    margin-top: $padding-small !important;
+  }
   &--md {
     margin-top: $padding-base !important;
   }
@@ -102,6 +111,9 @@
 .pT {
   padding-top: $padding-xsmall !important;
 
+  &--sm {
+    padding-top: $padding-small !important;
+  }
   &--md {
     padding-top: $padding-base !important;
   }
@@ -237,8 +249,8 @@
   }
 
   &--md {
-    padding-left: $padding-medium !important;
-    padding-right: $padding-medium !important;
+    padding-left: $padding-base !important;
+    padding-right: $padding-base !important;
   }
 
   &--lg {

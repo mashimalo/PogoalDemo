@@ -68,7 +68,7 @@
                             Bridging
                         </div>
                     </li>
-                    <li class="mR--lg">
+                    <li>
                         <div class="thin text-xxxlg cover__color--primary">
                             0
                         </div>
@@ -83,8 +83,8 @@
     <div class="cover__mask"></div>
 </div>
 
-<div class="cover__child cover--darker">
-    <div class="cover__child__nav has-sticky__bar">
+<div class="cover__child cover__child cover--darker">
+    <div id="sgp-cover-child-nav" class="cover__child__nav has-sticky__bar">
         <div class="sticky__bar">
             <div class="site-container">
 
@@ -143,16 +143,16 @@
                 </ul>
 
                 <ul class="list-inline pull-right">
-
                     {{----------------------------
                     | Request Bridging
                     ----------------------------}}
                     <li>
-                        <a href="{{ URL::route( 'dockingGroupSetupPage', $target_group_id = $group_id) }}" class="btn-retained btn btn-primary bar-btn-mT" target="_blank" role="button">
+                        <a href="{{ URL::route( 'dockingGroupSetupPage', $target_group_id = $group_id) }}" class="btn-retained btn btn-white-tt bar-btn-mT" target="_blank" role="button">
                             <span class="icon icon-bridging"></span>
                             Request Bridging
                         </a>
                     </li>
+
 
                     {{----------------------------
                     | Gear Button
@@ -227,15 +227,12 @@
                     {{----------------------------
                     | Switch
                     ----------------------------}}
-                    <li>
+                    <li class="singleGroup__cover__switch">
                         <div class="uiSwitch uiSwitch--v bar-btn-mT"
                              title="Toggle header"
                              data-show="tooltip"
                              data-trigger="hover"
                              data-placement="bottom">
-                            {{----------------------------
-                            | TODO: .toggled and checked to open the cover
-                            ----------------------------}}
                             @if(!$validate_currentUser_in_group)
                                 <input type="checkbox" name="uiSwitch" class="uiSwitch__checkbox checked toggled" data-toggle="toggle-cover"
                                        id="sgp-cover-switch" checked>
@@ -254,7 +251,7 @@
     {{----------------------------
     | Profile Content
     ----------------------------}}
-    <div class="cover__child__content pT--lg pB--lg">
+    <div id="sgp-cover-child-content" class="cover__child__content pT--md pB--md">
         <div class="site-container">
             <div id="sgp-last-activity-section">
                 <div class="small cover__color--secondary">

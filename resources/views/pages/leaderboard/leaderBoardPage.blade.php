@@ -162,7 +162,7 @@
                                             {{ getGroupTypeName( \App\Models\Group::where('id', $group->group_id)->firstOrFail() ) }}
                                         </span>
                                         <span>
-                                            <span class="icon icon-group mR"></span>
+                                            <span class="icon icon-user-solid mR"></span>
                                             {{ $group->amount }}
                                         </span>
                                     </div>

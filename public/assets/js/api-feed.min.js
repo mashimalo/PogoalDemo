@@ -127,7 +127,7 @@ $(function () {
                     post_time: data.json.post_time,
                     user_name: data.json.user_name,
                     user_profile_link: data.json.user_profile_link,
-                    feed_content: data.json.content.nl2br(),
+                    feed_content: data.json.content,
                     csrf_token: $csrf_token,
                     my_firstName: $my_firstName
                 };
@@ -160,8 +160,16 @@ $(function () {
                 }
                 $data["my_initialAvatar"] = $my_initialAvatar;
 
+                // Dynamic data key cache - single feed url
+                if($data_action_for == "group"){
+                    var $single_feed_url= $baseURL + '/group/' + data.json.group_id + '/feed/' + data.json.id;
+                } else if($data_action_for == "docking"){
+                    var $single_feed_url= $baseURL + '/docking/' + data.json.docking_group_id + '/feed/' + data.json.id;
+                }
+                $data["single_feed_url"] = $single_feed_url;
+
                 // Get Feed template
-                $.get('/api/feed-v000011.template', function (template) {
+                $.get('/api/feed-v000014.template', function (template) {
                     var $feedTemplate = Mustache.render(template, $data);
 
                     // prepend it to #feeds-unpinned
@@ -226,9 +234,9 @@ $(function () {
 
         // Cache
         var $this = $(this);
-        var $footerToggleCount = $this.closest(".uiFeed__footer").find(".uiFeed__footer__toggle .btn-sns__count");
-        var $feedReplyList = $this.closest(".uiFeed__footer__mask").children(".uiFeed__reply");
-        var $feedReplyFrom = $this.closest(".uiFeed__reply__form");
+        var $commentCount = $('#group-single-feed-comment-count');
+        var $feedReplyList = $("#uiFeed-reply-list");
+        var $feedReplyFrom = $("#uiFeed-reply-form");
         var $textarea = $feedReplyFrom.find("textarea");
         var $textarea_content = $textarea.val();
         var $group_id = $this.attr("data-group-id");
@@ -297,7 +305,7 @@ $(function () {
                 $data["user_initialAvatar"] = $user_initialAvatar;
 
                 // Get Feed Reply template
-                $.get('/api/feed-reply-v000007.template', function (template) {
+                $.get('/api/feed-reply-v000008.template', function (template) {
                     var $feedReplyTemplate = Mustache.render(template, $data);
 
                     // Prepend it to .uiFeed__reply
@@ -314,7 +322,13 @@ $(function () {
                 });
 
                 // Update total reply count
-                $footerToggleCount.text(data.json.all_reply_count);
+                if(data.json.all_reply_count == "0") {
+                    $commentCount.text("0 comment")
+                } else if(data.json.all_reply_count == "1") {
+                    $commentCount.text("1 comment");
+                } else {
+                    $commentCount.text(data.json.all_reply_count + " comments");
+                }
 
                 // Remove disabled attribute
                 $this.removeAttr("disabled");
@@ -390,7 +404,7 @@ $(function () {
             $parent.after("<div class='uiFeed__reply__form'></div>");
 
             // Get Feed Reply Form template
-            $.get('/api/feed-reply-form-v000006.template', function (template) {
+            $.get('/api/feed-reply-form-v000007.template', function (template) {
                 var $replyFormTemplate = Mustache.render(template, $data);
 
                 // Append id to .uiFeed__reply__form
@@ -421,7 +435,7 @@ $(function () {
     $body.on("click", $postFeedChildReplyButton, function () {
         // Cache
         var $this = $(this);
-        var $footerToggleCount = $this.closest(".uiFeed__footer").find(".uiFeed__footer__toggle .btn-sns__count");
+        var $commentCount = $('#group-single-feed-comment-count');
         var $feedChildReplyList = $this.closest(".uiFeed__reply__item").children(".uiFeed__reply__secondLevel");
         var $feedChildReplyFrom = $this.closest(".uiFeed__reply__form");
         var $textarea = $feedChildReplyFrom.find("textarea");
@@ -492,7 +506,7 @@ $(function () {
                 $data["user_initialAvatar"] = $user_initialAvatar;
 
                 // Get Feed Child Reply template
-                $.get('/api/feed-childReply-v000006.template', function (template) {
+                $.get('/api/feed-childReply-v000007.template', function (template) {
                     var $feedChildReplyTemplate = Mustache.render(template, $data);
 
                     // Prepend it to .uiFeed__reply__secondLvl
@@ -509,7 +523,13 @@ $(function () {
                 });
 
                 // Update total reply count
-                $footerToggleCount.text(data.json.all_reply_count);
+                if(data.json.all_reply_count == "0") {
+                    $commentCount.text("0 comment")
+                } else if(data.json.all_reply_count == "1") {
+                    $commentCount.text("1 comment");
+                } else {
+                    $commentCount.text(data.json.all_reply_count + " comments");
+                }
 
                 // Remove disabled attribute
                 $this.removeAttr("disabled");
@@ -555,13 +575,14 @@ $(function () {
         var $group_id = $this.attr("data-group-id");
         var $feed_id = $this.attr("data-feed-id");
         var $data_action_for = $this.attr("data-action-for");
+        var $data_feed_type = $this.attr("data-feed-type");
 
         // Data cache
         var $data = {
             data_action_for: $data_action_for,
             group_id: $group_id,
             feed_id: $feed_id,
-            feed_original_content: $feed_original_content
+            feed_original_content: $feed_original_content,
         };
 
         // Remove previous ajax notification
@@ -571,7 +592,7 @@ $(function () {
         if (!$this.hasClass("clicked")) {
 
             // Get Edit Feed Modal template
-            $.get('/api/edit-feed-modal-v000004.template', function (template) {
+            $.get('/api/edit-feed-modal-v000006.template', function (template) {
                     var $editFeedModal = Mustache.render(template, $data);
 
                     // Append it to .uiFeed
@@ -608,7 +629,11 @@ $(function () {
                     success: function (data) {
 
                         // Update the content
-                        $feedContent.html(data.json.content.nl2br());
+                        if($data_feed_type == "groupSingleFeed") {
+                            $feedContent.html(data.json.content.nl2br());
+                        } else {
+                            $feedContent.html(data.json.strip_tags_content);
+                        }
 
                         // Run ajax notification
                         ajaxNotification("Your have successfully edited a feed", "success");
@@ -627,12 +652,12 @@ $(function () {
         }
 
         // If selector has .clicked class, run the event
-        if ($this.hasClass("clicked")) {
-
-            // Fetch feed content to modal again
-            var $feed_modal_content = "#edit-feed-" + $group_id + $feed_id + " textarea";
-            $feed.find($feed_modal_content).val($feed_original_content);
-        }
+        // if ($this.hasClass("clicked")) {
+        //
+        //     // Fetch feed content to modal again
+        //     var $feed_modal_content = "#edit-feed-" + $group_id + $feed_id + " textarea";
+        //     $feed.find($feed_modal_content).val($feed_original_content);
+        // }
     });
 
 
@@ -644,7 +669,7 @@ $(function () {
         // Cache
         var $this = $(this);
         var $feedReplyItem = $this.closest(".uiFeed__reply__item");
-        var $feedReplyContent = $feedReplyItem.children(".uiFeed__article").find(".uiFeed__article__text");
+        var $feedReplyContent = $feedReplyItem.children(".uiFeed__reply__main").find(".uiFeed__article__text");
         var $feed_reply_original_content = $feedReplyContent.text();
         var $group_id = $this.attr("data-group-id");
         var $feed_id = $this.attr("data-feed-id");
@@ -667,7 +692,7 @@ $(function () {
         if (!$this.hasClass("clicked")) {
 
             // Get Edit Feed Modal template
-            $.get('/api/edit-feed-reply-modal-v000004.template', function (template) {
+            $.get('/api/edit-feed-reply-modal-v000005.template', function (template) {
                     var $editFeedReplyModal = Mustache.render(template, $data);
 
                     // Append it to .uiFeed__reply__item
@@ -766,7 +791,7 @@ $(function () {
         if (!$this.hasClass("clicked")) {
 
             // Get Edit Feed Modal template
-            $.get('/api/edit-feed-childReply-modal-v000004.template', function (template) {
+            $.get('/api/edit-feed-childReply-modal-v000005.template', function (template) {
                     var $editFeedChildReplyModal = Mustache.render(template, $data);
 
                     // Append it to .uiFeed__reply__item

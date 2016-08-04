@@ -21,44 +21,45 @@
         @endif
     @endif
 
-    <div class="uiFeed__main">
 
-        {{----------------------------
-        | Feed Avatar
-        ----------------------------}}
-        <a href="{{ url_link_to_target_profile($feed->user->profile->nickname) }}" class="uiFeed__avatar">
-            @if ($feed->user->profile->user_avatar_small != null || strlen($feed->user->profile->user_avatar_small) > 0)
-                <img src="{!! '/images/userAvatar/'.$feed->user->profile->user_avatar_small !!}"
-                     class="avatar avatar--md arc-sm">
-            @else
-                <img data-name="{{ empty_firstName_displayNickname($feed->user) }}"
-                     class="initialAvatar avatar avatar--md arc-sm"/>
-            @endif
-        </a>
+    <div class="uiFeed__main">
 
         {{----------------------------
         | Feed Details
         ----------------------------}}
-        <div class="uiFeed__details">
-            <div class="uiFeed__details__author">
-                <a href="{{ url_link_to_target_profile($feed->user->profile->nickname) }}" class="break-word">
-                    {{ empty_eitherName_displayNickname($feed->user) }}
-                </a>
-            </div>
-            <div class="uiFeed__details__misc">
-                <span class="uiFeed__details__misc__time">{{ $feed->created_at->diffForHumans() }}</span>
+        <div class="uiFeed__main__top">
+            {{----------------------------
+            | Feed Avatar
+            ----------------------------}}
+            <a href="{{ url_link_to_target_profile($feed->user->profile->nickname) }}" class="uiFeed__avatar">
+                @if ($feed->user->profile->user_avatar_small != null || strlen($feed->user->profile->user_avatar_small) > 0)
+                    <img src="{!! '/images/userAvatar/'.$feed->user->profile->user_avatar_small !!}" class="avatar avatar--md arc-sm">
+                @else
+                    <img data-name="{{ empty_firstName_displayNickname($feed->user) }}" class="initialAvatar avatar avatar--md arc-sm"/>
+                @endif
+            </a>
+
+            <div class="uiFeed__details">
+                <div class="uiFeed__details__author">
+                    <a href="{{ url_link_to_target_profile($feed->user->profile->nickname) }}">
+                        {{ empty_eitherName_displayNickname($feed->user) }}
+                    </a>
+                </div>
+                <div class="uiFeed__details__misc">
+                    <span class="uiFeed__details__misc__time">{{ $feed->created_at->diffForHumans() }}</span>
+                </div>
             </div>
         </div>
 
         {{----------------------------
         | Feed Article
         ----------------------------}}
-        <div class="uiFeed__article">
-            {{--<a href="#" class="uiFeed__article__img">--}}
+        <a href="{{ url_link_to_dockingGroupSingleFeedPage($dockingGroup->id, $feed->id) }}" class="uiFeed__article">
+            {{--<div class="uiFeed__article__img">--}}
             {{--<img src="{{ url('/assets/images/home-cat-more.jpg') }}">--}}
-            {{--</a>--}}
-            <div class="uiFeed__article__text break-word">{!! nl2br($feed->content) !!}</div>
-        </div>
+            {{--</div>--}}
+            <div class="uiFeed__article__text excerpt break-word">{{ strip_tags($feed->content) }}</div>
+        </a>
 
         {{----------------------------
         | Feed Misc.
@@ -82,19 +83,6 @@
                     <span class="btn-sns__count">{{ $feed->unlikes->count() }}</span>
                 </button>
 
-                {{--{!! Form::model($dockingGroup, ['route'=> ['feed-like-dockingGroup', 'dockingGroup_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'POST','id'=>'like-feed-dockingGroup', 'role'=>'form'])!!}--}}
-                {{--<button class="btn btn-sns" id="post-like-submit">--}}
-                {{--<span class="icon icon-thumb-up"></span>--}}
-                {{--<span class="btn-sns__count">{{ $feed->likes->count() }}</span>--}}
-                {{--</button>--}}
-                {{--{!! Form::close() !!}--}}
-
-                {{--{!! Form::model($dockingGroup, ['route'=> ['feed-unlike-dockingGroup', 'dockingGroup_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'POST','id'=>'unlike-feed', 'role'=>'form'])!!}--}}
-                {{--<button class="btn btn-sns" id="post-unlike-submit">--}}
-                {{--<span class="icon icon-thumb-down"></span>--}}
-                {{--<span class="btn-sns__count">{{ $feed->unlikes->count() }}</span>--}}
-                {{--</button>--}}
-                {{--{!! Form::close() !!}--}}
                 <button class="btn btn-sns">
                     <span class="icon icon-share"></span>
                 </button>
@@ -109,24 +97,25 @@
                     @if ($validate_currentUser_has_permission_in_dockingGroup )
                         @if ($feed->pinned == false)
                             <li>
-                                {!! Form::model($feed, ['route'=> ['feed-pin-dockingGroup', 'dockingGroup_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'post','id'=>'pin-feed', 'role'=>'form'])!!}
+                                {!! Form::model($feed, ['route'=> ['feed-pin', 'group_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'post','id'=>'pin-feed', 'role'=>'form'])!!}
                                 {!! Form::submit('Pin',['id'=>'feed-pin-submit']) !!}
                                 {!! Form::close() !!}
                             </li>
                         @endif
                         @if ($feed->pinned == true)
                             <li>
-                                {!! Form::model($feed, ['route'=> ['feed-unpin-dockingGroup', 'dockingGroup_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'post','id'=>'unpin-feed', 'role'=>'form'])!!}
+                                {!! Form::model($feed, ['route'=> ['feed-unpin', 'group_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'post','id'=>'unpin-feed', 'role'=>'form'])!!}
                                 {!! Form::submit('Unpin',['id'=>'feed-unpin-submit']) !!}
                                 {!! Form::close() !!}
                             </li>
                         @endif
                         <li class="divider"></li>
                     @endif
+
                     @if ($feed->user->id == Auth::user()->id && $validate_currentUser_in_dockingGroup || $validate_currentUser_has_permission_in_dockingGroup )
                         <li>
                             <button data-action="edit-feed"
-                                    data-action-for="docking"
+                                    data-action-for="group"
                                     data-group-id="{{ $dockingGroup->id }}"
                                     data-feed-id="{{ $feed->id }}">
                                 Edit
@@ -134,75 +123,58 @@
                         </li>
                         <li>
                             <button data-action="delete-feed"
-                                    data-action-for="docking"
+                                    data-action-for="group"
                                     data-group-id="{{ $dockingGroup->id }}"
                                     data-feed-id="{{ $feed->id }}">
                                 Delete
                             </button>
                         </li>
                     @endif
+
+                    @if ($feed->user->id != Auth::user()->id || !$validate_currentUser_in_dockingGroup)
+                        <li>
+                            This is not your feed.
+                        </li>
+                    @endif
                 </ul>
             </div>
 
-        </div>
-    </div>
+        </div><!-- .uiFeed__misc -->
+    </div><!-- .uiFeed__main -->
 
     {{----------------------------
     | Feed Footer
     ----------------------------}}
-    <div class="uiFeed__footer inactive">
-        <div class="uiFeed__footer__mask">
+    <a href="{{ url_link_to_dockingGroupSingleFeedPage($dockingGroup->id, $feed->id) }}" class="uiFeed__footer">
+        <div class="wrap">
+            <div class="c-f-9 small">
+                @if($feed->comments->count() > 0)
+                    @foreach ($feed->comments->sortBy('created_at')->reverse()->take(1)  as $comment)
+                        @if ($comment->user->profile->user_avatar_small != null || strlen($comment->user->profile->user_avatar_small) > 0)
+                            <img src="{!! '/images/userAvatar/'.$comment->user->profile->user_avatar_small !!}" class="avatar avatar--xs arc-sm">
+                        @else
+                            <img data-name="{{ empty_firstName_displayNickname($comment->user) }}" class="initialAvatar avatar avatar--xs arc-sm"/>
+                        @endif
+                        <span class="bold">{{ empty_eitherName_displayNickname($comment->user) }}</span>
+                        <span class="mL mR text-light">-</span>
+                        <span class="text-light">{{ str_limit($comment->content,75) }}</span>
+                    @endforeach
+                @else
+                    <span class="text-light text-uppercase">No activity</span>
+                @endif
+            </div>
 
-            <button class="close" style="display:@if(getAllReplyCount($feed)>0) block @else none @endif;">
-                <span>&times;</span>
-            </button>
-
-            {{----------------------------
-            | Reply List
-            ----------------------------}}
-            @include('templates.docking.feed.dockingGroupPage-feed-reply')
-
-            {{----------------------------
-            | Reply Form for First Level
-            ----------------------------}}
-            @if ($validate_currentUser_in_dockingGroup)
-                <div class="uiFeed__reply__form">
-                    @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
-                        <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}"
-                             class="avatar avatar--md arc-sm mR--md pull-left">
-                    @else
-                        <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
-                             class="initialAvatar avatar avatar--md arc-sm mR--md pull-left"/>
-                    @endif
-                    <button class="btn btn-primary btn-md mL--md pull-right"
-                            data-action="post-feed-reply"
-                            data-action-for="docking"
-                            data-group-id="{{ $dockingGroup->id }}"
-                            data-feed-id="{{ $feed->id }}">
-                        Reply
-                    </button>
-                    <div class="uiFeed__reply__form__input">
-                        <div class="elastic-textarea elastic-textarea--hasBtn">
-                                <textarea placeholder="Reply......" name="reply-{{ $feed->id }}"
-                                          class="form-control elastic-textarea__input"
-                                          data-elastic="textarea"></textarea>
-
-                            <div class="elastic-textarea__btn">
-                                <button class="btn btn-md icon icon-camera text-light"></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
+            <div class="c-f-3 text-right small text-light">
+                @if($feed->comments->count() > 0)
+                    @foreach ($feed->comments->sortBy('created_at')->reverse()->take(1)  as $comment)
+                        {{ $comment->created_at->diffForHumans() }}
+                    @endforeach
+                    <span class="mL mR">/</span>
+                @endif
+                {{ getAllReplyCount($feed) }}
+                <span class="icon icon-comments"></span>
+            </div>
         </div>
-
-        {{----------------------------
-        | Feed Footer Toggle
-        ----------------------------}}
-        <div class="uiFeed__footer__toggle text-center">
-            <span class="icon icon-comments mR"></span>
-            <span class="btn-sns__count">{{ getAllReplyCount($feed) }}</span>
-        </div>
-    </div>
+    </a><!-- .uiFeed__footer -->
 
 </div>

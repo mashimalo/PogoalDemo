@@ -220,6 +220,11 @@ small,
 | Letter Space
 |--------------------------------------------------------------------------
 */
+.letter-space--wide {
+  letter-spacing: 1px;
+}
+
+
 .letter-space--hover {
   @include transition($general-transition-fast);
   letter-spacing: 1px;

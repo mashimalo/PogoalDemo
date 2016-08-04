@@ -31,6 +31,15 @@
   }
 }
 
+.dot {
+  @include border-radius(50%);
+  background-color: $color-gray-light;
+  margin-left: $padding-xsmall;
+  float: left;
+  height: 3px;
+  width: 3px;
+}
+
 .icon-bridging:before {
   content: "\e927";
 }

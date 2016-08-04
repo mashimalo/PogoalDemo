@@ -44,7 +44,7 @@ elixir(function (mix) {
     mix.copy('resources/assets/js/libs/jquery-1.11.3.min.js', 'public/assets/js/libs/jquery-1.11.3.min.js');
     mix.copy('resources/assets/js/libs/mustache.min.js', 'public/assets/js/libs/mustache.min.js');
     mix.copy('resources/assets/js/libs/validator.min.js', 'public/assets/js/libs/validator.min.js');
-    mix.copy('resources/assets/js/libs/jquery.slimscroll.min.js', 'public/assets/js/libs/jquery.slimscroll.min.js');
+    mix.copy('resources/assets/js/libs/slimscroll.min.js', 'public/assets/js/libs/slimscroll.min.js');
     mix.copy('resources/assets/js/libs/initial.min.js', 'public/assets/js/libs/initial.min.js');
     mix.copy('resources/assets/js/libs/bootstrap-customized.min.js', 'public/assets/js/libs/bootstrap-customized.min.js');
 

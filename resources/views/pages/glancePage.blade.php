@@ -19,7 +19,9 @@
     {{----------------------------
     | Check Session
     ----------------------------}}
-    @include('templates.session.checkSession')
+    <div class="site-container">
+        @include('templates.session.checkSession')
+    </div>
 
     {{----------------------------
     | Content

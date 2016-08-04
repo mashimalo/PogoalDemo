@@ -58,6 +58,11 @@ a.label {
   @include label-variant($brand-danger);
 }
 
+.label-outline {
+  border: 1px solid $dark02;
+  color: $text-color-light;
+}
+
 .label-outline-light {
   border: 1px solid $light01;
   color: $text-color-light;

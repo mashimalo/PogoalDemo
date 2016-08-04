@@ -10,6 +10,7 @@ use App\Models\Group;
 use App\Models\Notification;
 use App\Models\User;
 use App\Models\Feed;
+use App\Models\Comment;
 
 use App\Http\Requests\GroupCreateRequest;
 use App\Http\Requests\GroupModifyRequest;
@@ -1137,6 +1138,7 @@ class GroupsController extends Controller
         {
             $group = Group::whereid($group_id)->first();
             $feed = Feed::whereid($feed_id)->first();
+	        $comments = Comment::where('feed_id', $feed_id)->orderBy('created_at', 'desc')->paginate(1);
             $feedGroupId = $feed->group_id;
 
             if (!$group)
@@ -1176,6 +1178,7 @@ class GroupsController extends Controller
             'pages.groups.groupSingleFeedPage',
             compact(
                 'feed',
+	            'comments',
                 'feed_id',
                 'group',
                 'group_id',

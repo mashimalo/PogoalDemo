@@ -28,6 +28,7 @@
 @import "partials/utilities/cursor"; //*** CLEARED
 @import "partials/utilities/space"; //*** CLEARED
 @import "partials/utilities/float"; //*** CLEARED
+@import "partials/utilities/image"; //*** CLEARED
 @import "partials/utilities/link"; //*** CLEARED
 @import "partials/utilities/type"; //*** CLEARED
 @import "partials/utilities/size"; //*** CLEARED
@@ -69,6 +70,7 @@
 @import "partials/parts/uiTile";
 @import "partials/parts/uiList";
 @import "partials/parts/uiFeed";
+@import "partials/parts/uiSingleFeed";
 @import "partials/parts/uiBox";
 @import "partials/parts/uiTabs";
 @import "partials/parts/uiSwitch";
@@ -111,3 +113,69 @@ body,
 .site-container--fluid {
   min-width: $container-lg !important;
 }
+
+/*
+|--------------------------------------------------------------------------
+| Remove Cover Toggle
+|--------------------------------------------------------------------------
+*/
+//.singleGroup__cover__switch {
+//  display: none !important;
+//}
+//
+//.cover__child__nav ul.pull-right > li.uiDropdown {
+//  margin-right: 0;
+//}
+//
+//#sgp-last-activity-section,
+//.sgp-left__info {
+//  display: block;
+//}
+//
+//.currentUserInGroup {
+//  #sgp-cover-section {
+//    height: 250px;
+//  }
+//
+//  #sgp-info-section {
+//    display: block;
+//    .cover__static {
+//      display: block;
+//    }
+//  }
+//
+//  #sgp-last-activity-section,
+//  .sgp-left__info {
+//    display: block;
+//  }
+//}
+//
+//#sgp-cover-child-content {
+//  display: none;
+//}
+//
+//.singleGroupPage {
+//  .sgp-left {
+//    display: none;
+//  }
+//  .sgp-main {
+//    max-width: 768px;
+//    display: table;
+//    margin: 0 auto;
+//    width: 100%;
+//    float: none;
+//  }
+//
+//  .cover--darker .cover__child__nav ul.pull-left > li > a.cP,
+//  .cover--darker .cover__child__nav ul.pull-right > li > a.cP {
+//    background-color: $body-bg;
+//  }
+//
+//  .cover--darker .cover__child__nav.sticky ul.pull-left > li > a:hover,
+//  .cover--darker .cover__child__nav.sticky ul.pull-left > li > a.cP,
+//  .cover--darker .cover__child__nav.sticky ul.pull-right > li > a:hover,
+//  .cover--darker .cover__child__nav.sticky ul.pull-right > li > a.cP {
+//    background-color: rgba(0, 0, 0, 0.4);
+//    color: #ffffff;
+//  }
+//}

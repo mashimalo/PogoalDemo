@@ -3,43 +3,43 @@
 | Single Group Page Left
 |--------------------------------------------------------------------------
 */
-.sgp-left__info {
-  .cover {
-    background-color: $color-gray-light-6;
-  }
-}
-
-.sgp-left__group__name {
-  -ms-word-wrap: break-word;
-  word-wrap: break-word;
-
-  margin-bottom: $padding-small;
-  font-size: $font-size-h4;
-  font-weight: 600;
-}
-
-.sgp-left__group__avatar {
-  @include border-radius($border-radius-base);
-
-  margin-top: -($padding-base * 4);
-  margin-right: 0;
-  margin-bottom: $padding-small;
-  //margin-left: -3px;
-
-  background-color: $color-white;
-  //padding: 3px;
-  position: relative;
-  display: table;
-}
-
-.sgp-left__vote {
-  .form-group {
-    margin-bottom: 5px;
-  }
-}
-
-.sgp-left__group__description {
-}
+//.sgp-left__info {
+//  .cover {
+//    background-color: $color-gray-light-6;
+//  }
+//}
+//
+//.sgp-left__group__name {
+//  -ms-word-wrap: break-word;
+//  word-wrap: break-word;
+//
+//  margin-bottom: $padding-small;
+//  font-size: $font-size-h4;
+//  font-weight: 600;
+//}
+//
+//.sgp-left__group__avatar {
+//  @include border-radius($border-radius-base);
+//
+//  margin-top: -($padding-base * 4);
+//  margin-right: 0;
+//  margin-bottom: $padding-small;
+//  //margin-left: -3px;
+//
+//  background-color: $color-white;
+//  //padding: 3px;
+//  position: relative;
+//  display: table;
+//}
+//
+//.sgp-left__vote {
+//  .form-group {
+//    margin-bottom: 5px;
+//  }
+//}
+//
+//.sgp-left__group__description {
+//}
 
 /*
 |--------------------------------------------------------------------------

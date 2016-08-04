@@ -24,6 +24,14 @@
   color: $color-white !important;
 }
 
+.bg-body-above {
+  background-color: lighten($color-gray-light-6, 2%);
+}
+
+.bg--gray {
+  background-color: $color-gray-light-5;
+}
+
 .bg-error,
 .bg-danger {
   background-color: $brand-danger;

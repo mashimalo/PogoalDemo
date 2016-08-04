@@ -41,7 +41,7 @@
             <a href="{{ url_link_to_dockingGroup ($dockingGroup->id) }}">URL to go back to the bridge group</a>
 
             @if ( !validate_if_target_dockingGroup_is_private ($dockingGroup_id) || $validate_currentUser_in_dockingGroup)
-                @include('templates.docking.feed.dockingGroupPage-feed')
+                @include('templates.docking.feed.backup.dockingGroupPage-feed')
             @else
                 <div class="uiCard mB--xlg">
                     <div class="uiCard__body">

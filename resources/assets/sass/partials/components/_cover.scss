@@ -11,7 +11,7 @@
   }
 
   &--sm {
-    height: 107px;
+    height: 200px;
   }
 
   &--xsm {
@@ -59,6 +59,8 @@
   width: 100%;
 }
 
+
+// Dark
 .cover--darker {
   .cover__mask {
     background-color: $dark08;
@@ -106,6 +108,11 @@
         > .btn-retained {
           padding: $padding-base-vertical $padding-base-horizontal;
           line-height: $line-height-base;
+
+          &:focus,
+          &:hover {
+            background-color: $light04;
+          }
         }
       }
     }
@@ -143,6 +150,68 @@
   }
 }
 
+// Light
+.cover--light {
+  .cover__child__nav {
+    background-color: $color-white;
+
+    ul.pull-left {
+      > li {
+        float: left;
+
+        > a {
+          color: $text-color;
+
+          &:hover {
+            background-color: $color-gray-light-6;
+          }
+
+          &.cP {
+            background-color: $color-gray-light-6;
+            color: $text-color;
+          }
+        }
+
+        > .btn-retained {
+          padding: $padding-base-vertical $padding-base-horizontal;
+          line-height: $line-height-base;
+          color: $color-white;
+        }
+      }
+    }
+
+    ul.pull-right {
+      > li {
+        &.uiDropdown {
+          > a {
+            color: $text-color;
+
+            &:hover {
+              background-color: $color-gray-light-6;
+            }
+
+            &.cP {
+              background-color: $color-gray-light-6;
+              color: $text-color;
+            }
+          }
+        }
+
+        > .btn-retained {
+          padding: $padding-base-vertical $padding-base-horizontal;
+          line-height: $line-height-base;
+        }
+      }
+    }
+
+    &.sticky {
+      .sticky__bar {
+        background-color: $color-white;
+      }
+    }
+  }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Cover Static
@@ -175,6 +244,14 @@
 */
 .cover__child {
   margin-top: -$bar-height-base;
+
+  &--bottom {
+    margin-top: 0;
+
+    .sticky__bar {
+      @include box-shadow($box-shadow-preset-3);
+    }
+  }
 }
 
 .cover__child__nav {

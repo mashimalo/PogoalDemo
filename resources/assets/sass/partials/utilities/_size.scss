@@ -5,6 +5,15 @@
 .w {
   &--sm {
     max-width: 150px;
+    width: 150px;
+  }
+  &--md {
+    max-width: 768px;
+    width: 768px;
+  }
+  &--lg {
+    max-width: $width-size-lg;
+    width: $width-size-lg;
   }
   &--full {
     width: 100%;
