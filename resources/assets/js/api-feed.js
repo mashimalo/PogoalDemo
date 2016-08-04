@@ -169,7 +169,7 @@ $(function () {
                 $data["single_feed_url"] = $single_feed_url;
 
                 // Get Feed template
-                $.get('/api/feed-v000014.template', function (template) {
+                $.get('/api/feed-v000016.template', function (template) {
                     var $feedTemplate = Mustache.render(template, $data);
 
                     // prepend it to #feeds-unpinned
@@ -582,7 +582,7 @@ $(function () {
             data_action_for: $data_action_for,
             group_id: $group_id,
             feed_id: $feed_id,
-            feed_original_content: $feed_original_content,
+            feed_original_content: $feed_original_content
         };
 
         // Remove previous ajax notification

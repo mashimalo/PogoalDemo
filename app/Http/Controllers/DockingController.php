@@ -12,6 +12,7 @@ use App\Models\Notification;
 use \Illuminate\Support\Facades\Auth;
 
 use App\Models\Feed;
+use App\Models\Comment;
 use App\Http\Requests;
 use App\Http\Requests\DockingGroupEditRequest;
 use App\Repositories\DockingGroupRepository;
@@ -434,6 +435,7 @@ class DockingController extends Controller
             $group2 = Group::whereid($group2_id)->first();
 
             $feed = Feed::whereid($feed_id)->first();
+	        $comments = Comment::where('feed_id', $feed_id)->orderBy('created_at', 'desc')->paginate(20);
             $feedDockingGroupId = $feed->docking_group_id;
 
             $dockingGroup = DockingGroup::whereid($dockingGroup_id)->first();
@@ -479,6 +481,7 @@ class DockingController extends Controller
                 'group1',
                 'group2',
                 'feed',
+	            'comments',
                 'feed_id',
                 'dockingGroup',
                 'dockingGroup_id',

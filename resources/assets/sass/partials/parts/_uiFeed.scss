@@ -246,7 +246,8 @@
 | Single Feed Page
 |--------------------------------------------------------------------------
 */
-.show-groupSingleFeedPage {
+.show-groupSingleFeedPage,
+.show-dockingGroupSingleFeedPage {
 
   .uiFeed {
     @include box-shadow(none);

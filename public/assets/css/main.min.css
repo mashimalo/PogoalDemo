@@ -6468,40 +6468,47 @@ button.close {
 |--------------------------------------------------------------------------
 */
 
-.show-groupSingleFeedPage .uiFeed {
+.show-groupSingleFeedPage .uiFeed,
+.show-dockingGroupSingleFeedPage .uiFeed {
   box-shadow: none;
 }
 
-.show-groupSingleFeedPage .uiFeed__main {
+.show-groupSingleFeedPage .uiFeed__main,
+.show-dockingGroupSingleFeedPage .uiFeed__main {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 25px;
 }
 
-.show-groupSingleFeedPage .uiFeed__main__top {
+.show-groupSingleFeedPage .uiFeed__main__top,
+.show-dockingGroupSingleFeedPage .uiFeed__main__top {
   border-bottom: 1px solid #e6e8ec;
   margin-bottom: 25px;
   padding: 15px;
 }
 
-.show-groupSingleFeedPage .uiFeed__article__text {
+.show-groupSingleFeedPage .uiFeed__article__text,
+.show-dockingGroupSingleFeedPage .uiFeed__article__text {
   margin-bottom: 25px;
   padding: 0 25px;
   color: #4f5b6a;
   line-height: 22px;
 }
 
-.show-groupSingleFeedPage .uiFeed__misc {
+.show-groupSingleFeedPage .uiFeed__misc,
+.show-dockingGroupSingleFeedPage .uiFeed__misc {
   border-top: 1px solid #e6e8ec;
   padding: 15px;
 }
 
-.show-groupSingleFeedPage .uiFeed__reply .uiFeed__article__text {
+.show-groupSingleFeedPage .uiFeed__reply .uiFeed__article__text,
+.show-dockingGroupSingleFeedPage .uiFeed__reply .uiFeed__article__text {
   margin-bottom: 15px;
   padding: 0;
 }
 
-.show-groupSingleFeedPage .uiFeed__reply .uiFeed__misc {
+.show-groupSingleFeedPage .uiFeed__reply .uiFeed__misc,
+.show-dockingGroupSingleFeedPage .uiFeed__reply .uiFeed__misc {
   padding: 0;
   border-top: 0;
 }

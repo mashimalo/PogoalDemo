@@ -1,4 +1,4 @@
-<div class="uiFeed shadow--hover">
+<div class="uiFeed">
 
     {{----------------------------
     | Pinned Mark
@@ -54,12 +54,12 @@
         {{----------------------------
         | Feed Article
         ----------------------------}}
-        <a href="{{ url_link_to_dockingGroupSingleFeedPage($dockingGroup->id, $feed->id) }}" class="uiFeed__article">
-            <div class="uiFeed__article__text excerpt break-word">{{ strip_tags($feed->content) }}</div>
-            {{--<div class="uiFeed__article__img preview">--}}
+        <div class="uiFeed__article">
+            <div class="uiFeed__article__text break-word">{!! nl2br($feed->content) !!}</div>
+            {{--<div class="uiFeed__article__img">--}}
             {{--<img src="{{ url('/assets/images/home-cat-more.jpg') }}">--}}
             {{--</div>--}}
-        </a>
+        </div>
 
         {{----------------------------
         | Feed Misc.
@@ -116,6 +116,7 @@
                         <li>
                             <button data-action="edit-feed"
                                     data-action-for="docking"
+                                    data-feed-type="groupSingleFeed"
                                     data-group-id="{{ $dockingGroup->id }}"
                                     data-feed-id="{{ $feed->id }}">
                                 Edit
@@ -143,38 +144,47 @@
     </div><!-- .uiFeed__main -->
 
     {{----------------------------
-    | Feed Footer
+    | Reply Form for First Level
     ----------------------------}}
-    <a href="{{ url_link_to_dockingGroupSingleFeedPage ($dockingGroup->id, $feed->id) }}" class="uiFeed__footer">
-        <div class="wrap">
-            <div class="c-f-9 small">
-                @if($feed->comments->count() > 0)
-                    @foreach ($feed->comments->sortBy('created_at')->reverse()->take(1)  as $comment)
-                        @if ($comment->user->profile->user_avatar_small != null || strlen($comment->user->profile->user_avatar_small) > 0)
-                            <img src="{!! '/images/userAvatar/'.$comment->user->profile->user_avatar_small !!}" class="avatar avatar--xs arc-sm">
-                        @else
-                            <img data-name="{{ empty_firstName_displayNickname($comment->user) }}" class="initialAvatar avatar avatar--xs arc-sm"/>
-                        @endif
-                        <span class="bold">{{ empty_eitherName_displayNickname($comment->user) }}</span>
-                        <span class="mL mR text-light">-</span>
-                        <span class="text-light">{{ str_limit($comment->content,75) }}</span>
-                    @endforeach
+    @if ($validate_currentUser_in_dockingGroup)
+        <div id="uiFeed-reply-form" class="uiFeed__reply__form">
+            <div class="mR--md pull-left">
+                @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
+                    <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}"
+                         class="avatar avatar--md arc-sm">
                 @else
-                    <span class="text-light text-uppercase">No activity</span>
+                    <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
+                         class="initialAvatar avatar avatar--md arc-sm"/>
                 @endif
             </div>
-
-            <div class="c-f-3 text-right small text-light">
-                @if($feed->comments->count() > 0)
-                    @foreach ($feed->comments->sortBy('created_at')->reverse()->take(1)  as $comment)
-                        {{ $comment->created_at->diffForHumans() }}
-                    @endforeach
-                    <span class="mL mR">/</span>
-                @endif
-                {{ getAllReplyCount($feed) }}
-                <span class="icon icon-comments"></span>
+            <button class="btn btn-primary btn-md mL--md pull-right"
+                    data-action="post-feed-reply"
+                    data-action-for="docking"
+                    data-group-id="{{ $dockingGroup->id }}"
+                    data-feed-id="{{ $feed->id }}">
+                Reply
+            </button>
+            <div class="uiFeed__reply__form__input overflow-h">
+                <div class="elastic-textarea elastic-textarea--hasBtn">
+                    <textarea placeholder="Reply......" name="reply-{{ $feed->id }}" class="form-control elastic-textarea__input"
+                              data-elastic="textarea"></textarea>
+                    <div class="elastic-textarea__btn">
+                        <button class="btn btn-md icon icon-camera text-light"></button>
+                    </div>
+                </div>
             </div>
         </div>
-    </a><!-- .uiFeed__footer -->
+    @endif
 
+    <h3 class="mB--md">
+        <span class="icon icon-comments mR"></span>
+        <span id="group-single-feed-comment-count">{{ singularOrPlural(getAllReplyCount($feed), "comment", "comments", "0 comment") }}</span>
+    </h3>
+
+    {{----------------------------
+    | Reply List
+    ----------------------------}}
+    @include('templates.docking.single-feed.dockingGroupSingleFeed-feed-reply')
 </div>
+
+@include('templates.pagination.limitLink', ['paginator' => $comments])
