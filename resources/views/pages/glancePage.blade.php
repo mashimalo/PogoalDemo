@@ -34,6 +34,10 @@
         @include('templates.glance.glancePage-groups')
     @endif
 
+    @if(currentRoute('glanceMyBridgingGroups'))
+        @include('templates.glance.glancePage-bridging')
+    @endif
+
     @if(currentRoute('notifications'))
         @include('templates.glance.glancePage-notifications')
     @endif

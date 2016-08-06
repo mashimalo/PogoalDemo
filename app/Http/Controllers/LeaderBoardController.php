@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Models\User;
 
 use \Illuminate\Support\Facades\Request;
 
@@ -31,7 +32,8 @@ class LeaderBoardController extends Controller
             DB::select('SELECT G.id AS group_id, count(*) AS amount from groups AS G
                           INNER JOIN group_user as GU ON G.id = GU.group_id where GU.accepted =1
                           Group By G.id
-                            order by amount DESC');
+                            order by amount DESC
+                            LIMIT 15');
 
 
         //top bridge group
@@ -39,7 +41,7 @@ class LeaderBoardController extends Controller
             DB::Select('SELECT D.id AS bridge_Group_id, count(*) AS amount FROM docking_groups AS D
                         INNER JOIN feeds as F ON D.id = F.docking_group_id
                           Group By D.id
-                            Order by amount DESC');
+                            Order by amount DESC LIMIT 15');
 
 
         return view('pages.leaderboard.leaderBoardPage',
@@ -64,6 +66,9 @@ class LeaderBoardController extends Controller
                                     order by amount DESC
                                     LIMIT 15',
                 ['likeableType' => 'App\Models\Feed']);
+
+
+//            $topUsers = json_encode(array_combine(range(0, count($topUsers) - 1), $topUsers), JSON_FORCE_OBJECT);
 
             $topUsers = json_encode($topUsers);
         }
@@ -106,6 +111,8 @@ class LeaderBoardController extends Controller
                               LIMIT 15',
                     ['groupTypeId' => $groupTypeId, 'likeableType' => 'App\Models\Feed']);
 
+//            $topUsersByGroupType = json_encode(array_combine(range(0, count($topUsersByGroupType) - 1), $topUsersByGroupType), JSON_FORCE_OBJECT);
+
             $topUsersByGroupType = json_encode($topUsersByGroupType);
         }
         catch (\Exception $e)
@@ -136,9 +143,11 @@ class LeaderBoardController extends Controller
                 DB::select('SELECT G.id AS group_id, G.name AS groupName, G.group_avatar_small AS groupAvatarSmall, count(*) AS amount from groups AS G
                           INNER JOIN group_user as GU ON G.id = GU.group_id where GU.accepted =1
                           Group By G.id
-                            order by amount DESC');
+                            order by amount DESC LIMIT 15');
 
             $topGroups = json_encode($topGroups);
+//            $topGroups = json_encode(array_combine(range(0, count($topGroups) - 1), $topGroups), JSON_FORCE_OBJECT);
+
         }
         catch (\Exception $e)
         {
@@ -164,9 +173,10 @@ class LeaderBoardController extends Controller
                 DB::select('SELECT G.id AS group_id, G.name AS groupName, G.group_avatar_small AS groupAvatarSmall, count(*) AS amount from groups AS G
                           INNER JOIN group_user as GU ON G.id = GU.group_id where GU.accepted =1 and G.group_type_id = :groupTypeId
                           Group By G.id
-                            order by amount DESC',
+                            order by amount DESC LIMIT 15',
                     ['groupTypeId' => $groupTypeId]);
 
+//            $topGroupsByGroupType = json_encode(array_combine(range(0, count($topGroupsByGroupType) - 1), $topGroupsByGroupType), JSON_FORCE_OBJECT);
             $topGroupsByGroupType = json_encode($topGroupsByGroupType);
         }
         catch (\Exception $e)
