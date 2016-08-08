@@ -1,46 +1,103 @@
 {{--@inject ('countries', 'App\Http\Utilities\Country')--}}
 {{--@inject ('GroupCategories', 'App\Http\Utilities\GroupCategory')--}}
 
+@include('templates.session.checkSession-errorList')
+
+{{----------------------------
+| Group Avatar
+----------------------------}}
+{!! Form::model($group,['name'=>'groupAvatarUpload-form','id'=>'groupAvatarUpload-form','route'=> ['uploadGroupAvatar',$group->id],'method'=>'POST', 'files' => true])!!}
+
+<h4 class="mB--lg text-uppercase bolder">
+    Avatar:
+</h4>
+
+<div class="wrap mB--xxlg">
+    <label class="c-f-3">Preview:</label>
+    <div class="c-f-9">
+        @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
+            <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}" class="avatar avatar--lg arc-sm">
+        @else
+            <img class="avatar avatar--lg arc-sm" src="{{ url('/assets/images/avatar.jpg') }}">
+        @endif
+    </div>
+</div>
+
+<div class="wrap">
+    <label for="uploadImage" class="c-f-3">Upload a new avatar:</label>
+    <div class="c-f-9">
+        <div class="form-group form-control">
+            {!! Form::file('uploadImage') !!}
+        </div>
+    </div>
+</div>
+
+{{----------------------------
+| Submit button
+----------------------------}}
+<div class="text-right">
+    {!! Form::submit('Save Avatar',['class'=>'btn btn-primary']) !!}
+</div>
+
+{!! Form::close() !!}
+
+<div class="divider-h divider-h--light divider-h--xxlg"></div>
+
+{{----------------------------
+| Group Info
+----------------------------}}
 {!! Form::model($group,['name'=>'editGroup-form','id'=>'editGroup-form','route'=> ['singleGroupProfilePage-modify', $group_id],'method'=>'PATCH','data-toggle'=>'validator'])!!}
 
-@include('templates.session.checkSession-errorList')
+<h4 class="mB--lg text-uppercase bolder">
+    Group Infomation:
+</h4>
 
 {{----------------------------
 | Group Name Input
 ----------------------------}}
-<div class="form-group form-prepend form-prepend-label">
-    {!! Form::label('group_name','Group Name') !!}
-    {!! Form::text('name', null, ['id'=>'group_name','class'=>'form-control','placeholder'=>'Group Name','required']) !!}
-    <span class="form-prepend-item icon icon-group"></span>
-
-    <div class="help-block with-errors"></div>
+<div class="wrap">
+    <div class="c-f-3">
+        {!! Form::label('group_name','Group Name') !!}
+    </div>
+    <div class="c-f-9">
+        <div class="form-group form-prepend">
+            {!! Form::text('name', null, ['id'=>'group_name','class'=>'form-control','placeholder'=>'Group Name','required']) !!}
+            <span class="form-prepend-item icon icon-group"></span>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
 </div>
 
 {{----------------------------
 | Group Category Option
 ----------------------------}}
 <div class="mB--lg">
-    <div id="singleGroup-group-category" class="inline-block mR--md">
-        <span class="bolder mR">Group Category:</span>
-        <span id="singleGroup-group-category-selected" class="text-green text-uppercase bolder">{{ getGroupTypeName($group) }}</span>
-    </div>
-    <div id="singleGroup-group-category-button" class="btn btn-primary btn-square rounded link-fake text-xlg"
-         data-toggle="modal"
-         data-target="#singleGroup-group-category-modal" role="button">
-        +
-    </div>
-    <div id="singleGroup-group-category-change-button" class="btn btn-blue btn-sm small"
-         style="display: none;"
-         data-toggle="modal"
-         data-target="#singleGroup-group-category-modal" role="button">
-        Change
+    <div class="wrap">
+        <div class="c-f-3">
+            Group Category:
+        </div>
+        <div class="c-f-9">
+            <div id="singleGroup-group-category" class="inline-block mR--md">
+                <span id="singleGroup-group-category-selected" class="text-green text-uppercase bolder">{{ getGroupTypeName($group) }}</span>
+            </div>
+            <div id="singleGroup-group-category-button" class="btn btn-primary btn-square rounded link-fake text-xlg"
+                 data-toggle="modal"
+                 data-target="#singleGroup-group-category-modal" role="button">
+                +
+            </div>
+            <div id="singleGroup-group-category-change-button" class="btn btn-blue btn-sm small"
+                 style="display: none;"
+                 data-toggle="modal"
+                 data-target="#singleGroup-group-category-modal" role="button">
+                Change
+            </div>
+        </div>
     </div>
 </div>
 
 
 {{----------------------------
 | Group Category Modal
-| TODO: Injected $GroupTypes, see line 1
 ----------------------------}}
 <div class="uiModal fade" id="singleGroup-group-category-modal">
     <div class="uiModal__dialog uiModal--md">
@@ -84,60 +141,49 @@
 {{----------------------------
 | Bio
 ----------------------------}}
-<div class="form-group form-prepend form-prepend-label">
-    {!! Form::label('group_description','Group Description:') !!}
-    {!! Form::textarea('description',null,['class'=>'form-control h--auto','placeholder'=>'Group description...']) !!}
-    <span class="form-prepend-item icon icon-summary"></span>
+<div class="wrap">
+    <div class="c-f-3">
+        {!! Form::label('group_description','Group Description:') !!}
+    </div>
+    <div class="c-f-9">
+        <div class="form-group form-prepend">
+            {!! Form::textarea('description',null,['class'=>'form-control h--auto','placeholder'=>'Group description...']) !!}
+            <span class="form-prepend-item icon icon-summary"></span>
+        </div>
+    </div>
 </div>
 
 {{----------------------------
 | Make Group Private
 ----------------------------}}
-
-<div class="form-group form-prepend">
-    <label for="privacy_rule_id">Group Privacy Setting: </label>
-    <br>
-    @foreach(App\Models\PrivacyRule::all() as $privacyRule)
-        <div class="mR">
-            <label class="label-md radio-inline">
-                @if($group->privacy_rule_id == $privacyRule->id)
-                    <input type="radio" name="privacy_rule_id" value="{{ $group->privacy_rule_id }}" checked>
-                    {{ $group->privacyRule()->firstOrFail()->rule_description }}
-                @else
-                    <input type="radio" name="privacy_rule_id" value="{{ $privacyRule->id }}" required>
-                    {{ $privacyRule->rule_description }}
-                @endif
-            </label>
+<div class="wrap">
+    <div class="c-f-3">
+        <label for="privacy_rule_id">Group Privacy Setting: </label>
+    </div>
+    <div class="c-f-9">
+        <div class="form-group form-prepend">
+            @foreach(App\Models\PrivacyRule::all() as $privacyRule)
+                <div class="mR">
+                    <label class="label-md radio-inline">
+                        @if($group->privacy_rule_id == $privacyRule->id)
+                            <input type="radio" name="privacy_rule_id" value="{{ $group->privacy_rule_id }}" checked>
+                            {{ $group->privacyRule()->firstOrFail()->rule_description }}
+                        @else
+                            <input type="radio" name="privacy_rule_id" value="{{ $privacyRule->id }}" required>
+                            {{ $privacyRule->rule_description }}
+                        @endif
+                    </label>
+                </div>
+            @endforeach
         </div>
-    @endforeach
+    </div>
 </div>
+
 {{----------------------------
 | Submit button
 ----------------------------}}
-{!! Form::submit('Update',['class'=>'btn btn-primary btn-block']) !!}
+<div class="text-right">
+    {!! Form::submit('Update',['class'=>'btn btn-primary']) !!}
+</div>
 
 {!!  Form::close() !!}
-
-<div class="uiCard__content">
-    <h2>Upload Avatar Here.</h2>
-    <div class="container">
-        {!! Form::model($group,['name'=>'groupAvatarUpload-form','id'=>'groupAvatarUpload-form','route'=> ['uploadGroupAvatar',$group->id],'method'=>'POST', 'files' => true])!!}
-        <div class="form-group">
-            {!! Form::label('uploadImage', 'Choose an image') !!}
-            {!! Form::file('uploadImage') !!}
-        </div>
-        <div class="form-group">
-            {!! Form::submit('Submit',['class'=>'btn btn-primary btn-block']) !!}
-        </div>
-        {!! Form::close() !!}
-    </div>
-    <h3> Large Avatar</h3>
-    @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
-        <img src= {!! '/images/groupAvatar/'.$group->group_avatar_large !!}>
-    @endif
-
-    <h3>Small Avatar</h3>
-    @if ($group->group_avatar_small != null || strlen($group->group_avatar_small) > 0)
-        <img src= {!! '/images/groupAvatar/'.$group->group_avatar_small !!}>
-    @endif
-</div>

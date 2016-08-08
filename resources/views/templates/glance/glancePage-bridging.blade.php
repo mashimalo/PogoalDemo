@@ -1,42 +1,75 @@
 <div class="site-container">
     <div class="wrap">
-        <ul id="leaderboard-result-topBridingGroups" class="leaderboard__result__list">
-            @foreach($myBridgeGroups as $bridgeGroup)
-                <li class="pH--md lk-block">
-                    <div class="pV--sm bordered--b bordered--b--light">
-                        <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="pull-left mR--md avatar--overlap">
 
-                            @if (leaderboard_topBridging_avatar($bridgeGroup->id, "group_1_id") != null || strlen(leaderboard_topBridging_avatar($bridgeGroup->id, "group_1_id")) > 0)
-                                <img src="{!! '/images/groupAvatar/'.leaderboard_topBridging_avatar($bridgeGroup->id, "group_1_id") !!}"
-                                     class="avatar avatar--md rounded shadow">
+        @foreach($myBridgeGroups as $bridgeGroup)
+
+            <div class="c-f-4 mB--md">
+                <div class="shadow shadow--hover overflow-h arc-sm">
+
+                    {{------------------------------
+                    | Top
+                    ------------------------------}}
+                    <div class="bg-white inline-block w--full p-relative arrow--down arrow--down--white arrow--down--center">
+                        <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="pull-left">
+                            @if (bridging_avatar($bridgeGroup->id, "group_1_id") != null || strlen(bridging_avatar($bridgeGroup->id, "group_1_id")) > 0)
+                                <img src="{!! '/images/groupAvatar/'.bridging_avatar($bridgeGroup->id, "group_1_id") !!}"
+                                     class="avatar avatar--lg pull-left">
                             @else
-                                <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
+                                <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--lg pull-left"/>
                             @endif
 
-                            @if (leaderboard_topBridging_avatar($bridgeGroup->id, "group_2_id") != null || strlen(leaderboard_topBridging_avatar($bridgeGroup->id, "group_2_id")) > 0)
-                                <img src="{!! '/images/groupAvatar/'.leaderboard_topBridging_avatar($bridgeGroup->id, "group_2_id") !!}"
-                                     class="avatar avatar--md rounded shadow">
+                            @if (bridging_avatar($bridgeGroup->id, "group_2_id") != null || strlen(bridging_avatar($bridgeGroup->id, "group_2_id")) > 0)
+                                <img src="{!! '/images/groupAvatar/'.bridging_avatar($bridgeGroup->id, "group_2_id") !!}"
+                                     class="avatar avatar--lg pull-left">
                             @else
-                                <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--md rounded shadow"/>
+                                <img src="{{ url('/assets/images/avatar.jpg') }}" class="avatar avatar--lg pull-left"/>
                             @endif
-
                         </a>
-                        <a href="{{ url_link_to_dockingGroup($bridgeGroup->id ) }}"
-                           class="pull-right mL--md btn btn-sns btn-mT-mainAlt">
-                            View
-                        </a>
-
-                        <div class="overflow-h">
-                            <a href="{{ url_link_to_dockingGroup($bridgeGroup->id ) }}" class="lk-darker bold text-overflow">
+                        <div class="pH--md pV--sm overflow-h">
+                            <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="bold lk-darker text-overflow">
                                 {{ \App\Models\DockingGroup::where('id', $bridgeGroup->id)->firstOrFail()->docking_group_name }}
                             </a>
-
+                            <div class="small text-light">
+                                {{ bridging_group_name($bridgeGroup->id, "group_1_id") }}
+                            </div>
+                            <div class="small text-light">
+                                {{ bridging_group_name($bridgeGroup->id, "group_2_id") }}
+                            </div>
                         </div>
                     </div>
-                </li>
-            @endforeach
-        </ul>
+
+                    {{------------------------------
+                    | Bottom
+                    ------------------------------}}
+                    <div class="bg--darker pA--md">
+                        <div class="mB bold">
+                            <span class="icon icon-rocket mR"></span>
+                            Latest Feed
+                        </div>
+                        <div class="h--article--single">
+                            @if(\App\Models\Feed::where('docking_group_id', $bridgeGroup->id)->count() == 0)
+                                <span class="overflow-h">No feed now.</span>
+                                <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="btn btn-xs btn-primary mL--md pull-right">
+                                    Post one now
+                                </a>
+                            @endif
+
+                            @if(\App\Models\Feed::where('docking_group_id', $bridgeGroup->id)->count() >= 1)
+                                @foreach(\App\Models\Feed::where('docking_group_id', $bridgeGroup->id)->orderBy('created_at', 'desc')->get()->take(1) as $feed)
+                                    <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="text-white text-overflow">
+                                        {{ str_limit(strip_tags($feed->content),50) }}
+                                    </a>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @endforeach
+
     </div>
+
     {{--{!! $myBridgeGroups -> render() !!}--}}
     @include('templates.pagination.limitLink', ['paginator' => $myBridgeGroups])
 </div>

@@ -559,7 +559,17 @@ function url_link_to_profileAvatarPage() {
 	return URL::route( 'profileAvatarPage', Auth::user()->profile->nickname );
 }
 
-function leaderboard_topBridging_avatar($id, $group_id) {
-	$group_id = DockingGroup::where('id', $id)->firstOrFail()->$group_id;
-	return Group::whereid( $group_id )->firstOrFail()->group_avatar_small;
+function bridging_avatar($bridging_id, $group_id) {
+	$group_id = DockingGroup::where('id', $bridging_id)->firstOrFail()->$group_id;
+	return Group::whereid( $group_id )->firstOrFail()->group_avatar_large;
+}
+
+function bridging_group_name($bridging_id, $group_id) {
+	$group_id = DockingGroup::where('id', $bridging_id)->firstOrFail()->$group_id;
+	return Group::whereid( $group_id )->firstOrFail()->name;
+}
+
+/************************* group notification *************************/
+function url_link_to_group_notification( $group_id ) {
+	return URL::route( 'singleGroupNotificationPage', $group_id );
 }

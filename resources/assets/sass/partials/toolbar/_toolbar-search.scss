@@ -1,30 +1,70 @@
 .toolbar__search {
+  position: absolute;
+  display: none;
+  right: 0;
+  left: 0;
+
+  input {
+    padding-left: $padding-large;
+    height: $toolbar-height;
+
+    &:focus {
+      + .btn {
+        background-color: darken($input-bg,3%);
+        color: $input-icon-color;
+
+        &:hover,
+        &:focus,
+        &:active {
+          color: $input-color;
+        }
+      }
+    }
+  }
+
+  .btn {
+    @include border-radius(0);
+    line-height: $toolbar-height;
+    background-color: $input-bg;
+    padding: 0 $padding-base;
+    color: $input-icon-color;
+    float: right;
+
+    &:hover,
+    &:focus,
+    &:active {
+      @include box-shadow(none);
+      color: $input-color;
+      z-index: 2;
+    }
+  }
+
   //@include transition(ease 0.4s);
-  margin-top: ($toolbar-height - $input-height-base) / 2;
-  position: relative;
-  width: 250px;
-  float: left;
+  //margin-top: ($toolbar-height - $input-height-base) / 2;
+  //position: relative;
+  //width: 250px;
+  //float: left;
 
-  .input-group {
-    @include border-radius($input-height-base / 2);
-    overflow: hidden;
-  }
+  //.input-group {
+  //  @include border-radius($input-height-base / 2);
+  //  overflow: hidden;
+  //}
 
-  .uiDropdown__menu {
-    margin-top: 15px;
-  }
+  //.uiDropdown__menu {
+  //  margin-top: 15px;
+  //}
 }
 
-.toolbar__searchResult {
-  width: 100%;
-
-  &:before {
-    left: 50%;
-    margin-left: -7px;
-  }
-
-  &:after {
-    left: 50%;
-    margin-left: -6px;
-  }
-}
+//.toolbar__searchResult {
+//  width: 100%;
+//
+//  &:before {
+//    left: 50%;
+//    margin-left: -7px;
+//  }
+//
+//  &:after {
+//    left: 50%;
+//    margin-left: -6px;
+//  }
+//}

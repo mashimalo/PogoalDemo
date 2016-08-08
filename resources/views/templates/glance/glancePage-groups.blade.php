@@ -15,8 +15,7 @@
                                 | Group avatar
                                 ----------------------------}}
                                 @if ($group->group_avatar_large != null || strlen($group->group_avatar_large) > 0)
-                                    <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}"
-                                         class="avatar avatar--lg">
+                                    <img src="{!! '/images/groupAvatar/'.$group->group_avatar_large !!}" class="avatar avatar--lg">
                                 @else
                                     <img class="avatar avatar--lg" src="{{ url('/assets/images/avatar.jpg') }}">
                                 @endif

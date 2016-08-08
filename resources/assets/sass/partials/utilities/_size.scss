@@ -74,6 +74,10 @@
   &--dummy {
     height: 1000px;
   }
+
+  &--avatar--lg {
+    height: $avatar-size-large;
+  }
 }
 
 .resize {

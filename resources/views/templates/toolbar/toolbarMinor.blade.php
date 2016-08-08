@@ -2,17 +2,17 @@
     {{----------------------------
     | Create Button
     ----------------------------}}
-    <li class="toolbar__create">
-        <button class="icon icon-plus createBtn btn-primary" role="button"></button>
-        <ul class="createBtn__list">
-            <li class="createBtn__item createBtn__group">
-                <a href="{{ URL::route ('singleGroupCreatePage-show') }}" class="btn btn-md btn-blue" role="button">
-                    <span class="icon icon-group mR"></span>
-                    Create a Group
-                </a>
-            </li>
-        </ul>
-    </li>
+    {{--<li class="toolbar__create">--}}
+        {{--<button class="icon icon-plus createBtn btn-primary" role="button"></button>--}}
+        {{--<ul class="createBtn__list">--}}
+            {{--<li class="createBtn__item createBtn__group">--}}
+                {{--<a href="{{ URL::route ('singleGroupCreatePage-show') }}" class="btn btn-md btn-blue" role="button">--}}
+                    {{--<span class="icon icon-group mR"></span>--}}
+                    {{--Create a Group--}}
+                {{--</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
+    {{--</li>--}}
 
     {{----------------------------
     | User Info & Avatar
@@ -53,37 +53,11 @@
     </li>
 
     {{----------------------------
-    | Notification
+    | Toolbar Search
     ----------------------------}}
-    @include('templates.toolbar.toolbarMinor-notification')
-
-    {{----------------------------
-    | Follow
-    ----------------------------}}
-    {{--<li class="toolbar__follow toolbar__icons uiDropdown">--}}
-        {{--<button class="icon icon-follow uiDropdown--toggle lk-block" type="button" id="toolbar-follow" title="Follows" data-action="not-available">--}}
-            {{--<span class="hidden-text">Follow</span>--}}
-        {{--</button>--}}
-        {{--<ul class="uiDropdown__menu uiDropdown__menu--right">--}}
-            {{--<li><a href="#">Following</a></li>--}}
-            {{--<li><a href="#">Followers</a></li>--}}
-        {{--</ul>--}}
-    {{--</li>--}}
-
-    {{----------------------------
-    | Group
-    ----------------------------}}
-    <li class="toolbar__group toolbar__icons uiDropdown bordered--r">
-        <button class="uiDropdown--toggle lk-block" type="button" id="toolbar-group" title="Groups" data-toggle="dropdown">
-            <span class="icon icon-group text-lg text-lighter mR"></span>
-            Groups
+    <li class="toolbar__icons">
+        <button data-action="toggle" data-target="#toolbar-search" class="lk-block">
+            <span class="icon icon-search text-lg"></span>
         </button>
-        {{--- Group Menu ---}}
-        <ul class="uiDropdown__menu uiDropdown__menu--right arrow--none arc-sm-bottom">
-            <li><a href="{{ URL::route('singleGroupCreatePage-show') }}">Create a Group</a></li>
-            <li><a href="{{ URL::route('showAllGroups') }}">Find Groups</a></li>
-            <li><a href="{{ url_link_to_glance() }}">My Groups</a></li>
-            {{--<li><a href="#">Setting</a></li>--}}
-        </ul>
     </li>
 </ul>

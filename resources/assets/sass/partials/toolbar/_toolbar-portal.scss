@@ -5,6 +5,7 @@
       > button,
       > a {
         line-height: $toolbar-height;
+        color: $text-color;
         padding: 0 15px;
         display: block;
         //&:hover {

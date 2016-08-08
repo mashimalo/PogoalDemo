@@ -126,7 +126,7 @@
                     </li>
                     @if($validate_currentUser_has_permission)
                         <li>
-                            <a href="{{ url_link_to_group_profile($group->id) }}" class="{{ set_active('singleGroupProfilePage', 'cP bolder') }}">
+                            <a href="{{ url_link_to_group_notification($group->id) }}" class="{{ set_active('singleGroupNotificationPage', 'cP bolder') }}">
                                 Notification
                                 @if($group->groupRequestsPendingUsers()->count() >= 1 || $group->dockingGroupRequestPending()->count() >= 1)
                                     <label class="label label-danger label--sm mL">
@@ -139,6 +139,11 @@
                                 @endif
                             </a>
                         </li>
+                        {{--<li>--}}
+                            {{--<a href="{{ url_link_to_group_profile($group->id) }}" class="{{ set_active('singleGroupProfilePage', 'cP bolder') }}">--}}
+                                {{--Manage Group--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
                     @endif
                 </ul>
 

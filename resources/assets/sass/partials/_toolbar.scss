@@ -35,34 +35,25 @@
 
 // Main
 .toolbar__main {
-  height: $toolbar-height;
-  padding-right: 15px;
-  padding-left: 15px;
   float: left;
 
-  h1 {
-    margin: ($toolbar-height - $brand-size) / 2 - 2 15px 0 0;
-    line-height: $line-height-one;
-    position: relative;
-    float: left;
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-    // z-index
-    z-index: $zindex-toolbar-fixed + 1;
-
-    > a {
-      display: inline-block;
-    }
-
-    #brand {
-      line-height: $line-height-one;
-      font-size: $brand-size;
-      color: $brand-primary;
+    > li {
+      max-height: $toolbar-height;
+      position: relative;
+      float: left;
     }
   }
 }
 
 // Minor
 .toolbar__minor {
+  float: right;
+
   > ul {
     list-style: none;
     margin: 0;
@@ -81,6 +72,26 @@
   height: $toolbar-height;
   position: absolute;
   width: 100%;
+
+  h1 {
+    //margin: ($toolbar-height - $brand-size) / 2 auto 0;
+    //line-height: $line-height-one;
+    //position: relative;
+    margin: 18px auto 0;
+    display: table;
+
+    // z-index
+    z-index: $zindex-toolbar-fixed + 1;
+  }
+
+  #brand {
+    //line-height: $line-height-one;
+    //font-size: $brand-size;
+    //color: $brand-primary;
+    //height: $brand-size;
+    height: 25px;
+    display: block;
+  }
 }
 
 .toolbar__icons {

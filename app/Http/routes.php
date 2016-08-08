@@ -152,6 +152,14 @@ Route::get('group/{group_id}/docking',
     ]);
 
 // Single Group Profile Page
+Route::get('group/{group_id}/notification',
+	[
+		'middleware' => 'auth',
+		'uses'       => 'GroupsController@singleGroupProfilePage',
+		'as'         => 'singleGroupNotificationPage'
+	]);
+
+// Single Group Profile Page
 Route::get('group/{group_id}/profile',
     [
         'middleware' => 'auth',
