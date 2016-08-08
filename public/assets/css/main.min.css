@@ -3533,6 +3533,10 @@ hr {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.avatar {
+  background-color: #ffffff;
+}
+
 .avatar--block {
   height: 60px;
   width: 60px;
