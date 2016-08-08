@@ -7306,6 +7306,7 @@ website:    http://www.burocratik.com
 }
 
 .toolbar__main {
+  padding-left: 5px;
   float: left;
 }
 
