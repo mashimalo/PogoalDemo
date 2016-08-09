@@ -454,7 +454,7 @@ class GroupsController extends Controller
 
             $this->group_repository->sendJoinGroupRequest($group_id);
 
-            $groupProfileUrlLink = url_link_to_groupProfilePage($group->id);
+            $groupNotificationUrlLink = url_link_to_group_notification($group->id);
 
             $notificationMessage = "<b>$pendingUserFullName</b> is looking for join your Group - <b>$group->name</b>";
 
@@ -469,7 +469,7 @@ class GroupsController extends Controller
                 $groupAdmin_id = $groupAdmin->user_id;
 
                 //send message notification
-                $this->notifiaction_repository->sendNotification($groupAdmin_id, $notificationMessage, $groupProfileUrlLink);
+                $this->notifiaction_repository->sendNotification($groupAdmin_id, $notificationMessage, $groupNotificationUrlLink);
 
                 $adminUserFullName = empty_eitherName_displayNickname(User::whereid($groupAdmin_id)->first());
 
@@ -478,7 +478,7 @@ class GroupsController extends Controller
                     [
                         'pendingUserFullName' => $pendingUserFullName,
                         'groupName'           => $group->name,
-                        'groupProfileUrlLink' => $groupProfileUrlLink,
+                        'groupNotificationUrlLink' => $groupNotificationUrlLink,
                         'adminUserFullName'   => $adminUserFullName
                     ],
                     function (Message $message) use ($groupAdmin_id, $adminUserFullName)
@@ -900,17 +900,17 @@ class GroupsController extends Controller
             {
                 $targetGroupAdmin_id = $targetGroupAdmin->user_id;
                 $targetGroupAdminUserFullName = empty_eitherName_displayNickname(User::whereid($targetGroupAdmin_id)->first());
-                $targetGroupProfileUrlLink = url_link_to_groupProfilePage($target_group_id);
+                $targetGroupNotificationUrlLink = url_link_to_group_notification($target_group_id);
 
                 $notificationMessage = "<b>$sourceGroupName</b> is requesting to start a bridging session with your Group - <b>$targetGroupName </b>.";
 
-                $this->notifiaction_repository->sendNotification($targetGroupAdmin_id, $notificationMessage, $targetGroupProfileUrlLink);
+                $this->notifiaction_repository->sendNotification($targetGroupAdmin_id, $notificationMessage, $targetGroupNotificationUrlLink);
 
                 Mail::queue('emails.group.DockingGroupRequestSend',
                     [
                         'sourceGroupName'              => $sourceGroupName,
                         'targetGroupName'              => $targetGroupName,
-                        'targetGroupProfileUrlLink'    => $targetGroupProfileUrlLink,
+                        'targetGroupNotificationUrlLink'    => $targetGroupNotificationUrlLink,
                         'sourceGroupUrlLink'           => url_link_to_group($source_group_id),
                         'targetGroupAdminUserFullName' => $targetGroupAdminUserFullName
                     ],
