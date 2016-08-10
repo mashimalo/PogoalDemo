@@ -59,6 +59,10 @@
 
   &--md {
     min-width: $dropdown-width-md;
+
+    &.uiDropdown__menu--center {
+      margin-left: -$dropdown-width-md / 2;
+    }
   }
 
   // Links within the dropdown menu
@@ -213,6 +217,22 @@
 .uiDropdown__menu--right {
   left: auto; // Reset the default from `.dropdown-menu`
   right: 0;
+}
+
+.uiDropdown__menu--center {
+  margin-left: -$dropdown-width / 2;
+  left: 50%;
+
+  &:before {
+    margin-left: -4px;
+    right: auto;
+    left: 50%;
+  }
+  &:after {
+    margin-left: -3px;
+    right: auto;
+    left: 50%;
+  }
 }
 
 /*

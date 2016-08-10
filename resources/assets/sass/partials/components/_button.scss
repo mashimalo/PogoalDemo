@@ -179,8 +179,9 @@ a.btn {
 
 // Blue
 .btn-blue {
-  color: $color-white;
+  @include box-shadow(0 1px 2px $dark02);
   background-color: $color-blue;
+  color: $color-white;
 
   &:focus,
   &:hover {
@@ -304,6 +305,9 @@ a.btn {
 }
 .btn-md {
   @include button-size($padding-medium-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+}
+.btn-mdd {
+  @include button-size($padding-medium-vertical, $padding-base-horizontal, $font-size-medium, $line-height-base, $btn-border-radius-base);
 }
 .btn-sm {
   // line-height: ensure proper height of button next to small input

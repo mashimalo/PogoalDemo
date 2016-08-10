@@ -33,17 +33,4 @@
       }
     }
   }
-
-  .uiDropdown__menu {
-    margin-top: $padding-xsmall;
-
-    &:before {
-      right: 18px;
-      left: auto;
-    }
-    &:after {
-      right: 19px;
-      left: auto;
-    }
-  }
 }

@@ -20,7 +20,7 @@
             <div class="navBar__main">
                 <ul class="list-inline">
                     <li class="uiDropdown">
-                        <button class="text-lg" data-toggle="dropdown">
+                        <button class="text-light" data-toggle="dropdown">
                             @if(currentRoute('SearchByGroupsTypeResult-get'))
                                 @foreach(App\Models\GroupType::all() as $groupType)
                                     @if($groupType->id == $group_type_id)
@@ -34,7 +34,7 @@
                             @endif
                             <span class="icon icon-arrow-down mL"></span>
                         </button>
-                        <div class="uiDropdown__menu uiDropdown__menu--md uiDropdown__menu--right">
+                        <div class="uiDropdown__menu uiDropdown__menu--md uiDropdown__menu--center">
                             <ul id="searchPageCategory" class="slimScroll">
                                 <li>
                                     <a href="{{ URL::route('showAllGroups') }}" class="{{ set_active('showAllGroups','active') }}">

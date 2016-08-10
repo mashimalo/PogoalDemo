@@ -4214,8 +4214,9 @@ fieldset[disabled] .btn-danger.active {
 }
 
 .btn-blue {
-  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(57, 66, 77, 0.2);
   background-color: #5bc0de;
+  color: #ffffff;
 }
 
 .btn-blue:focus,
@@ -4340,6 +4341,13 @@ fieldset[disabled] .btn-link:focus {
 .btn-md {
   padding: 8px 12px;
   font-size: 14px;
+  line-height: 1.428571429;
+  border-radius: 3px;
+}
+
+.btn-mdd {
+  padding: 8px 12px;
+  font-size: 16px;
   line-height: 1.428571429;
   border-radius: 3px;
 }
@@ -5418,6 +5426,10 @@ button.close {
   min-width: 255px;
 }
 
+.uiDropdown__menu--md.uiDropdown__menu--center {
+  margin-left: -127.5px;
+}
+
 .uiDropdown__menu > li > a,
 .uiDropdown__menu > li > span,
 .uiDropdown__menu > li > button,
@@ -5601,6 +5613,23 @@ button.close {
 .uiDropdown__menu--right {
   left: auto;
   right: 0;
+}
+
+.uiDropdown__menu--center {
+  margin-left: -105px;
+  left: 50%;
+}
+
+.uiDropdown__menu--center:before {
+  margin-left: -4px;
+  right: auto;
+  left: 50%;
+}
+
+.uiDropdown__menu--center:after {
+  margin-left: -3px;
+  right: auto;
+  left: 50%;
 }
 
 /*
@@ -7834,20 +7863,6 @@ website:    http://www.burocratik.com
   padding: 0 15px;
 }
 
-.navBar__main .uiDropdown__menu {
-  margin-top: 5px;
-}
-
-.navBar__main .uiDropdown__menu:before {
-  right: 18px;
-  left: auto;
-}
-
-.navBar__main .uiDropdown__menu:after {
-  right: 19px;
-  left: auto;
-}
-
 #header {
   position: relative;
 }
@@ -7863,8 +7878,8 @@ website:    http://www.burocratik.com
   color: #5a6779;
 }
 
-.home__cat__item:hover .bg--darker {
-  background-color: rgba(0, 0, 0, 0.7);
+.home__cat__item:hover .bg--dark {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 body.theme--gray {
@@ -7888,7 +7903,6 @@ body.theme--gray {
 
 .visitor.home .toolbar__container {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
-  background-color: rgba(255, 255, 255, 0.7) !important;
   border: 0 !important;
 }
 
