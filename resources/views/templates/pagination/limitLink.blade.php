@@ -14,9 +14,7 @@ $link_limit = 7; // maximum number of links (a little bit inaccurate, but will b
         <div class="center-table">
             <ul class="pagination">
                 <li class="uiPagination__previous {{ ($paginator->currentPage() == 1) ? ' disabled' : '' }}">
-                    <a href="{{ $paginator->url(1) }}" class="small bold text-light text-uppercase">
-                        First
-                    </a>
+                    <a href="{{ $paginator->url(1) }}" class="small bold text-light text-uppercase">First</a>
                 </li>
                 @for ($i = 1; $i <= $paginator->lastPage(); $i++)
                     <?php
@@ -37,9 +35,7 @@ $link_limit = 7; // maximum number of links (a little bit inaccurate, but will b
                     @endif
                 @endfor
                 <li class="uiPagination__next {{ ($paginator->currentPage() == $paginator->lastPage()) ? ' disabled' : '' }}">
-                    <a href="{{ $paginator->url($paginator->lastPage()) }}" class="small bold text-light text-uppercase">
-                        Last
-                    </a>
+                    <a href="{{ $paginator->url($paginator->lastPage()) }}" class="small bold text-light text-uppercase">Last</a>
                 </li>
             </ul>
         </div>
