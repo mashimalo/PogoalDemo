@@ -8,9 +8,9 @@
                 @if(is_profile_owner($target_user_id))
                     <a href="{{ url_link_to_profile() }}" class="cover__static__avatar rounded">
                         @if ($user->profile->user_avatar_large != null || strlen($user->profile->user_avatar_large) > 0)
-                            <img src="{!! '/images/userAvatar/'.$user->profile->user_avatar_large !!}" class="avatar avatar--lg rounded mR">
+                            <img src="{!! '/images/userAvatar/'.$user->profile->user_avatar_large !!}" class="avatar avatar--lg rounded">
                         @else
-                            <img data-name="{{ empty_eitherName_displayNickname($user) }}" class="initialAvatar avatar avatar--lg rounded mR">
+                            <img data-name="{{ empty_eitherName_displayNickname($user) }}" class="initialAvatar avatar avatar--lg rounded">
                         @endif
                     </a>
                 @else

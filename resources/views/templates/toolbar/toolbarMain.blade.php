@@ -20,9 +20,11 @@
             </button>
             {{--- Group Menu ---}}
             <ul class="uiDropdown__menu arrow--none arc-sm-bottom">
-                <li><a href="{{ URL::route('singleGroupCreatePage-show') }}">Create a Group</a></li>
-                <li><a href="{{ URL::route('showAllGroups') }}">Find Groups</a></li>
-                <li><a href="{{ url_link_to_glance() }}">My Groups</a></li>
+                <li><a href="{{ URL::route('singleGroupCreatePage-show') }}" class="{{ set_active('singleGroupCreatePage-show','active') }}">Create a Group</a></li>
+                <li><a href="{{ URL::route('showAllGroups') }}" class="{{ set_active('showAllGroups','active') }}">Find Groups</a></li>
+                <li><a href="{{ url_link_to_glanceMyGroups() }}" class="{{ set_active('glanceMyGroups','active') }}">My Groups</a></li>
+                <li class="divider"></li>
+                <li><a href="{{ url_link_to_glanceMyBridgingGroups() }}" class="{{ set_active('glanceMyBridgingGroups','active') }}">My Bridging Groups</a></li>
                 {{--<li><a href="#">Setting</a></li>--}}
             </ul>
         </li>

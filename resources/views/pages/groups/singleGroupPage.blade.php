@@ -35,6 +35,20 @@
         | Single Page Group Top
         ----------------------------}}
         <div class="sgp-main c-f-9">
+
+            @if (!$validate_currentUser_in_group)
+                <div class="uiCard mB--xlg">
+                    {!! Form::model($group, ['route'=> ['joinGroup', 'group_id' => $group->id], 'method'=>'POST','id'=>'join-group', 'role'=>'form'])!!}
+                    <div class="uiCard--body bg--stretch" style="background-image: url('/assets/images/hero-slide-1.jpg');">
+                        <div class="uiCard__content bg--darker text-center pV--lg">
+                            <div class="h4 mB--md">Your are not our member yet.</div>
+                            {!! Form::submit('Join Now',['id'=>'join-group-submit','class'=>'btn btn-outline-white']) !!}
+                        </div>
+                    </div>
+                    {!! Form::close() !!}
+                </div>
+            @endif
+
             @include('templates.group.singleGroupPage-top')
 
             {{----------------------------

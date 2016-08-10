@@ -278,3 +278,11 @@
     margin-bottom: 2px;
   }
 }
+
+#searchPageCategory {
+  > li {
+    > a {
+      padding: $padding-small $padding-base !important;
+    }
+  }
+}

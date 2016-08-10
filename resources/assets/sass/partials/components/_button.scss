@@ -100,6 +100,7 @@ a.btn {
 
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include box-shadow(0 1px 2px $dark02);
 }
 
 // Success appears as green

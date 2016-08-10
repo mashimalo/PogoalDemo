@@ -17,12 +17,12 @@
                 | Bridging Group List
                 ----------------------------}}
                 @if( $group->dockingGroups()->count() >=1 )
-                    <ul class="list-style--light small">
+                    <ul class="list-style--light">
                         @foreach($group->dockingGroups() as $dockedGroup)
                             <li>
-                                <div class="mL--md pull-right">
+                                <div class="mL--md pull-right small">
                                     <span class="mR vA--middle">Bridging with:</span>
-                                    <a href="{{ url_link_to_group($dockedGroup->id) }}" class="h5">
+                                    <a href="{{ url_link_to_group($dockedGroup->id) }}" class="bold lk-darker">
                                         @if (get_group_by_id($dockedGroup->id)->group_avatar_small != null || strlen(get_group_by_id($dockedGroup->id)->group_avatar_small) > 0)
                                             <img src="{!! '/images/groupAvatar/'.get_group_by_id($dockedGroup->id)->group_avatar_small !!}"
                                                  class="avatar avatar--sm rounded">
@@ -32,8 +32,8 @@
                                         <span class="vA--middle maxW--sm text-overflow inline-block">{{ $dockedGroup->name }}</span>
                                     </a>
                                 </div>
-                                <div class="overflow-h lh-avatar--sm h3 text-overflow">
-                                    <a href="{{ url_link_to_dockingGroup_source_target_group($group->id, $dockedGroup->id) }}">
+                                <div class="overflow-h lh-avatar--sm text-overflow">
+                                    <a href="{{ url_link_to_dockingGroup_source_target_group($group->id, $dockedGroup->id) }}" class="lk-darker bolder">
                                         {{ dockingGroup_name_source_target_group($group->id, $dockedGroup->id) }}
                                     </a>
                                 </div>

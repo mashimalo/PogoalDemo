@@ -116,8 +116,7 @@
 | Cover Toggle
 |--------------------------------------------------------------------------
 */
-#sgp-last-activity-section,
-.sgp-left__info {
+#sgp-last-activity-section {
   display: none;
 }
 
@@ -133,8 +132,7 @@
     }
   }
 
-  #sgp-last-activity-section,
-  .sgp-left__info {
+  #sgp-last-activity-section {
     display: block;
   }
 }

@@ -3796,6 +3796,7 @@ fieldset[disabled] .btn-default-t.active {
   color: #ffffff;
   background-color: #faa71c;
   border-color: #f79d05;
+  box-shadow: 0 1px 2px rgba(57, 66, 77, 0.2);
 }
 
 .btn-primary:focus,
@@ -5663,6 +5664,10 @@ button.close {
   margin-bottom: 2px;
 }
 
+#searchPageCategory > li > a {
+  padding: 10px 15px !important;
+}
+
 /*
 |--------------------------------------------------------------------------
 | Tooltips
@@ -7046,8 +7051,7 @@ website:    http://www.burocratik.com
 |--------------------------------------------------------------------------
 */
 
-#sgp-last-activity-section,
-.sgp-left__info {
+#sgp-last-activity-section {
   display: none;
 }
 
@@ -7063,8 +7067,7 @@ website:    http://www.burocratik.com
   display: none;
 }
 
-.currentUserInGroup #sgp-last-activity-section,
-.currentUserInGroup .sgp-left__info {
+.currentUserInGroup #sgp-last-activity-section {
   display: block;
 }
 
@@ -7388,6 +7391,7 @@ website:    http://www.burocratik.com
 }
 
 .toolbar__search {
+  background-color: #f4f6f7;
   position: absolute;
   display: none;
   right: 0;
@@ -7395,19 +7399,11 @@ website:    http://www.burocratik.com
 }
 
 .toolbar__search input {
+  border-radius: 0;
   padding-left: 25px;
+  font-size: 18px;
   height: 60px;
-}
-
-.toolbar__search input:focus + .btn {
-  background-color: #ebeff1;
-  color: #9baeb7;
-}
-
-.toolbar__search input:focus + .btn:hover,
-.toolbar__search input:focus + .btn:focus,
-.toolbar__search input:focus + .btn:active {
-  color: #4e616b;
+  font-weight: 600;
 }
 
 .toolbar__search .btn {
@@ -7726,6 +7722,7 @@ website:    http://www.burocratik.com
 }
 
 .cover__static__avatar {
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: inline-block;
 }
 

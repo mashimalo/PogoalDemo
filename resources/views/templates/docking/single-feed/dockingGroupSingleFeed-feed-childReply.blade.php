@@ -24,10 +24,9 @@
                         </a>
                     </div>
                     <div class="uiFeed__details__misc">
+                        <span>From {{ getGroupNameFromDockingGroupIdAndUserId($dockingGroup_id, $feed->user->id) }}</span>
+                        <span class="mL mR">/</span>
                         <span class="uiFeed__details__misc__time">{{ $comment_2nd->created_at->diffForHumans() }}</span>
-                    </div>
-                    <div class="uiFeed__details__misc">
-                        <span> From {{ getGroupNameFromDockingGroupIdAndUserId($dockingGroup_id, $comment_2nd->user->id) }} </span>
                     </div>
                 </div>
             </div>
