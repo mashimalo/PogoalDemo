@@ -131,7 +131,7 @@
                         </li>
                     @endif
 
-                    @if ($feed->user->id != Auth::user()->id || !$validate_currentUser_in_group)
+                    @if ($feed->user->id != Auth::user()->id && !$validate_currentUser_has_permission)
                         <li>
                             This is not your feed.
                         </li>

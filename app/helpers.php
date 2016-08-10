@@ -141,8 +141,70 @@ function YoutubeID( $url ) {
 			return false;
 		}
 	}
-
 	return $url;
+}
+
+/**
+ * get group name from the docking group id and the user id
+ *
+ * @param $dockingGroupId
+ * @param $UserId
+ * @return bool|string
+ */
+function getGroupNameFromDockingGroupIdAndUserId($dockingGroupId, $UserId)
+{
+	$result1 = false;
+	$result2 = false;
+
+	$group1Id = DockingGroup::whereid($dockingGroupId)->first()->group_1_id;
+	$group1Name = Group::whereid($group1Id)->first()->name;
+
+    $group2Id = DockingGroup::whereid($dockingGroupId)->first()->group_2_id;
+    $group2Name = Group::whereid($group2Id)->first()->name;
+
+
+	if (validate_targetUser_belongs_to_group ($group1Id, $UserId))
+	{
+
+		$result1 = true;
+	}
+
+	if (validate_targetUser_belongs_to_group ($group2Id, $UserId))
+	{
+		$result2 = true;
+	}
+
+	if ($result1 && $result2 )
+	{
+		return $group1Name." & ".$group2Name;
+	}
+
+	else if (!$result1 && $result2)
+	{
+		return $group2Name;
+	}
+
+	else
+	{
+		return $group1Name;
+	}
+}
+
+/**
+ * verify if the target user is in the group
+ *
+ * @param $group_id
+ * @param $targetUser_id
+ *
+ * @return mixed
+ */
+function validate_targetUser_belongs_to_group( $group_id, $targetUser_id ) {
+    $validate_targetUser_belongs_to_group = GroupUser::wheregroup_id( $group_id )
+        ->whereuser_id( $targetUser_id )
+        ->whereaccepted( true )
+        ->first();
+
+    return $validate_targetUser_belongs_to_group;
 }
 
 /**
@@ -190,13 +252,13 @@ function validate_targetUser_coordinator_of_group( $group_id, $targetUser_id ) {
  * @return mixed
  */
 function validate_targetUser_member_of_group( $group_id, $targetUser_id ) {
-	$validate_targetUser_coordinator_of_group = GroupUser::wheregroup_id( $group_id )
+    $validate_targetUser_member_of_group = GroupUser::wheregroup_id( $group_id )
 	                                                     ->whereuser_id( $targetUser_id )
 	                                                     ->whereaccepted( true )
 	                                                     ->wheregroup_user_role_id( 3 )
 	                                                     ->first();
 
-	return $validate_targetUser_coordinator_of_group;
+	return $validate_targetUser_member_of_group;
 }
 
 /**

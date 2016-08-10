@@ -27,6 +27,9 @@
                         <div class="uiFeed__details__misc">
                             <span class="uiFeed__details__misc__time">{{ $comment->created_at->diffForHumans() }}</span>
                         </div>
+                        <div class="uiFeed__details__misc">
+                            <span> From {{ getGroupNameFromDockingGroupIdAndUserId($dockingGroup_id, $feed->user->id) }} </span>
+                        </div>
                     </div>
                 </div>
 

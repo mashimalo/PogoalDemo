@@ -48,6 +48,9 @@
                 <div class="uiFeed__details__misc">
                     <span class="uiFeed__details__misc__time">{{ $feed->created_at->diffForHumans() }}</span>
                 </div>
+                <div class="uiFeed__details__misc">
+                    <span> From {{ getGroupNameFromDockingGroupIdAndUserId($dockingGroup_id, $feed->user->id) }} </span>
+                </div>
             </div>
         </div>
 
@@ -132,7 +135,7 @@
                         </li>
                     @endif
 
-                    @if ($feed->user->id != Auth::user()->id || !$validate_currentUser_in_dockingGroup)
+                    @if ($feed->user->id != Auth::user()->id && !$validate_currentUser_has_permission_in_dockingGroup)
                         <li>
                             This is not your feed.
                         </li>
