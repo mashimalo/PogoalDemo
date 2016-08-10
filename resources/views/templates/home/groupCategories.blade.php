@@ -23,7 +23,7 @@
                         <button class="bold btn btn-outline-white mR--sm text-md"
                                 data-action="toggle"
                                 data-scroll="scroll"
-                                data-scroll-offset="15"
+                                data-scroll-offset="65"
                                 data-target="#home__cat__more"
                                 data-scroll-to-target="true">Find more
                         </button>
