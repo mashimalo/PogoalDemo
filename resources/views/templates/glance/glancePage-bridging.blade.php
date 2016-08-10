@@ -41,7 +41,7 @@
                     {{------------------------------
                     | Bottom
                     ------------------------------}}
-                    <div class="bg--darker pA--md">
+                    <div class="bg--gray pA--md">
                         <div class="mB bold">
                             <span class="icon icon-rocket mR"></span>
                             Latest Feed
@@ -56,7 +56,7 @@
 
                             @if(\App\Models\Feed::where('docking_group_id', $bridgeGroup->id)->count() >= 1)
                                 @foreach(\App\Models\Feed::where('docking_group_id', $bridgeGroup->id)->orderBy('created_at', 'desc')->get()->take(1) as $feed)
-                                    <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="text-white text-overflow">
+                                    <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="text-dark text-overflow">
                                         {{ str_limit(strip_tags($feed->content),50) }}
                                     </a>
                                 @endforeach
