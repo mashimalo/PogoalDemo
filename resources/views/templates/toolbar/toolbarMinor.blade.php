@@ -18,7 +18,7 @@
     | User Info & Avatar
     ----------------------------}}
     <li class="toolbar__userInfo uiDropdown--hover">
-        <a href="{{ url_link_to_glance() }}" class="lk-block text-dark" type="button" id="toolbar-user-avatar">
+        <a href="{{ url_link_to_glance() }}" class="lk-block text-dark bold" type="button" id="toolbar-user-avatar">
             {{----------------------------
             | User avatar
             ----------------------------}}

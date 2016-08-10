@@ -4720,7 +4720,6 @@ button.close {
 }
 
 .notification__counter {
-  box-shadow: -1px 1px 0px rgba(57, 66, 77, 0.2);
   border-radius: 3px;
   line-height: 1em;
   background-color: #d9534f;

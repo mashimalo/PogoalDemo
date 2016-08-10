@@ -14,7 +14,7 @@
         | Group
         ----------------------------}}
         <li class="toolbar__group toolbar__icons uiDropdown">
-            <button class="uiDropdown--toggle lk-block" type="button" id="toolbar-group" title="Groups" data-toggle="dropdown">
+            <button class="uiDropdown--toggle lk-block bold" type="button" id="toolbar-group" title="Groups" data-toggle="dropdown">
                 <span class="icon icon-group text-lg mR"></span>
                 Groups
             </button>

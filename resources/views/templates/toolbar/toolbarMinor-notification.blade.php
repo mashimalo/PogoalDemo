@@ -1,6 +1,6 @@
 <li class="notification toolbar__notification toolbar__icons uiDropdown">
 
-    <button id="toolbar-notification-button" class="uiDropdown--toggle lk-block text-dark" title="Messages&nbsp;&&nbsp;Notifications" data-toggle="dropdown">
+    <button id="toolbar-notification-button" class="uiDropdown--toggle lk-block bold" title="Messages&nbsp;&&nbsp;Notifications" data-toggle="dropdown">
         <span class="icon icon-bell text-lg mR"></span>
         Notification
 
