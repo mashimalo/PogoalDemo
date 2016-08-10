@@ -46,7 +46,7 @@
                         ------------------------------}}
                         <div class="bg--gray--lighter pA--md">
                             <div class="mB bold">
-                                {{--<span class="icon icon-rocket mR"></span>--}}
+                                <span class="icon icon-rocket mR"></span>
                                 Latest Feed
                             </div>
                             <div class="h--article--single">
