@@ -44,14 +44,14 @@
                         {{------------------------------
                         | Bottom
                         ------------------------------}}
-                        <div class="bg--gray pA--md">
+                        <div class="bg--gray--lighter pA--md">
                             <div class="mB bold">
                                 <span class="icon icon-rocket mR"></span>
                                 Latest Feed
                             </div>
                             <div class="h--article--single">
                                 @if($group->feeds->count() == 0)
-                                    <span class="overflow-h">
+                                    <span class="text-light overflow-h">
                                     This group currently has no feed.
                                 </span>
                                     <a href="{{ url_link_to_group($group->id) }}" class="btn btn-xs btn-primary mL--md pull-right">
@@ -61,7 +61,7 @@
 
                                 @if($group->feeds->count() >= 1)
                                     @foreach($group->feeds->sortBy('created_at')->reverse()->take(1) as $feed)
-                                        <a href="{{ url_link_to_group($group->id) }}" class="text-dark text-overflow">
+                                        <a href="{{ url_link_to_group($group->id) }}" class="text-light text-overflow">
                                             {{ str_limit(strip_tags($feed->content),50) }}
                                         </a>
                                     @endforeach

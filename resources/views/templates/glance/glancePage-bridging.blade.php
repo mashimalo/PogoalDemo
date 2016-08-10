@@ -41,14 +41,14 @@
                     {{------------------------------
                     | Bottom
                     ------------------------------}}
-                    <div class="bg--gray pA--md">
+                    <div class="bg--gray--lighter pA--md">
                         <div class="mB bold">
                             <span class="icon icon-rocket mR"></span>
                             Latest Feed
                         </div>
                         <div class="h--article--single">
                             @if(\App\Models\Feed::where('docking_group_id', $bridgeGroup->id)->count() == 0)
-                                <span class="overflow-h">No feed now.</span>
+                                <span class="text-light overflow-h">No feed now.</span>
                                 <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="btn btn-xs btn-primary mL--md pull-right">
                                     Post one now
                                 </a>
@@ -56,7 +56,7 @@
 
                             @if(\App\Models\Feed::where('docking_group_id', $bridgeGroup->id)->count() >= 1)
                                 @foreach(\App\Models\Feed::where('docking_group_id', $bridgeGroup->id)->orderBy('created_at', 'desc')->get()->take(1) as $feed)
-                                    <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="text-dark text-overflow">
+                                    <a href="{{ url_link_to_dockingGroup( $bridgeGroup->id ) }}" class="text-light text-overflow">
                                         {{ str_limit(strip_tags($feed->content),50) }}
                                     </a>
                                 @endforeach
