@@ -53,7 +53,7 @@
     ----------------------------}}
     <div class="wrap">
         <div class="c-f-3">
-            {!! Form::label('date_of_birth','Birthday (example: 1980-01-30)') !!}
+            {!! Form::label('date_of_birth','Birthday: yyyy-mm-dd') !!}
         </div>
         <div class="c-f-9">
             <div class="form-group form-prepend {{ $errors->has('date_of_birth')?'has-error':null }}">
