@@ -132,7 +132,7 @@
                     @endif
 
                     @if ($feed->user->id != Auth::user()->id && !$validate_currentUser_has_permission)
-                        <li>
+                        <li class="pH--md">
                             This is not your feed.
                         </li>
                     @endif
