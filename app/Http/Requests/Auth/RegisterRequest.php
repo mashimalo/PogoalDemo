@@ -14,7 +14,7 @@ class RegisterRequest extends Request {
 		return [
 			'email' => 'required|email|max:255|unique:users',
 			'password' => 'required|min:6|confirmed',
-			'nickname'=>'required|max:30|unique:profiles',
+			'nickname'=>'required|not_in:auth,docking,group,home,leaderboard,notifications,password,profile,fuck|max:30|unique:profiles',
 			'agreement' =>'accepted',
 		];
 	}
