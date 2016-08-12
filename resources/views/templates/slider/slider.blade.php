@@ -11,7 +11,7 @@
                         Welcome to Pogoal
                     </div>
                     <div class="mB--lg text-lg text-shadow">
-                        The social platform for startup, You can...
+                        The social platform for startups, You can...
                     </div>
                     <div class="uiCallout center-table mB">
                         <div class="uiCallout__article">

@@ -21,7 +21,7 @@
     ----------------------------}}
     <h3 class="mB--lg">
         <span class="icon icon-group mR"></span>
-        Latest Created Groups
+        Recent Groups
     </h3>
 
     <div class="wrap">

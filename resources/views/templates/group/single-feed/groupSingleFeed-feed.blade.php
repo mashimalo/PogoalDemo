@@ -168,9 +168,9 @@
                 <div class="elastic-textarea elastic-textarea--hasBtn">
                     <textarea placeholder="Reply......" name="reply-{{ $feed->id }}" class="form-control elastic-textarea__input"
                               data-elastic="textarea"></textarea>
-                    <div class="elastic-textarea__btn">
-                        <button class="btn btn-md icon icon-camera text-light"></button>
-                    </div>
+                    {{--<div class="elastic-textarea__btn">--}}
+                        {{--<button class="btn btn-md icon icon-camera text-light"></button>--}}
+                    {{--</div>--}}
                 </div>
             </div>
         </div>

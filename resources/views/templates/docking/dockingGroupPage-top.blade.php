@@ -68,9 +68,9 @@
                 </div>
 
                 <div class="rich-form-footer">
-                    <div class="pull-left">
-                        <span class="icon icon-camera lk-block"></span>
-                    </div>
+                    {{--<div class="pull-left">--}}
+                        {{--<span class="icon icon-camera lk-block"></span>--}}
+                    {{--</div>--}}
 
                     <div class="pull-right">
                         <button class="btn btn-primary"

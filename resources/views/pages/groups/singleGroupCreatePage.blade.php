@@ -172,13 +172,13 @@
             {{----------------------------
             | Invite Group Member
             ----------------------------}}
-            <div class="form-group form-prepend form-prepend-label mB--xxlg">
-                {!! Form::label('group_email','Invite members:') !!}
-                {!! Form::email('email', null, ['class'=>'form-control','placeholder'=>'Emails','id'=>'group_email', 'title'=>'Use ( , ) to add an email.']) !!}
-                <div class="help-block with-errors"></div>
-                <div class="text-light small mT"><span class="icon icon-warn mR"></span>Invite member is currently unavailable</div>
-                <div class="text-light small mT">Use ( , ) to add an email.</div>
-            </div>
+            {{--<div class="form-group form-prepend form-prepend-label mB--xxlg">--}}
+                {{--{!! Form::label('group_email','Invite members:') !!}--}}
+                {{--{!! Form::email('email', null, ['class'=>'form-control','placeholder'=>'Emails','id'=>'group_email', 'title'=>'Use ( , ) to add an email.']) !!}--}}
+                {{--<div class="help-block with-errors"></div>--}}
+                {{--<div class="text-light small mT"><span class="icon icon-warn mR"></span>Invite member is currently unavailable</div>--}}
+                {{--<div class="text-light small mT">Use ( , ) to add an email.</div>--}}
+            {{--</div>--}}
 
             {{----------------------------
             | Bio

@@ -1806,7 +1806,7 @@ li.multipleInput-email > span {
 }
 
 .rich-form-footer .pull-right {
-  margin-top: 9px;
+  margin: 9px 0;
   padding-right: 15px;
 }
 
@@ -7882,8 +7882,8 @@ website:    http://www.burocratik.com
   color: #5a6779;
 }
 
-.home__cat__item:hover .bg--dark {
-  background-color: rgba(0, 0, 0, 0.6);
+.home__cat__item:hover .bg--darker {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 body.theme--gray {

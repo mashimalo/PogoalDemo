@@ -31,7 +31,7 @@
                     | Founded since
                     ------------------------------}}
                     <div class="cover__static__info__time cover__color--primary mB">
-                        Founded since: {{$group->created_at->format('F Y')}}
+                        Created on: {{$group->created_at->format('F Y')}}
                     </div>
 
                     {{------------------------------
@@ -287,7 +287,7 @@
                             <p>Currently unavailable</p>
                         </div>
                         <div class="c-f-4">
-                            <div class="bold text-uppercase cover__color--secondary mB small">Founded</div>
+                            <div class="bold text-uppercase cover__color--secondary mB small">Created</div>
                             <p>{{$group->created_at->format('F d, Y')}}</p>
                         </div>
                         <div class="c-f-4">

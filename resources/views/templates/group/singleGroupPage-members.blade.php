@@ -14,13 +14,13 @@
                         <a href="#tabs-2" data-toggle="tab" class="lk-d lk-block">Admins</a>
                     </li>
                 </ul>
-                <ul class="list-inline pull-right uiCard__nav--btn">
-                    <li>
-                        <button class="btn btn-white-t" data-toggle="modal" data-target="#singleGroupMembersPage-add">
-                            Add members
-                        </button>
-                    </li>
-                </ul>
+                {{--<ul class="list-inline pull-right uiCard__nav--btn">--}}
+                    {{--<li>--}}
+                        {{--<button class="btn btn-white-t" data-toggle="modal" data-target="#singleGroupMembersPage-add">--}}
+                            {{--Add members--}}
+                        {{--</button>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
             </div>
 
             {{----------------------------
