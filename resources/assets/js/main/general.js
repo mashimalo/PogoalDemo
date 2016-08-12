@@ -32,6 +32,13 @@ $(function () {
  |--------------------------------------------------------------------------
  */
 function initialAvatar() {
+    $('.initialAvatar.avatar--xs').initial({
+        charCount: 1,
+        fontSize: 10,
+        fontWeight: 200,
+        width: 25,
+        height: 25
+    });
     $('.initialAvatar.avatar--sm').initial({
         charCount: 1,
         fontSize: 10,
