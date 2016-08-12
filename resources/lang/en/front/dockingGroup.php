@@ -2,9 +2,9 @@
 
 return [
 
-    'dockingGroupNotExist' => 'The docking group is not existed.',
-    'disbandDockingGroupSuccess' => 'Disband Docking Group Successful.',
-    'disbandDockingGroupFail' => 'Disband Docking Group Failed.',
-    'editDockingGroupFail' => 'Edit Docking Group Failed.',
-    'editDockingGroupSuccess' => 'Edit Docking Group Success.',
+    'dockingGroupNotExist' => 'The bridging group is not existed.',
+    'disbandDockingGroupSuccess' => 'Disband bridging group successful.',
+    'disbandDockingGroupFail' => 'Disband bridging group failed.',
+    'editDockingGroupFail' => 'Edit bridging group failed.',
+    'editDockingGroupSuccess' => 'Edit bridging group success.',
 ];

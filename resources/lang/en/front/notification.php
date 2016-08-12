@@ -10,6 +10,6 @@ return [
     'messageRead'    => 'Message Read.',
     'allMessageRead' => 'All Message Read.',
     'messageUnread'  => 'Message Unread.',
-    'messageDelete'  => 'Message Deleted'
+    'messageDelete'  => 'Message Deleted.'
 
 ];

@@ -32,8 +32,8 @@ Route::get('500',
     });
 
 
-/******************* View All User Call *******************/
-Route::get('/returnAllUser', 'HomeController@returnAllUser')->name('returnAllUser');
+///******************* View All User Call *******************/
+//Route::get('/returnAllUser', 'HomeController@returnAllUser')->name('returnAllUser');
 
 
 /************************** Home **************************/

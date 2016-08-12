@@ -100,14 +100,14 @@
                     @if ($validate_currentUser_has_permission_in_dockingGroup )
                         @if ($feed->pinned == false)
                             <li>
-                                {!! Form::model($feed, ['route'=> ['feed-pin', 'group_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'post','id'=>'pin-feed', 'role'=>'form'])!!}
+                                {!! Form::model($feed, ['route'=> ['feed-pin-dockingGroup', 'group_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'post','id'=>'pin-feed', 'role'=>'form'])!!}
                                 {!! Form::submit('Pin',['id'=>'feed-pin-submit']) !!}
                                 {!! Form::close() !!}
                             </li>
                         @endif
                         @if ($feed->pinned == true)
                             <li>
-                                {!! Form::model($feed, ['route'=> ['feed-unpin', 'group_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'post','id'=>'unpin-feed', 'role'=>'form'])!!}
+                                {!! Form::model($feed, ['route'=> ['feed-unpin-dockingGroup', 'group_id' => $dockingGroup->id, 'feed_id' => $feed->id], 'method'=>'post','id'=>'unpin-feed', 'role'=>'form'])!!}
                                 {!! Form::submit('Unpin',['id'=>'feed-unpin-submit']) !!}
                                 {!! Form::close() !!}
                             </li>

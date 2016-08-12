@@ -7,10 +7,10 @@
 
 <div>
     Hi {{ $userFullName }},<br>
-    Your request to join <b>Group - {{$groupName}} </b> has been denied by the group admin.<br>
-    You can go to the {!!link_to($groupUrlLink ,'group page') !!} and try again.<br>
+    Your request to join <b>Group - {{$groupName}}</b> has been <b>rejected</b> by the group admin.<br>
+    You can go to the {!!link_to($groupUrlLink ,'group page') !!} and send the request again.<br>
     <br>
-    Thanks you for using Pogoal.<br>
+    Thank you for using Pogoal.<br>
     <br>
     Pogoal Admin.<br>
 </div>

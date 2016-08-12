@@ -8,14 +8,14 @@
 <div>
     Hi {{ $recipientUserName }},
     <br>
-    <b>Group - {!!link_to($pendingDockingRequestGroupUrlLink ,$pendingDockingRequestGroupName) !!} </b> is now bridging with Group - <b> {!!link_to($sourceGroupUrlLink ,$sourceGroupName) !!} </b> !!!<br>
+    <b>Group - {!!link_to($pendingDockingRequestGroupUrlLink ,$pendingDockingRequestGroupName) !!} </b> is now bridging with <b>Group - {!!link_to($sourceGroupUrlLink ,$sourceGroupName) !!} </b>.<br>
     Please click {!!link_to($dockingGroupUrl ,'here') !!} to the bridge group page and start chatting.
     <br>
     <br>
-    Have fun!
+    Have fun.
     <br>
     <br>
-    Thanks you for using Pogoal.
+    Thank you for using Pogoal.
     <br>
     <br>
     Pogoal Admin.

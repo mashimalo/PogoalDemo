@@ -7,8 +7,8 @@
 
 <div>
     Hi {{ $userFullName }},<br>
-    Your have been <b>REMOVED</b> from <b> {{$groupName}} </b> by the group admin.<br>
-    Please click {!!link_to($groupUrlLink ,'here') !!} and look for other groups to join.
+    Your have been <b>removed</b> from <b> Group - {{$groupName}} </b> by the group admin.<br>
+    You can click {!!link_to($groupUrlLink ,'here') !!} to revisit the group and send the join request again.
     <br>
     Thank you for using Pogoal.<br>
     <br>

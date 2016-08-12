@@ -7,10 +7,10 @@
 
 <div>
     Hi {{ $adminUserFullName }},<br>
-    {{ $pendingUserFullName }} is looking to join your <b>Group -  {{$groupName}} </b> !!!<br>
-    Please click {!!link_to($groupNotificationUrlLink ,'here') !!} to accept/deny the request. <br>
+    {{ $pendingUserFullName }} is looking to join your <b>Group -  {{$groupName}} </b>.<br>
+    Please click {!!link_to($groupNotificationUrlLink ,'here') !!} to process the request.<br>
     <br>
-    Thanks you for using Pogoal.<br>
+    Thank you for using Pogoal.<br>
     <br>
     Pogoal Admin.<br>
 </div>
