@@ -135,7 +135,7 @@
                     @endif
 
                     @if ($feed->user->id != Auth::user()->id && !$validate_currentUser_has_permission_in_dockingGroup)
-                        <li class="pH--md">
+                        <li class="">
                             This is not your feed.
                         </li>
                     @endif
@@ -172,6 +172,38 @@
                               data-elastic="textarea"></textarea>
                     {{--<div class="elastic-textarea__btn">--}}
                         {{--<button class="btn btn-md icon icon-camera text-light"></button>--}}
+                    {{--</div>--}}
+                </div>
+            </div>
+        </div>
+    @else
+        <div id="uiFeed-reply-form" class="uiFeed__reply__form">
+            <div class="mR--md pull-left">
+                @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
+                    <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}"
+                         class="avatar avatar--md arc-sm">
+                @else
+                    <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
+                         class="initialAvatar avatar avatar--md arc-sm"/>
+                @endif
+            </div>
+            <button class="btn btn-primary btn-md mL--md pull-right"
+                    title="You're Not Member Yet"
+                    data-action="modal-notify"
+                    data-content="Please join one of the groups to reply this feed."
+                    data-button-type="button"
+                    data-button-content="Ok"
+                    data-action-for="docking"
+                    data-group-id="{{ $dockingGroup->id }}"
+                    data-feed-id="{{ $feed->id }}">
+                Reply
+            </button>
+            <div class="uiFeed__reply__form__input overflow-h">
+                <div class="elastic-textarea elastic-textarea--hasBtn">
+                    <textarea placeholder="Reply......" name="reply-{{ $feed->id }}" class="form-control elastic-textarea__input"
+                              data-elastic="textarea"></textarea>
+                    {{--<div class="elastic-textarea__btn">--}}
+                    {{--<button class="btn btn-md icon icon-camera text-light"></button>--}}
                     {{--</div>--}}
                 </div>
             </div>

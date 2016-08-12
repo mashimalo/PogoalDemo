@@ -53,7 +53,7 @@
                 </button>
                 <ul class="uiDropdown__menu">
                     <li>
-                        <form id="pin-feed" role="form" accept-charset="UTF-8" action="/group/{{ group_id }}/feed/{{ feed_id }}/pin" method="POST">
+                        <form id="pin-feed" role="form" accept-charset="UTF-8" action="/{{ data_action_for }}/{{ group_id }}/feed/{{ feed_id }}/pin" method="POST">
                             <input type="hidden" value="{{csrf_token}}" name="_token">
                             <input id="feed-pin-submit" type="submit" value="Pin">
                         </form>

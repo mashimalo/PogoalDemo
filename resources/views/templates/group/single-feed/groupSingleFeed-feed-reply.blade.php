@@ -69,6 +69,21 @@
                                 <span class="icon icon-reply"></span>
                                 Reply
                             </button>
+                        @else
+                            <button class="btn btn-link btn-xs"
+                                    title="You're Not Member Yet"
+                                    data-action="modal-notify"
+                                    data-content="Please join the group to reply this feed."
+                                    data-button-type="link"
+                                    data-button-content="Join now"
+                                    data-button-link="{{ url_link_to_group($group->id) }}"
+                                    data-action-for="group"
+                                    data-group-id="{{ $group->id }}"
+                                    data-feed-id="{{ $feed->id }}"
+                                    data-reply-id="{{ $comment->id }}">
+                                <span class="icon icon-reply"></span>
+                                Reply
+                            </button>
                         @endif
                     </div>
 

@@ -174,6 +174,39 @@
                 </div>
             </div>
         </div>
+    @else
+        <div id="uiFeed-reply-form" class="uiFeed__reply__form">
+            <div class="mR--md pull-left">
+                @if (Auth::user()->profile->user_avatar_small != null || strlen(Auth::user()->profile->user_avatar_small) > 0)
+                    <img src="{!! '/images/userAvatar/'.Auth::user()->profile->user_avatar_small !!}"
+                         class="avatar avatar--md arc-sm">
+                @else
+                    <img data-name="{{ empty_firstName_displayNickname(Auth::user()) }}"
+                         class="initialAvatar avatar avatar--md arc-sm"/>
+                @endif
+            </div>
+            <button class="btn btn-primary btn-md mL--md pull-right"
+                    title="You're Not Member Yet"
+                    data-action="modal-notify"
+                    data-content="Please join the group to reply this feed."
+                    data-button-type="link"
+                    data-button-content="Join now"
+                    data-button-link="{{ url_link_to_group($group->id) }}"
+                    data-action-for="group"
+                    data-group-id="{{ $group->id }}"
+                    data-feed-id="{{ $feed->id }}">
+                Reply
+            </button>
+            <div class="uiFeed__reply__form__input overflow-h">
+                <div class="elastic-textarea elastic-textarea--hasBtn">
+                    <textarea placeholder="Reply......" name="reply-{{ $feed->id }}" class="form-control elastic-textarea__input"
+                              data-elastic="textarea"></textarea>
+                    {{--<div class="elastic-textarea__btn">--}}
+                    {{--<button class="btn btn-md icon icon-camera text-light"></button>--}}
+                    {{--</div>--}}
+                </div>
+            </div>
+        </div>
     @endif
 
     <h3 class="mB--md">

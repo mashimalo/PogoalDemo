@@ -169,7 +169,7 @@ $(function () {
                 $data["single_feed_url"] = $single_feed_url;
 
                 // Get Feed template
-                $.get('/api/feed-v000016.template', function (template) {
+                $.get('/api/feed-v000017.template', function (template) {
                     var $feedTemplate = Mustache.render(template, $data);
 
                     // prepend it to #feeds-unpinned
