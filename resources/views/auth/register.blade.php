@@ -38,7 +38,7 @@
             | NickName Input
             ----------------------------}}
             <div class="form-group form-prepend {{ $errors->has('nickname')?'has-error':null }}">
-                {!! Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Nickname','pattern'=>'[A-Za-z]+','data-minlength'=>'3','data-minlength-error'=>'Minimum of 3 characters','data-error'=>'Alphabets only.','required']) !!}
+                {!! Form::text('nickname',null,['class'=>'form-control','placeholder'=>'Nickname','data-minlength'=>'3','data-minlength-error'=>'Minimum of 3 characters','required']) !!}
                 <span class="form-prepend-item icon icon-identity"></span>
                 <div class="help-block with-errors"></div>
             </div>
