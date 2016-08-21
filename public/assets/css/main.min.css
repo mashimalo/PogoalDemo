@@ -3689,7 +3689,7 @@ fieldset[disabled] a.btn {
 
 /*
 |--------------------------------------------------------------------------
-| Social Button
+| Special Buttons
 |--------------------------------------------------------------------------
 */
 
@@ -3707,6 +3707,20 @@ fieldset[disabled] a.btn {
   border: 1px solid rgba(57, 66, 77, 0.2);
   background-color: #d7dbe1;
   background-color: rgba(57, 66, 77, 0.1);
+  color: #8e9aab;
+}
+
+.btn-feedback {
+  border-radius: 0;
+  border: 2px solid #c9ced6;
+  color: #9da7b6;
+  margin: 12px 15px 0 0;
+}
+
+.btn-feedback:focus,
+.btn-feedback:hover {
+  border-color: #abb4c1;
+  background-color: #d7dbe1;
   color: #8e9aab;
 }
 

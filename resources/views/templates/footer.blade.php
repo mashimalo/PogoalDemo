@@ -3,7 +3,7 @@
     <footer id="footer" class="site__footer">
         <div class="footer__info site-container">
 
-            <span>©2015 Pogoal - Liven Studio</span>
+            <span>©2016 Pogoal</span>
 
         </div>{{-- .site-info --}}
     </footer>{{-- #footer --}}

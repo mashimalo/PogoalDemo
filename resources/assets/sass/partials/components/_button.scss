@@ -59,7 +59,7 @@ a.btn {
 
 /*
 |--------------------------------------------------------------------------
-| Social Button
+| Special Buttons
 |--------------------------------------------------------------------------
 */
 .btn-sns {
@@ -78,6 +78,20 @@ a.btn {
 
     background-color: $color-gray-light-5;
     background-color: $dark01;
+    color: darken($text-color-light,5%);
+  }
+}
+
+.btn-feedback {
+  @include border-radius(0);
+  border: 2px solid $border-color-dark;
+  color: $text-color-light;
+  margin: 12px 15px 0 0;
+
+  &:focus,
+  &:hover {
+    border-color: darken($border-color-dark,10%);
+    background-color: $color-gray-light-5;
     color: darken($text-color-light,5%);
   }
 }

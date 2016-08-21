@@ -15,11 +15,16 @@
             </div>
 
             <div class="toolbar__minor">
-                @if (Auth::guest())
-                    @include('templates.toolbar.toolbarPortal')
-                @elseif (Auth::check())
-                    @include('templates.toolbar.toolbarMinor')
-                @endif
+                <ul>
+                    <li>
+                        <a href="mailto:projectpogoal@gmail.com?Subject=Pogoal Beta Feedback" target="_top" class="btn btn-feedback">Beta Feedback</a>
+                    </li>
+                    @if (Auth::guest())
+                        @include('templates.toolbar.toolbarPortal')
+                    @elseif (Auth::check())
+                        @include('templates.toolbar.toolbarMinor')
+                    @endif
+                </ul>
             </div>
 
             {{----------------------------
