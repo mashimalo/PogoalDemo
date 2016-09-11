@@ -12,7 +12,7 @@ class GroupCreateRequest extends Request {
 		return [
 			'name' => 'required|max:30',
 			'group_type_id' =>'required|integer|min:1',
-			'description' => 'required|max:150',
+			'description' => 'required|max:500',
 			'privacy_rule_id' =>'required|integer|min:1',
 			'agreement' =>'accepted',
 		];
