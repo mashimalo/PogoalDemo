@@ -33,7 +33,7 @@
                         <div class="uiCallout__article">
                             Start a joint conversation with other groups
                         </div>
-                        <a href="#" class="uiCallout__button btn btn-primary">
+                        <a href="{{ url_link_to_dockingGroup(2) }}" class="uiCallout__button btn btn-primary">
                             Bridge a Group
                         </a>
                     </div>
